@@ -10,7 +10,7 @@ const lotter = require('./models/lotter.js')
 const { Player } = require("discord-music-player");
 const moment = require('moment')
 const client = new Client({
-    partials: ["CHANNEL"],
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     intents: [
         "GUILDS",
         "GUILD_MEMBERS",

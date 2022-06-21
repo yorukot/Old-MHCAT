@@ -20,13 +20,12 @@ client.on("interactionCreate", async (interaction) => {
                 let msg = messages.last()
                 let msg1 = messages.first()
             if(interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES) || msg.author.id === "null" && !(msg.embeds[0].description.includes("此頻道已被使用，請要求管理員幫您刪除!") || msg1.embeds[0].description.includes("此頻道已被使用，請要求管理員幫您刪除!"))){
-                
                 interaction.channel.delete()
             }else{
                 const warn = new MessageEmbed()
                 .setColor("RED")
-                .setTitle("__**客服頻道**__")
-                .setDescription(":warning: 此頻道已被使用，請要求管理員幫您刪除!")
+                .setTitle("__**私人頻道**__")
+                .setDescription("你開啟了一個私人頻道，請靜候客服人員的回復!")
                 interaction.reply({embeds: [warn] })
             }
     }

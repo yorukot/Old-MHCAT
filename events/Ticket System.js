@@ -18,7 +18,7 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isButton()) {
         if (interaction.customId === 'tic') {
             const name = interaction.user.id
-            if(!client.channels.cache.find(channel => channel.name === name)){
+            if(!interaction.guild.channels.cache.find(channel => channel.name === name)){
             let channelName = name;
             try {
                 ticket_js.findOne({
@@ -53,6 +53,17 @@ client.on("interactionCreate", async (interaction) => {
                           deny: [Permissions.FLAGS.CREATE_INSTANT_INVITE]
                         }
                     ]
+                }).then(channel => {
+                    channel.send({
+                        content: "||@everyone||",
+                        embeds: [welcome],
+                        components: [del]
+                    })
+                    let a = new MessageEmbed()
+                    .setTitle("__**頻道**__")
+                    .setColor("#00DB00")
+                    .setDescription(":white_check_mark: 你成功開啟了頻道!")
+                    interaction.reply({embeds: [a], ephemeral: true})
                 })
             })
             } catch (e) {
@@ -67,22 +78,9 @@ client.on("interactionCreate", async (interaction) => {
                     .setStyle('DANGER'),
                 );
         const welcome = new MessageEmbed()
-        .setTitle("私人頻道")
-        .setDescription("如果是按錯請按下方的刪除\n:warning: __**注意**__:一但您進行發言，將無法自行刪除!!!")
-        .setColor("#FF5809")
-        setTimeout(() => {
-            const channel123 = client.channels.cache.find(channel => channel.name === name);
-            channel123.send({
-                content: "||@everyone||",
-                embeds: [welcome],
-                components: [del]
-            })
-            let a = new MessageEmbed()
-            .setTitle("__**頻道**__")
-            .setColor("#00DB00")
-            .setDescription(":white_check_mark: 你成功開啟了頻道!")
-            interaction.reply({embeds: [a], ephemeral: true})
-        }, 1000)
+        .setColor("GREEN")
+        .setTitle("__**私人頻道**__")
+        .setDescription("你開啟了一個私人頻道，請等待客服人員的回復!")
         }else{
             const warn = new MessageEmbed()
             .setColor("RED")

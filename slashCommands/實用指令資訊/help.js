@@ -58,7 +58,6 @@ module.exports = {
         await interaction.deferReply().catch(e => { });
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.followUp({embeds: [embed]})}
         const get_member = interaction.options.getString("指令名稱")
-        console.log(get_member)
         let categories = [];
         let cots = [];
 

@@ -49,7 +49,7 @@ client.on("guildMemberAdd", (member) => {
 
       } else {
         const channel = member.guild.channels.cache.get(data.channel)
-        if(!channel)return console.log("test")
+        if(!channel)return 
         const MEMBER = member.user.username
         const content = data.message_content
         const welcome = new MessageEmbed()
@@ -63,7 +63,6 @@ client.on("guildMemberAdd", (member) => {
       channel.send({
       embeds: [welcome],
     });
-    console.log("welcomesystem")
       }
     })
   }

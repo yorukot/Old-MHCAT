@@ -101,7 +101,6 @@ module.exports = {
                             .permissionsFor(message.guild.me)
                             .has('VIEW_CHANNEL', false)
                         if(!hasPermissionInChannel || !hasPermissionInChannel1){
-                            console.log("dsa")
                             return errors("我沒有權限在" + channel111.name + "發送消息!")
                         }
                             channel111.send({content: tag , embeds: [announcement] })

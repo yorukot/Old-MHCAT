@@ -50,7 +50,6 @@ client.on('interactionCreate', async (interaction) => {
                 data.collection.update(({guild: interaction.channel.guild.id}), {$set: {color: color}})
             }
         })
-        console.log(interaction.guild.iconURL())
         const welcome = new MessageEmbed()
     .setAuthor(`🪂 歡迎加入 ${interaction.guild.name}!`,`${interaction.guild.iconURL() === null ? interaction.guild.me.displayAvatarURL({dynamic: true}) : interaction.guild.iconURL()}`)
     .setDescription(`${content}`)
@@ -188,7 +187,6 @@ client.on('interactionCreate', async (interaction) => {
                             .permissionsFor(interaction.guild.me)
                             .has('VIEW_CHANNEL', false)
                         if (!hasPermissionInChannel || !hasPermissionInChannel1) {
-                            console.log("dsa")
                             return errors("我沒有權限在" + channel111.name + "發送消息!")
                         }
                         channel111.send({

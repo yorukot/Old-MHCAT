@@ -65,7 +65,6 @@ client.on("messageCreate", async (message) => {
                         guild: message.guild.id,
                     }, async (err, data1) => {
                         if (data1) {
-                            console.log(data1.channel)
                             const channel111 = data1.channel === "ONCHANEL" ? client.channels.cache.get(message.channel.id) : client.channels.cache.get(data1.channel)
                             if (!channel111) {
                                 return errors("群組的升等頻道被刪除了，請重新設定升等消息!")

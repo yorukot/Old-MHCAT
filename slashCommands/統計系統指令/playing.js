@@ -44,7 +44,6 @@ module.exports = {
                 const e = data.game.map(
                     (w, i) => `\n\`\`\`遊戲名: ${w.game} \n遊玩時數:${format(w.minutes)}\`\`\``
                 )
-                console.log(e)
                 const embed = new MessageEmbed()
                 .setTitle("以下是 __" + member.username + "__ 的遊玩時數")
                 .setDescription(e.join(' '))

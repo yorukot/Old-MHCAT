@@ -39,7 +39,6 @@ module.exports = {
         const role1 = interaction.options.getRole("身分組")
         const emoji = interaction.options.getString("表情符號")
         const url = interaction.options.getString("訊息url") + "{"
-        if(emoji.charAt(emoji.length - 1)!== ">" || emoji.charAt(0) !== "<") return errors("你輸入的並不是一個表情符號!")
         if(Number(role1.position) >= Number(interaction.guild.me.roles.highest.position)) return errors("我沒有權限給大家這個身分組(請把我的身分組調高)!")
         if(!url.includes("https://discord.com/channels/")) return errors('你輸入的不是一個訊息連結')
         var aa = url.replace("https://discord.com/channels/", '')
@@ -53,7 +52,6 @@ module.exports = {
         .then(message32 => {
             if(!channel || !message32)return errors("很抱歉，找不到這個訊息")
             message32.react(emoji)
-            console.log(message32.id)
         message_reaction.findOne({
             guild: interaction.guild.id,
             message: message32.id,

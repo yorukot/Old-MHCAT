@@ -73,7 +73,6 @@ setTimeout(() => {
             const winner_array = []
             for(y = data[x].howmanywinner -1 ; y > -1; y--){
               const winner = data[x].member[getRandomArbitrary(0, data[x].member.length)]
-              console.log(winner)
                 if(winner === undefined){
                     y--
                 }else{
@@ -82,7 +81,6 @@ setTimeout(() => {
             }
             const guild = client.guilds.cache.get(data[x].guild);
             let channel = guild.channels.cache.get(data[x].message_channel);
-            console.log(channel.guild.me.displayHexColor)
             const winner_embed = new MessageEmbed()
             .setTitle("🎊恭喜中獎者!")
             .setDescription(`

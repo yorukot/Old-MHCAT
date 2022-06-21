@@ -24,7 +24,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                     data.save()
                 }
                 try {
-                if(!newMember.member) return console.log(newMember)
+                if(!newMember.member) return 
                 const stop = setInterval(() => {
                         voice_xp.findOne({
                             guild: newMember.guild.id,
@@ -40,7 +40,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                 if(data1){
                                 const channel111 = client.channels.cache.get(data1.channel)
                                 const owner = await newMember.guild.fetchOwner();
-                                if(!channel111){console.log("aaa");return owner.send(":x: 有人的語音頻道等級升級了，但升等頻道已經被刪除了!")}
+                                if(!channel111){return owner.send(":x: 有人的語音頻道等級升級了，但升等頻道已經被刪除了!")}
                                 const hasPermissionInChannel = channel111
                                 .permissionsFor(newMember.guild.me)
                                 .has('SEND_MESSAGES', false)
@@ -48,7 +48,6 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                 .permissionsFor(newMember.guild.me)
                                 .has('VIEW_CHANNEL', false)
                                 if(!hasPermissionInChannel || !hasPermissionInChannel1){
-                                    console.log("aaa")
                                     return owner.send(":x: 有人的語音頻道等級升級了，但是我沒有權限在" + channel111.name + "發送消息!\n因為你是該伺服器擁有者，所以我找你報告: P")
                                 }
                                 channel111.send(`🆙恭喜<@${newMember.member.id}> 的語音等級成功升級到 ${Number(data.leavel) + 1}`)}else{return}

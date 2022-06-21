@@ -67,7 +67,6 @@ module.exports = {
                     if(!data111)return
                     if(data.content.length + 1 >=  Number(data111.ban_count)){
                         if(data111.move === "停權"){
-                            console.log("test")
                             if(!interaction.guild.me.permissions.has(Permissions.FLAGS.BAN_MEMBERS  ))return errors("我沒有權限ban掉他")
                             interaction.guild.members.ban(user.id)
                             const aaaaa = new MessageEmbed()
@@ -75,7 +74,6 @@ module.exports = {
                             .setColor("GREEN")
                             interaction.channel.send({embeds:[aaaaa]})
                         }else{
-                            console.log("aaaaa")
                             if(!interaction.guild.me.permissions.has(Permissions.FLAGS.KICK_MEMBERS ))return errors("我沒有權限踢出他")
                             interaction.guild.members.kick(user.id)
                             const dsadsadsa = new MessageEmbed()

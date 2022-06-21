@@ -61,8 +61,6 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                     name: oldMember.channel.name
                 }, async (err, data) => {
                 if(!data){return}
-                console.log(data.ticket_channel)
-                console.log(oldMember.channelId)
                 if(data.ticket_channel === oldMember.channelId)return
                     const test = oldMember.channel.members.size
                     if(test === 0){

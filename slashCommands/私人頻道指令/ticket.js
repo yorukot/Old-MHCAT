@@ -19,6 +19,21 @@ module.exports = {
     name: '私人頻道設置',
     description: '設置私人頻道',
     options: [{
+        name: '按鈕名稱',
+        type: 'STRING',
+        description: '輸入按鈕名稱(如有多顆按鈕請使用^進行區隔)',
+        required: true,
+    },{
+        name: '按鈕顏色',
+        type: 'STRING',
+        description: '輸入按鈕，僅支援GREEN、RED、BLUE、NONE(如有多顆按鈕請使用^進行區隔)',
+        required: true,
+    },{
+        name: '按鈕表情符號',
+        type: 'STRING',
+        description: '輸入按鈕emoji(一顆按鈕僅能有一個emoji)(如有多顆按鈕請使用^進行區隔)',
+        required: true,
+    },{
         name: '類別',
         type: 'CHANNEL',
         description: '輸入私人頻道要在哪個類別開啟!',

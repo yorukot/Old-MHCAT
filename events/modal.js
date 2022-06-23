@@ -1,4 +1,5 @@
 const btn = require("../models/btn.js")
+const leave_message = require('../models/leave_message.js')
 const {
     MessageActionRow,
     MessageButton,
@@ -60,6 +61,34 @@ client.on('interactionCreate', async (interaction) => {
     .setTimestamp()
     interaction.reply({
         content: "下面為預覽，想修改嗎?再次輸入指令即可修改((membername)在到時候會變正常喔)",
+        embeds: [welcome],
+    });
+    }else if (text.includes("leave_msg")) {
+        const content = interaction.fields.getTextInputValue("leave_msgcontent");
+        const color = interaction.fields.getTextInputValue("leave_msgcolor");
+        const title = interaction.fields.getTextInputValue("leave_msgtitle");
+        if (!validateColor(color) && color !== "RANDOM") return errors('你傳送的並不是顏色(色碼)')
+        leave_message.findOne({
+            guild: interaction.guild.id,
+        }, async (err, data) => {
+            if(!data){
+                return errors("很抱歉，出現了未知的錯誤!")
+            }else{
+                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {message_content: content}})
+                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {color: color}})
+                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {title: title}})
+            }
+        })
+        const welcome = new MessageEmbed()
+    .setTitle(`${title}`)
+    .setDescription(`${content}`)
+    .setThumbnail(interaction.user.displayAvatarURL({
+      dynamic: true
+    }))
+    .setColor(color)
+    .setTimestamp()
+    interaction.reply({
+        content: "下面為預覽，想修改嗎?再次輸入指令即可修改((MEMBERNAME)在到時候會變正常喔)",
         embeds: [welcome],
     });
     } else if (text.includes("roleadd")) {

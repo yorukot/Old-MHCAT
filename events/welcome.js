@@ -1,6 +1,7 @@
 const client = require('../index');
 const join_role = require('../models/join_role.js')
 const join_message = require("../models/join_message.js")
+const leave_message = require('../models/leave_message.js')
 const {
   MessageActionRow,
   MessageButton,
@@ -66,4 +67,30 @@ client.on("guildMemberAdd", (member) => {
       }
     })
   }
+});
+
+client.on("guildMemberRemove", (member) => {
+    leave_message.findOne({
+      guild: member.guild.id,
+    }, async (err, data) => {
+      if (!data) {
+        return 
+      } else {
+        const channel = member.guild.channels.cache.get(data.channel)
+        if(!channel)return 
+        const MEMBER = member.user.username
+        const content = data.message_content
+        const welcome = new MessageEmbed()
+      .setTitle(`${data.title}`)
+      .setDescription(content.replace("(MEMBERNAME)", MEMBER))
+      .setThumbnail(member.displayAvatarURL({
+        dynamic: true
+      }))
+      .setColor(data.color)
+      .setTimestamp()
+      channel.send({
+      embeds: [welcome],
+    });
+      }
+    })
 });

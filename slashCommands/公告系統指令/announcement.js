@@ -29,18 +29,22 @@ module.exports = {
         const tag = new TextInputComponent()
         .setCustomId("anntag")
         .setLabel("請輸入你要tag誰")
+        .setRequired(true)
         .setStyle('SHORT');
         const color = new TextInputComponent()
         .setCustomId('anncolor')
         .setLabel("請輸入你的公告要甚麼顏色")
+        .setRequired(true)
         .setStyle('SHORT');
         const title = new TextInputComponent()
         .setCustomId('anntitle')
         .setLabel("請輸入你的公告標題")
+        .setRequired(true)
         .setStyle('SHORT');
         const content = new TextInputComponent()
         .setCustomId('anncontent')
         .setLabel("請輸入公告內文")
+        .setRequired(true)
         .setStyle('PARAGRAPH');
         const firstActionRow = new MessageActionRow().addComponents(tag);
         const color1 = new MessageActionRow().addComponents(color);

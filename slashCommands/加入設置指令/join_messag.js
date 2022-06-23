@@ -19,6 +19,7 @@ module.exports = {
         name: '頻道',
         type: 'CHANNEL',
         description: '輸入加入訊息要在那發送!',
+        channel_types: [0,5],
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

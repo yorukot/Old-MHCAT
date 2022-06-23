@@ -22,6 +22,7 @@ module.exports = {
         name: '頻道',
         type: 'CHANNEL',
         description: '輸入頻道!',
+        channel_types: [0,5],
         required: false
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',
@@ -36,7 +37,7 @@ module.exports = {
             return  errors("你已經設定要在訊息頻道通知，沒辦法再設定`頻道`")
         }if(tf === false && !channel){
             return errors("由於你填要在特定頻道發送，因此你必須設定要在哪個頻道發送通知")
-        }if(channel && channel.type !== "GUILD_TEXT") return errors("你必須輸入文字頻道")
+        }
         const onc = tf === true ? "ONCHANEL" : channel.id
         text_xp_channel.findOne({
             guild: interaction.channel.guild.id,

@@ -21,6 +21,7 @@ module.exports = {
     options: [{
         name: '類別',
         type: 'CHANNEL',
+        channel_types: [4],
         description: '輸入私人頻道要在哪個類別開啟!',
         required: true,
     },{
@@ -37,9 +38,7 @@ module.exports = {
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const channel = interaction.options.getChannel("類別")
         const role1 = interaction.options.getRole("管理員身分組")
-
         const role = role1.id
-        if (!channel.type === "GUILD_CATEGORY") return errors('你輸入的不是一個類別')
             ticket_js.findOne({
                 guild: interaction.guild.id,
             }, async (err, data) => {

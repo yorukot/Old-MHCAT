@@ -19,6 +19,7 @@ module.exports = {
         type: 'CHANNEL',
         description: '輸入公告發送的頻道!',
         required: true,
+        channel_types: [0,5],
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
@@ -27,7 +28,6 @@ module.exports = {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const channel = interaction.options.getChannel("頻道")
-        if(channel.type !== 'GUILD_TEXT' && channel.type !== 'GUILD_NEWS')return errors("很抱歉，你給的並不是一個**文字**頻道")
         //對資料庫進行更改
         guild.findOne({
             guild: interaction.channel.guild.id,

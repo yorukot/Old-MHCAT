@@ -18,6 +18,7 @@ module.exports = {
     options: [{
         name: '頻道',
         type: 'CHANNEL',
+        channel_types: [0,5],
         description: '輸入加入訊息要在那發送!',
         required: true,
     }],

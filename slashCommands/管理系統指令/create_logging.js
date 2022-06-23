@@ -17,6 +17,7 @@ module.exports = {
     options: [{
         name: '頻道',
         type: 'CHANNEL',
+        channel_types: [0,5],
         description: '輸入日誌頻道!',
         required: true,
     }],
@@ -28,7 +29,6 @@ module.exports = {
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const channel = interaction.options.getChannel("頻道")
         const channel_id = channel.id
-        if(channel.type !== 'GUILD_TEXT')return errors("很抱歉，你給的並不是一個**文字**頻道")
         logging.findOne({
             guild: interaction.channel.guild.id,
         }, async (err, data) => {

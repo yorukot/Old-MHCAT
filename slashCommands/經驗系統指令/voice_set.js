@@ -17,6 +17,7 @@ module.exports = {
         name: '頻道',
         type: 'CHANNEL',
         description: '輸入頻道!',
+        channel_types: [0,5],
         required: true
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',
@@ -27,7 +28,6 @@ module.exports = {
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const channel1 = interaction.options.getChannel("頻道")
         const channel = channel1.id
-        if(channel1.type !== "GUILD_TEXT") return errors("你設定的頻道並不是文字頻道")
         voice_xp_channel.findOne({
             guild: interaction.channel.guild.id,
         }, async (err, data) => {

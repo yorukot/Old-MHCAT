@@ -28,6 +28,7 @@ module.exports = {
     options: [{
         name: '語音頻道',
         type: 'CHANNEL',
+        channel_types: [2,13],
         description: '設定哪個頻道加入後會開啟語音包廂',
         required: true,
     },{
@@ -51,7 +52,6 @@ module.exports = {
         const channel1 = interaction.options.getChannel("語音頻道")
         const channel = channel1.id
         const channel_name = interaction.options.getString("設定頻道名稱")
-        if(channel1.type !== "GUILD_VOICE")return errors("必須是一個語音頻道")
         if(limit1 && (Number(limit1) > 99 || Number(limit1 <1)))return errors("必須為1-99的整數!", "參數錯誤")
         const limit = limit1 ? limit1 : 0
         const perant = channel1.parentId === null ? null : channel1.parentId

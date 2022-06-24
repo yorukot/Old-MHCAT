@@ -46,7 +46,7 @@ module.exports = {
         description: '輸入抽獎訊息內文',
         required: true,
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/lotter',
     UserPerms: '訊息管理',
     emoji: `<:lottery:985946439253381200>`,
     run: async (client, interaction, options) => {
@@ -82,7 +82,12 @@ module.exports = {
                     new MessageButton()
                     .setCustomId(id)
                     .setLabel('點我參加抽獎!')
-                    .setEmoji("🗳")
+                    .setEmoji("<:votingbox:988878045882499092>")
+                    .setStyle('SUCCESS'),
+                    new MessageButton()
+                    .setCustomId(id + "search")
+                    .setLabel('誰參加抽獎')
+                    .setEmoji("<:searching:986107902777491497>")
                     .setStyle('PRIMARY'),
                 );
                 const lotter_message = new MessageEmbed()

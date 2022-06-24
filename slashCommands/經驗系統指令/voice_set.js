@@ -36,7 +36,7 @@ module.exports = {
         channel_types: [0,5],
         required: false
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/voice_xp_set',
     UserPerms: '訊息管理',
     emoji: `<:configuration:984010500608249886>`,
     run: async (client, interaction, options) => {
@@ -62,8 +62,8 @@ module.exports = {
         }, async (err, data) => {
             if(data){
                 data.update(({guild: interaction.channel.guild.id}), {$set: {channel: channel}})
-                data.update(({guild: interaction.channel.guild.id}), {$set: {background: image}})
-                data.update(({guild: interaction.channel.guild.id}), {$set: {color: color}})
+                data.update(({guild: interaction.channel.guild.id}), {$set: {background: image ? data.background : image}})
+                data.update(({guild: interaction.channel.guild.id}), {$set: {color: color ? data.color : color}})
                 const announcement_set_embed = new MessageEmbed()
                 .setTitle("語音經驗系統")
                 .setDescription(`您的語音經驗升等頻道成功更新\n您目前的升等通知頻道為 ${channel1}`)

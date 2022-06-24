@@ -16,6 +16,7 @@ const {
 } = require('discord.js');
 const client = require('../index');
 const { createCaptchaSync  } = require("captcha-canvas");
+const { user } = require("../index");
 
 client.on("interactionCreate", async (interaction) => {
     function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
@@ -73,33 +74,108 @@ client.on("interactionCreate", async (interaction) => {
                 interaction.reply({content: "opps,出現了錯誤!\n有可能是你設定沒設定好\n或是我沒有權限喔(請確認我的權限比你要加的權限高，還需要管理身分組的權限)"})
             }
     }else if(interaction.customId.includes("lotter")){
-        lotter.findOne({
-            guild: interaction.guild.id,
-            id: interaction.customId,
-        }, async (err, data) => {
-        if(!data) return interaction.reply({content:"很抱歉，沒有這個抽獎，請通知管理員或服主!", ephemeral: true})
-        if(data){
-            if(Number(data.date) >= Number(moment().utcOffset("+08:00").format('YYYYMMDDHH'))){
-                for(x = data.member.length - 1; x > -1; x--){
-                    if(data.member[x].id === interaction.user.id){
-                        return interaction.reply({content:":x: 你無法重複參加!", ephemeral: true})
-                    }
-                }
-                const object = {
-                    time: moment().utcOffset("+08:00").format('YYYY年MM月DD日 HH點mm分'),
-                    id: interaction.user.id,
-                }
-                data.member.push(object)
-                data.save() 
-                const greate = new MessageEmbed()
-                    .setColor("GREEN")
-                    .setTitle("✅成功參加抽獎!")
-                interaction.reply({embeds: [greate], ephemeral: true})
-            }else{
-                return interaction.reply({content:":x: 很抱歉，這個抽獎已經過期!", ephemeral: true})
+        if(interaction.customId.includes("lottersearch")){
+            const iddd = interaction.customId.replace("search", '')
+            lotter.findOne({
+                guild: interaction.guild.id,
+                id: iddd,
+            }, async (err, data) => {
+            if(!data) return interaction.reply({content:"很抱歉，沒有這個抽獎，請通知管理員或服主!", ephemeral: true})
+            if(data){
+                const e = data.member.map(
+                    (w, i) => `${interaction.guild.members.cache.get(w.id).user.tag},`
+                )
+                const embed = new MessageEmbed()
+                    .setTitle(`有這些人抽獎了`)
+                    .setDescription(e.join(' '))
+                    .setColor("RANDOM")
+                interaction.reply({
+                    embeds: [embed],
+                    ephemeral: true
+                })
             }
+            })
+        }else if(interaction.customId.includes("lotterrestart")){
+            const iddd = interaction.customId.replace("restart", '')
+            function getRandomArbitrary(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min) + min);
+              }
+            lotter.findOne({
+                guild: interaction.guild.id,
+                id: iddd,
+            }, async (err, data) => {
+                console.log(data)
+            console.log(data.member)
+            if(!data) return interaction.reply({content:"很抱歉，沒有這個抽獎，請通知管理員或服主!", ephemeral: true})
+            if(data){
+                const winner_array = []
+            for(y = data.howmanywinner -1 ; y > -1; y--){
+              const winner = data.member[getRandomArbitrary(0, data.member.length)]
+                if(winner === undefined){
+                    y--
+                }else{
+                    winner_array.push(winner.id)
+                }
+            }
+            const guild = client.guilds.cache.get(data.guild);
+            let channel = guild.channels.cache.get(data.message_channel);
+            const winner_embed = new MessageEmbed()
+            .setTitle("🎊恭喜中獎者!")
+            .setDescription(`
+            **🎉🎉恭喜:
+            <@${winner_array.join('>\n<@')}>
+            抽中: ${data.gift}
+            **`)
+            .setColor(channel.guild.me.displayHexColor)
+            channel.send({content: `||<@${winner_array.join('><@')}>||`, embeds: [winner_embed]})
+            data.collection.update(({guild: data.guild, id: data.id}), {$set: {end: true}})
+            data.save()
+            interaction.reply({content:"成功重抽!", ephemeral: true})
+            }
+            })
+        }else{
+            lotter.findOne({
+                guild: interaction.guild.id,
+                id: interaction.customId,
+            }, async (err, data) => {
+            if(!data) return interaction.reply({content:"很抱歉，沒有這個抽獎，請通知管理員或服主!", ephemeral: true})
+            if(data){
+                    for(x = data.member.length - 1; x > -1; x--){
+                        if(data.member[x].id === interaction.user.id){
+                            if(interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)){
+                                const bt = new MessageActionRow()
+                                .addComponents(
+                                    new MessageButton()
+                                    .setCustomId(interaction.customId + 'restart')
+                                    .setLabel('點我重抽!')
+                                    .setEmoji("<:votingbox:988878045882499092>")
+                                    .setStyle('SUCCESS'),
+                                );
+                                return interaction.reply({content:"你已經參加過了，不過你似乎有管理訊息的權限，是不是要重抽呢?!", ephemeral: true, components: [bt]})
+                            }else{
+                                return interaction.reply({content:":x: 你無法重複參加!", ephemeral: true})
+                            }
+                        }
+                    }
+                    const object = {
+                        time: moment().utcOffset("+08:00").format('YYYY年MM月DD日 HH點mm分'),
+                        id: interaction.user.id,
+                    }
+                if(Number(data.date) >= Number(moment().utcOffset("+08:00").format('YYYYMMDDHH'))){
+                    data.member.push(object)
+                    data.save() 
+                    const greate = new MessageEmbed()
+                        .setColor("GREEN")
+                        .setTitle("✅成功參加抽獎!")
+                    interaction.reply({embeds: [greate], ephemeral: true})
+                }else{
+                    return interaction.reply({content:":x: 很抱歉，這個抽獎已經過期!", ephemeral: true})
+                }
+            }
+            })
         }
-        })
     }else if(interaction.customId.includes("verification")){
         const verification = require("../models/verification.js");
         verification.findOne({

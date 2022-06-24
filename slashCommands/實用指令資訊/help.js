@@ -25,7 +25,7 @@ module.exports = {
         required: false,
         type: 'STRING',
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/help',
     emoji: `<:help:985948179709186058>`,
     run: async (client, interaction, options) => {
         await interaction.deferReply().catch(e => { });

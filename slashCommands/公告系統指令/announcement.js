@@ -17,7 +17,7 @@ const {
 module.exports = {
     name: '公告發送',
     description: '發送公告訊息',
-   // video: 'https://mhcat.xyz/commands/announcement.html',
+   video: 'https://mhcat.xyz/docs/ann',
     UserPerms: '訊息管理',
     emoji: `<:megaphone:985943890148327454>`,
     run: async (client, interaction, options) => {

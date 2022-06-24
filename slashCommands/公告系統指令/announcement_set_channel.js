@@ -21,7 +21,7 @@ module.exports = {
         required: true,
         channel_types: [0,5],
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/ann_set',
     UserPerms: '訊息管理',
     emoji: `<:configuration:984010500608249886>`,
     run: async (client, interaction, options) => {

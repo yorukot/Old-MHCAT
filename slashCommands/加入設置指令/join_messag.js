@@ -22,7 +22,7 @@ module.exports = {
         channel_types: [0,5],
         required: true,
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/join_message',
     UserPerms: '訊息管理',
     emoji: `<:comments:985944111725019246>`,
 
@@ -46,8 +46,7 @@ module.exports = {
             }else{
                 data.collection.update(({guild: interaction.channel.guild.id}), {$set: {channel: channel_id}})
             }
-        })
-        const modal = new Modal()
+            const modal = new Modal()
         .setCustomId("nal")
         .setTitle('加入訊息設置!');
         const color = new TextInputComponent()
@@ -55,16 +54,17 @@ module.exports = {
         .setLabel("請輸入你的加入訊息要甚麼顏色(要隨機顏色可輸入:RANDOM)")
         .setStyle('SHORT')
         .setRequired(true)
-        .setValue(data.color !== null ? data.color : '')
+        .setValue(data ? data.color !== null ? data.color : '' : '')
         const content = new TextInputComponent()
         .setCustomId('join_msgcontent')
         .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (membername) )")
         .setStyle('PARAGRAPH')
         .setRequired(true)
-        .setValue(data.message_content !== null ? data.message_content : '')
+        .setValue(data ? data.message_content !== null ? data.message_content : '' : '')
         const color1 = new MessageActionRow().addComponents(color);
         const content1 = new MessageActionRow().addComponents(content);
         modal.addComponents(color1,content1);
         await interaction.showModal(modal);
+        })
     }
 }

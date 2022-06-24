@@ -42,7 +42,7 @@ module.exports = {
         ]
         
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/translate',
     emoji: `<:help:985948179709186058>`,
     run: async (client, interaction, options) => {
         await interaction.deferReply().catch(e => { });

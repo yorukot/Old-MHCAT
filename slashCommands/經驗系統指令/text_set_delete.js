@@ -13,7 +13,7 @@ const {
 module.exports = {
     name: '聊天經驗刪除',
     description: '刪除聊天經驗發送訊息設置',
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/chat_xp_delete',
     UserPerms: '訊息管理',
     emoji: `<:delete:985944877663678505>`,
     run: async (client, interaction, options) => {

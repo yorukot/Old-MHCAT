@@ -20,7 +20,7 @@ module.exports = {
         description: '輸入身分組!',
         required: true,
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/join_role',
     UserPerms: '訊息管理',
     emoji: `<:roleplaying:985945121264635964>`,
     run: async (client, interaction, options) => {

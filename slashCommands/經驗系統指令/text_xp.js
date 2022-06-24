@@ -76,7 +76,7 @@ module.exports = {
                         .setRequiredXP(Number(data.leavel) * parseInt(Number(data.leavel)/3) * 100  + 100)
                         .setLevel(Number(data.leavel))
                         .setRank(result.length)
-                        .setStatus(interaction.member.presences ? interaction.member.presences.status : "offline")
+                        .setStatus(interaction.member.presence ? interaction.member.presence.status : "offline")
                         .setLevelColor(!data12 ? "#FFFFFF" : !data12.color ? "#FFFFFF" : data12.color)
                         .setProgressBar(!data12 ? "#FFFFFF" : !data12.color ? "#FFFFFF" : data12.color, "COLOR")
                         .setUsername(member.username)

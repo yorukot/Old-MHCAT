@@ -62,7 +62,6 @@ module.exports = {
                    function bar(a, b){
                     let progress = Math.round((20 * a / b));
                     let emptyProgress = 20 - progress;
-                    console.log(emptyProgress)
                     let block = "━"
                     let progressString = block.repeat(progress) + "➤" + '━'.repeat(emptyProgress);
                     return `\`[${progressString}]\``

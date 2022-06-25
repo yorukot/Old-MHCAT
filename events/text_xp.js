@@ -44,7 +44,7 @@ client.on("messageCreate", async (message) => {
                 })
                 data.save()
             } else if (data) {
-                if (Number(messagexp) + Number(data.xp) > Number(data.leavel) * parseInt(Number(data.leavel)/3) * 100  + 100) {
+                if (Number(messagexp) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100)) {
                     data.collection.update(({
                         guild: message.guild.id,
                         member: message.member.id,

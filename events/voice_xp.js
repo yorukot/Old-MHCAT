@@ -31,7 +31,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                             member: newMember.member.id,
                         }, async (err, data) => {
                             if(data.leavejoin !== "join"){clearInterval(stop)};
-                            if(Number(5) + Number(data.xp) > Number(data.leavel) * parseInt(Number(data.leavel)/2) * 100  + 100){
+                            if(Number(5) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/2) * 100  + 100)){
                                 data.collection.update(({guild: newMember.guild.id,member: newMember.member.id,}), {$set: {xp: `5`}})
                                 data.collection.update(({guild: newMember.guild.id,member: newMember.member.id,}), {$set: {leavel: `${Number(data.leavel) + 1}`}})
                                 voice_xp_channel.findOne({

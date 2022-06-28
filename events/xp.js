@@ -54,9 +54,13 @@ client.on("interactionCreate", async (interaction) => {
                        function bar(a, b){
                         let progress = Math.round((20 * a / b));
                         let emptyProgress = 20 - progress;
-                        let block = "━"
+                        if(emptyProgress < 0){
+                            return "出現了錯誤"
+                        }else{
+                            let block = "━"
                         let progressString = block.repeat(progress) + "➤" + '━'.repeat(emptyProgress);
                         return `\`[${progressString}]\``
+                        }
                        }
                         const e = byDate.map(
                             (w, i) => `: <@${interaction.guild.members.cache.get(w.member) ? interaction.guild.members.cache.get(w.member).user.id : '該使用者已退出該伺服器'}>\n<:xp:990254386792005663>**總經驗:** \`${nFormatter(w.xp_totle)}\`\n<:levelup:990254382845157406>**等級:** \`${w.leavel}\`\n<:calendar:990254384812290048>**等級進度:**${bar(w.xp, parseInt(Number(w.leavel) * Number(w.leavel) /3 * 100  + 100))}\n`
@@ -96,11 +100,9 @@ client.on("interactionCreate", async (interaction) => {
                             .setDisabled(number + 1 >= Math.ceil(e.length / 5) ? true : false),
                         );
                         if(number === 0){
-                            interaction.reply({embeds: [embed], components: [bt100]})
-                            interaction.message.delete()
+                            interaction.update({embeds: [embed], components: [bt100]})
                         }else{
-                            interaction.reply({embeds: [embed], components: [bt100]})
-                            interaction.message.delete()
+                            interaction.update({embeds: [embed], components: [bt100]})
                         }
                         return
                         
@@ -140,9 +142,13 @@ client.on("interactionCreate", async (interaction) => {
                    function bar(a, b){
                     let progress = Math.round((20 * a / b));
                     let emptyProgress = 20 - progress;
-                    let block = "━"
+                    if(emptyProgress < 0){
+                        return "出現了錯誤"
+                    }else{
+                        let block = "━"
                     let progressString = block.repeat(progress) + "➤" + '━'.repeat(emptyProgress);
                     return `\`[${progressString}]\``
+                    }
                    }
                     const e = byDate.map(
                         (w, i) => `: <@${interaction.guild.members.cache.get(w.member) ? interaction.guild.members.cache.get(w.member).user.id : '該使用者已退出該伺服器'}>\n<:xp:990254386792005663>**總經驗:** \`${nFormatter(w.xp_totle)}\`\n<:levelup:990254382845157406>**等級:** \`${w.leavel}\`\n<:calendar:990254384812290048>**等級進度:**${bar(w.xp, parseInt(Number(w.leavel) * Number(w.leavel) /2 * 100  + 100))}\n`
@@ -182,11 +188,9 @@ client.on("interactionCreate", async (interaction) => {
                         .setDisabled(number + 1 >= Math.ceil(e.length / 5) ? true : false),
                     );
                     if(number === 0){
-                        interaction.reply({embeds: [embed], components: [bt100]})
-                        interaction.message.delete()
+                        interaction.update({embeds: [embed], components: [bt100]})
                     }else{
-                        interaction.reply({embeds: [embed], components: [bt100]})
-                        interaction.message.delete()
+                        interaction.update({embeds: [embed], components: [bt100]})
                     }
                     return
                     

@@ -59,16 +59,7 @@ module.exports = {
         text_xp_channel.findOne({
             guild: interaction.channel.guild.id,
         }, async (err, data) => {
-            if(data){
-                data.update(({guild: interaction.channel.guild.id}), {$set: {channel: channel}})
-                data.update(({guild: interaction.channel.guild.id}), {$set: {background: image ? data.background : image}})
-                data.update(({guild: interaction.channel.guild.id}), {$set: {color: color ? data.color : color}})
-                const announcement_set_embed = new MessageEmbed()
-                .setTitle("聊天經驗系統")
-                .setDescription(`您的聊天經驗升等頻道成功更新\n您目前的升等通知頻道為 ${channel1}`)
-                .setColor("GREEN")
-                interaction.reply({embeds: [announcement_set_embed]})
-            }else{
+            if(data) data.delete()
                 data = new text_xp_channel({
                     guild: interaction.channel.guild.id,
                     channel: channel,
@@ -81,7 +72,6 @@ module.exports = {
                 .setDescription(`您的聊天經驗升等頻道成功創建\n您目前的升等通知頻道為 ${channel1}`)
                 .setColor("GREEN")
                 interaction.reply({embeds: [announcement_set_embed]})
-            }
         })
     }
 }

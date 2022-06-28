@@ -48,7 +48,7 @@ module.exports = {
                         for ( x = data1.length-1; x > -1; x-- ) {
                             let b = 0
                             for ( y = data1[x].leavel - 1 ; y > -1; y-- ) {
-                                b = b + parseInt(Number(y) * (Number(y) / 3)) * 100 + 100
+                                b = b + parseInt(Number(y) * (Number(y) / 3) * 100 + 100)
                             }
                             array.push(b + 100 + Number(data1[x].xp));
                         }

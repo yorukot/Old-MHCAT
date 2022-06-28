@@ -175,13 +175,16 @@ client.on('interactionCreate', async (interaction) => {
                 content: tag,
                 embeds: [announcement]
             })
-                const await_embed = await interaction.followUp({
-                    embeds: [yesno],
-                    components: [yes]
-                })
+            setTimeout(() => {
+            interaction.channel.send({
+                embeds: [yesno],
+                components: [yes]
+            }).then( msg => {
                 setTimeout(() => {
-                    await_embed.delete()
-                }, 6000);         
+                    msg.delete()
+                }, 6000);
+            })
+        }, 1000)
         } catch (error) {
             // 如果有錯誤
             console.log(error)

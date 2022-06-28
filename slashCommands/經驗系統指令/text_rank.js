@@ -62,9 +62,13 @@ module.exports = {
                    function bar(a, b){
                     let progress = Math.round((20 * a / b));
                     let emptyProgress = 20 - progress;
-                    let block = "━"
+                    if(emptyProgress < 0){
+                        return "出現了錯誤"
+                    }else{
+                        let block = "━"
                     let progressString = block.repeat(progress) + "➤" + '━'.repeat(emptyProgress);
                     return `\`[${progressString}]\``
+                    }
                    }
                     const e = byDate.map(
                         (w, i) => `: <@${interaction.guild.members.cache.get(w.member) ? interaction.guild.members.cache.get(w.member).user.id : '該使用者已退出該伺服器'}>\n<:xp:990254386792005663>**總經驗:** \`${nFormatter(w.xp_totle)}\`\n<:levelup:990254382845157406>**等級:** \`${w.leavel}\`\n<:calendar:990254384812290048>**等級進度:**${bar(w.xp, parseInt(Number(w.leavel) * Number((w.leavel) /3) * 100  + 100))}\n`
@@ -77,7 +81,7 @@ module.exports = {
                     const list4 = e[number*5 + 3] ? `\n❰第**${number*5 + 4}**名❱ ${e[number*5 + 3]}` : ""
                     const list5 = e[number*5 + 4] ? `\n❰第**${number*5 + 5}**名❱ ${e[number*5 + 4]}` : ""
                     const embed = new MessageEmbed()
-                    .setTitle(`<:podium:990199982760005663> | 以下是${interaction.guild.name}的聊天旁行榜`)
+                    .setTitle(`<:podium:990199982760005663> | 以下是${interaction.guild.name}的聊天排行榜`)
                     .setDescription(`${list1}${list2}${list3}${list4}${list5}
             總共:\`${e.length}\`筆資料
             第 \`${number + 1} / ${Math.ceil(e.length / 5)}\` 頁(按按鈕會自動更新喔!)

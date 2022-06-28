@@ -1,3 +1,4 @@
+
 {
   "name": "discordbot",
   "version": "1.2.1",
@@ -7,6 +8,7 @@
     "@discordjs/opus": "^0.7.0",
     "@discordjs/rest": "^0.4.1",
     "@discordjs/voice": "^0.9.0",
+    "@haileybot/captcha-generator": "^1.7.0",
     "@vitalets/google-translate-api": "^8.0.0",
     "ansi-styles": "^4.3.0",
     "asynckit": "^0.4.0",
@@ -71,7 +73,7 @@
     "nodeactyl": "^3.2.1",
     "nodemailer": "^6.7.1",
     "nodemon": "^2.0.16",
-    "npm": "^8.11.0",
+    "npm": "^8.13.1",
     "once": "^1.4.0",
     "optional-require": "^1.0.3",
     "os-utils": "^0.0.14",

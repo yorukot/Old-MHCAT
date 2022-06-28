@@ -28,10 +28,10 @@ client.on("guildMemberAdd", (member) => {
     const welcome = new MessageEmbed()
       .setAuthor('🪂 歡迎加入 MHCAT!', `${member.guild.me.displayAvatarURL({dynamic: true})}`, 'https://dsc.gg/MHCAT')
       .setDescription(`**<:welcome:978216428794679336> 歡迎 __${member.user.username}#${member.user.discriminator}__ 的加入!
-    :speech_balloon: <#979307778524979201>想要聊天的話歡迎到這裡!
-    👾 <#977249272204521532>有任何bug歡迎到這邊回報!
+:speech_balloon: <#979307778524979201>想要聊天的話歡迎到這裡!
+👾 <#977249272204521532>有任何bug歡迎到這邊回報!
 
-     如果有建議或試任何的問題或想法歡迎到\n<#978218954600374272>開啟客服頻道**
+如果有建議或試任何的問題或想法歡迎到\n<#978218954600374272>開啟客服頻道**
     `)
       .setThumbnail(member.displayAvatarURL({
         dynamic: true

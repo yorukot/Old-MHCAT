@@ -1,5 +1,5 @@
 const verification = require("../../models/verification.js");
-const { createCaptchaSync } = require('captcha-canvas');
+const Captcha = require("@haileybot/captcha-generator");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -27,12 +27,13 @@ module.exports = {
                 const role = interaction.guild.roles.cache.get(data.role)
                 if(!role) return errors("驗證身分組已經不存在了，請通管理員!")
                 if(Number(role.position) >= Number(interaction.guild.me.roles.highest.position)) return errors("請通知群主管裡員我沒有權限給你這個身分組(請把我的身分組調高)!")
-                const { image, text } = createCaptchaSync(300, 100);
-                const attachment = new MessageAttachment(image, "createCaptchaSync.png");
+                let captcha = new Captcha();
+                console.log(captcha.value)
+                const attachment = new MessageAttachment(captcha.JPEGStream, "captcha.jpeg");
                 const bt = new MessageActionRow()
                     .addComponents(
                         new MessageButton()
-                        .setCustomId(text + "verification")
+                        .setCustomId(captcha.value + "verification")
                         .setLabel('點我進行驗證!')
                         .setEmoji("<a:arrow:986268851786375218>")
                         .setStyle('SUCCESS'),

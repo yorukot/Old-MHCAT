@@ -1,7 +1,7 @@
 const client = require('../index')
 const { MessageEmbed } = require('discord.js')
 const moment = require('moment')
-
+const token = require('../config.json')
 client.on('ready', () => {
     /*const guild = client.guilds.cache.get("976879837471973416")
     guild.invites.fetch()
@@ -20,19 +20,23 @@ client.on('ready', () => {
             status: 'IDLE',
             type: "IDLE"
         })
-    }, 5000)
-/*onst { SlashCommandBuilder } = require('@discordjs/builders');
+    }, 10000)/*
+const {token} = require('../config.json')
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-    
-const rest = new REST({ version: '9' }).setToken();
+const rest = new REST({ version: '9' }).setToken(`${token}`);
 rest.get(Routes.applicationCommands("964185876559196181"))
     .then(data => {
         const promises = [];
         for (const command of data) {
-            const deleteUrl = `${Routes.applicationCommands("964185876559196181")}/${command.id}`;
-            promises.push(rest.delete(deleteUrl));
+            if(command.id !== "986904974778834984" && command.id !== "990430736421117992" && command.id !== "990431300626317382" && command.id !== "990432161037430875"){
+                client.application.commands.fetch(`${command.id}`)
+                .then( (command) => {
+              console.log(`Fetched command ${command.name}`)
+              command.delete()
+              console.log(`Deleted command ${command.name}`)
+              }).catch(console.error);
+            }
         }
-        return Promise.all(promises);
     });*/
 })

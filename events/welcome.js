@@ -9,8 +9,12 @@ const {
   Permissions,
   DiscordAPIError,
   Discord,
-  MessageEmbed
+  MessageEmbed,
+  WebhookClient
 } = require('discord.js');
+const joinWebhook = new WebhookClient({ url: client.config.joinWebhook })
+const leaveWebhook = new WebhookClient({ url: client.config.leaveWebhook })
+
 client.on("guildMemberAdd", (member) => {
   join_role.find({
     guild: member.guild.id,
@@ -94,3 +98,27 @@ client.on("guildMemberRemove", (member) => {
       }
     })
 });
+client.on("guildCreate", async (guild) => {
+    let embed = new MessageEmbed()
+      .setAuthor({ name: `${client.user.username}#${client.user.discriminator} | ${client.user.id}`, iconURL: client.user.displayAvatarURL()})
+      .setDescription(`<:joins:956444030487642112> 我加入了 ${guild.name}！`)
+      .addFields(
+        { name: '伺服器ID', value: `\`${guild.id}\``, inline: true },
+        { name: '伺服器擁有者', value: `<@${guild.ownerId}> (\`${guild.ownerId}\`)`, inline: true },
+        { name: "伺服器使用者數量", value: `${guild.memberCount}`, inline: true }
+      )
+      .setColor("#2f3136")
+    joinWebhook.send({
+      embeds: [embed]
+    })
+  });
+
+  client.on("guildDelete", async (guild) => {
+    let embed = new MessageEmbed()
+      .setAuthor({ name: `${client.user.username}#${client.user.discriminator} | ${client.user.id}`, iconURL: client.user.displayAvatarURL()})
+      .setDescription(`<:leaves:956444050792280084> 我離開了 ${guild.name}！`)
+      .setColor("#2f3136")
+    leaveWebhook.send({
+      embeds: [embed]
+    })
+  });

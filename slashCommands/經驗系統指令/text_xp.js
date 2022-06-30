@@ -47,8 +47,8 @@ module.exports = {
                         const array = []
                         for ( x = data1.length-1; x > -1; x-- ) {
                             let b = 0
-                            for ( y = data1[x].leavel - 1 ; y > -1; y-- ) {
-                                b = b + parseInt(Number(y) * (Number(y) / 3) * 100 + 100)
+                            for (y = data1[x].leavel - 1; y > -1; y--) {
+                                b = b + parseInt(Number(y) * (Number(y) / 3)) * 100+ 100
                             }
                             array.push(b + 100 + Number(data1[x].xp));
                         }
@@ -64,9 +64,9 @@ module.exports = {
                         };
                         let m = 0
                         for ( y = data.leavel - 1 ; y > 0; y-- ) {
-                            m = m + parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100)
+                            m = m + parseInt(Number(y) * (Number(y) / 3)) * 100+ 100
                         }
-                        let result = findGreater(array,(m + Number(data.xp)))
+                        let result = findGreater(array,(m + 100 + Number(data.xp)))
                         const rank = new canvacord.Rank()
                         .setAvatar(member.displayAvatarURL({ format: "png" }))
                         .setBackground(!data12 ? "COLOR" : data12.background ? validateColor(data12.background) ? "COLOR" : "IMAGE" : "COLOR"

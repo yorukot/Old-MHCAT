@@ -53,7 +53,8 @@ module.exports = {
         驗證系統指令: "<:tickmark:985949769224556614>",
         實用指令資訊: "<:bestpractice:986070549115596950>",
         遊玩時數指令: "<:chronometer:986065703369080884>",
-        警告系統指令: "<:warning:985590881698590730>"
+        警告系統指令: "<:warning:985590881698590730>",
+        備份系統指令: "<:backup:992010707354783775>"
             }
             const description = {
         管理系統指令: "查看管理指令",
@@ -68,7 +69,8 @@ module.exports = {
         驗證系統指令: "查看驗證系統指令",
         實用指令資訊: "查看一些實用的功能",
         遊玩時數指令: "查看遊戲玩了多久",
-        警告系統指令: "查看有關警告的所有指令"
+        警告系統指令: "有關警告的所有指令",
+        備份系統指令: "查看備份系統的指令"
         }
 
             let ccate = [];
@@ -99,7 +101,7 @@ module.exports = {
             //embed
             const embed = new MessageEmbed()
                 .setTitle(`機器人指令`)
-                .setDescription(`>>> 我的前奏為 \`/\`\n開啟此清單, 或是使用 \/help [指令名稱]\` 來了解這個指令用法!`)
+                .setDescription(`>>> 我的前奏為 \`/\`\n開啟此清單, 或是使用 \`/help 指令名稱:[指令名稱]\` 來了解這個指令用法!`)
                 .addFields(categories)
                 .setFooter(
                     `來自${interaction.user.tag}的查詢`,

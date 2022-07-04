@@ -15,6 +15,7 @@ const {
 const client = require('../index');
 
 client.on("messageReactionAdd", async (reaction, user) => {
+    if(user.bot)return
     function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");user.send({embeds: [embed],ephemeral: true})}
     message_reaction.findOne({
         guild: reaction.message.guild.id,
@@ -37,6 +38,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     })
 })
 client.on("messageReactionRemove", async (reaction, user) => {
+    if(user.bot)return
     function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");user.send({embeds: [embed],ephemeral: true})}
     message_reaction.findOne({
         guild: reaction.message.guild.id,

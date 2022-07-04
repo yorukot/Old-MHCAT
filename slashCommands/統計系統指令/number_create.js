@@ -251,6 +251,7 @@ module.exports = {
                 const text_channel_number = interaction.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
                 const voice_channel_number = interaction.guild.channels.cache.filter((c) => c.type === "GUILD_VOICE").size;
                 if(!member)return errors("由於你已經創建過了，所以你必須說明你要創建的統計名稱，或是刪除現有的統計資料(使用統計資料刪除)!")
+                const parent_id = interaction.guild.channels.cache.get(data.parent) ? data.parent : null
                 if(vt === "文字頻道"){
                     switch (member) {
                          //頻道數量 ===============================================================================================================
@@ -258,7 +259,7 @@ module.exports = {
                             if(data.channelnumber !== null )return errors("這個統計你已經創建過了!")
                             const botnumber_text = await interaction.guild.channels.create(`總頻道數: ${all_channel}`, {
                                 type:"text",
-                                parent: data.parent,
+                                parent: parent_id,
                                 permissionOverwrites: [
                                     {
                                       id: interaction.guild.me.id,
@@ -279,7 +280,7 @@ module.exports = {
                             if(data.textnumber !== null )return errors("這個統計你已經創建過了!")
                             const text_channel = await interaction.guild.channels.create(`總文字頻道數: ${text_channel_number}`, {
                                 type:"text",
-                                parent: data.parent,
+                                parent: parent_id,
                                 permissionOverwrites: [
                                     {
                                       id: interaction.guild.me.id,
@@ -300,7 +301,7 @@ module.exports = {
                             if(data.voicenumber !== null )return errors("這個統計你已經創建過了!")
                             const voice_channel = await interaction.guild.channels.create(`總語音頻道數: ${voice_channel_number}`, {
                                 type:"text",
-                                parent: data.parent,
+                                parent: parent_id,
                                 permissionOverwrites: [
                                     {
                                       id: interaction.guild.me.id,
@@ -327,7 +328,7 @@ module.exports = {
                            if(data.channelnumber !== null )return errors("這個統計你已經創建過了!")
                            const botnumber_text = await interaction.guild.channels.create(`總頻道數: ${all_channel}`, {
                                type:"GUILD_VOICE",
-                               parent: data.parent,
+                               parent: parent_id,
                                permissionOverwrites: [
                                 {
                                   id: interaction.guild.me.id,
@@ -348,7 +349,7 @@ module.exports = {
                            if(data.textnumber !== null )return errors("這個統計你已經創建過了!")
                            const text_channel = await interaction.guild.channels.create(`總文字頻道數: ${text_channel_number}`, {
                                type:"GUILD_VOICE",
-                               parent: data.parent,
+                               parent: parent_id,
                                permissionOverwrites: [
                                 {
                                   id: interaction.guild.me.id,
@@ -369,7 +370,7 @@ module.exports = {
                            if(data.voicenumber !== null )return errors("這個統計你已經創建過了!")
                            const voice_channel = await interaction.guild.channels.create(`總語音頻道數: ${voice_channel_number}`, {
                                type:"GUILD_VOICE",
-                               parent: data.parent,
+                               parent: parent_id,
                                permissionOverwrites: [
                                 {
                                   id: interaction.guild.me.id,

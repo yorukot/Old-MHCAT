@@ -29,6 +29,7 @@ module.exports = {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.followUp({embeds: [embed],ephemeral: true})}
         function naaaaa(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.channel.send({embeds: [embed],ephemeral: true})}
         if(interaction.member.id !== interaction.guild.ownerId)return errors("你必須擁有\`服主\`才能使用")
+        if(!interaction.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("我沒有\`管理者\`權限，請給我`管理者`權限!!!")
         const backup_id = interaction.options.getString("備份id")
         var fs = require('fs');
         var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
@@ -46,11 +47,6 @@ module.exports = {
                 })
                 collector.on('collect', m => {
                     if(m.content !== "^確認^") return naaaaa("你輸入了錯誤的確認!因此視為取消還原")
-                    interaction.channel.send({embeds: [
-                        new MessageEmbed()
-                        .setTitle(`<a:greentick:980496858445135893> | 開始進行還原!`)
-                        .setColor("GREEN")
-                    ]});
                     interaction.member.send({embeds: [
                         new MessageEmbed()
                         .setTitle(`<a:greentick:980496858445135893> | 開始進行還原!`)

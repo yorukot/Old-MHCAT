@@ -1,0 +1,2225 @@
+{
+    "name": "【Lucas進擊的巨人軍團-Lucas attack on titan army】-[BETA]",
+    "verificationLevel": "NONE",
+    "explicitContentFilter": "DISABLED",
+    "defaultMessageNotifications": "ALL_MESSAGES",
+    "afk": null,
+    "widget": {
+        "channel": null
+    },
+    "channels": {
+        "categories": [
+            {
+                "name": "管理员专区",
+                "permissions": [
+                    {
+                        "roleName": "@everyone",
+                        "allow": "0",
+                        "deny": "1024"
+                    },
+                    {
+                        "roleName": "可愛的機器人【女巨人】(bot)",
+                        "allow": "1024",
+                        "deny": "0"
+                    },
+                    {
+                        "roleName": "成員",
+                        "allow": "0",
+                        "deny": "1024"
+                    }
+                ],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "管理员测试区",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "管理员专区",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:23.917Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "@DarkStar#8457",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:38:38.735Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:38:32.180Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:28:22.688Z"
+                            },
+                            {
+                                "username": "pwndip",
+                                "avatar": "https://cdn.discordapp.com/avatars/785378361819660349/1e622734528a6cc2d170ca3e300acf41.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:22:49.740Z"
+                            },
+                            {
+                                "username": "Custom Commands",
+                                "avatar": "https://cdn.discordapp.com/avatars/724847752449753140/d7c650a4fa67aa734cf441d06d412c4d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:51:44.758Z"
+                            },
+                            {
+                                "username": "Carl-bot",
+                                "avatar": "https://cdn.discordapp.com/avatars/235148962103951360/ed3dac3b6e7a851df781632a4295fcb9.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:51:21.038Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-03T13:28:21.355Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-03T13:27:59.233Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "原來是Lucas 忘了給",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T14:56:49.801Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "我给不了厉害管理员",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T14:56:28.723Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "nice",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:58:32.302Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "你",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:58:24.455Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "不過是在幾個月前",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:58:21.271Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "第一個呢:3",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:58:18.112Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "簡單來說是我和 firegod 的位置互換了",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:58:08.716Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "可能這個世界線的第二個厲害管理員是 firegod",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:57:47.691Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "歡迎來到 lucas 伺服器的 beta 世界線",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:56:57.561Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "so sad",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:56:41.534Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "@​bluedream 變管理員了",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:56:39.046Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T13:55:49.313Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "hmm",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:34:31.967Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "hmmm",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:34:18.925Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "有沒有機器人可以複製伺服器",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:34:17.096Z"
+                            },
+                            {
+                                "username": "Dank Memer",
+                                "avatar": "https://cdn.discordapp.com/avatars/270904126974590976/d60c6bd5971f06776ba96497117f7f58.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:32:26.783Z"
+                            },
+                            {
+                                "username": "Dank Memer",
+                                "avatar": "https://cdn.discordapp.com/avatars/270904126974590976/d60c6bd5971f06776ba96497117f7f58.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": "Sup nerds. My name is **Dank Memer**.\n\nTo get started, send `pls help`. All commands are ran this way, for example, pls meme.\n\nIf you're interested in autoposting memes, extra currency perks + exclusive items, and more... Check out our [PREMIUM SERVER](https://www.patreon.com/bePatron?c=362724) option or [check out our currency boxes](https://dankmemer.lol/loot) to get a boost in our OP AF currency system!",
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 12054271,
+                                        "fields": [
+                                            {
+                                                "name": "Important Links",
+                                                "value": "[Community Server](https://discord.gg/memers) - A server with a HUGE multiplier, tons of giveaways, and more. It's ran by us, and robbing is disabled!\n[Support Server](https://discord.gg/meme) - Get some bot support if you're having issues!\n[Patreon](https://www.patreon.com/dankmemerbot) - Help support the bot development, and get some sweet perks!\n[Invite](https://invite.dankmemer.lol/) - Add the bot to another server and meme around\n[Website](https://dankmemer.lol/) - See all the bot commands and learn more about the developers!",
+                                                "inline": false
+                                            }
+                                        ],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": {
+                                            "text": "Enjoy the bot!"
+                                        }
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:32:26.738Z"
+                            },
+                            {
+                                "username": "Custom Commands",
+                                "avatar": "https://cdn.discordapp.com/avatars/724847752449753140/d7c650a4fa67aa734cf441d06d412c4d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:32:09.383Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "hmmm",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:19:45.847Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T12:19:21.242Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "我现在没时间",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T11:57:35.871Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "k",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T11:57:06.898Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "done",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T11:56:47.279Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T11:53:04.492Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "管理员会议室",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "管理员专区",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "又没有讲不可以",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:04:14.950Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "e",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:04:02.816Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": ":<",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:03:56.276Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": "这里也有Lucas不可以吗",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:03:54.058Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "你去错伺服器了ww",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:03:38.067Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "e",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:03:17.315Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": "你的影片勒",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:03:00.721Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": "@​LucasYes555",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:02:53.686Z"
+                            },
+                            {
+                                "username": "Siwei090605",
+                                "avatar": "https://cdn.discordapp.com/avatars/779637684285079562/3f1280f806a449060ffb0d144cf6af9d.webp",
+                                "content": "@​LucasYes555",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-08T16:02:51.327Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "我要計劃一下",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T08:33:44.680Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "話說你打算什麼時候讓巨人回歸",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T08:33:30.864Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "hmmm",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T08:33:26.889Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "反正恆星活動只是為了鋪陳多元宇宙活動的工具",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T08:32:52.443Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "可能多元宇宙活動的時候有機會用上",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T08:32:18.645Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "k",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:47:08.793Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "所以可以删18加机器人",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:45:05.617Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "我关掉18加的頻道了",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:44:56.801Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "xd",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:44:45.586Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "但我觉得这伺服器应该没用上",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:44:42.605Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "看你们",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T07:44:27.126Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "不然機器人和頻道都不行",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:42.875Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "fk",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:31.410Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "对ye",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:27.658Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "要先把身份弄好",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:16.271Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "？",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:14.580Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "不對",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:52:03.222Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "w",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:50:26.704Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "什麼是中二呢\n例如||爆王流星之類的||",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:50:15.282Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "oke",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:50:06.049Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "先加机器人吧",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:49:53.967Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "時間線這些原理真實存在所以不叫中二",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:49:50.784Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "我觉得可以",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:49:28.594Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "意思是不用按照原本的伺服器去造",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:49:15.761Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "||~~有点中二XD~~||",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:49:06.565Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "uh",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:48:48.593Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "將這一個的時間順序重新編排",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:48:40.691Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "所以我打算將時間線分開",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:48:17.765Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "而且要复原很难",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:48:07.696Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "對",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:48:01.750Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "工程蛮大",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:47:50.742Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "hmm",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:47:33.016Z"
+                            },
+                            {
+                                "username": "bluedream",
+                                "avatar": "https://cdn.discordapp.com/avatars/764475964595240971/c31a89c06e618e52622d31593bfbabbb.webp",
+                                "content": "我們要不要把這個伺服器完成",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:46:07.677Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "历史记录",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "管理员专区",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "成員",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            },
+            {
+                "name": "公告類別",
+                "permissions": [
+                    {
+                        "roleName": "成員",
+                        "allow": "1049600",
+                        "deny": "0"
+                    },
+                    {
+                        "roleName": "可愛的機器人【女巨人】(bot)",
+                        "allow": "1024",
+                        "deny": "0"
+                    },
+                    {
+                        "roleName": "@everyone",
+                        "allow": "0",
+                        "deny": "1024"
+                    }
+                ],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "公告",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "公告類別",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "投票",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "公告類別",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            },
+            {
+                "name": "綜合",
+                "permissions": [
+                    {
+                        "roleName": "可愛的機器人【女巨人】(bot)",
+                        "allow": "1024",
+                        "deny": "0"
+                    },
+                    {
+                        "roleName": "@everyone",
+                        "allow": "0",
+                        "deny": "1024"
+                    },
+                    {
+                        "roleName": "成員",
+                        "allow": "1049600",
+                        "deny": "0"
+                    }
+                ],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "💬聊天",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": ".w.",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-30T08:34:06.023Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "刷頻",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "cat",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:10:57.880Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "cat",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:10:54.717Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "cat",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:10:53.236Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "數字接龍",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "10",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:13:06.959Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "9",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:13:03.849Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "8",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:13:01.703Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "7",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:59.991Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "6",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:57.993Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "5",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:56.459Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "4",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:53.589Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "3",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:51.189Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "2",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:49.229Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "1",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:12:47.597Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "中文詞語接龍",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "水流",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:21:19.859Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "心如止水",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-06T06:20:39.527Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "貓貓很開心",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:20:15.879Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "叫貓貓",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:20:04.433Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "貓貓叫",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:20:01.043Z"
+                            },
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "一隻貓",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:14:32.705Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "英文詞語接龍",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "doge好棒",
+                                "avatar": "https://cdn.discordapp.com/avatars/849281901121765376/3896cff9a684706329f96e38971a3c74.webp",
+                                "content": "I am a cat",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-03-29T15:15:08.522Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "迷因梗圖",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "astd-聊天室",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "綜合",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "@everyone",
+                                "allow": "0",
+                                "deny": "1024"
+                            },
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "1024",
+                                "deny": "0"
+                            },
+                            {
+                                "roleName": "成員",
+                                "allow": "1049600",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "<#710745950918017028>",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-25T04:56:58.597Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "Also check out group store, https://www.roblox.com/groups/5292947/Top-Down-Games#!/about\nfor awesome accessories!",
+                                "embeds": [
+                                    {
+                                        "title": "Top Down Games",
+                                        "type": "rich",
+                                        "description": "Top Down Games is a group on Roblox owned by FruitySama with 1152097 members. TOP DOWN GAMEs",
+                                        "url": "https://www.roblox.com/groups/5292947/Top-Down-Games",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://tr.rbxcdn.com/54e35e06569f883db4467cc5c37d9a4d/150/150/Image/Png",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/xiEz7QZvVAKyq2y6y6EgbfjgU60f76PKixecRQQdCkk/https/tr.rbxcdn.com/54e35e06569f883db4467cc5c37d9a4d/150/150/Image/Png",
+                                            "height": 150,
+                                            "width": 150
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-25T04:21:27.811Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "Large Mother event return?",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-25T04:01:02.195Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "Update Code: \"summerwoo2022\" (750 GEMS) (EXP IV)\n@Code Campers",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-19T06:12:59.874Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "https://gyazo.com/0bb03073a4147da86623cf09b01ecd63",
+                                "embeds": [
+                                    {
+                                        "title": "Gyazo",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": "https://gyazo.com/0bb03073a4147da86623cf09b01ecd63",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://i.gyazo.com/thumb/1200/0bb03073a4147da86623cf09b01ecd63-gif.gif",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/2lNNRD8koItFrtczUeIeKKQGUtqDdnGBC2hyfIxIpVk/https/i.gyazo.com/thumb/1200/0bb03073a4147da86623cf09b01ecd63-gif.gif",
+                                            "height": 590,
+                                            "width": 1000
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-18T05:26:21.577Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "code: \"owouch\" (400 gems)\n@Code Campers",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-14T23:09:09.712Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "https://tenor.com/view/wb-gif-23349213",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": "https://tenor.com/view/wb-gif-23349213",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://media.tenor.com/dKx67rXkk5YAAAAD/wb.png",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/0HRrciWaI4Gn7J_PyNiUwRyEFs_6Due8CEux5Lqs2Dw/https/media.tenor.com/dKx67rXkk5YAAAAD/wb.png",
+                                            "height": 354,
+                                            "width": 640
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-14T06:16:25.890Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "```New Code: \"changesjune\" (450 GEMS)```\n@Code Campers \nCheck <#710745950918017028> for changes.",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-06-02T23:37:08.452Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "```Small Update:\n\nI said back then I would make an event for free gems/gold. So my idea was this, hope you enjoy.\n\nIntroducing Tickets,\nEveryone starts off with 3 green tickets near their rank icon.\n\nEvery daily login refill one of your 3 tickets, or restore them using robux (support the devs)\n\nUse your ticket to do ticket missions that can give you different type of rewards of your choice\nsuch as units from the banner and gems/golds!\nExtreme mode in the mission will get higher chance for reward-drop.\n\nRequirements for Ticket Mission is LVL 30+ and one ticket.\n\nUpdate Code: ticketupdate (400 GEMS)\n```",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-05-22T06:05:42.474Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "@here https://www.roblox.com/games/4996049426/2X-EXP-UPDATE-All-Star-Tower-Defense",
+                                "embeds": [
+                                    {
+                                        "title": "[2X EXP+ UPDATE!] All Star Tower Defense",
+                                        "type": "rich",
+                                        "description": "Check out [2X EXP+ UPDATE!] All Star Tower Defense. It’s one of the millions of unique, user-generated 3D experiences created on Roblox. ⚔️Use your units to fend off waves of enemies\n⚡Each Unit has Unique Cool Abilities\n⬆️Upgrade your Troops During battle to unlock new attacks\n⛩️Summon from the Gate and unlock New Units to use them in battles\n🌀T...",
+                                        "url": "https://www.roblox.com/games/4996049426/2X-EXP-UPDATE-All-Star-Tower-Defense",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://tr.rbxcdn.com/2fa84997531d9e0f2fb9e25eab991de6/500/280/Image/Jpeg",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/tp3-ytRuC4xDv0rCg4NM4w5-tgimwRfPXSdYX84uo9c/https/tr.rbxcdn.com/2fa84997531d9e0f2fb9e25eab991de6/500/280/Image/Jpeg",
+                                            "height": 280,
+                                            "width": 498
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-05-22T05:25:59.874Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "Maintenance at 10 PM EST \nfor small update.",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-05-22T04:44:07.556Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "https://tenor.com/view/super-saiyan-blue-super-saiyan-blue-goku-goku-super-saiyan-super-saiyan-saiyan-gif-23101994",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": "https://tenor.com/view/super-saiyan-blue-super-saiyan-blue-goku-goku-super-saiyan-super-saiyan-saiyan-gif-23101994",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://media.tenor.com/Bj23Q8Erz2sAAAAD/super-saiyan-blue-super-saiyan-blue-goku.png",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/YJWYuAsQyuld4fcM9xAw_no95NAFfMrn9Nv4hUpzDyI/https/media.tenor.com/Bj23Q8Erz2sAAAAD/super-saiyan-blue-super-saiyan-blue-goku.png",
+                                            "height": 360,
+                                            "width": 640
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-05-16T22:22:46.774Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "https://tenor.com/view/baki-yujiro-hanma-demon-back-tshirt-ripped-glowing-eyes-gif-17745619",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": "https://tenor.com/view/baki-yujiro-hanma-demon-back-tshirt-ripped-glowing-eyes-gif-17745619",
+                                        "timestamp": null,
+                                        "color": null,
+                                        "fields": [],
+                                        "thumbnail": {
+                                            "url": "https://media.tenor.com/CMcfu2lAwJ0AAAAD/baki-yujiro-hanma.png",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/JX_9AEwtWupKBy7sdPsyVszk9UqZoDwGtpYfyBWR_NI/https/media.tenor.com/CMcfu2lAwJ0AAAAD/baki-yujiro-hanma.png",
+                                            "height": 360,
+                                            "width": 640
+                                        },
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-05-13T07:15:55.260Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "@Code Campers \nNew Code: \"allstarspring\" (450 GEMS)\nNew PS Server",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-24T19:31:14.206Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "IMPORTANT:\n\nChanged levelling to be made easier\nChanged everyones levels to follow the new levelling requirements",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-23T02:19:07.458Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "```\nChanged levelling to be made easier\nChanged everyones levels to follow the new levelling requirements\nNew Units\nNew Mission\nChanged reward from beating all daily tasks to 300 emeralds from 150 emeralds\nHigher max inventory limit\nMore gems from beating daily tasks\nMore damage task\nSlighty raised amount of gems and emeralds you get from certain robux packs\nBug Fixes\nBlessing changes\nand more...\n\nCode: \"newaprilupdate\" (450 GEMS)\n```",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-23T02:19:07.380Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "```1M+ Likes Code!\nJoin a new private server to claim the 1M code!\n\nNew Code: \"astd1millikes\" (1250 GEMS)```\n@Code Campers",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-16T04:07:05.054Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "。。",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-09T05:37:13.026Z"
+                            },
+                            {
+                                "username": "firegod",
+                                "avatar": "https://cdn.discordapp.com/avatars/713971199012765736/c14c5f9ac4d455ca81238b316c4e09fd.webp",
+                                "content": "uh",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-09T05:36:04.579Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "All Star #『📢』game-announcements",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-09T05:31:36.180Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "All Star #『📢』game-announcements",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-04-09T05:31:16.074Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [
+                                    {
+                                        "name": "Raid4.png",
+                                        "attachment": "https://cdn.discordapp.com/attachments/710745950918017026/987551595673825371/Raid4.png"
+                                    }
+                                ],
+                                "pinned": false,
+                                "sentAt": "2022-06-18T05:40:21.023Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "Use your tickets here.",
+                                "embeds": [],
+                                "files": [
+                                    {
+                                        "name": "unknown.png",
+                                        "attachment": "https://cdn.discordapp.com/attachments/710745950918017026/977766754069659698/unknown.png"
+                                    }
+                                ],
+                                "pinned": false,
+                                "sentAt": "2022-05-22T05:43:21.364Z"
+                            },
+                            {
+                                "username": "All Star #『📢』game-announcements",
+                                "avatar": "https://cdn.discordapp.com/avatars/962223148697288735/eddb33db0199ca4ded014bd9e29fa07d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [
+                                    {
+                                        "name": "MysterySneak.png",
+                                        "attachment": "https://cdn.discordapp.com/attachments/710745950918017026/963141838963871814/MysterySneak.png"
+                                    }
+                                ],
+                                "pinned": false,
+                                "sentAt": "2022-04-11T20:20:36.108Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            },
+            {
+                "name": "指令区",
+                "permissions": [
+                    {
+                        "roleName": "可愛的機器人【女巨人】(bot)",
+                        "allow": "268438528",
+                        "deny": "0"
+                    }
+                ],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "音乐指令",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "指令区",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "268438528",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "<a:error:980086028113182730> | 你必須擁有`管理者`才能使用",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 15548997,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:43:12.199Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 5763719,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:43:11.302Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/備份設置",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:42:50.388Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/備份設置",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:42:29.988Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "你先亂刪一些頻道試一下",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:42:29.435Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/加載備份 id:   992626311690321923",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:42:17.356Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/加載備份 id:992626311690321923",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:42:04.715Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "993164288728367104",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:52.787Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "nice",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:51.766Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "不怕炸群了",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:47.722Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "備好了",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:35.364Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "我要輸入id",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:33.182Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "對",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:20.828Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "<a:greentick:980496858445135893> | 成功備份，你的備份id為`993164288728367104`使用`/加載備份 id:993164288728367104`進行還原",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 5763719,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:16.544Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "備份",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:07.005Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "<:list:992002476360343602> 以下是【Lucas進擊的巨人軍團-Lucas attack on titan army】-[BETA]的所有備份id",
+                                        "type": "rich",
+                                        "description": "輸入`/備份查詢 備份id`可進行查看詳細資訊`\n`",
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 9795217,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:40:04.014Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "機器人指令",
+                                        "type": "rich",
+                                        "description": ">>> 我的前奏為 `/`\n開啟此清單, 或是使用 `/help 指令名稱:[指令名稱]` 來了解這個指令用法!",
+                                        "url": null,
+                                        "timestamp": "2022-07-03T14:39:51.954Z",
+                                        "color": 1370746,
+                                        "fields": [
+                                            {
+                                                "name": "<:backup:992010707354783775> - 備份系統指令",
+                                                "value": "`查看備份系統的指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:megaphone:985943890148327454> - 公告系統指令",
+                                                "value": "`查看公告指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "🪂 - 加入設置指令",
+                                                "value": "`查看加入後的設置`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:bestpractice:986070549115596950> - 實用指令資訊",
+                                                "value": "`查看一些實用的功能`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:lottery:985946439253381200> - 抽獎系統指令",
+                                                "value": "`查看抽獎系統指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:ticket:985945491093205073> - 私人頻道指令",
+                                                "value": "`查看私人頻道指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:manager:986069915129769994> - 管理系統指令",
+                                                "value": "`查看管理指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": ":bar_chart: - 統計系統指令",
+                                                "value": "`查看統計系統指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:level1:985947371957547088> - 經驗系統指令",
+                                                "value": "`查看經驗系統指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": ":sound: - 語音包廂指令",
+                                                "value": "`查看語音包廂指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:warning:985590881698590730> - 警告系統指令",
+                                                "value": "`有關警告的所有指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:music1:985946956591423518> - 音樂系統指令",
+                                                "value": "`查看音樂系統指令`",
+                                                "inline": true
+                                            },
+                                            {
+                                                "name": "<:tickmark:985949769224556614> - 驗證系統指令",
+                                                "value": "`查看驗證系統指令`",
+                                                "inline": true
+                                            }
+                                        ],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": {
+                                            "text": "來自DarkStar#8457的查詢",
+                                            "icon_url": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp"
+                                        }
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:51.778Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/help",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:51.646Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "/help",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:36.490Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "ok",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:06.359Z"
+                            },
+                            {
+                                "username": "LucasYes555",
+                                "avatar": "https://cdn.discordapp.com/avatars/843003024942170122/c25a8622e8fd0a91162616bd8d4321e2.webp",
+                                "content": "邀那机器人",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:39:03.286Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "？",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:38:55.223Z"
+                            },
+                            {
+                                "username": "DarkStar",
+                                "avatar": "https://cdn.discordapp.com/avatars/889098651920642101/5b6d334f2a8868546b0edf6c86882828.webp",
+                                "content": "什麼都沒有？",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:38:39.937Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "@​LucasYes555",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:30:16.821Z"
+                            },
+                            {
+                                "username": "九尾",
+                                "avatar": "https://cdn.discordapp.com/avatars/854213847253385276/bbcc5c4f3a4ad97605514b67663ca2c0.webp",
+                                "content": "哈囉",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-03T14:29:57.684Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "lu币指令",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "指令区",
+                        "topic": null,
+                        "permissions": [
+                            {
+                                "roleName": "可愛的機器人【女巨人】(bot)",
+                                "allow": "268438528",
+                                "deny": "0"
+                            }
+                        ],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            }
+        ],
+        "others": [
+            {
+                "type": "GUILD_VOICE",
+                "name": "聊天房",
+                "bitrate": 64000,
+                "userLimit": 0,
+                "parent": null,
+                "permissions": [
+                    {
+                        "roleName": "成員",
+                        "allow": "1049600",
+                        "deny": "0"
+                    },
+                    {
+                        "roleName": "@everyone",
+                        "allow": "0",
+                        "deny": "1049600"
+                    }
+                ]
+            }
+        ]
+    },
+    "roles": [
+        {
+            "name": "Lucas 艾倫",
+            "color": "#edcd55",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 14,
+            "isEveryone": false
+        },
+        {
+            "name": "厉害管理员",
+            "color": "#e8c02a",
+            "hoist": true,
+            "permissions": "2199022731263",
+            "mentionable": true,
+            "position": 13,
+            "isEveryone": false
+        },
+        {
+            "name": "管理員【兵長】(administrator)",
+            "color": "#831f18",
+            "hoist": true,
+            "permissions": "1073598680825",
+            "mentionable": true,
+            "position": 12,
+            "isEveryone": false
+        },
+        {
+            "name": "實習管理員【野獸巨人】(Internship Admin)",
+            "color": "#1f8b4c",
+            "hoist": true,
+            "permissions": "2171373875143",
+            "mentionable": false,
+            "position": 11,
+            "isEveryone": false
+        },
+        {
+            "name": "DC合作【萊恩】(DC cooperate)",
+            "color": "#a84300",
+            "hoist": true,
+            "permissions": "0",
+            "mentionable": false,
+            "position": 10,
+            "isEveryone": false
+        },
+        {
+            "name": "斗內多次的斗內者【艾爾米】(the most donated)",
+            "color": "#e67e22",
+            "hoist": false,
+            "permissions": "0",
+            "mentionable": false,
+            "position": 9,
+            "isEveryone": false
+        },
+        {
+            "name": "斗内者【米卡莎】(some donated)",
+            "color": "#c27c0e",
+            "hoist": false,
+            "permissions": "0",
+            "mentionable": false,
+            "position": 8,
+            "isEveryone": false
+        },
+        {
+            "name": "ytb或合作夥伴【超大型巨人】(YTB partner)",
+            "color": "#9b59b6",
+            "hoist": true,
+            "permissions": "0",
+            "mentionable": false,
+            "position": 7,
+            "isEveryone": false
+        },
+        {
+            "name": "可愛的機器人【女巨人】(bot)",
+            "color": "#ad1457",
+            "hoist": false,
+            "permissions": "2171373875143",
+            "mentionable": false,
+            "position": 6,
+            "isEveryone": false
+        },
+        {
+            "name": "我幸運仔(lucky boy or girl)",
+            "color": "#f1c40f",
+            "hoist": false,
+            "permissions": "0",
+            "mentionable": false,
+            "position": 5,
+            "isEveryone": false
+        },
+        {
+            "name": "一般垃圾(人渣中的人渣，屁孩中的屁孩)【普通巨人】(trash)",
+            "color": "#818689",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 4,
+            "isEveryone": false
+        },
+        {
+            "name": "1.16.5 mc 玩家(mc 1.16.6 players)",
+            "color": "#25c059",
+            "hoist": false,
+            "permissions": "1071698660929",
+            "mentionable": true,
+            "position": 3,
+            "isEveryone": false
+        },
+        {
+            "name": "成員",
+            "color": "#3498db",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 2,
+            "isEveryone": false
+        },
+        {
+            "name": "@everyone",
+            "color": "#000000",
+            "hoist": false,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 0,
+            "isEveryone": true
+        }
+    ],
+    "bans": [],
+    "emojis": [],
+    "members": [],
+    "createdTimestamp": 1656859391707,
+    "guildID": "958332787646160926",
+    "id": "993165015072768001",
+    "iconBase64": "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",
+    "iconURL": "https://cdn.discordapp.com/icons/958332787646160926/8ef98d3b38042fb9e3eaaf1231edcac3.webp"
+}

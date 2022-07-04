@@ -13,7 +13,7 @@ const {
  } = require('discord.js');
 module.exports = {
     name: '選取身分組-表情符號版',
-    description: '設定領取身分組的消息-點按鈕自動增加身分組',
+    description: '設定領取身分組的消息-點按鈕自動增加身分組(如要更改某個表情符號所給予的身分組，請一樣打這個指令)',
     options: [{
         name: '訊息url',
         type: 'STRING',
@@ -58,7 +58,7 @@ module.exports = {
             react: emoji,
         }, async (err, data) => {
             if (err) throw err; 
-            if (!data) {
+            if(data) data.delete();
             data = new message_reaction({
                 guild: interaction.guild.id,
                 message: message32.id,
@@ -71,9 +71,6 @@ module.exports = {
             .setColor("GREEN")
             interaction.reply({embeds:[embed]})
             return
-            } else {
-            return errors("你已經對這個訊息設定過這個表情符號囉!")
-            }
         })
     })
 }}

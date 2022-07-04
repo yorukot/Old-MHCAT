@@ -15,9 +15,11 @@ const {
 const guild = require('../models/guild.js');
 const join_message = require("../models/join_message.js")
 const verification = require('../models/verification.js')
+const cron_set = require('../models/cron_set.js');
 const moment = require('moment')
 var validateColor = require("validate-color").default;
 const client = require('../index');
+const { description } = require("../slashCommands/經驗系統指令/text_set.js");
 client.on('interactionCreate', async (interaction) => {
     function errors(content) {
         const embed = new MessageEmbed().setTitle(`${content}`).setColor("RED");
@@ -37,7 +39,60 @@ client.on('interactionCreate', async (interaction) => {
     if (!interaction.isModalSubmit()) return;
     const text = interaction.fields.components[0].components[0].customId
     const all = interaction.fields.components[0].components[0].value
-    if (text.includes("join_msg")) {
+    if (text.includes("cron_set")) {
+        const corn = interaction.fields.getTextInputValue("cron_setcron");
+        const message = interaction.fields.getTextInputValue("cron_setmsg");
+        const color = interaction.fields.getTextInputValue("cron_setcolor");
+        const title = interaction.fields.getTextInputValue("cron_settitle");
+        const content = interaction.fields.getTextInputValue("cron_setcontent");
+        const id = interaction.customId
+        const dsadsa = require('cron-validator') ;
+        if(!dsadsa.isValidCron(corn,{allowSevenAsSunday: true,allowBlankDay: true,alias: true,seconds: true}))return errors("你輸入的不是正確的cron判別式，[點我前往查看cron教學](https://mhcat.xyz)")
+        var parser = require('cron-parser');
+        var interval = parser.parseExpression(corn);
+        //if(Math.abs((interval.next().toDate()).valueOf() - (interval.next().toDate()).valueOf()) < 900000) return errors("每次運行間隔必須大於15分鐘!")
+        if (color && !validateColor(color)) return errors('你傳送的並不是顏色(色碼)')
+        if(!message&&!content&&!title)return errors("你都沒輸入你要發送甚麼，我要怎麼發送啦!")
+        cron_set.findOne({
+            guild: interaction.guild.id,
+            id: id
+        }, async (err, data) => {
+            if(!data){
+                return errors("很抱歉，出現了未知的錯誤，請重試!")
+            }else{
+                const  exampleEmbed = content || title ? 
+                {content: message ? message : null, embeds: [{
+                    color: color ? color : null,
+                    title: title ? title : null,
+                    description: content ? content : null,
+                }]} : {content: message}
+                data.collection.update(({guild: interaction.channel.guild.id,id: id}), {$set: {message: exampleEmbed}})
+                data.collection.update(({guild: interaction.channel.guild.id,id: id}), {$set: {cron: corn}})
+                interaction.reply({content: `:white_check_mark:**以下是該自動通知id:**\`${id}\`\n使用\`/自動通知刪除 id:${id}\`進行刪除\n~~我只是個分隔線，下面是你的訊息預覽~~`})
+                interaction.channel.send(exampleEmbed)
+                    var CronJob = require('cron').CronJob;
+                    const guild = interaction.channel.guild
+                    if(!guild) {data.delete();return console.log("testsetes1")}
+                    const channel = guild.channels.cache.get(data.channel)
+                    if(!channel) {data.delete();return console.log('aaaaa')}
+                    var job = new CronJob(
+                        corn,
+                        function() {
+                            cron_set.findOne({guild: guild.id, id: id}, async (err, data) => {
+                                if(!data){
+                                    return
+                                }else{
+                                    channel.send(exampleEmbed)
+                                }
+                            })
+                        },
+                        null,
+                        true,
+                        'asia/taipei'
+                    );
+            }
+        })
+    }else if (text.includes("join_msg")) {
         const content = interaction.fields.getTextInputValue("join_msgcontent");
         const color = interaction.fields.getTextInputValue("join_msgcolor");
         if (!validateColor(color) && color !== "RANDOM") return errors('你傳送的並不是顏色(色碼)')

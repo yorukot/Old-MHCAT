@@ -1,4 +1,4 @@
-const {
+/*const {
     Client,
     Message,
     MessageEmbed,
@@ -17,7 +17,7 @@ module.exports = {
      * @param {Client} client 
      * @param {Message} message 
      * @param {String[]} args 
-     */
+     *//*
     run: async (client, message, args, Discord) => {
         const channel111 = message.guild.channels.cache.get(message.channel.id);
         const hasPermissionInChannel = channel111
@@ -130,4 +130,4 @@ ${ProgressBar}
         .catch(console.error);
         return
     }
-}
+}*/

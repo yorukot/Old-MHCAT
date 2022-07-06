@@ -10,8 +10,10 @@ const chat = require('../models/chat.js')
 const data = require("../chat.json");
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
+    if(message.guild === null) return;
+    if(!message.guild) return;
     chat.findOne({
-        guild: message.channel.guild.id,
+        guild: message.guild.id,
     }, async (err, data1) => {
     if(!data1) return;
     if(data1.channel !== message.channel.id) return;

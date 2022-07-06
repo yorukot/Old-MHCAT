@@ -1,17 +1,18 @@
 const client = require('../index')
-const { MessageEmbed } = require('discord.js')
-const moment = require('moment')
-const token = require('../config.json')
+const { MessageEmbed,WebhookClient } = require('discord.js')
+const config = require('../config')
+const readywebhook = new WebhookClient({ url: config.readyWebhook })
 client.on('ready', () => {
-    /*const guild = client.guilds.cache.get("976879837471973416")
-    guild.invites.fetch()
-  .then(console.log)
-  .catch(console.error);*/
     console.log(`|機器人成功上線!|`)
+    let embed = new MessageEmbed()
+    .setTitle(`**${client.user.username}**已就緒`)
+    .setColor("GREEN")
+    readywebhook.send({
+        embeds: [embed]
+    })
     setInterval(() => {
         const arrayOfStatus = [
             `/help`
-            //'正在進行維護中'
         ]
         client.user.setPresence({
             activities: [{

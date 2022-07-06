@@ -1,4 +1,4 @@
-const {
+/*const {
     Client,
     Message,
     MessageEmbed,
@@ -18,7 +18,7 @@ module.exports = {
      * @param {Client} client 
      * @param {Message} message 
      * @param {String[]} args 
-     */
+     *//*
     run: async (client, message, args, Discord) => {
         const lodding = new MessageEmbed().setTitle("<a:load:986319593444352071> | 我正在玩命幫你尋找音樂及播放!").setColor("GREEN")
         const lodding_msg = await message.reply({embeds: [lodding]})
@@ -188,4 +188,4 @@ module.exports = {
         .catch(console.error);
         return
     }
-}
+}*/

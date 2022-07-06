@@ -3,7 +3,7 @@ const client = require('../index')
 const voice_xp = require("../models/voice_xp.js");
 const voice_xp_channel = require("../models/voice_xp_channel.js");
 client.on("voiceStateUpdate",  async (oldMember, newMember) => {
-        if(newMember.channelId !== null){
+        if(newMember.channelId !== null && newMember.channelId !== undefined && newMember.channelId){
             voice_xp.findOne({
                 guild: newMember.guild.id,
                 member: newMember.member.id,
@@ -25,6 +25,9 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                 }
                 try {
                 if(!newMember.member) return 
+                if(newMember.member === null) return
+                if(newMember.member === undefined) return
+                if(newMember.member.id) return
                 const stop = setInterval(() => {
                         voice_xp.findOne({
                             guild: newMember.guild.id,
@@ -61,7 +64,6 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                 }, 30000);
             } catch (error) {
                 console.error(moment().utcOffset("+08:00").format('YYYYMMDDHHss'),)
-                console.error(newMember.member)
                 console.error(error)
             }
             })

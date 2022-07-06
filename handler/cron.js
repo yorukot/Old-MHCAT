@@ -6,7 +6,6 @@ setTimeout(() => {
         console.log("|成功執行cron|")
         for(let i = 0; i < data.length; i++){
             if(data[i].cron === null) data[i].delete()
-            console.log(data[i])
             const x = i
             const job = new CronJob(
                 data[x].cron,

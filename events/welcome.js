@@ -22,6 +22,7 @@ client.on("guildMemberAdd", (member) => {
     if (!data) return
     for (x = data.length - 1; x > -1; x--) {
       let role = member.guild.roles.cache.get(data[x].role)
+      if(!role) return
       const owner = await member.guild.fetchOwner();
       if (Number(role.position) >= Number(member.guild.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
       member.roles.add(role)
@@ -57,6 +58,7 @@ client.on("guildMemberAdd", (member) => {
         if(!channel)return 
         const MEMBER = member.user.username
         const content = data.message_content
+        if(!content)return
         const welcome = new MessageEmbed()
       .setAuthor(`🪂 歡迎加入 ${member.guild.name}!`, `${member.guild.iconURL() === null ? member.guild.me.displayAvatarURL({dynamic: true}) : member.guild.iconURL()}`)
       .setDescription(content.replace("(MEMBERNAME)", MEMBER))
@@ -84,6 +86,7 @@ client.on("guildMemberRemove", (member) => {
         if(!channel)return 
         const MEMBER = member.user.username
         const content = data.message_content
+        if(!content)return
         const welcome = new MessageEmbed()
       .setTitle(`${data.title}`)
       .setDescription(content.replace("(MEMBERNAME)", MEMBER))

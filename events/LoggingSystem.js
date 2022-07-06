@@ -14,6 +14,9 @@ client.on("messageContentEdited", (message, oldContent, newContent) => {
         if(!data)return;
     const Logs = client.channels.cache.get(data.channel_id);
     if(!Logs)return;
+    if(!message.author) return;
+    if(message.author === null) return;
+    if(message.author === undefined) return;
     user = message.author.username
     const MessageEdited = new MessageEmbed()
         .setColor(message.guild.me.displayHexColor)
@@ -28,13 +31,18 @@ client.on("messageContentEdited", (message, oldContent, newContent) => {
 })
 
 client.on('messageDelete', async (message) => {
+    if(message.guild === null) return;
+    if(!message.guild) return;
     logging.findOne({
-        guild: message.channel.guild.id,
+        guild: message.guild.id,
     }, async (err, data) => {
         if(!data)return;
     const Logs = client.channels.cache.get(data.channel_id);
     const pic = message.attachments.size > 0 ? message.attachments.first().url : null
     if(!Logs)return;
+    if(!message.author) return;
+    if(message.author === null) return;
+    if(message.author === undefined) return;
     user = message.author.username
     const deleted = new MessageEmbed()
     .setColor(message.guild.me.displayHexColor)

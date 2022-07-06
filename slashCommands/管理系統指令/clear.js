@@ -45,9 +45,7 @@ module.exports = {
             .setTitle("錯誤!")
             .setColor("RED")
             .setDescription(`opps 出現了錯誤，非常抱歉\n以回報給夜貓，如果可以的話歡迎私訊\`夜貓#5042\`\n錯誤代碼:\n\`\`\`${e}\`\`\``)
-            const channel = client.channels.cache.get("975217115059597363")
-            channel.send({embeds: [error_message]})
-            interaction.reply({embeds: [error_message]})       
+            interaction.reply({embeds: [error_message]})
         }
     }
 }

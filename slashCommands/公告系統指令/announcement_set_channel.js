@@ -37,9 +37,9 @@ module.exports = {
                 data.collection.update(({guild: interaction.channel.guild.id}), {$set: {announcement_id: channel.id}})
                 // 設定embed & send embed
                 const announcement_set_embed = new MessageEmbed()
-                .setTitle("公告系統")
-                .setDescription(`您的公告頻道成功更新\n您目前的公告頻道為 ${channel}`)
-                .setColor("GREEN")
+                .setTitle("<:megaphone:985943890148327454> 公告系統")
+                .setDescription(`<:Channel:994524759289233438> **您的公告頻道成功__更新__!!**\n**您目前的公告頻道為**:${channel}`)
+                .setColor(client.color.greate)
                 interaction.reply({embeds: [announcement_set_embed]})
             }else{
                 // 創建一個新的data
@@ -50,9 +50,9 @@ module.exports = {
                 data.save()
                 // 設定embed & send embed
                 const announcement_set_embed = new MessageEmbed()
-                .setTitle("公告系統")
-                .setDescription(`您的公告頻道成功更新\n您目前的公告頻道為 ${channel}`)
-                .setColor("GREEN")
+                .setTitle("<:megaphone:985943890148327454> 公告系統")
+                .setDescription(`<:Channel:994524759289233438> **您的公告頻道成功__創建__!!**\n**您目前的公告頻道為**:${channel}`)
+                .setColor(client.color.greate)
                 interaction.reply({embeds: [announcement_set_embed]})
             }
         })

@@ -2,7 +2,7 @@ const client = require('../index')
 const { MessageEmbed,WebhookClient } = require('discord.js')
 const config = require('../config')
 const readywebhook = new WebhookClient({ url: config.readyWebhook })
-client.on('ready', () => {
+client.once('ready', () => {
     console.log(`|機器人成功上線!|`)
     let embed = new MessageEmbed()
     .setTitle(`**${client.user.username}**已就緒`)
@@ -21,8 +21,8 @@ client.on('ready', () => {
             status: 'IDLE',
             type: "IDLE"
         })
-    }, 10000)/*
-const {token} = require('../config.json')
+    }, 10000)
+/*const {token} = require('../config.json')
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const rest = new REST({ version: '9' }).setToken(`${token}`);

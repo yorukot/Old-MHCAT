@@ -31,7 +31,6 @@ module.exports = {
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const channel = interaction.options.getChannel("頻道")
         const channel_id = channel.id
-        if(channel.type !== 'GUILD_TEXT' && channel.type !== 'GUILD_NEWS')return errors("很抱歉，你給的並不是一個**文字**頻道")
         join_message.findOne({
             guild: interaction.guild.id,
         }, async (err, data) => {

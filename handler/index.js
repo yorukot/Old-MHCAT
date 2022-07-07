@@ -7,7 +7,7 @@ const { aliases } = require('..');
 const globPromise = promisify(glob);
 
 module.exports = async (client) => {
-    //Command Handler
+    
     const commandfiles = await globPromise(`${process.cwd()}/commands/**/*.js`);
     commandfiles.map((value) => {
         const file = require(value);
@@ -21,9 +21,6 @@ module.exports = async (client) => {
         if (file.aliases && Array.isArray(file.aliases)) { file.aliases.forEach(alias => client.aliases.set(alias, file.name)) }
     })
 
-    //Event Handler
     const eventfiles = await globPromise(`${process.cwd()}/events/*.js`);
-    eventfiles.map((value) => require(value)); // Now lets add a prefix
+    eventfiles.map((value) => require(value));
 }
-
-// You can make multiple folders

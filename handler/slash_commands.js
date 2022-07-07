@@ -1,19 +1,27 @@
-const fs = require('fs');
-
-const {
-    commands
-} = require('../index');
-const {
-    readdirSync
-} = fs;
 const client = require('../index');
-const { UserPerms } = require('../slashCommands/經驗系統指令/text_set');
+const fs = require('fs');
+const {readdirSync} = fs;
+const {token} = require('../config.json')
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+const rest = new REST({ version: '9' }).setToken(`${token}`);
+client.once('ready', () => {
+setTimeout(() => {
+
+rest.get(Routes.applicationCommands("984485913201635358"))
+    .then(data => {
+        for (const command of data) {
+            client.application.commands.fetch(`${command.id}`)
+            .then( (command) => {
+            command.delete()
+            }).catch(console.error);
+    }
+});
 
 readdirSync('./slashCommands').forEach(async (dir) => {
     const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) => 
         file.endsWith(".js")
     )
-
 
         commands.map(async cmd => {
             let file = require(`../slashCommands/${dir}/${cmd}`);
@@ -29,11 +37,8 @@ readdirSync('./slashCommands').forEach(async (dir) => {
                 DefaultMemberPermissions,
             }
 
-            let option = name == "No command name." ? '❌' : '✅';
-
-            console.log(`|成功加載斜線命令 ${option} |${name}!|`);
-
-            if (option == '✅') {
+            let option = name == "No command name." ? '❌斜線命令加載' : '✅ 斜線命令加載';
+            if (option == '✅ 斜線命令加載') {
                 setTimeout(async () => {
                     client.slash_commands.set(name, {
                         ...data,
@@ -43,9 +48,10 @@ readdirSync('./slashCommands').forEach(async (dir) => {
                         video: file.video,
                     });
                     await client.application.commands.create(data);
-
-                }, 10000);
-            
+                    console.log(`${option} | ${name}`)
+                }, 15000);
             }
-        })        
+        })
+    })
+}, 500);
 })

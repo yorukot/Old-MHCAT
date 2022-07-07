@@ -163,7 +163,8 @@ client.on("interactionCreate", async (interaction) => {
                         time: moment().utcOffset("+08:00").format('YYYY年MM月DD日 HH點mm分'),
                         id: interaction.user.id,
                     }
-                if(Number(data.date) >= Number(moment().utcOffset("+08:00").format('YYYYMMDDHH'))){
+                const date = Math.floor(Date.now() / 1000)
+                 if(Number(data.date) >= Number(date)){
                     data.member.push(object)
                     data.save() 
                     const greate = new MessageEmbed()

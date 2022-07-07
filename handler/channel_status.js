@@ -1,5 +1,7 @@
+const { functions } = require('lodash');
 const client = require('../index');
 const Number = require('../models/Number.js')
+const role_number = require('../models/role.js')
 setInterval(() => {
     const dsadsadsadsa = client.guilds.cache.get("976879837471973416");
     const channeldsadsadsdasas = dsadsadsadsa.channels.cache.get("988428320087625738")
@@ -16,18 +18,24 @@ setInterval(() => {
         const all_channel = guild.channels.cache.filter((c) => c.type !== "GUILD_CATEGORY").size;
         const text_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
         const voice_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_VOICE").size;
-        // memberNumber =================================================================================================================
-        const get_memberNumber = guild.channels.cache.get(data[x].memberNumber)
-        if(get_memberNumber){
-        const channel_name = get_memberNumber.name
-        if(channel_name.search(`${data[x].memberNumber_name}`) === -1){
-            get_memberNumber.setName(`${guild.members.cache.size}`)
-            .catch(console.error);
-        }else{
-            get_memberNumber.setName(channel_name.replace(`${data[x].memberNumber_name}`,`${guild.members.cache.size}`))
-            .catch(console.error);
+        function set_channel_name(channelid, oldNumber, newNumber){
+            const guild = client.guilds.cache.get(data[x].guild);
+            if(!guild) return;
+            const get_memberNumber = guild.channels.cache.get(channelid)
+            if(!get_memberNumber) return
+            const channel_name = get_memberNumber.name
+            if(channel_name.search(`${oldNumber}`) === -1){
+                get_memberNumber.setName(`${newNumber}`)
+                .catch(console.error);
+            }else{
+                get_memberNumber.setName(channel_name.replace(`${oldNumber}`,`${newNumber}`))
+                .catch(console.error);
+            }
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {memberNumber_name: `${guild.members.cache.size}`}})}
+
+        // memberNumber =================================================================================================================
+        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.members.cache.size)
+        data[x].collection.update(({guild: guild.id,}), {$set: {memberNumber_name: guild.members.cache.size}})
         // userNumber =================================================================================================================
         const get_userNumebr = guild.channels.cache.get(data[x].userNumber)
         if(get_userNumebr){
@@ -88,6 +96,31 @@ setInterval(() => {
             .catch(console.error);
         }
         data[x].collection.update(({guild: guild.id,}), {$set: {voicenumber_name: `${voice_channel_number}`}})}
+     }else{
+        return
      }}
+    })
+    role_number.find({}, async (err, data) => {
+        if (err) throw err;
+        if(!data){
+            return
+        }else{
+            for(let x = 0; x < data.length; x++){
+                const guild = client.guilds.cache.get(data[x].guild);
+        if(!guild) return
+        const members = guild.members.cache.filter(member => member.roles.cache.some(role1 => role1.id === data[x].role));
+        const role_channel_name = guild.channels.cache.get(data[x].channel)
+        if(!role_channel_name)return
+        const channel_name = role_channel_name.name
+        if(channel_name.search(`${data[x].channel_name}`) === -1){
+            role_channel_name.setName(`${members.size}`)
+            .catch(console.error);
+        }else{
+            role_channel_name.setName(channel_name.replace(`${data[x].channel_name}`,`${members.size}`))
+            .catch(console.error);
+        }
+        data[x].collection.update(({guild: guild.id,role: data[x].role}), {$set: {channel_name: `${members.size}`}})
+            }
+        }
     })
 }, 600000);

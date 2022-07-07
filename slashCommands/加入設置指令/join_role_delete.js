@@ -39,9 +39,9 @@ module.exports = {
                 data.delete()
             }
             const embed = new MessageEmbed()
-            .setTitle("成功刪除!")
-            .setColor("GREEN")
-            .setDescription(`身分組: <@${role}>!`)
+            .setTitle("🪂 加入身分組系統")
+            .setColor(client.color.greate)
+            .setDescription(`<:trashbin:986308183674990592>**成功刪除:**\n身分組: <@${role}>!`)
             interaction.reply({embeds: [embed]})
         })
     }

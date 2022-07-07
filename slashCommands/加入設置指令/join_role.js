@@ -44,9 +44,9 @@ module.exports = {
             return errors("很抱歉，這個身分組已經被註冊了，請重試!")
             }
             const embed = new MessageEmbed()
-            .setTitle("設置成功!")
-            .setColor("GREEN")
-            .setDescription(`身分組: <@${role}>!`)
+            .setTitle("🪂 加入身分組系統")
+            .setColor(client.color.greate)
+            .setDescription(`<a:green_tick:994529015652163614> **成功創建加入給身分組!**\n**身分組:** <@${role}>!`)
             interaction.reply({embeds: [embed]})
         })
     }

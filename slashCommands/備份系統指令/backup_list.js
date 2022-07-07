@@ -27,7 +27,8 @@ module.exports = {
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);        backup.list().then((backups) => {
+        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);        
+        backup.list().then((backups) => {
             interaction.reply({embeds: [
                 new MessageEmbed()
                 .setTitle(`<:list:992002476360343602> 以下是${interaction.guild.name}的所有備份id`)

@@ -3,6 +3,7 @@ const client = require('../index');
 const cron_set = require('../models/cron_set.js')
 setTimeout(() => {
      cron_set.find({}, async (err, data) => {
+        if(!data) return;
         for(let i = 0; i < data.length; i++){
             if(data[i].cron === null) data[i].delete()
             const x = i
@@ -30,6 +31,7 @@ setTimeout(() => {
 
 
 cron_set.find({}, async (err, data) => {
+    if(!data) return;
     for(let i = 0; i < data.length; i++){
         if(data[i].cron === null) data[i].delete()
     }

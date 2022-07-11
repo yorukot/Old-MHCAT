@@ -3,10 +3,12 @@ const client = require('../index');
 const Number = require('../models/Number.js')
 const role_number = require('../models/role.js')
 setInterval(() => {
+    if(client.user.id === '964185876559196181'){ 
     const dsadsadsadsa = client.guilds.cache.get("976879837471973416");
     const channeldsadsadsdasas = dsadsadsadsa.channels.cache.get("988428320087625738")
     channeldsadsadsdasas.setName(`🌐│伺服器:${client.guilds.cache.size}`)
-            .catch(console.error);
+    .catch(console.error);
+    }
     Number.find({
     }, async (err, data) => {
      if(!data) return;

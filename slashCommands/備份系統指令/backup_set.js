@@ -19,6 +19,8 @@ module.exports = {
     UserPerms: '管理者',
     emoji: `<:configuration:985943474786414722>`,
     run: async (client, interaction, options) => {
+        try {
+
         await interaction.deferReply().catch(e => { });
         const lodding = new MessageEmbed().setTitle("<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!").setColor("GREEN")
                 const lodding_msg = await interaction.followUp({
@@ -53,5 +55,29 @@ module.exports = {
                 ]});
             });
         });
+
+    } catch (error) {
+        const row = new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+            .setURL("https://discord.gg/7g7VE2Sqna")
+            .setStyle("LINK")
+            .setLabel("支援伺服器")
+            .setEmoji("<:customerservice:986268421144592415>"),
+            new MessageButton()
+            .setURL("https://mhcat.xyz")
+            .setEmoji("<:worldwideweb:986268131284627507>")
+            .setStyle("LINK")
+            .setLabel("官方網站")
+        );
+        return interaction.reply({
+            embeds:[new MessageEmbed()
+            .setTitle("<a:error:980086028113182730> | 很抱歉，出現了錯誤!")
+            .setDescription("**如果可以的話再麻煩幫我到支援伺服器回報w**" + `\n\`\`\`${error}\`\`\`\n常見錯誤:\n\`Missing Access\`:**沒有權限**\n\`Missing Permissions\`:**沒有權限**`)
+            .setColor("RED")
+            ],
+            components:[row]
+        })
+    }
     }
 }

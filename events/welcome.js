@@ -29,6 +29,7 @@ client.on("guildMemberAdd", (member) => {
     }
   })
   if (member.guild.id === "976879837471973416") {
+    if(client.user.id !== '964185876559196181') return 
     const channel = member.guild.channels.cache.get("977248106234142810")
     const welcome = new MessageEmbed()
       .setAuthor('🪂 歡迎加入 MHCAT!', `${member.guild.me.displayAvatarURL({dynamic: true})}`, 'https://dsc.gg/MHCAT')

@@ -76,7 +76,6 @@ client.on("messageCreate", async (message) => {
                                 .permissionsFor(message.guild.me)
                                 .has('VIEW_CHANNEL', false)
                             if (!hasPermissionInChannel || !hasPermissionInChannel1) {
-                                console.log("我沒權限啦 幹!")
                                 return message.author.send("你升級了，但是我沒有權限在" + channel111.name + "發送消息!")
                             }
                             channel111.send(`🆙恭喜<@${message.member.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)

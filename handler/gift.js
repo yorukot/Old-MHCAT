@@ -11,6 +11,7 @@ function getRandomArbitrary(min, max) {
 setInterval(() => {
     lotter.find({
     }, async (err, data) => {
+    if(!data) return;
     const date = Math.floor(Date.now() / 1000)
      for(x = data.length-1; x > -1; x--) {
         if(date < data[x].date) return
@@ -30,11 +31,11 @@ setInterval(() => {
             if(!channel) data[x].delete();
             const winner_embed = new MessageEmbed()
             .setTitle("<:fireworks:994643526820319313> 恭喜中獎者! <:fireworks:994643526820319313>")
-            .setDescription(`
-            **<:celebration:994643523641024705> 恭喜:**
-            <@${winner_array.join('>\n<@')}>
-            <:gift:994585975445528576> **抽中:** ${data[x].gift}
-            `)
+            .setDescription(data[x].member.length === 0 ? "沒有人參加抽獎欸QQ" : `
+**<:celebration:994643523641024705> 恭喜:**
+<@${winner_array.join('>\n<@')}>
+<:gift:994585975445528576> **抽中:** ${data[x].gift}
+`)
             .setColor(channel.guild.me.displayHexColor)
             .setFooter("沒抽中的我給你一個擁抱")
             channel.send({content: `<@${winner_array.join('><@')}>`, embeds: [winner_embed]})
@@ -46,4 +47,4 @@ setInterval(() => {
          }
      }
     })
-}, 50 * 1000);
+}, 40 * 1000);

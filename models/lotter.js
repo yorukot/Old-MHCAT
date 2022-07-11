@@ -10,6 +10,9 @@ const lotter = new mongoose.Schema({
     end: Boolean,
     message_channel: String,
     guild_new: Array,
+    yesrole: String,
+    norole: String,
+    maxNumber: String
 });
 
 module.exports = new mongoose.model('lotter', lotter)

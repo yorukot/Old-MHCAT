@@ -6,7 +6,9 @@ const {
     MessageButton,
     WebhookClient
 } = require('discord.js');
-const Cluster = require('discord-hybrid-sharding');
+const a = []
+console.log(a.length)
+//const Cluster = require('discord-hybrid-sharding');
 const { Player } = require("discord-music-player");
 const client = new Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
@@ -30,7 +32,6 @@ const client = new Client({
     //shardCount: Cluster.data.TOTAL_SHARDS,
 });
 
-
 const player = new Player(client, {
     leaveOnEmpty: true,
 });
@@ -42,7 +43,8 @@ module.exports = client;
 const {
     mongooseConnectionString,
     errorWebhook,
-    color
+    color,
+    emoji
 } = require("./config.json");
 
 const mongoose = require("mongoose");
@@ -58,7 +60,7 @@ client.prefix = client.config.prefix
 client.aliases = new Collection()
 client.slash_commands = new Collection();
 client.color = color
-
+client.emoji = emoji
 require('./handler/slash_commands');
 require('./handler')(client);
 require('./handler/channel_status');

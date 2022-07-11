@@ -29,7 +29,7 @@ module.exports = {
     options: [{
         name: '截止日期',
         type: 'STRING',
-        description: '設定抽獎要在甚麼時候結束(ex:01d10h09m (1天10小時9分鐘後，也可以只打其中某一個ex:09m))',
+        description: '輸入多久後截止ex:01d02h10m(1天2小時10分鐘後截止)也可以輸入單一ex:01d or 03h10m',
         required: true,
     },{
         name: '抽出幾位中獎者',
@@ -46,11 +46,27 @@ module.exports = {
         type: 'STRING',
         description: '輸入抽獎訊息內文',
         required: true,
+    },{
+        name: '可以抽的身分組',
+        type: 'ROLE',
+        description: '輸入哪個身分組可以抽(要有這個身分組才能抽)(選填)',
+        required: false,
+    },{
+        name: '不能抽的身分組',
+        type: 'ROLE',
+        description: '輸入哪個身分組不能抽(有這個身分組就不能抽)(選填)',
+        required: false,
+    },{
+        name: '最高抽獎人數',
+        type: 'INTEGER',
+        description: '設定最多只能有幾位參加',
+        required: false,
     }],
     video: 'https://mhcat.xyz/docs/lotter',
     UserPerms: '訊息管理',
     emoji: `<:lottery:985946439253381200>`,
     run: async (client, interaction, options) => {
+        try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         const date = `${interaction.options.getString("截止日期")}`
@@ -58,38 +74,34 @@ module.exports = {
         let h = date.indexOf("h");
         let m = date.indexOf("m");
         if(d === -1 && h === -1 && m === -1)return errors("你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))")
-        console.log(d,h,m)
-        console.log(date.substring(d-2, d))
         const day = (d !== -1 ? Number(date.substring(d-2, d)) : 0)
         const hour = (h !== -1 ? Number(date.substring(h-2, h)) : 0)
         const min = (m !== -1 ? Number(date.substring(m-2, m)) : 0)
-        if(day === NaN || hour === NaN || min === NaN)return errors("你輸入的時間不正確，請使用??d")
+        if(day === NaN || hour === NaN || min === NaN)return errors("你輸入的時間不正確，請使用??d??h??m")
         function addHoursToDate(objDate, intHours) {
             var numberOfMlSeconds = objDate.getTime();
             var addMlSeconds = (intHours * 60) * 60 * 1000;
             var newDateObj = new Date(numberOfMlSeconds + addMlSeconds);
-         
             return newDateObj;
         }
         function addHoursToDate111(objDate, intHours) {
             var numberOfMlSeconds = objDate.getTime();
             var addMlSeconds = (intHours) * 60 * 1000;
             var newDateObj = new Date(numberOfMlSeconds + addMlSeconds);
-         
             return newDateObj;
         }
-        console.log(min, hour, day)
         const testes = new Date()
-        console.log(testes)
         let dd = addHoursToDate(testes, day*24)
-        console.log(dd)
         let hh = addHoursToDate(dd, hour) 
-        console.log(hh)
         let sum = addHoursToDate111(hh, min)
         const howmanywinner = `${interaction.options.getInteger("抽出幾位中獎者")}`
+        const max = interaction.options.getInteger("最高抽獎人數")
         const gift = interaction.options.getString("獎品")
         const content = interaction.options.getString("內文")
+        const role1 = interaction.options.getRole("可以抽的身分組")
+        const role2 = interaction.options.getRole("不能抽的身分組")
         const id = `${Date.now()}${parseInt(getRandomArbitrary(1000, 100))}lotter`
+        if(Math.round(sum.getTime() / 1000) === NaN) return errors("你輸入的時間不正確，請使用??d??h??m")
         lotter.findOne({
             guild: interaction.channel.guild.id,
             id: id
@@ -107,6 +119,9 @@ module.exports = {
                     member: [],
                     end: false,
                     message_channel: interaction.channel.id,
+                    yesrole: role1 ? role1.id : null,
+                    norole: role2 ? role2.id : null,
+                    maxNumber: max ? max : null
                 })
                 data.save()
                 // 設定embed & send embed
@@ -128,7 +143,7 @@ module.exports = {
                 .setDescription(content)
                 .addFields(
                 { name: '<:gift:994585975445528576> **獎品**', value: gift, inline: true },
-                { name: '<:man:994585979040059532> **創辦人**', value: `<@${interaction.user.id}>`, inline: true },
+                { name: '<:group:994888708799074374> **共抽出**', value: `${howmanywinner}位`, inline: true },
                 { name: '<:chronometer:986065703369080884> **結束時間**', value: `<t:${Math.round(sum.getTime() / 1000)}>`, inline: false },
                 )
                 .setColor(interaction.guild.me.displayHexColor)
@@ -145,5 +160,30 @@ module.exports = {
                 }, 500);
             }
         })
+
+
+    } catch (error) {
+        const row = new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+            .setURL("https://discord.gg/7g7VE2Sqna")
+            .setStyle("LINK")
+            .setLabel("支援伺服器")
+            .setEmoji("<:customerservice:986268421144592415>"),
+            new MessageButton()
+            .setURL("https://mhcat.xyz")
+            .setEmoji("<:worldwideweb:986268131284627507>")
+            .setStyle("LINK")
+            .setLabel("官方網站")
+        );
+        return interaction.reply({
+            embeds:[new MessageEmbed()
+            .setTitle("<a:error:980086028113182730> | 很抱歉，出現了錯誤!")
+            .setDescription("**如果可以的話再麻煩幫我到支援伺服器回報w**" + `\n\`\`\`${error}\`\`\`\n常見錯誤:\n\`Missing Access\`:**沒有權限**\n\`Missing Permissions\`:**沒有權限**`)
+            .setColor("RED")
+            ],
+            components:[row]
+        })
+    }
     }
 }

@@ -1,0 +1,429 @@
+{
+    "name": "..",
+    "verificationLevel": "NONE",
+    "explicitContentFilter": "DISABLED",
+    "defaultMessageNotifications": "ALL_MESSAGES",
+    "afk": null,
+    "widget": {
+        "enabled": false,
+        "channel": null
+    },
+    "channels": {
+        "categories": [
+            {
+                "name": "Text Channels",
+                "permissions": [],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "general",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            },
+            {
+                "name": "Voice Channels",
+                "permissions": [],
+                "children": [
+                    {
+                        "type": "GUILD_VOICE",
+                        "name": "General",
+                        "bitrate": 64000,
+                        "userLimit": 0,
+                        "parent": "Voice Channels",
+                        "permissions": []
+                    }
+                ]
+            }
+        ],
+        "others": [
+            {
+                "type": "GUILD_TEXT",
+                "name": "1",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!",
+                                "type": "rich",
+                                "description": null,
+                                "url": null,
+                                "timestamp": null,
+                                "color": 5763719,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:55:19.305Z"
+                    },
+                    {
+                        "username": "漆黑火零使",
+                        "avatar": "https://cdn.discordapp.com/avatars/962982454296211456/bf145ab72550d456109668954dec1f79.webp",
+                        "content": "我以為全部訊息都可以復原",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:52:23.488Z"
+                    },
+                    {
+                        "username": "漆黑火零使",
+                        "avatar": "https://cdn.discordapp.com/avatars/962982454296211456/bf145ab72550d456109668954dec1f79.webp",
+                        "content": "身分組真的不見了",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:50.516Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/755861933961511074/566a078844c077d9359c4b197bc18d1d.webp",
+                        "content": "bug found",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:49.801Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/755861933961511074/566a078844c077d9359c4b197bc18d1d.webp",
+                        "content": "yep",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:45.970Z"
+                    },
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/81e3c7c52b6112dce87164be604b9835.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!",
+                                "type": "rich",
+                                "description": null,
+                                "url": null,
+                                "timestamp": null,
+                                "color": 5763719,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:34.468Z"
+                    },
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/81e3c7c52b6112dce87164be604b9835.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<a:greentick:980496858445135893> | 成功刪除!",
+                                "type": "rich",
+                                "description": null,
+                                "url": null,
+                                "timestamp": null,
+                                "color": 5763719,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:34.169Z"
+                    },
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/81e3c7c52b6112dce87164be604b9835.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<a:greentick:980496858445135893> | 成功刪除!",
+                                "type": "rich",
+                                "description": null,
+                                "url": null,
+                                "timestamp": null,
+                                "color": 5763719,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:33.859Z"
+                    },
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/81e3c7c52b6112dce87164be604b9835.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<:list:992002476360343602> 以下是..的所有備份id",
+                                "type": "rich",
+                                "description": "輸入`/備份查詢 備份id`可進行查看詳細資訊`\n995415486118363151\n995416246952525840`",
+                                "url": null,
+                                "timestamp": null,
+                                "color": 4637543,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:33.532Z"
+                    },
+                    {
+                        "username": "MHCAT",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/81e3c7c52b6112dce87164be604b9835.webp",
+                        "content": "",
+                        "embeds": [
+                            {
+                                "title": "<a:error:980086028113182730> | 最高只能記錄`2`次備份!請使用`/備份刪除 備份id:`",
+                                "type": "rich",
+                                "description": null,
+                                "url": null,
+                                "timestamp": null,
+                                "color": 15548997,
+                                "fields": [],
+                                "thumbnail": null,
+                                "image": null,
+                                "author": null,
+                                "footer": null
+                            }
+                        ],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:33.069Z"
+                    },
+                    {
+                        "username": "漆黑火零使",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/7c045eede30586a0a282d9c442bdc2bb.webp",
+                        "content": "0.0",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:31.550Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/3bfa9eafdd9cff5ad293497e1c185627.webp",
+                        "content": "~~我身份組沒了~~",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:31.342Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/3bfa9eafdd9cff5ad293497e1c185627.webp",
+                        "content": "可能是他的問題\n也有可能是dc的限制",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:31.055Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/3bfa9eafdd9cff5ad293497e1c185627.webp",
+                        "content": "正常",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:30.733Z"
+                    },
+                    {
+                        "username": "cutebear",
+                        "avatar": "https://cdn.discordapp.com/avatars/995416927583346780/3bfa9eafdd9cff5ad293497e1c185627.webp",
+                        "content": "發現bug",
+                        "embeds": [],
+                        "files": [],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:51:30.228Z"
+                    },
+                    {
+                        "username": "漆黑火零使",
+                        "avatar": "https://cdn.discordapp.com/avatars/962982454296211456/bf145ab72550d456109668954dec1f79.webp",
+                        "content": "",
+                        "embeds": [],
+                        "files": [
+                            {
+                                "name": "6bb89ab004581263fe8171204f595.jpg",
+                                "attachment": "https://cdn.discordapp.com/attachments/995416924743815168/995417850925826048/6bb89ab004581263fe8171204f595.jpg"
+                            }
+                        ],
+                        "pinned": false,
+                        "sentAt": "2022-07-09T19:55:09.676Z"
+                    }
+                ],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "2",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "3",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "4",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "5",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "6",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "7",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "8",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "9",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            },
+            {
+                "type": "GUILD_TEXT",
+                "name": "10",
+                "nsfw": false,
+                "rateLimitPerUser": 0,
+                "parent": null,
+                "topic": null,
+                "permissions": [],
+                "messages": [],
+                "isNews": false,
+                "threads": []
+            }
+        ]
+    },
+    "roles": [
+        {
+            "name": "新身分",
+            "color": "#000000",
+            "hoist": false,
+            "permissions": "1071698660937",
+            "mentionable": false,
+            "position": 1,
+            "isEveryone": false
+        },
+        {
+            "name": "@everyone",
+            "color": "#000000",
+            "hoist": false,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 0,
+            "isEveryone": true
+        }
+    ],
+    "bans": [],
+    "emojis": [],
+    "members": [],
+    "createdTimestamp": 1657396519780,
+    "guildID": "995414971561300058",
+    "id": "995417893497864210"
+}

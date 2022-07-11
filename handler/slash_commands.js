@@ -8,7 +8,7 @@ const rest = new REST({ version: '9' }).setToken(`${token}`);
 client.once('ready', () => {
 setTimeout(() => {
 
-rest.get(Routes.applicationCommands("984485913201635358"))
+/*rest.get(Routes.applicationCommands("984485913201635358"))
     .then(data => {
         for (const command of data) {
             client.application.commands.fetch(`${command.id}`)
@@ -16,7 +16,7 @@ rest.get(Routes.applicationCommands("984485913201635358"))
             command.delete()
             }).catch(console.error);
     }
-});
+});*/
 
 readdirSync('./slashCommands').forEach(async (dir) => {
     const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) => 
@@ -47,9 +47,9 @@ readdirSync('./slashCommands').forEach(async (dir) => {
                         run: file.run,
                         video: file.video,
                     });
-                    await client.application.commands.create(data);
                     console.log(`${option} | ${name}`)
-                }, 15000);
+                    await client.application.commands.create(data);
+                }, 500);
             }
         })
     })

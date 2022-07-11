@@ -24,10 +24,12 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                     data.save()
                 }
                 try {
+                console.log(newMember.member.id)
                 if(!newMember.member) return 
                 if(newMember.member === null) return
                 if(newMember.member === undefined) return
-                if(newMember.member.id) return
+                if(!newMember.member.id) return
+                console.log("teset")
                 const stop = setInterval(() => {
                         voice_xp.findOne({
                             guild: newMember.guild.id,

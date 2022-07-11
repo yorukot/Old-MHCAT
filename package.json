@@ -1,6 +1,6 @@
 {
   "name": "discordbot",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "<div align=\"center\">   <p>     <h1>Discord.JS v13 Tutorials</h1>   </p> </div>",
   "main": "index.js",
   "dependencies": {

@@ -1,13 +1,13 @@
 const client = require('../index')
 const { MessageEmbed,WebhookClient } = require('discord.js')
 const config = require('../config')
-client.on('error', (error) => {
-    const errorWebhook = new WebhookClient({ url: config.errorWebhook })
+client.on('debug', (info) => {
+    const debugwebhook = new WebhookClient({ url: config.debugwebhook })
     let embed = new MessageEmbed()
-    .setTitle("出現錯誤啦!!!")
-    .setDescription("\`\`\`js\n" + error + "\`\`\`")
+    .setTitle("調適錯誤訊息:")
+    .setDescription("\`\`\`js\n" + info + "\`\`\`")
     .setColor("RED")
-    errorWebhook.send({
+    debugwebhook.send({
         embeds: [embed]
     })
 })

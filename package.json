@@ -1,7 +1,7 @@
 {
   "name": "discordbot",
-  "version": "2.0.1",
-  "description": "<div align=\"center\">   <p>     <h1>Discord.JS v13 Tutorials</h1>   </p> </div>",
+  "version": "2.0.1.1",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.7.0",
@@ -110,9 +110,6 @@
     "ytdl-core": "^4.11.0",
     "ytpl": "^2.3.0",
     "ytsr": "^3.8.0"
-  },
-  "scripts": {
-    "test": "nodemon ."
   },
   "author": "",
   "license": "ISC"

@@ -24,16 +24,19 @@ module.exports = {
         channel_types: [0,5],
         required: true
     },{
+        name: '訊息',
+        type: 'STRING',
+        description: '當有人升等的訊息，輸入:(leavel)為等級，(user)為tag使用者',
+        required: false
+    },{
         name: '顏色',
         type: 'STRING',
-        description: '輸入要甚麼顏色(默認為白色)!',
-        channel_types: [0,5],
+        description: '輸入玩家查詢的主題要甚麼顏色(默認為白色)!',
         required: false
     },{
         name: '背景',
         type: 'STRING',
-        description: '輸入背景(默認為discord色)支援png和jpg(可使用discord的複製連結)最佳大小為931*231',
-        channel_types: [0,5],
+        description: '輸入玩家查詢的背景(默認為discord色)支援png和jpg(可使用discord的複製連結)最佳大小為931*231',
         required: false
     }],
     video: 'https://mhcat.xyz/docs/chat_xp_set',
@@ -46,6 +49,7 @@ module.exports = {
         const channel1 = interaction.options.getChannel("頻道")
         const color = interaction.options.getString("顏色")
         const image = interaction.options.getString("背景")
+        const message = interaction.options.getString("訊息")
         if(color){
             if (!validateColor(color)) return errors('你傳送的並不是顏色(色碼)')
         }
@@ -65,7 +69,8 @@ module.exports = {
                     guild: interaction.channel.guild.id,
                     channel: channel,
                     background: image ? image : null,
-                    color: color ? color : null
+                    color: color ? color : null,
+                    message: message ? message : null,
                 })
                 data.save()
                 const announcement_set_embed = new MessageEmbed()
@@ -73,9 +78,10 @@ module.exports = {
                 .setDescription(`您的聊天經驗升等頻道成功創建\n您目前的升等通知頻道為 ${channel1}`)
                 .setColor("GREEN")
                 interaction.reply({embeds: [announcement_set_embed]})
+                const lines = "<:line:992363971803881493>"
+                if(message) interaction.channel.send(`以下為你的訊息預覽:\n${lines}我${lines}只${lines}是${lines}分${lines}隔${lines}線${lines}\n\n${message}`)   
         })
-
-    } catch (error) {
+        } catch (error) {
         const error_send= require('../../functions/error_send.js')
         error_send(error, interaction)
     }

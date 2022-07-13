@@ -1,0 +1,973 @@
+{
+    "name": "安安",
+    "verificationLevel": "NONE",
+    "explicitContentFilter": "DISABLED",
+    "defaultMessageNotifications": "ALL_MESSAGES",
+    "afk": null,
+    "widget": {
+        "channel": null
+    },
+    "channels": {
+        "categories": [
+            {
+                "name": "Text Channels",
+                "permissions": [],
+                "children": [
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "general",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [
+                            {
+                                "username": "鹿幽",
+                                "avatar": "https://cdn.discordapp.com/avatars/984004203796123668/8313b803e40874b32b10a79e752011e2.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T13:15:49.408Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:20:20.017Z"
+                            },
+                            {
+                                "username": "[m!] MooncakeBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/848203033786449981/fe6c60feca9a2e923f758a2fa0443c1c.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:12:12.138Z"
+                            },
+                            {
+                                "username": "牛弟弟",
+                                "avatar": "https://cdn.discordapp.com/avatars/952110125882167336/cd14b4814b31367c21d8d74c89cf8702.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:05:25.936Z"
+                            },
+                            {
+                                "username": "MEE6",
+                                "avatar": "https://cdn.discordapp.com/avatars/159985870458322944/b50adff099924dd5e6b72d13f77eb9d7.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T10:54:58.085Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T09:33:48.667Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "測試機器人",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": "這邊很適合聊 測試機器人",
+                        "permissions": [],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "瓜",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 5763719,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T13:20:55.204Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&herd牧農放牧指令",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:55:39.176Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&job選擇冒險職業",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:49:58.221Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "/clear訊息清除",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:46:06.682Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&fj選擇職業",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:35:58.308Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&shop開啟店鋪",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:33:17.959Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&shop close關閉店鋪",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:33:03.258Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&shop@龍顯示商店系統",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:30:52.118Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&龍指令",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:22:00.223Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "/help 龍的幫助清單",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:12:08.251Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi 圖片",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:04:31.551Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "dalao @用戶製造圖片",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:58:34.271Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "s!amnsfw可以召喚優質照片",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:37:28.466Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "/anime 可以獲得動漫照片",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:15:37.607Z"
+                            },
+                            {
+                                "username": "゛★諾彡﹏",
+                                "avatar": "https://cdn.discordapp.com/avatars/913017451904663553/75124756527b29a036dfd3d409ca4584.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": ">embed <內容>讓機器人發送指定嵌入訊息",
+                                        "url": null,
+                                        "timestamp": "2022-07-11T10:28:14.138Z",
+                                        "color": 1402410,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": null,
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T10:28:14.292Z"
+                            },
+                            {
+                                "username": "゛★諾彡﹏",
+                                "avatar": "https://cdn.discordapp.com/avatars/913017451904663553/75124756527b29a036dfd3d409ca4584.webp",
+                                "content": "@​安安🎆 逼我說:`>say <文字>讓機器人說出指定文字`",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T10:23:16.728Z"
+                            },
+                            {
+                                "username": "゛★諾彡﹏",
+                                "avatar": "https://cdn.discordapp.com/avatars/913017451904663553/75124756527b29a036dfd3d409ca4584.webp",
+                                "content": ">says <內容>讓機器人說指定的話，且不顯示使用者",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T10:22:12.281Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "@゛★諾彡﹏ >help幫助列表",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T10:07:27.030Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "DingBot指令選單是:s!help",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T07:44:06.833Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&queue龍查詢播放清單以及曲目編號\n使用方法",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T07:37:14.651Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&resume龍繼續撥放暫停的音樂",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T07:27:21.439Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&play <>龍撥放音樂(中間放音樂連結)",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T06:50:02.813Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "&disconnect龍離開語音",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T06:47:06.606Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "等級",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "🆙恭喜@​安安🎆 的聊天等級成功升級到 5",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-12T12:44:24.357Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "🆙恭喜@​安安🎆 的聊天等級成功升級到 4",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:08:32.568Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "🆙恭喜@​老龍 的聊天等級成功升級到 1",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:39:43.539Z"
+                            },
+                            {
+                                "username": "MHCAT",
+                                "avatar": "https://cdn.discordapp.com/avatars/964185876559196181/b5e81e42670c04da0b3c54eebf33df22.webp",
+                                "content": "🆙恭喜@​安安🎆 的聊天等級成功升級到 3",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T11:37:28.861Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "欸嘿",
+                        "nsfw": true,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [
+                            {
+                                "username": "🌸DingBot❤",
+                                "avatar": "https://cdn.discordapp.com/avatars/629675783648182282/cc644217b76100bd8cf8b8ebf3641e08.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "🔞色色的照片",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": "2022-07-11T12:09:08.560Z",
+                                        "color": 16753664,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.discordapp.com/attachments/797717947945713696/797718046436360202/kartinka.png",
+                                            "proxyURL": "https://media.discordapp.net/attachments/797717947945713696/797718046436360202/kartinka.png",
+                                            "height": 607,
+                                            "width": 1080
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:09:09.470Z"
+                            },
+                            {
+                                "username": "🌸DingBot❤",
+                                "avatar": "https://cdn.discordapp.com/avatars/629675783648182282/cc644217b76100bd8cf8b8ebf3641e08.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "🔞色色的照片",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": "2022-07-11T12:09:04.044Z",
+                                        "color": 65411,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.discordapp.com/attachments/983656782083809290/983656895791366214/HMmedia.jpg",
+                                            "proxyURL": "https://media.discordapp.net/attachments/983656782083809290/983656895791366214/HMmedia.jpg",
+                                            "height": 750,
+                                            "width": 750
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:09:05.058Z"
+                            },
+                            {
+                                "username": "🌸DingBot❤",
+                                "avatar": "https://cdn.discordapp.com/avatars/629675783648182282/cc644217b76100bd8cf8b8ebf3641e08.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "🔞色色的照片",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": "2022-07-11T12:08:58.168Z",
+                                        "color": 16711715,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.discordapp.com/attachments/983656782083809290/983656984203116574/HMmedia.gif",
+                                            "proxyURL": "https://media.discordapp.net/attachments/983656782083809290/983656984203116574/HMmedia.gif",
+                                            "height": 280,
+                                            "width": 498
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:08:59.236Z"
+                            },
+                            {
+                                "username": "🌸DingBot❤",
+                                "avatar": "https://cdn.discordapp.com/avatars/629675783648182282/cc644217b76100bd8cf8b8ebf3641e08.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "🔞色色的照片",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": "2022-07-11T12:08:47.319Z",
+                                        "color": 11927296,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://konachan.com/jpeg/f54277a230a4627f38f5506c8d1f8e35/Konachan.com%20-%20316601%20bed%20dangan-ronpa%20food%20game_console%20nanami_chiaki%20open_shirt%20pink_eyes%20pink_hair%20r_o_ha%20school_uniform%20skirt%20thighhighs%20zettai_ryouiki.jpg",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/zQHURqvFlrEB3xJFBx50eIGu_mnPSCj6r8kSkQEg7os/https/konachan.com/jpeg/f54277a230a4627f38f5506c8d1f8e35/Konachan.com%2520-%2520316601%2520bed%2520dangan-ronpa%2520food%2520game_console%2520nanami_chiaki%2520open_shirt%2520pink_eyes%2520pink_hair%2520r_o_ha%2520school_uniform%2520skirt%2520thighhighs%2520zettai_ryouiki.jpg",
+                                            "height": 1544,
+                                            "width": 2235
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:08:48.206Z"
+                            },
+                            {
+                                "username": "🌸DingBot❤",
+                                "avatar": "https://cdn.discordapp.com/avatars/629675783648182282/cc644217b76100bd8cf8b8ebf3641e08.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": "🔞色色的照片",
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": "2022-07-11T12:08:38.821Z",
+                                        "color": 16711859,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.discordapp.com/attachments/797717947945713696/797718213323390976/kartinka.jpg",
+                                            "proxyURL": "https://media.discordapp.net/attachments/797717947945713696/797718213323390976/kartinka.jpg",
+                                            "height": 1280,
+                                            "width": 905
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:08:39.792Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 3221578,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://i0.nekobot.xyz/0/5/c/40aa08ea94e36022a33c80155d792.jpg",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/sY2bH1WpDlhRelrbWOY6vxWa8alCTlupXuM-0Xza7e0/https/i0.nekobot.xyz/0/5/c/40aa08ea94e36022a33c80155d792.jpg",
+                                            "height": 1425,
+                                            "width": 1950
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:43.216Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:42.703Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 6826550,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.nekobot.xyz/c/b/b/d3e8b51f8e48b3b66122fed61698a.jpg",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/MaYi86l7OHESDbjK1GDTVlmvVjiXQC3jrj9lzZKrv-8/https/cdn.nekobot.xyz/c/b/b/d3e8b51f8e48b3b66122fed61698a.jpg",
+                                            "height": 932,
+                                            "width": 1000
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:41.154Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:40.685Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 6902351,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.nekobot.xyz/f/e/7/d8750b7f9d939f99f4e704b967940.jpg",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/K3EgxTqYRbyptJJ49iRARyNSIHOHCEt5YuWe1jZNG-8/https/cdn.nekobot.xyz/f/e/7/d8750b7f9d939f99f4e704b967940.jpg",
+                                            "height": 1275,
+                                            "width": 850
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:38.509Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:38.179Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 6826550,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.nekobot.xyz/c/b/b/d3e8b51f8e48b3b66122fed61698a.jpg",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/MaYi86l7OHESDbjK1GDTVlmvVjiXQC3jrj9lzZKrv-8/https/cdn.nekobot.xyz/c/b/b/d3e8b51f8e48b3b66122fed61698a.jpg",
+                                            "height": 932,
+                                            "width": 1000
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:34.099Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:33.775Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 4730417,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://i0.nekobot.xyz/7/9/3/492ebb402d06eb0cb454a57678fd4.jpg",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/j6s4iiAj4x4L3To0mwNblAqPKTQSV2siK6ZU3WLaTvM/https/i0.nekobot.xyz/7/9/3/492ebb402d06eb0cb454a57678fd4.jpg",
+                                            "height": 1100,
+                                            "width": 850
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:31.914Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:31.498Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 14860740,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://i0.nekobot.xyz/8/1/2/90addf80a1fd696fc413c0d6e7dc5.jpg",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/ggCAmcmBg7fQOPV_G3Mt80F0ZiGI7aPfDyhoCXUHze4/https/i0.nekobot.xyz/8/1/2/90addf80a1fd696fc413c0d6e7dc5.jpg",
+                                            "height": 1500,
+                                            "width": 2000
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:29.560Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:29.267Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 13354693,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://i0.nekobot.xyz/6/5/7/c1ca84bfbd52bfc04586dd74cd8ef.png",
+                                            "proxyURL": "https://images-ext-1.discordapp.net/external/qz_7b7Opvxk3pypo-U04FINgrEhDuwEINNOfTpdtoYQ/https/i0.nekobot.xyz/6/5/7/c1ca84bfbd52bfc04586dd74cd8ef.png",
+                                            "height": 931,
+                                            "width": 750
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:27.395Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:27.117Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 15261908,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.nekobot.xyz/a/4/c/a91a944498e9ede31475e56685315.jpg",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/5nJI5fIOB8qtLViO22TXdYPixnClwjrNyLdDO8QL72g/https/cdn.nekobot.xyz/a/4/c/a91a944498e9ede31475e56685315.jpg",
+                                            "height": 589,
+                                            "width": 600
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:25.320Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:07:24.701Z"
+                            },
+                            {
+                                "username": "NekoBot",
+                                "avatar": "https://cdn.discordapp.com/avatars/310039170792030211/237b80900f1dc974efcd1758701b594d.webp",
+                                "content": "",
+                                "embeds": [
+                                    {
+                                        "title": null,
+                                        "type": "rich",
+                                        "description": null,
+                                        "url": null,
+                                        "timestamp": null,
+                                        "color": 13943225,
+                                        "fields": [],
+                                        "thumbnail": null,
+                                        "image": {
+                                            "url": "https://cdn.nekobot.xyz/c/7/3/10c6336a5bfb6d541ca0e84156035.jpg",
+                                            "proxyURL": "https://images-ext-2.discordapp.net/external/FCAgwGFLxumWtMFWTtqh3DDPcCDKKBS-_RTLSpt2p6o/https/cdn.nekobot.xyz/c/7/3/10c6336a5bfb6d541ca0e84156035.jpg",
+                                            "height": 900,
+                                            "width": 636
+                                        },
+                                        "author": null,
+                                        "footer": null
+                                    }
+                                ],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:05:45.639Z"
+                            },
+                            {
+                                "username": "安安🎆",
+                                "avatar": "https://cdn.discordapp.com/avatars/952051234578247720/d81694745d37790a6f4c3cd8233d0d19.webp",
+                                "content": "n!yaoi",
+                                "embeds": [],
+                                "files": [],
+                                "pinned": false,
+                                "sentAt": "2022-07-11T12:05:45.185Z"
+                            }
+                        ],
+                        "isNews": false,
+                        "threads": []
+                    },
+                    {
+                        "type": "GUILD_TEXT",
+                        "name": "冒險旅程",
+                        "nsfw": false,
+                        "rateLimitPerUser": 0,
+                        "parent": "Text Channels",
+                        "topic": null,
+                        "permissions": [],
+                        "messages": [],
+                        "isNews": false,
+                        "threads": []
+                    }
+                ]
+            },
+            {
+                "name": "Voice Channels",
+                "permissions": [],
+                "children": [
+                    {
+                        "type": "GUILD_VOICE",
+                        "name": "General",
+                        "bitrate": 64000,
+                        "userLimit": 0,
+                        "parent": "Voice Channels",
+                        "permissions": []
+                    }
+                ]
+            }
+        ],
+        "others": [
+            {
+                "type": "GUILD_VOICE",
+                "name": "點我創建",
+                "bitrate": 64000,
+                "userLimit": 1,
+                "parent": null,
+                "permissions": []
+            }
+        ]
+    },
+    "roles": [
+        {
+            "name": "金主大大",
+            "color": "#d4f195",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": true,
+            "position": 11,
+            "isEveryone": false
+        },
+        {
+            "name": "測試人員",
+            "color": "#d4aee9",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": true,
+            "position": 10,
+            "isEveryone": false
+        },
+        {
+            "name": "可愛的機器人",
+            "color": "#9cf5ed",
+            "hoist": true,
+            "permissions": "2198993370879",
+            "mentionable": true,
+            "position": 8,
+            "isEveryone": false
+        },
+        {
+            "name": "小可愛（？",
+            "color": "#ee8ee6",
+            "hoist": true,
+            "permissions": "1071698660929",
+            "mentionable": true,
+            "position": 1,
+            "isEveryone": false
+        },
+        {
+            "name": "@everyone",
+            "color": "#000000",
+            "hoist": false,
+            "permissions": "1071698660929",
+            "mentionable": false,
+            "position": 0,
+            "isEveryone": true
+        }
+    ],
+    "bans": [],
+    "emojis": [],
+    "members": [],
+    "createdTimestamp": 1657632056306,
+    "guildID": "995931057184579604",
+    "id": "996405805291012098",
+    "iconBase64": "UklGRmYHAABXRUJQVlA4IFoHAABwIwCdASqAAIAAPm0ylEekIqIsphQLsZANiWMGe+CgIpoG51FaLd7bx+YzzrvSf/sN8w3l7+9WDtXlGaD67p7NfVxzWfJy+dRciRiv4wNEOZNvUTicaneBAe5lkcTY2qq7qtsnXmPMx6SpcrV8tE43lPZFUk6nCcJ3FLG8bjub+xY9wR5Wuw8j3S4835jzgjnHulk5tNYThJgk72gcw5iH7+8OSMnk5LwWYeqyLXiOpBxspgVLgQ73318+Yl7erJmidtxh5j6f/96okGgzYaYASQ5ZNrVpuMk4YFJXAcBoGG1K30FmqEOCwjZb0AH2F4z5sUJjhqROFp48qcVVuFoJ1zfce6lW1GgYRT8LP8JsIyOH5z0BsKU3CaewIDNydO/ZHQLgAPcU/8UCFe/1d3s7FPy//hWvOXvZxb5Qbul4nhvMQSjfGOdZYpYcncHgGwjEG/ZPSNkfwPvl5mYOUbKbRG+QJ/Tgyg32yseiMuxw7yTUphHIwBicb6BA3pTUGqOlyGyTn+nZyrcel38I6wyeEv0Ls1fTtU+MFYEjV4gDTdhsf/p24gfwT4XzMHDW559NKE5RPK3HtN8fFyu5/Fy2b9F9xCrEHtJdLDz+vWVM3BHyeXnYxslogURCksiGT25ooMyICM5CCi/bLrWSNRmalnx/BiunM2DryeUDQJT8mf8mBzHT5OEPobYDaB+LQGAyJU2GprHVg/B2h59RgbgZSxpG4lbpTglHUheg1Uc5+VwsasP8Z32idx+VXDvQ3D7JDt7VzN37wvsYtVHGHMnEQJKF+Q+ReNJQpuAVMQZe841/cAOh62hYUJ8RYkc9RfqWXRWxnKoAoCXYb37y8p/N8ZygZR43Etixj9BhLAetdzY3sU8BXNZ12Mgg4WOaEI1RD+AfaLsQA5jpr4vdwgr814vi7yFwf1WsXTVBGOu4tX3rUrCY1AHKjwC6aHmHvG8WuWe4FMtVmDudWHI4PhewOCWRr2EOWInjV1Vx3FrANJnLZb+cCGfpffveSv8+n4qkUtfhyUPeE6X1lkmo9YLGhGmt+uZVKkFKjv4OF2xpj7hDbULz91FDqgfb2GwL/wQn05teaW1wFXi2txkvPRDcogZy4Fcf2qL29PgBrgo5pflas9mTAKvxELrIBMsFnHEHcFW35y1RnRv77ZAi8+Sn+3s6gPM4rohdIdGOaJbkPNBosSiD8HQRmL0D9tGRjiXfx+/Je+b9ChICinzzG0aAXSl75vHZZBinS2/dufElWcliAdwCf5EcxzKwCndzASxSRe+Wkr9QlxOHNL+sdUnXwx+Gru38n3Y/NHh43eprfBABd9OdcZZ3Spte3mELXxk8py27jIyjGTSqubhMwTsbSEWq7mZfgvTUgp4htx0jIJP9lVVHFo2xso8IeN8c94UdRnkGN7LvjmR68sZVM9a0OSpxkpD4jeUtA6k4vIHH5/3/SgiMOumh97Ftkzsm9cfvbdrXVdwHQ+PREdP5RNeBmiyM6I8Tyke1uAPI7MGmnmAhoXKxaERZsnouixJld3+pQlWlqCrY1vyWs0B1UqWkGc1zLv8SkvYEGa4vUAzMThQ7LKvFQSF1OQPiue4cXpUUPJQNVIa9YTLzB/4YiAN6DYueSWAunWF3zSWB0zowXjtH8ORjIE/ztLs3RqEgZqWaPXVW6nccIYfDObhh0diUUinPKr/IoLDWeTX4QeaRpV2AUkApAJqrfQLHTeNR35HgD5rnKeZ1k41q5a8emkyFpfGqOM9smXuDwsrL275ii2+8+96tl+D78rnsUgG4CFs718/yVzcq14AgWYfsf7/7b5qCSrsCnPV1cXrgdH0ibBQ2XGQY4zlvkcZ+q/AABp4vaNG5U35wqGoFn839LhGHu+A5WI7uy/B47sQ4Ti7Oi1aHDu1z2FxheH9qGmOf4vwRgv6CPfwiTvK1f92JCLrXEToSomEOogV9AjvUr5iGOK7Q3H8/ySjfWmRgRQ4UbfBtdZVx4yVCTq0GO5XDUp038U05blszB0CU48lz9/ke6Ghf8KjKrFMtGYNzFAvxHSUQKGnOGKOZ1qRR+QbQcw9sih66W5UVFJr093RkbWDWBfvoyQ28RQoH63/sFbUHjAYYrlDvQ5zT/2OVk+8w/uFp540NzNjeVM6CybilUE1sYena0WAWbx+NxY6jYXokRVAuEsyjmvLp8pKX8gn2guK2YftQqe2clrIeEmBREsOHQ62HPm203JHfykBhaKX/XOoC7e7AfrcYFZ6tH2ZBvlfdzlc5YnNQry3XafwA7wVOuZc5+OeOueGsXf4UZo7W5vNYv2JRpnHOTav8kDAKG73S/CsLye92BO9b0ZKXNLYnrfrRMPthCmn4uFXmKsZono89byrr9J9zhuChlxuisnVNU/lMj0DY4RsNToyW+NlI/MiN9+u/7wHaNZSTOuX37rBALBC8aDzEtfS2804oLX5L8ARmfgb4q3Zad4v6zlh0AE+EJgcVyWEnh9GiOvuw8BfRNTxd1rFYgAAA",
+    "iconURL": "https://cdn.discordapp.com/icons/995931057184579604/1d39365fae3782138e4f79c341324a2c.webp"
+}

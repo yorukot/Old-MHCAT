@@ -60,10 +60,10 @@ module.exports = {
         .setValue(data ? data.color !== null ? data.color : '' : '')
         const content = new TextInputComponent()
         .setCustomId('join_msgcontent')
-        .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (membername) )")
+        .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (MEMBERNAME) )")
         .setStyle('PARAGRAPH')
         .setRequired(true)
-        .setValue(data ? data.message_content !== null ? data.message_content : '' : '')
+        .setValue(data ? data.message_content !== null ? data.message_content : '(MEMBERNAME)' : '(MEMBERNAME)')
         const color1 = new MessageActionRow().addComponents(color);
         const content1 = new MessageActionRow().addComponents(content);
         modal.addComponents(color1,content1);

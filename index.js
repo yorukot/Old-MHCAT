@@ -6,9 +6,7 @@ const {
     MessageButton,
     WebhookClient
 } = require('discord.js');
-const a = []
-console.log(a.length)
-//const Cluster = require('discord-hybrid-sharding');
+const Cluster = require('discord-hybrid-sharding');
 const { Player } = require("discord-music-player");
 const client = new Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
@@ -28,8 +26,8 @@ const client = new Client({
         "DIRECT_MESSAGE_REACTIONS",
         "DIRECT_MESSAGE_TYPING",
     ],
-    //shards: Cluster.data.SHARD_LIST,
-    //shardCount: Cluster.data.TOTAL_SHARDS,
+    shards: Cluster.data.SHARD_LIST,
+    shardCount: Cluster.data.TOTAL_SHARDS,
 });
 
 const player = new Player(client, {
@@ -154,6 +152,6 @@ errorwebhook.send({
     embeds: [embed]
 })
 });
-//client.cluster = new Cluster.Client(client);
+client.cluster = new Cluster.Client(client);
 
 client.login(client.config.token)

@@ -26,9 +26,9 @@ setInterval(() => {
                 }
             }
             const guild = client.guilds.cache.get(data[x].guild);
-            if(!guild) data[x].delete();
+            if(!guild) return
             let channel = guild.channels.cache.get(data[x].message_channel);
-            if(!channel) data[x].delete();
+            if(!channel) return
             const winner_embed = new MessageEmbed()
             .setTitle("<:fireworks:994643526820319313> 恭喜中獎者! <:fireworks:994643526820319313>")
             .setDescription(data[x].member.length === 0 ? "沒有人參加抽獎欸QQ" : `

@@ -29,7 +29,6 @@ module.exports = {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");lodding_msg.edit({embeds: [embed],ephemeral: true})}
         if(!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("你必須擁有\`管理者\`才能使用")
         if(!interaction.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("我沒有\`管理者\`權限，請給我`管理者`權限!!!")
-        console.log(interaction.guild.me.permissions)
         var fs = require('fs');
         var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
         if (!fs.existsSync(dir)){

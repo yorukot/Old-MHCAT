@@ -34,11 +34,13 @@ module.exports = {
         if(!interaction.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("我沒有\`管理者\`權限，請給我`管理者`權限!!!")
         const backup_id = interaction.options.getString("備份id")
         var fs = require('fs');
-        var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
+        const dir1111 = process.cwd()
+        var dir = dir1111+"/backups"+`/${interaction.guild.id}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);        backup.fetch(backup_id).then(async () => {
+        backup.setStorageFolder(dir);
+        backup.fetch(backup_id).then(async () => {
            interaction.followUp({content:":warning: | 一但還原，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"}
            );
            const filter = m => (m.member.id === interaction.member.id);

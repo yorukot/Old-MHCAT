@@ -30,11 +30,13 @@ module.exports = {
         function naaaaa(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.channel.send({embeds: [embed],ephemeral: true})}
         if(!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("你必須擁有\`管理者\`才能使用")
         var fs = require('fs');
-        var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
+        const dir1111 = process.cwd()
+        var dir = dir1111+"/backups"+`/${interaction.guild.id}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);        const backup_id = interaction.options.getString("備份id")
+        backup.setStorageFolder(dir);
+        const backup_id = interaction.options.getString("備份id")
         backup.fetch(backup_id).then((backupInfos) => {
             const date = new Date(backupInfos.data.createdTimestamp);
             const yyyy = date.getFullYear().toString(), mm = (date.getMonth()+1).toString(), dd = date.getDate().toString();

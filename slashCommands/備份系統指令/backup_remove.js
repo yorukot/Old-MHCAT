@@ -32,11 +32,12 @@ module.exports = {
         if(!interaction.member.id === interaction.guild.ownerId)return errors("你必須擁有\`服主\`才能使用")
         const backup_id = interaction.options.getString("備份id")
         var fs = require('fs');
-        var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
+        const dir1111 = process.cwd()
+        var dir = dir1111+"/backups"+`/${interaction.guild.id}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);
+        backup.setStorageFolder(dir);
         backup.remove(backup_id).then(async () => {
             interaction.followUp({embeds: [
                 new MessageEmbed()

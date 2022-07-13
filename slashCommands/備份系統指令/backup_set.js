@@ -30,11 +30,12 @@ module.exports = {
         if(!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("你必須擁有\`管理者\`才能使用")
         if(!interaction.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("我沒有\`管理者\`權限，請給我`管理者`權限!!!")
         var fs = require('fs');
-        var dir = __dirname+"/backups/"+`${interaction.guild.id}`;
+        const dir1111 = process.cwd()
+        var dir = dir1111+"/backups"+`/${interaction.guild.id}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        backup.setStorageFolder(__dirname+"/backups/"+`${interaction.guild.id}`);
+        backup.setStorageFolder(dir);
         backup.list().then((backups) => {
             if(backups.length >= 2)return errors("最高只能記錄\`2\`次備份!請使用\`/備份刪除 備份id:\`")
             backup.create(interaction.guild, {

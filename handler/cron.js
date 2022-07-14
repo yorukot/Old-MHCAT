@@ -36,3 +36,19 @@ cron_set.find({}, async (err, data) => {
         if(data[i].cron === null) data[i].delete()
     }
 })
+
+const job = new CronJob(
+    '0 0 * * *',
+    function() {
+        const coin = require('../models/coin.js')
+        coin.find({}, async (err, data) => {
+            if(!data) return;
+            for(let i = 0; i < data.length; i++){
+                data[i].collection.update(({guild: data[i].guild, member: data[i].member}), {$set: {today: false}})
+            }
+        })
+    },
+    null,
+    true,
+    'Asia/Taipei'
+);

@@ -21,7 +21,8 @@ module.exports = {
     await interaction.deferReply().catch(e => { });
     try {
     function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-
+    if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+    
     let id = `delete-data`;
 
     let menus = [];

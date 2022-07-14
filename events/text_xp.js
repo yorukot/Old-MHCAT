@@ -82,6 +82,23 @@ client.on("messageCreate", async (message) => {
                             let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                             const aaaaa = messsage.replace("(user)", `<@${message.member.id}>`)
                             channel111.send(data1.message && (data1.message!== null) ? aaaaa : `🆙恭喜<@${message.member.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)
+                            const coin = require('../models/coin.js')
+                            coin.findOne({
+                                guild: message.guild.id,
+                                member: message.member.id
+                            }, async (err, data11111) => {
+                                if(!data11111){
+                                    data11111 = new coin({
+                                        guild: message.guild.id,
+                                        member: message.member.id,
+                                        coin: data.leavel*100/2,
+                                        today: false
+                                    })
+                                    data11111.save()
+                                }else{
+                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + data.leavel*100/2}})
+                                }
+                            })
                         } else {
                             return
                         }

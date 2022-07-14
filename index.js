@@ -65,9 +65,8 @@ require('./handler/channel_status');
 require('./handler/gift');
 require('./handler/cron');
 
-
-
 const chalk = require('chalk');
+const { all } = require('bluebird');
 const warning = chalk.hex('#CE0000');
 const end_start = chalk.hex('#4DFFFF');
 const errorwebhook = new WebhookClient({ url: errorWebhook })

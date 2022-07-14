@@ -54,6 +54,23 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                 let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                                 const aaaaa = messsage.replace("(user)", `<@${newMember.id}>`)
                                 channel111.send(data1.message && (data1.message!== null) ? aaaaa : `🆙恭喜<@${newMember.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)
+                                const coin = require('../models/coin.js')
+                                coin.findOne({
+                                    guild: newMember.guild.id,
+                                    member: newMember.id
+                                }, async (err, data11111) => {
+                                    if(!data11111){
+                                        data11111 = new coin({
+                                            guild: newMember.guild.id,
+                                            member: newMember.id,
+                                            coin: Number(data.leavel)*100/2,
+                                            today: false
+                                        })
+                                        data11111.save()
+                                    }else{
+                                        data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + Number(data.leavel)*100/2}})
+                                    }
+                                })
                             }else{return}
                                 })
                             }else{

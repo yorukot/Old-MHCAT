@@ -1,9 +1,10 @@
 {
   "name": "discordbot",
-  "version": "2.0.2.0",
+  "version": "2.0.3",
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@0xcap/loot-table": "^1.0.1",
     "@discordjs/opus": "^0.7.0",
     "@discordjs/rest": "^0.4.1",
     "@discordjs/voice": "^0.9.0",
@@ -41,6 +42,7 @@
     "discord-player": "^5.2.2",
     "discord.js": "^13.8.0",
     "dot-prop": "^6.0.1",
+    "drop-table": "^1.0.14",
     "errorlog": "^1.4.7",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
@@ -61,6 +63,7 @@
     "libsodium-wrappers": "^0.7.10",
     "lodash": "^4.17.21",
     "lodash.isequal": "^4.5.0",
+    "loot-table": "^0.1.0",
     "memory-pager": "^1.5.0",
     "milliseconds": "^1.0.3",
     "mime-db": "^1.49.0",

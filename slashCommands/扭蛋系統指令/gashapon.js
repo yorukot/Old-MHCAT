@@ -1,4 +1,5 @@
 const coin = require("../../models/coin.js");
+const gift = require("../../models/gift.js");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -31,20 +32,67 @@ module.exports = {
                     if(data.coin < 1000) return errors("必須要有`1000`個代幣才能進行扭蛋")
                     const {DropTable} = require('drop-table');
                     let table = new DropTable();
-                    table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': 100});
-                    let result = table.drop();
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - 1000}})
-                    const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
-                    setTimeout(() => {
-                        msgg.edit({content: null, embeds:[new MessageEmbed()
-                            .setTitle("<:gashapon:997106317045022751> 抽獎系統")
-                            .setDescription(`<:fireworks:994643526820319313><:fireworks:994643526820319313>你抽中了:\n${result.name}`)
+                    gift.find({
+                        }, async (err, data11) => {
+                        if(data11.length === 0){
+                            table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': 100});}
+                            else{
+                                let i = 0
+                        for (let index = 0; index < data11.length; index++) {
+                            i = i + data11[index].gift_chence
+                            table.addItem({
+                                'name':data11[index].gift_name,
+                                'data': {'token': data11[index].gift_code},
+                                'weight': data11[index].gift_chence
+                            })
+                        }
+                        table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': (100 - i)<0 ? 0 : (100 - i)});
+                            }
+                            const result = table.drop();
+                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - 1000}})
+                            const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
+                            setTimeout(() => {
+                                msgg.edit({content: null, embeds:[new MessageEmbed()
+                            .setTitle("<:gashapon:997106317045022751> 扭蛋系統")
+                            .setDescription(`<:fireworks:994643526820319313><:fireworks:994643526820319313>你扭中了:\n${result.name}`)
                             .setColor("RANDOM")
-                            .setFooter("如抽中的獎品有獎品代碼，將會私訊給您!", interaction.member.displayAvatarURL({
+                            .setFooter("如扭中的獎品有獎品代碼，將會私訊給您!", interaction.member.displayAvatarURL({
                                 dynamic: true
                             }))
                             ]})
+                            console.log(result)
+                            if(result.data === undefined) return
+                            if(result.data.token === null){
+                                gift.findOne({
+                                    guild: interaction.guild.id,
+                                    gift_name: result.name
+                                }, async (err, data1111111) => {
+                                    if(!data1111111) return
+                                    data1111111.delete()
+                                })
+                                return
+                            }
+                            interaction.member.send({
+                                embeds:[
+                                    new MessageEmbed()
+                                    .setTitle("<:fireworks:994643526820319313> 恭喜你中獎!!")
+                                    .addFields(
+                                        { name: '<:id:985950321975128094> **獎品名:**', value: `${result.name}`, inline: true},
+                                        { name: '<:security:997143793537122395> **獎品代碼:**', value: `${result.data.token}`,inline: true}
+                                    )
+                                    .setColor("RANDOM")
+                                ]
+                            })
+                            gift.findOne({
+                                guild: interaction.guild.id,
+                                gift_name: result.name
+                            }, async (err, data1111111) => {
+                                if(!data1111111) return
+                                data1111111.delete()
+                            })
+                            return
                     }, 8000);
+                    })
                 }
             })
         } catch (error) {

@@ -17,7 +17,7 @@ module.exports = {
     name: '扭蛋代幣',
     description: '查詢你有多少扭蛋代幣',
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
+    emoji: `<:money:997100999305068585>`,
     run: async (client, interaction, options) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}

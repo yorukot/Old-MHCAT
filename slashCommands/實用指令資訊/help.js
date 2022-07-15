@@ -55,7 +55,8 @@ module.exports = {
         實用指令資訊: "<:bestpractice:986070549115596950>",
         遊玩時數指令: "<:chronometer:986065703369080884>",
         警告系統指令: "<:warning:985590881698590730>",
-        備份系統指令: "<:backup:992010707354783775>"
+        備份系統指令: "<:backup:992010707354783775>",
+        扭蛋系統指令: "<:vendingmachine:997351593747959848>"
             }
             const description = {
         管理系統指令: "查看管理指令",
@@ -71,7 +72,8 @@ module.exports = {
         實用指令資訊: "查看一些實用的功能",
         遊玩時數指令: "查看遊戲玩了多久",
         警告系統指令: "有關警告的所有指令",
-        備份系統指令: "查看備份系統的指令"
+        備份系統指令: "查看備份系統的指令",
+        扭蛋系統指令: "查看扭蛋系統指令"
         }
 
             let ccate = [];
@@ -101,7 +103,7 @@ module.exports = {
             }); 
             //embed
             const embed = new MessageEmbed()
-                .setTitle(`機器人指令`)
+                .setTitle(`<:Discord_Bot:986319391660593172> 機器人指令`)
                 .setDescription(`>>> 我的前奏為 \`/\`\n開啟此清單, 或是使用 \`/help 指令名稱:[指令名稱]\` 來了解這個指令用法!`)
                 .addFields(categories)
                 .setFooter(
@@ -177,7 +179,7 @@ module.exports = {
 
                     if (cots.includes(value.toLowerCase())) {
                         const combed = new MessageEmbed()
-                            .setTitle(`__${value.charAt(0).toUpperCase() + value.slice(1)} 指令!__`)
+                            .setTitle(`__${emo[value.charAt(0).toUpperCase() + value.slice(1)]} ${value.charAt(0).toUpperCase() + value.slice(1)} 指令!__`)
                             .setDescription(`> 使用 \`/help\` 或加上指令名稱以獲取有關指令的更多信息!\n> 例: \`/help 指令名稱:公告發送\`\n\n`)
                             .addFields(catts)
                             .setColor(color)

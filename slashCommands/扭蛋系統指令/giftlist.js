@@ -16,8 +16,7 @@ module.exports = {
     name: '扭蛋獎池查詢',
     description: '增加扭蛋的獎池',
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
-    UserPerms: '訊息管理',
+    emoji: `<:list:992002476360343602>`,
     run: async (client, interaction, options) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}

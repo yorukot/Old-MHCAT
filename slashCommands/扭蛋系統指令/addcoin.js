@@ -36,7 +36,8 @@ module.exports = {
         required: true,
     }],     
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
+    emoji: `<:income:997352058652995664>`,
+    UserPerms: '訊息管理',
     run: async (client, interaction, options) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}

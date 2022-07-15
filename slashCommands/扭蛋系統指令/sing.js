@@ -16,7 +16,7 @@ module.exports = {
     name: '簽到',
     description: '簽到來獲得扭蛋代幣',
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
+    emoji: `<:sign:997352888613490708>`,
     run: async (client, interaction, options) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}

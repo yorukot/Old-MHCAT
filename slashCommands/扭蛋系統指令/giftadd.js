@@ -32,7 +32,7 @@ module.exports = {
         required: false,
     }],
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
+    emoji: `<:add1:981722904251215872>`,
     UserPerms: '訊息管理',
     run: async (client, interaction, options) => {
         try{

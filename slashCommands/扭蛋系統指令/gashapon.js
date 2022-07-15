@@ -18,7 +18,7 @@ module.exports = {
     name: '扭蛋',
     description: '進行扭蛋，有機會抽中各種大獎喔!!!!',
    // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:ticket:985945491093205073>`,
+    emoji: `<:gashapon:997106317045022751>`,
     run: async (client, interaction, options) => {
         try{
         await interaction.deferReply().catch(e => { });

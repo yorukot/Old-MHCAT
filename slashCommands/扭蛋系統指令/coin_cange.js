@@ -18,7 +18,7 @@ module.exports = {
     options: [{
         name: '數量',
         type: 'INTEGER',
-        description: '',
+        description: '每次扭蛋所需的代幣數量',
         required: true,
     }],     
    // video: 'https://mhcat.xyz/commands/announcement.html',

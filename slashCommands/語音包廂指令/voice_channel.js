@@ -45,10 +45,10 @@ module.exports = {
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:mapsandflags:985949507114131587>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const limit1 = interaction.options.getInteger("設定人數上限")
         const channel1 = interaction.options.getChannel("語音頻道")
         const channel = channel1.id

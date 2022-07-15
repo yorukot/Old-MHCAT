@@ -44,7 +44,7 @@ module.exports = {
     }],
     video: 'https://mhcat.xyz/docs/translate',
     emoji: `<:help:985948179709186058>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         await interaction.deferReply().catch(e => { });
         const get_member = interaction.options.getString("要的翻譯")

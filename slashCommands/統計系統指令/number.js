@@ -15,7 +15,7 @@ module.exports = {
     description: '查詢統計消息',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:searching:986107902777491497>`,
-     run: async (client, interaction, options) => {
+     run: async (client, interaction, options, perms) => {
         try{ 
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed]})}
         const embed = new MessageEmbed()

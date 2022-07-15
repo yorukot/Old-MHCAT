@@ -31,10 +31,10 @@ module.exports = {
         description: '填上獎品的代碼ex:stram序號nitro連結等',
         required: false,
     }],
-   // video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/prize_add',
     emoji: `<:add1:981722904251215872>`,
     UserPerms: '訊息管理',
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
@@ -59,8 +59,8 @@ module.exports = {
                             .setTitle(client.emoji.done + "設置成功")
                             .addFields(
                                 { name: '<:id:985950321975128094> **獎品名:**', value: `${gift_name}`, inline: true},
-                                { name: '<:dice:997143550099718144> **獎品機率:**', value: `${gift_chence}`, inline: true},
-                                { name: '<:security:997143793537122395> **獎品代碼:**', value: gift_code ? `${gift_code}` : "該獎品無代碼", inline: true}
+                                { name: '<:dice:997374185322057799> **獎品機率:**', value: `${gift_chence}`, inline: true},
+                                { name: '<:security:997374179257102396> **獎品代碼:**', value: gift_code ? `${gift_code}` : "該獎品無代碼", inline: true}
                             )
                             .setColor(client.color.greate)
                         ],

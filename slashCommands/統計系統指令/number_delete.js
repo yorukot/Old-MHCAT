@@ -16,9 +16,11 @@ module.exports = {
     UserPerms: 'MANAGE_MESSAGES',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:delete1:986068526387314690>`,
-    run: async (client, interaction, options) => {
+    UserPerms: '訊息管理',
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         Number.findOne({
             guild: interaction.guild.id,
         }, async (err, data) => {

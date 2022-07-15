@@ -27,7 +27,7 @@ module.exports = {
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:searching:986107902777491497>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         const user = interaction.options.getUser("使用者") ? interaction.options.getUser("使用者") : interaction.user

@@ -21,13 +21,13 @@ module.exports = {
         description: '輸入這個獎品叫甚麼，以及簡單概述',
         required: true,
     }],
-   // video: 'https://mhcat.xyz/commands/announcement.html',
+    video: 'https://mhcat.xyz/docs/prize_removal',
     emoji: `<:trashbin:995991389043163257>`,
     UserPerms: '訊息管理',
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const gift_name = interaction.options.getString("獎品名稱")
         gift.findOne({
             guild: interaction.guild.id,

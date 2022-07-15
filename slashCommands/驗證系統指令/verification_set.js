@@ -23,10 +23,10 @@ module.exports = {
     video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:configuration:984010500608249886>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const role1 = interaction.options.getRole("身分組")
         const role = role1.id
         if(Number(role1.position) >= Number(interaction.guild.me.roles.highest.position)) return errors("我沒有權限為大家增加這個身分組，請將我的身分組位階調高")

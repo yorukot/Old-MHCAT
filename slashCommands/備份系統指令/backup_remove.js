@@ -24,7 +24,7 @@ module.exports = {
     //video: 'https://mhcat.xyz/docs/join_message',
     UserPerms: "服主",
     emoji: `<:delete:985944877663678505>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try{
 
         await interaction.deferReply().catch(e => { });

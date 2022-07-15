@@ -13,7 +13,7 @@ const {
  } = require('discord.js');
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '扭蛋改變',
+    name: '扭蛋代幣增加',
     description: '改變扭蛋數量',
     options: [{
         name: '使用者',
@@ -35,16 +35,16 @@ module.exports = {
         description: '增加或減少的數量',
         required: true,
     }],     
-   // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:income:997352058652995664>`,
+    video: 'https://mhcat.xyz/docs/coin_increase',
+    emoji: `<:income:997374186794258452>`,
     UserPerms: '訊息管理',
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         const user = interaction.options.getUser("使用者")
         const add_reduce = interaction.options.getString("增加或減少")
         const number = interaction.options.getInteger("數量")
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         coin.findOne({
                 guild: interaction.guild.id,
                 member: user.id
@@ -53,7 +53,7 @@ module.exports = {
                     if(add_reduce === "reduce")return errors("不可減到負數!")
                     data = new coin({
                         guild: interaction.guild.id,
-                        member: interaction.member.id,
+                        member: user.id,
                         coin: number,
                         today: true
                     })
@@ -61,13 +61,13 @@ module.exports = {
                 }else{
                     if(add_reduce === "reduce"){
                         if(data.coin - number < 0) return errors("不可減到負數!")
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - number}})
+                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin - number}})
                     }else{
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + number}})
+                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin + number}})
                     }
                 }
                 const good = new MessageEmbed()
-                .setTitle(`<:money:997100999305068585>已為${user.username}增加:\`${number}\`個代幣!`)
+                .setTitle(`<:money:997374193026994236>已為${user.username}\`${add_reduce === "reduce" ? "減少" : "增加"}\`:\`${number}\`個代幣!`)
                 .setFooter(`增加${number}`,interaction.member.displayAvatarURL({
                     dynamic: true
                 }))

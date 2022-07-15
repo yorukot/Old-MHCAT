@@ -19,10 +19,10 @@ module.exports = {
     UserPerms: '管理者',
     emoji: `<:list:992002476360343602>`,
 
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors("你必須擁有\`管理者\`才能使用")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))return errors(`你需要有\`${perms}\`才能使用此指令`)
         var fs = require('fs');
         const dir1111 = process.cwd()
         var dir = dir1111+"/backups"+`/${interaction.guild.id}`;

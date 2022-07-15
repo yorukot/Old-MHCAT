@@ -30,9 +30,9 @@ setInterval(() => {
             let channel = guild.channels.cache.get(data[x].message_channel);
             if(!channel) return
             const winner_embed = new MessageEmbed()
-            .setTitle("<:fireworks:994643526820319313> 恭喜中獎者! <:fireworks:994643526820319313>")
+            .setTitle("<:fireworks:997374182016958494> 恭喜中獎者! <:fireworks:997374182016958494>")
             .setDescription(data[x].member.length === 0 ? "沒有人參加抽獎欸QQ" : `
-**<:celebration:994643523641024705> 恭喜:**
+**<:celebration:997374188060946495> 恭喜:**
 <@${winner_array.join('>\n<@')}>
 <:gift:994585975445528576> **抽中:** ${data[x].gift}
 `)

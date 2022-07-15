@@ -17,9 +17,9 @@ const { errorMonitor } = require("ws");
 module.exports = {
     name: '扭蛋',
     description: '進行扭蛋，有機會抽中各種大獎喔!!!!',
-   // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:gashapon:997106317045022751>`,
-    run: async (client, interaction, options) => {
+    video: 'https://mhcat.xyz/docs/gashapon',
+    emoji: `<:gashapon:997374176526610472>`,
+    run: async (client, interaction, options, perms) => {
         try{
         await interaction.deferReply().catch(e => { });
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.followUp({embeds: [embed],ephemeral: true})}
@@ -37,6 +37,7 @@ module.exports = {
                     const {DropTable} = require('drop-table');
                     let table = new DropTable();
                     gift.find({
+                        guild: interaction.guild.id,
                         }, async (err, data11) => {
                         if(data11.length === 0){
                             table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': 100});}
@@ -53,12 +54,12 @@ module.exports = {
                         table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': (100 - i)<0 ? 0 : (100 - i)});
                             }
                             const result = table.drop();
-                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500 : data11111.coin_number)}})
                             const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
+                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500 : data11111.coin_number)}})
                             setTimeout(() => {
                                 msgg.edit({content: null, embeds:[new MessageEmbed()
-                            .setTitle("<:gashapon:997106317045022751> 扭蛋系統")
-                            .setDescription(`<:fireworks:994643526820319313><:fireworks:994643526820319313>你扭中了:\n${result.name}`)
+                            .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
+                            .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${result.name}`)
                             .setColor("RANDOM")
                             .setFooter("如扭中的獎品有獎品代碼，將會私訊給您!", interaction.member.displayAvatarURL({
                                 dynamic: true
@@ -78,10 +79,10 @@ module.exports = {
                             interaction.member.send({
                                 embeds:[
                                     new MessageEmbed()
-                                    .setTitle("<:fireworks:994643526820319313> 恭喜你中獎!!")
+                                    .setTitle("<:fireworks:997374182016958494> 恭喜你中獎!!")
                                     .addFields(
                                         { name: '<:id:985950321975128094> **獎品名:**', value: `${result.name}`, inline: true},
-                                        { name: '<:security:997143793537122395> **獎品代碼:**', value: `${result.data.token}`,inline: true}
+                                        { name: '<:security:997374179257102396> **獎品代碼:**', value: `${result.data.token}`,inline: true}
                                     )
                                     .setColor("RANDOM")
                                 ]

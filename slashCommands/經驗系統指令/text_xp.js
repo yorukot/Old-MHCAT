@@ -26,7 +26,7 @@ module.exports = {
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed]})}
         const get_member = interaction.options.getUser("玩家")

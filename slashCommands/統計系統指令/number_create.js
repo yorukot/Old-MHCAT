@@ -33,13 +33,14 @@ module.exports = {
             { name: '語音頻道數量', value: '語音頻道數量' },
         ],
     }],
-    UserPerms: 'MANAGE_MESSAGES',
+    UserPerms: '訊息管理',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:statistics:986108146747600928>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         await interaction.deferReply().catch(e => { });
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.followUp({embeds: [embed]})}
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const member = interaction.options.getString("統計選項")
         const vt = interaction.options.getString("統計頻道類型")
         const members = interaction.guild.members.cache.filter(member => !member.user.bot);

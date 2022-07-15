@@ -32,12 +32,14 @@ module.exports = {
     UserPerms: 'MANAGE_MESSAGES',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:statistics:986108146747600928>`,
-    run: async (client, interaction, options) => {
+    UserPerms: '訊息管理',
+    run: async (client, interaction, options, perms) => {
         try {
         await interaction.deferReply().catch(e => { });
         const lodd = new MessageEmbed().setTitle(`<a:lodding:980493229592043581> | 正在進行設置中!`).setColor("GREEN")
         const lodding = await interaction.followUp({embeds: [lodd]})
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");lodding.edit({embeds: [embed]})}
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const vt = interaction.options.getString("統計頻道類型")
         const role = interaction.options.getRole("身分組")
         const members = interaction.guild.members.cache.filter(member => member.roles.cache.some(role1 => role1.id === role.id));

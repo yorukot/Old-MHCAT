@@ -10,7 +10,7 @@ module.exports = {
     }],
    // video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:music1:985946956591423518>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         return
     }
 }

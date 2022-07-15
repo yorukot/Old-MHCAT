@@ -15,7 +15,7 @@ module.exports = {
     description: '確保你不是機器人',
     video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:tickmark:985949769224556614>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true,})}
         verification.findOne({

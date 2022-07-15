@@ -18,7 +18,7 @@ module.exports = {
     //video: 'https://mhcat.xyz/docs/join_message',
     UserPerms: '管理者',
     emoji: `<:configuration:985943474786414722>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
 
         await interaction.deferReply().catch(e => { });

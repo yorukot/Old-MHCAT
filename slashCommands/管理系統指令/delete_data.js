@@ -17,11 +17,11 @@ module.exports = {
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:logfile:985948561625710663>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
     await interaction.deferReply().catch(e => { });
     try {
     function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-    if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+    if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
     
     let id = `delete-data`;
 

@@ -15,7 +15,7 @@ module.exports = {
     description: '查詢機器人資訊',
     video: 'https://mhcat.xyz/docs/info',
     emoji: `<:info:985946738403737620>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         return
     }
 }

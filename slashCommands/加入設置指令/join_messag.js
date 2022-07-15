@@ -26,13 +26,13 @@ module.exports = {
     UserPerms: '訊息管理',
     emoji: `<:comments:985944111725019246>`,
 
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
 
 
 
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const channel = interaction.options.getChannel("頻道")
         const channel_id = channel.id
         join_message.findOne({

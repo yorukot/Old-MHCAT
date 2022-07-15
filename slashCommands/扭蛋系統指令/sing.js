@@ -15,9 +15,9 @@ const { errorMonitor } = require("ws");
 module.exports = {
     name: '簽到',
     description: '簽到來獲得扭蛋代幣',
-   // video: 'https://mhcat.xyz/commands/announcement.html',
-    emoji: `<:sign:997352888613490708>`,
-    run: async (client, interaction, options) => {
+    video: 'https://mhcat.xyz/docs/snig',
+    emoji: `<:sign:997374180632825896>`,
+    run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         coin.findOne({
@@ -33,7 +33,7 @@ module.exports = {
                     })
                     data.save()
                 }else{
-                    if(data.today) return errors("你今天已經簽到過了!請於明天再來投票!")
+                    if(data.today) return errors("你今天已經簽到過了!請於明天再來簽到!")
                     data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {today: true}})
                     data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + 25}})
                 }

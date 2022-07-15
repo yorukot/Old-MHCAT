@@ -19,11 +19,11 @@ module.exports = {
     description: '查看所有的自動通知列表',
     //video: 'https://mhcat.xyz/docs/chat_xp_set',
     UserPerms: '訊息管理',
-    emoji: `<:configuration:984010500608249886>`,
-    run: async (client, interaction, options) => {
+    emoji: `<:list:992002476360343602>`,
+    run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed]})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         cron_set.find({
             guild: interaction.guild.id,
         }, async (err, data) => {

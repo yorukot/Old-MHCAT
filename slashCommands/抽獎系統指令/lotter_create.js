@@ -65,10 +65,10 @@ module.exports = {
     video: 'https://mhcat.xyz/docs/lotter',
     UserPerms: '訊息管理',
     emoji: `<:lottery:985946439253381200>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
+        if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const date = `${interaction.options.getString("截止日期")}`
         let d = date.indexOf("d");
         let h = date.indexOf("h");
@@ -143,7 +143,7 @@ module.exports = {
                 .setDescription(content)
                 .addFields(
                 { name: '<:gift:994585975445528576> **獎品**', value: gift, inline: true },
-                { name: '<:group:994888708799074374> **共抽出**', value: `${howmanywinner}位`, inline: true },
+                { name: '<:group:997374190132928552> **共抽出**', value: `${howmanywinner}位`, inline: true },
                 { name: '<:chronometer:986065703369080884> **結束時間**', value: `<t:${Math.round(sum.getTime() / 1000)}>`, inline: false },
                 )
                 .setColor(interaction.guild.me.displayHexColor)

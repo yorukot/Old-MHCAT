@@ -21,7 +21,7 @@ module.exports = {
     description: '查詢語音經驗的排行榜',
     //video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
-    run: async (client, interaction, options) => {
+    run: async (client, interaction, options, perms) => {
         try {
 
         function errors(content) {

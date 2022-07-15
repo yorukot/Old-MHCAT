@@ -4,7 +4,7 @@ client.on('interactionCreate', async (interaction) => {
         let cmd = client.slash_commands.get(interaction.commandName);
         if (!cmd) return 
         let options = interaction.options._hoistedOptions;
-        
-        cmd.run(client, interaction, options)
+        const perms = cmd.UserPerms
+        cmd.run(client, interaction, options, perms)
     }
 })

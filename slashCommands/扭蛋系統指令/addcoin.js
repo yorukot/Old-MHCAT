@@ -41,7 +41,7 @@ module.exports = {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         const user = interaction.options.getUser("使用者")
-        const add_reduce = interaction.options.getUser("增加或減少")
+        const add_reduce = interaction.options.getString("增加或減少")
         const number = interaction.options.getInteger("數量")
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors("你沒有權限使用這個指令")
         coin.findOne({
@@ -58,15 +58,15 @@ module.exports = {
                     })
                     data.save()
                 }else{
-                    if(data.coin - number < 0) return errors("不可減到負數!")
                     if(add_reduce === "reduce"){
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - Number}})
+                        if(data.coin - number < 0) return errors("不可減到負數!")
+                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - number}})
                     }else{
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + Number}})
+                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + number}})
                     }
                 }
                 const good = new MessageEmbed()
-                .setTitle(`<:money:997100999305068585>已為<@${user.id}>增加:\`${number}\`個代幣!`)
+                .setTitle(`<:money:997100999305068585>已為${user.username}增加:\`${number}\`個代幣!`)
                 .setFooter(`增加${number}`,interaction.member.displayAvatarURL({
                     dynamic: true
                 }))

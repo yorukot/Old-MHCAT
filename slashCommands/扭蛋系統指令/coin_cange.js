@@ -32,14 +32,14 @@ module.exports = {
                 guild: interaction.guild.id,
             }, async (err, data) => {
                 if(!data){
-                    data = new coin({
+                    data = new gift_change({
                         guild: interaction.guild.id,
                         coin_number: number,
                     })
                     data.save()
                 }else{
                     data.delete()
-                    data = new coin({
+                    data = new gift_change({
                         guild: interaction.guild.id,
                         coin_number: number,
                     })
@@ -47,7 +47,7 @@ module.exports = {
                 }
                 const good = new MessageEmbed()
                 .setTitle(`<:money:997100999305068585>成功改變每次扭蛋所需代幣，目前所需代幣:\`${number}\``)
-                .setFooter(interaction.member.displayAvatarURL({
+                .setFooter("MHCAT", interaction.member.displayAvatarURL({
                     dynamic: true
                 }))
                 .setColor('RANDOM')

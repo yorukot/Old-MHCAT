@@ -1,5 +1,6 @@
 const coin = require("../../models/coin.js");
 const gift = require("../../models/gift.js");
+const gift_change = require("../../models/gift_change.js");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -15,7 +16,7 @@ const {
 const { errorMonitor } = require("ws");
 module.exports = {
     name: '扭蛋',
-    description: '進行扭蛋，有機會抽中nitro喔!!!!',
+    description: '進行扭蛋，有機會抽中各種大獎喔!!!!',
    // video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:ticket:985945491093205073>`,
     run: async (client, interaction, options) => {
@@ -29,7 +30,10 @@ module.exports = {
                 if(!data){
                 errors("你還沒有任何代幣欸使用`/簽到`或是多講話，都可以獲得代幣喔!")
                 }else{
-                    if(data.coin < 1000) return errors("必須要有`1000`個代幣才能進行扭蛋")
+                    gift_change.findOne({
+                        guild: interaction.guild.id,
+                    }, async (err, data11111) => {
+                    if(data.coin < (!data11111 ? 500 : data11111.coin_number)) return errors(`必須要有\`${!data11111 ? 500 : data11111.coin_number}\`個代幣才能進行扭蛋`)
                     const {DropTable} = require('drop-table');
                     let table = new DropTable();
                     gift.find({
@@ -49,7 +53,7 @@ module.exports = {
                         table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!','weight': (100 - i)<0 ? 0 : (100 - i)});
                             }
                             const result = table.drop();
-                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - 1000}})
+                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500 : data11111.coin_number)}})
                             const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
                             setTimeout(() => {
                                 msgg.edit({content: null, embeds:[new MessageEmbed()
@@ -60,7 +64,6 @@ module.exports = {
                                 dynamic: true
                             }))
                             ]})
-                            console.log(result)
                             if(result.data === undefined) return
                             if(result.data.token === null){
                                 gift.findOne({
@@ -93,6 +96,7 @@ module.exports = {
                             return
                     }, 8000);
                     })
+                })
                 }
             })
         } catch (error) {

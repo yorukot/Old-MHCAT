@@ -1,4 +1,5 @@
 const coin = require("../../models/coin.js");
+const gift_change = require("../../models/gift_change.js");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -27,14 +28,19 @@ module.exports = {
                 if(!data){
                 errors("你還沒有任何代幣欸使用`/簽到`或是多講話，都可以獲得代幣喔!")
                 }else{
+                    gift_change.findOne({
+                        guild: interaction.guild.id,
+                    }, async (err, data11111) => {
+
                     const good = new MessageEmbed()
                     .setTitle(`<:money:997100999305068585>你目前有:\`${data.coin}\`個代幣!`)
-                    .setDescription("<:question:997101823708102808>我該如何獲取代幣?\n使用`/簽到`或是多多聊天都可以拿到代幣喔\n<a:catjump:984807173529931837>對了對了，代幣數到了`1000`可以進行扭蛋喔!")
-                    .setFooter(`你還差:${1000 - (data.coin) > 0 ? `你還差${1000 - (data.coin)}就可以扭蛋了，加油!!`: "你可以扭蛋了!!使用`/扭蛋`進行扭蛋"}`,interaction.member.displayAvatarURL({
+                    .setDescription("<:question:997101823708102808>我該如何獲取代幣?\n使用`/簽到`或是多多聊天都可以拿到代幣喔\n<a:catjump:984807173529931837>對了對了，代幣數到了" + `${!data11111 ? 500 : data11111.coin_number}` +"可以進行扭蛋喔!")
+                    .setFooter(`你還差:${!data11111 ? 500 : data11111.coin_number - (data.coin) > 0 ? `你還差${!data11111 ? 500 : data11111.coin_number - (data.coin)}就可以扭蛋了，加油!!`: "你可以扭蛋了!!使用`/扭蛋`進行扭蛋"}`,interaction.member.displayAvatarURL({
                         dynamic: true
                     }))
                     .setColor('RANDOM')
                     interaction.reply({embeds: [good],ephemeral: true})
+                })
                 }
             })
 

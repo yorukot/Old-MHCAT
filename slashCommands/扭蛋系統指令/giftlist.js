@@ -31,7 +31,7 @@ module.exports = {
                         (w, i) => `**<:id:985950321975128094> 獎品名:** \n\`${w.gift_name}\`\n**<:dice:997374185322057799> 獎品抽中概率:**\n\`${w.gift_chence}\`%\n`
                     )
                     for(let i = 0; i < data.length; i++) {
-                        let arrary111 = {name: `<:id:985950321975128094> 獎品名: \`${data[i].gift_name}\``, value: `**<:dice:997374185322057799> 獎品抽中概率:** : \`${data[i].gift_chence}\``,inline: true}
+                        let arrary111 = {name: `<:id:985950321975128094> 獎品名: \`${data[i].gift_name}\``, value: `**<:dice:997374185322057799> 獎品抽中概率:** : \`${data[i].gift_chence}\`%`,inline: true}
                         array.push(arrary111)
                     }
 

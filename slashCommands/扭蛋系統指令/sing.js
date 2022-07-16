@@ -1,4 +1,5 @@
 const coin = require("../../models/coin.js");
+const gift_change = require("../../models/gift_change.js");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -24,18 +25,21 @@ module.exports = {
                 guild: interaction.guild.id,
                 member: interaction.member.id
             }, async (err, data) => {
+                gift_change.findOne({
+                    guild: interaction.guild.id,
+                }, async (err, data1111) => {
                 if(!data){
                     data = new coin({
                         guild: interaction.guild.id,
                         member: interaction.member.id,
-                        coin: 25,
+                        coin: data1111 ? data1111.sign_coin : 25,
                         today: true
                     })
                     data.save()
                 }else{
                     if(data.today) return errors("你今天已經簽到過了!請於明天再來簽到!")
                     data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {today: true}})
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + 25}})
+                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + (data1111 ? data1111.sign_coin : 25)}})
                 }
                 const good = new MessageEmbed()
                 .setTitle("<:calendar:990254384812290048>你成功簽到了!")
@@ -43,7 +47,7 @@ module.exports = {
                 .setColor('RANDOM')
                 interaction.reply({embeds: [good]})
             })
-
+            })
         } catch (error) {
             const error_send= require('../../functions/error_send.js')
             error_send(error, interaction)

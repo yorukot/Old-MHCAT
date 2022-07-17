@@ -8,7 +8,7 @@ const rest = new REST({ version: '9' }).setToken(`${token}`);
 client.once('ready', () => {
 setTimeout(() => {
 
-rest.get(Routes.applicationCommands("984485913201635358"))
+/*rest.get(Routes.applicationCommands("984485913201635358"))
     .then(data => {
         for (const command of data) {
             client.application.commands.fetch(`${command.id}`)
@@ -17,9 +17,7 @@ rest.get(Routes.applicationCommands("984485913201635358"))
             .then(command => {console.log(command.name)})
             }).catch(console.error);
     }
-});
-
-return
+});*/
 
 readdirSync('./slashCommands').forEach(async (dir) => {
     const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) => 

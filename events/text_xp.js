@@ -91,12 +91,13 @@ client.on("messageCreate", async (message) => {
                                     data11111 = new coin({
                                         guild: message.guild.id,
                                         member: message.member.id,
-                                        coin: data.leavel*100/2,
+                                        coin: parseInt(Number(data.leavel)*100/5),
                                         today: false
                                     })
                                     data11111.save()
                                 }else{
-                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + data.leavel*100/2}})
+                                    if(data.coin + parseInt(Number(data.leavel)*100/5)) return
+                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*100/5)}})
                                 }
                             })
                         } else {

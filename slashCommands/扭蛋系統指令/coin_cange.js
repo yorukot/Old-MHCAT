@@ -34,6 +34,8 @@ module.exports = {
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         const number = interaction.options.getInteger("抽獎所需代幣")
         const sign_coin = interaction.options.getInteger("簽到給予代幣數")
+        if(number > 999999999) return errors("最高代幣設定數只能是999999999")
+        if(sign_coin > 999999999) return errors("最高代幣設定數只能是999999999")
         if(!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))return errors(`你需要有\`${perms}\`才能使用此指令`)
         gift_change.findOne({
                 guild: interaction.guild.id,

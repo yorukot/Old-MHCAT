@@ -63,12 +63,13 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                         data11111 = new coin({
                                             guild: newMember.guild.id,
                                             member: newMember.id,
-                                            coin: Number(data.leavel)*100/2,
+                                            coin: parseInt(Number(data.leavel)*100/5),
                                             today: false
                                         })
                                         data11111.save()
                                     }else{
-                                        data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + Number(data.leavel)*100/2}})
+                                        if(data.coin + parseInt(Number(data.leavel)*100/5)) return
+                                        data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*100/5)}})
                                     }
                                 })
                             }else{return}

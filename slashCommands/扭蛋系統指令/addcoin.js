@@ -54,16 +54,17 @@ module.exports = {
                     data = new coin({
                         guild: interaction.guild.id,
                         member: user.id,
-                        coin: number,
+                        coin: Number(number),
                         today: true
                     })
                     data.save()
                 }else{
                     if(add_reduce === "reduce"){
                         if(data.coin - number < 0) return errors("不可減到負數!")
-                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin - number}})
+                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin - Number(number)}})
                     }else{
-                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin + number}})
+                        if(data.coin + Number(number) > 999999999) return errors("不可以加超過`999999999`!!")
+                        data.collection.update(({guild: interaction.channel.guild.id, member: user.id}), {$set: {coin: data.coin + Number(number)}})
                     }
                 }
                 const good = new MessageEmbed()

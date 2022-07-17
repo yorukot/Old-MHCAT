@@ -71,6 +71,7 @@ const warning = chalk.hex('#CE0000');
 const end_start = chalk.hex('#4DFFFF');
 const errorwebhook = new WebhookClient({ url: errorWebhook })
 
+
 process.on("unhandledRejection", (reason, p) => {
 console.log(end_start("\n[🚩 崩潰通知] 未處理的拒絕:"));
 console.log(warning(reason.stack? String(reason.stack) : String(reason)))

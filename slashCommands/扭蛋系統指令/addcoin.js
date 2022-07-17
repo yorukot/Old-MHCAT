@@ -73,7 +73,7 @@ module.exports = {
                     dynamic: true
                 }))
                 .setColor('RANDOM')
-                interaction.reply({embeds: [good],ephemeral: true})
+                interaction.reply({embeds: [good]})
             })
 
         } catch (error) {

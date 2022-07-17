@@ -246,13 +246,17 @@ client.on('interactionCreate', async (interaction) => {
                 content: tag,
                 embeds: [announcement]
             })
-                const await_embed = await interaction.followUp({
+            setTimeout(() => {
+                interaction.channel.send({
                     embeds: [yesno],
                     components: [yes]
-                })
-                setTimeout(() => {
-                    await_embed.delete()
-                }, 6000);         
+                }).then((message) => {setTimeout(() => {
+                    message.delete()
+                }, 6000);  
+                });
+            }, 500)
+            
+                   
         } catch (error) {
             // 如果有錯誤
             console.log(error)
@@ -293,7 +297,7 @@ client.on('interactionCreate', async (interaction) => {
                             content: tag,
                             embeds: [announcement]
                         })
-                        ButtonInteraction.reply("成功發送")
+                        ButtonInteraction.reply("<a:green_tick:994529015652163614> | 成功發送!")
                     }
                 })
             }

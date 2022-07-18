@@ -35,7 +35,7 @@ client.on("guildMemberAdd", (member) => {
       .setAuthor('🪂 歡迎加入 MHCAT!', `${member.guild.me.displayAvatarURL({dynamic: true})}`, 'https://dsc.gg/MHCAT')
       .setDescription(`**<:welcome:978216428794679336> 歡迎 __${member.user.username}#${member.user.discriminator}__ 的加入!
 :speech_balloon: <#979307778524979201>想要聊天的話歡迎到這裡!
-👾 <#977249272204521532>有任何bug歡迎到這邊回報!
+👾 <#994954827715051590>有任何bug歡迎到這邊回報!
 
 如果有建議或試任何的問題或想法歡迎到\n<#978218954600374272>開啟客服頻道**
     `)
@@ -60,9 +60,11 @@ client.on("guildMemberAdd", (member) => {
         const MEMBER = member.user.username
         const content = data.message_content
         if(!content)return
+        const adsadsa  = content.replace("(MEMBERNAME)", MEMBER)
+        const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`)
         const welcome = new MessageEmbed()
       .setAuthor(`🪂 歡迎加入 ${member.guild.name}!`, `${member.guild.iconURL() === null ? member.guild.me.displayAvatarURL({dynamic: true}) : member.guild.iconURL()}`)
-      .setDescription(content.replace("(MEMBERNAME)", MEMBER))
+      .setDescription(messageaaa)
       .setThumbnail(member.displayAvatarURL({
         dynamic: true
       }))

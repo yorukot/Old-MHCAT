@@ -60,7 +60,7 @@ module.exports = {
         .setValue(data ? data.color !== null ? data.color : '' : '')
         const content = new TextInputComponent()
         .setCustomId('join_msgcontent')
-        .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (MEMBERNAME) )")
+        .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (MEMBERNAME) ，要tag請輸入(TAG))")
         .setStyle('PARAGRAPH')
         .setRequired(true)
         .setValue(data ? data.message_content !== null ? data.message_content : '(MEMBERNAME)' : '(MEMBERNAME)')

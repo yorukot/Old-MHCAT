@@ -34,11 +34,11 @@ module.exports = {
                         let arrary111 = {name: `<:id:985950321975128094> 獎品名: \`${data[i].gift_name}\``, value: `**<:dice:997374185322057799> 獎品抽中概率:** : \`${data[i].gift_chence}\`%`,inline: true}
                         array.push(arrary111)
                     }
-
+                    
                     return interaction.reply({
                         embeds:[
                             {type: 'rich',
-                            title: '<:list:992002476360343602> 以下是教學的獎池',
+                            title: `<:list:992002476360343602> 以下是${interaction.guild.name}的獎池`,
                             color: 'RANDOM',
                             fields: array,
                             footer: {

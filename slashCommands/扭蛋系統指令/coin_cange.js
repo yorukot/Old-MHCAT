@@ -25,6 +25,11 @@ module.exports = {
         type: 'INTEGER',
         description: '每次簽到會拿到多少代幣',
         required: true,
+    },{
+        name: '通知頻道',
+        type: 'CHANNEL',
+        description: '抽中後的通知頻道',
+        required: true,
     }],     
     video: 'https://mhcat.xyz/docs/required_coins',
     emoji: `<:coins:997374177944281190>`,
@@ -33,6 +38,7 @@ module.exports = {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
         const number = interaction.options.getInteger("抽獎所需代幣")
+        const channel = interaction.options.getChannel("通知頻道")
         const sign_coin = interaction.options.getInteger("簽到給予代幣數")
         if(number > 999999999) return errors("最高代幣設定數只能是999999999")
         if(sign_coin > 999999999) return errors("最高代幣設定數只能是999999999")
@@ -44,7 +50,8 @@ module.exports = {
                     data = new gift_change({
                         guild: interaction.guild.id,
                         coin_number: number,
-                        sign_coin: sign_coin
+                        sign_coin: sign_coin,
+                        channel: channel.id
                     })
                     data.save()
                 }else{
@@ -52,12 +59,13 @@ module.exports = {
                     data = new gift_change({
                         guild: interaction.guild.id,
                         coin_number: number,
-                        sign_coin: sign_coin
+                        sign_coin: sign_coin,
+                        channel: channel.id
                     })
                     data.save()
                 }
                 const good = new MessageEmbed()
-                .setTitle(`<:money:997374193026994236>成功改變每次扭蛋及抽獎代幣數\n扭蛋所需代幣:\`${number}\`\n簽到給予代幣數:\`${sign_coin}\``)
+                .setTitle(`<:money:997374193026994236>成功改變每次扭蛋及抽獎代幣數\n扭蛋所需代幣:\`${number}\`\n簽到給予代幣數:\`${sign_coin}\`\n通知頻道:${channel}`)
                 .setFooter("MHCAT", interaction.member.displayAvatarURL({
                     dynamic: true
                 }))

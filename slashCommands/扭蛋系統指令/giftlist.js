@@ -1,4 +1,5 @@
 const gift = require("../../models/gift.js");
+const gift_change = require("../../models/gift_change.js");
 const { 
     MessageActionRow,
     MessageSelectMenu,
@@ -34,13 +35,16 @@ module.exports = {
                         let arrary111 = {name: `<:id:985950321975128094> 獎品名: \`${data[i].gift_name}\``, value: `**<:dice:997374185322057799> 獎品抽中概率:** : \`${data[i].gift_chence}\`%`,inline: true}
                         array.push(arrary111)
                     }
-                    
+                    gift_change.findOne({
+                        guild: interaction.guild.id,
+                    }, async (err, data1) => {
                     return interaction.reply({
                         embeds:[
                             {type: 'rich',
                             title: `<:list:992002476360343602> 以下是${interaction.guild.name}的獎池`,
                             color: 'RANDOM',
                             fields: array,
+                            description: `**<:money:997374193026994236> 扭蛋所需代幣:**\`${data1.coin_number}\`個\n<:calendar:990254384812290048> **簽到給予代幣數:**\`${data1.sign_coin}\`個\n**<:levelup:990254382845157406> 等級提升給予倍數:**\`${data1.xp_multiple}\`倍`,
                             footer: {
                               text: `${interaction.user.tag}的查詢`,
                               iconURL: interaction.user.displayAvatarURL({
@@ -49,6 +53,7 @@ module.exports = {
                             }}
                         ]
                     })
+                })
                 }
             })
         } catch (error) {

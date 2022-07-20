@@ -87,18 +87,23 @@ client.on("messageCreate", async (message) => {
                                 guild: message.guild.id,
                                 member: message.member.id
                             }, async (err, data11111) => {
+                                const gift_change = require("../models/gift_change.js");
+                                gift_change.findOne({
+                                    guild: message.guild.id,
+                                    }, async (err, data11111111) => {
                                 if(!data11111){
                                     data11111 = new coin({
                                         guild: message.guild.id,
                                         member: message.member.id,
-                                        coin: Number(data.leavel)*100/5,
+                                        coin: Number(data.leavel)*(data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0),
                                         today: false
                                     })
                                     data11111.save()
                                 }else{
-                                    if((data.coin + Number(data.leavel)*100/5) > 999999999) return
-                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*100/5)}})
+                                    if((data.coin + Number(data.leavel)*(data ? data.xp_multiple ? data.xp_multiple : 0 : 0)) > 999999999) return
+                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0))}})
                                 }
+                            })
                             })
                         } else {
                             return

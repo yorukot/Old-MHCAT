@@ -59,18 +59,23 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                     guild: newMember.guild.id,
                                     member: newMember.id
                                 }, async (err, data11111) => {
-                                    if(!data11111){
-                                        data11111 = new coin({
-                                            guild: newMember.guild.id,
-                                            member: newMember.id,
-                                            coin: Number(data.leavel)*100/5,
-                                            today: false
-                                        })
-                                        data11111.save()
-                                    }else{
-                                        if((data.coin + Number(data.leavel)*100/5) > 999999999) return
-                                        data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + Number(data.leavel)*100/5}})
-                                    }
+                                    const gift_change = require("../models/gift_change.js");
+                                gift_change.findOne({
+                                    guild: newMember.guild.id,
+                                    }, async (err, data111111111) => {
+                                if(!data11111){
+                                    data11111 = new coin({
+                                        guild: newMember.guild.id,
+                                        member: newMember.id,
+                                        coin: Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0),
+                                        today: false
+                                    })
+                                    data11111.save()
+                                }else{
+                                    if((data.coin + Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? ddata111111111ata.xp_multiple : 0 : 0)) > 999999999) return
+                                    data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))}})
+                                }
+                            })
                                 })
                             }else{return}
                                 })  

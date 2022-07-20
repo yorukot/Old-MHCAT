@@ -5,6 +5,7 @@ const gift_change = new mongoose.Schema({
     coin_number: Number,
     sign_coin: Number,
     channel: String,
+    xp_multiple: Number,
 });
 
 module.exports = new mongoose.model('gift_change', gift_change)

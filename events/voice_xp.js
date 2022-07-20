@@ -72,7 +72,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                     })
                                     data11111.save()
                                 }else{
-                                    if((data.coin + Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? ddata111111111ata.xp_multiple : 0 : 0)) > 999999999) return
+                                    if((data.coin + Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0)) > 999999999) return
                                     data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))}})
                                 }
                             })

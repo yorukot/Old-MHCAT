@@ -15,38 +15,33 @@ const {
 const { errorMonitor } = require("ws");
 module.exports = {
     name: '簽到列表',
-    description: '簽到來獲得扭蛋代幣',
+    description: '查看今天有誰簽到了',
     video: 'https://mhcat.xyz/docs/snig',
     emoji: `<:sign:997374180632825896>`,
     run: async (client, interaction, options, perms) => {
         try{
         function errors(content){const embed = new MessageEmbed().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("RED");interaction.reply({embeds: [embed],ephemeral: true})}
-        coin.findOne({
+        coin.find({
                 guild: interaction.guild.id,
-                member: interaction.member.id
+                today: true,
             }, async (err, data) => {
                 gift_change.findOne({
                     guild: interaction.guild.id,
                 }, async (err, data1111) => {
                 if(!data){
-                    data = new coin({
-                        guild: interaction.guild.id,
-                        member: interaction.member.id,
-                        coin: data1111 ? data1111.sign_coin : 25,
-                        today: true
-                    })
-                    data.save()
+                return errors("沒有人有簽到過!")
                 }else{
-                    if(data.today) return errors("你今天已經簽到過了!請於明天再來簽到!")
-                    if(data.coin + Number((data1111 ? data1111.sign_coin : 25)) > 999999999) return errors("不可以加超過`999999999`!!")
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {today: true}})
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + (data1111 ? data1111.sign_coin : 25)}})
+                    let array = []
+                    for(let i = 0; i < data.length; i++){
+                        let aaaaaaaaa = `✅ **簽到人:**<@${data[i].member}>  |  `
+                        array.push(aaaaaaaaa)
+                    }
+                    const good = new MessageEmbed()
+                    .setTitle("<:list:992002476360343602> 今天有這些人簽到了:")
+                    .setDescription(array.join(''))
+                    .setColor('RANDOM')
+                    interaction.reply({embeds: [good]})
                 }
-                const good = new MessageEmbed()
-                .setTitle("<:calendar:990254384812290048>你成功簽到了!")
-                .setDescription("<:Cat_ThumbsUp:988665659850362920> 今天有準時簽到很棒喔!\n明天也要記得來簽到.w.")
-                .setColor('RANDOM')
-                interaction.reply({embeds: [good]})
             })
             })
         } catch (error) {

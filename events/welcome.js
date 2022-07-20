@@ -123,6 +123,11 @@ client.on("guildCreate", async (guild) => {
     let embed = new MessageEmbed()
       .setAuthor({ name: `${client.user.username}#${client.user.discriminator} | ${client.user.id}`, iconURL: client.user.displayAvatarURL()})
       .setDescription(`<:leaves:956444050792280084> 我離開了 ${guild.name}！`)
+      .addFields(
+        { name: '伺服器ID', value: `\`${guild.id}\``, inline: true },
+        { name: '伺服器擁有者', value: `<@${guild.ownerId}> (\`${guild.ownerId}\`)`, inline: true },
+        { name: "伺服器使用者數量", value: `${guild.memberCount}`, inline: true }
+      )
       .setColor("#2f3136")
     leaveWebhook.send({
       embeds: [embed]

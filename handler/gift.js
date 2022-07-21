@@ -14,7 +14,7 @@ setInterval(() => {
     if(!data) return;
     const date = Math.floor(Date.now() / 1000)
      for(x = data.length-1; x > -1; x--) {
-        if(date < data[x].date) return console.log(data[x].date)
+        if(date < data[x].date) return
         if(data[x].end === false) {
             const winner_array = []
             for(y = data[x].howmanywinner -1 ; y > -1; y--){

@@ -74,9 +74,10 @@ module.exports = {
                             table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!' + `||${i}||`,'weight': dsadsasa});
                         }
                             }
+                            const hgsdaa = []
                             const aaaa = []
                             const testsetse = []
-                            for(let i = 0; i < poiuytr; i++) {  
+                            for(let i = 0; i < poiuytr; i++) {
                                 const result = table.drop();
                                 table.removeItem(result.name);
                                 if(result.data && result.data.token !== null){
@@ -85,27 +86,28 @@ module.exports = {
                                 }
                                 const name = result.name
                                     if(!name.includes('空氣QQ') && !name.includes('別氣餒，下一次定是你')){
-                                        gift_change.findOne({
-                                            guild: interaction.guild.id,
-                                        }, async (err, data11111) => {
-                                            const channel = interaction.guild.channels.cache.get(data11111.channel)
-                                            if(!channel) return
-                                            channel.send({
-                                                embeds: [
-                                                    new MessageEmbed()
-                                                    .setTitle("<:celebration:997374188060946495> **有人中獎了!**")
-                                                    .setDescription(`<:id:985950321975128094> **中獎人:** <@${interaction.user.id}>\n` + "<a:gift:954018543211532289> **中獎禮物:**" + `\`\`\`${name}\`\`\``)
-                                                    .setColor("RANDOM")
-                                                ]
-                                            })
-                                        })
+                                        hgsdaa.push(name)
                                     }
                                 aaaa.push(result.name)
                             } 
                             const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
                             data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500*draw : data11111.coin_number*draw)}})
+                            gift_change.findOne({
+                                guild: interaction.guild.id,
+                            }, async (err, data11111) => {
+                                const channel = interaction.guild.channels.cache.get(data11111.channel)
+                                if(!channel) return
+                                channel.send({
+                                    embeds: [
+                                        new MessageEmbed()
+                                        .setTitle("<:celebration:997374188060946495> **有人中獎了!**")
+                                        .setDescription(`<:id:985950321975128094> **中獎人:** <@${interaction.user.id}>\n` + "<a:gift:954018543211532289> **中獎禮物:**" + `\`\`\`${hgsdaa.join('\n')}\`\`\``)
+                                        .setColor("RANDOM")
+                                    ]
+                                })
+                            })
                             setTimeout(() => {
-                                msgg.edit({content: null, embeds:[new MessageEmbed()
+                            msgg.edit({content: null, embeds:[new MessageEmbed()
                             .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
                             .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${aaaa.join('\n')}`)
                             .setColor("RANDOM")

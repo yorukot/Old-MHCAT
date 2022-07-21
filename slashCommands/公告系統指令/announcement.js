@@ -64,7 +64,6 @@ module.exports = {
         };x 
         const collector = interaction.channel.createMessageComponentCollector({time: 10*60*1000 });
         collector.on('collect', async (interaction) => {
-            console.log("testesteets")
             var validateColor = require("validate-color").default;
             const tag = interaction.fields.getTextInputValue('anntag');
             const color = interaction.fields.getTextInputValue('anncolor');

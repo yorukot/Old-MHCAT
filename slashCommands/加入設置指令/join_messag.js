@@ -47,7 +47,7 @@ module.exports = {
                 })
                 data.save()
             }else{
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {channel: channel_id}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {channel: channel_id}})
             }
             const modal = new Modal()
         .setCustomId("nal")

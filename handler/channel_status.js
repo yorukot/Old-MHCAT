@@ -37,7 +37,7 @@ setInterval(() => {
 
         // memberNumber =================================================================================================================
         set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.members.cache.size)
-        data[x].collection.update(({guild: guild.id,}), {$set: {memberNumber_name: guild.members.cache.size}})
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {memberNumber_name: guild.members.cache.size}})
         // userNumber =================================================================================================================
         const get_userNumebr = guild.channels.cache.get(data[x].userNumber)
         if(get_userNumebr){
@@ -49,7 +49,7 @@ setInterval(() => {
             get_userNumebr.setName(userNumber_channel.replace(`${data[x].userNumber_name}`,`${members.size}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {userNumber_name: `${members.size}`}})}
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {userNumber_name: `${members.size}`}})}
         // botNumber =================================================================================================================
         const get_BotNumber = guild.channels.cache.get(data[x].BotNumber)
         if(get_BotNumber){
@@ -61,7 +61,7 @@ setInterval(() => {
             get_BotNumber.setName(BotNumber_channel.replace(`${data[x].BotNumber_name}`,`${bots.size}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {BotNumber_name: `${bots.size}`}})}
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {BotNumber_name: `${bots.size}`}})}
         // channelNumber =================================================================================================================
         const get_channelNumber = guild.channels.cache.get(data[x].channelnumber)
         if(get_channelNumber){
@@ -73,7 +73,7 @@ setInterval(() => {
             get_channelNumber.setName(channelnumber_channel.replace(`${data[x].channelnumber_name}`,`${all_channel}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})}
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})}
         // textnumber =================================================================================================================
         const get_textnumber = guild.channels.cache.get(data[x].textnumber)
         if(get_textnumber){
@@ -85,7 +85,7 @@ setInterval(() => {
             get_textnumber.setName(textnumber_channel.replace(`${data[x].textnumber_name}`,`${text_channel_number}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})}
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})}
         // voicenumber =================================================================================================================
         const get_voicenumber = guild.channels.cache.get(data[x].voicenumber)
         if(get_voicenumber){
@@ -97,7 +97,7 @@ setInterval(() => {
             get_voicenumber.setName(voicenumber_channel.replace(`${data[x].voicenumber_name}`,`${voice_channel_number}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,}), {$set: {voicenumber_name: `${voice_channel_number}`}})}
+        data[x].collection.updateOne(({guild: guild.id,}), {$set: {voicenumber_name: `${voice_channel_number}`}})}
      }else{
         return
      }}
@@ -121,7 +121,7 @@ setInterval(() => {
             role_channel_name.setName(channel_name.replace(`${data[x].channel_name}`,`${members.size}`))
             .catch(console.error);
         }
-        data[x].collection.update(({guild: guild.id,role: data[x].role}), {$set: {channel_name: `${members.size}`}})
+        data[x].collection.updateOne(({guild: guild.id,role: data[x].role}), {$set: {channel_name: `${members.size}`}})
             }
         }
     })

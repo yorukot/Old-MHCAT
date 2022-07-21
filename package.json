@@ -1,6 +1,6 @@
 {
   "name": "discordbot",
-  "version": "2.1.7",
+  "version": "2.1.10",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -36,7 +36,7 @@
     "denque": "^1.5.1",
     "discord-api-types": "^0.22.0",
     "discord-backup": "^3.2.1",
-    "discord-hybrid-sharding": "^1.6.4",
+    "discord-hybrid-sharding": "^1.6.7",
     "discord-logs": "^2.0.1",
     "discord-music-player": "^8.3.2",
     "discord-player": "^5.2.2",
@@ -70,8 +70,8 @@
     "mime-types": "^2.1.32",
     "minimatch": "^3.0.4",
     "moment": "^2.29.1",
-    "mongodb": "^3.6.11",
-    "mongoose": "^5.13.8",
+    "mongodb": "^4.8.0",
+    "mongoose": "^6.4.6",
     "mpath": "^0.8.3",
     "mquery": "^3.2.5",
     "ms": "^2.1.2",

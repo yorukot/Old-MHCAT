@@ -91,10 +91,11 @@ module.exports = {
                                 aaaa.push(result.name)
                             } 
                             const msgg = await interaction.followUp({content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"})
-                            data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500*draw : data11111.coin_number*draw)}})
+                            data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - (!data11111 ? 500*draw : data11111.coin_number*draw)}})
                             gift_change.findOne({
                                 guild: interaction.guild.id,
                             }, async (err, data11111) => {
+                                if(!data11111) return
                                 const channel = interaction.guild.channels.cache.get(data11111.channel)
                                 if(!channel) return
                                 channel.send({

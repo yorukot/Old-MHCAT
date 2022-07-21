@@ -39,8 +39,8 @@ module.exports = {
                 }else{
                     if(data.today) return errors("你今天已經簽到過了!請於明天再來簽到!")
                     if(data.coin + Number((data1111 ? data1111.sign_coin : 25)) > 999999999) return errors("不可以加超過`999999999`!!")
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {today: true}})
-                    data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + (data1111 ? data1111.sign_coin : 25)}})
+                    data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {today: true}})
+                    data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + (data1111 ? data1111.sign_coin : 25)}})
                 }
                 const good = new MessageEmbed()
                 .setTitle("<:calendar:990254384812290048>你成功簽到了!")

@@ -45,7 +45,7 @@ client.on("messageCreate", async (message) => {
                 data.save()
             } else if (data) {
                 if (Number(messagexp) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100)) {
-                    data.collection.update(({
+                    data.collection.updateOne(({
                         guild: message.guild.id,
                         member: message.member.id,
                     }), {
@@ -53,7 +53,7 @@ client.on("messageCreate", async (message) => {
                             leavel: `${Number(data.leavel) + 1}`
                         }
                     })
-                    data.collection.update(({
+                    data.collection.updateOne(({
                         guild: message.guild.id,
                         member: message.member.id,
                     }), {
@@ -101,7 +101,7 @@ client.on("messageCreate", async (message) => {
                                     data11111.save()
                                 }else{
                                     if((data.coin + Number(data.leavel)*(data ? data.xp_multiple ? data.xp_multiple : 0 : 0)) > 999999999) return
-                                    data11111.collection.update(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0))}})
+                                    data11111.collection.updateOne(({guild: message.channel.guild.id, member: message.member.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0))}})
                                 }
                             })
                             })
@@ -110,7 +110,7 @@ client.on("messageCreate", async (message) => {
                         }
                     })
                 } else {
-                    data.collection.update(({
+                    data.collection.updateOne(({
                         guild: message.guild.id,
                         member: message.member.id,
                     }), {

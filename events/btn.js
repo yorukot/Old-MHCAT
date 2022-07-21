@@ -163,7 +163,7 @@ client.on("interactionCreate", async (interaction) => {
                                 content: `<@${winner_array.join('><@')}>`,
                                 embeds: [winner_embed]
                             })
-                            data.collection.update(({
+                            data.collection.updateOne(({
                                 guild: data.guild,
                                 id: data.id
                             }), {
@@ -190,7 +190,7 @@ client.on("interactionCreate", async (interaction) => {
                         ephemeral: true
                     })
                     if (data) {
-                        data.collection.update(({
+                        data.collection.updateOne(({
                             guild: data.guild,
                             id: data.id
                         }), {

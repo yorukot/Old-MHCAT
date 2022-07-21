@@ -64,13 +64,13 @@ module.exports = {
                     interaction.reply({embeds: [good]})
                     }
                     if(vaule[random] === aaaaa){
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - parseInt(number/2)}})
+                        data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - parseInt(number/2)}})
                         adddd(parseInt(number/2), "你失去了")
                     }else if(((aaaaa === "剪刀")&&(vaule[random] === "石頭")) || ((aaaaa === "石頭")&&(vaule[random] === "布")) || ((aaaaa === "布")&&(vaule[random] === "剪刀"))){
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - number}})
+                        data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin - number}})
                         adddd(parseInt(number), "你失去了")
                     }else if(((aaaaa === "剪刀")&&(vaule[random] === "布")) || ((aaaaa === "石頭")&&(vaule[random] === "剪刀")) || ((aaaaa === "布")&&(vaule[random] === "石頭"))){
-                        data.collection.update(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + number}})
+                        data.collection.updateOne(({guild: interaction.channel.guild.id, member: interaction.member.id}), {$set: {coin: data.coin + number}})
                         adddd(parseInt(number), "你獲得了")
 
                     }

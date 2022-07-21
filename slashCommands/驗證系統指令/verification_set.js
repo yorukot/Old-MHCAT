@@ -42,7 +42,7 @@ module.exports = {
             })
             data.save()
             } else {
-            data.collection.update(({guild: interaction.guild.id,member: interaction.member.id,}), {$set: {role: role}})
+            data.collection.updateOne(({guild: interaction.guild.id,member: interaction.member.id,}), {$set: {role: role}})
             }
             const embed = new MessageEmbed()
             .setTitle("設置成功!")

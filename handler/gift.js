@@ -39,7 +39,7 @@ setInterval(() => {
             .setColor(channel.guild.me.displayHexColor)
             .setFooter("沒抽中的我給你一個擁抱")
             channel.send({content: `<@${winner_array.join('><@')}>`, embeds: [winner_embed]})
-            data[x].collection.update(({guild: data[x].guild, id: data[x].id}), {$set: {end: true}})
+            data[x].collection.updateOne(({guild: data[x].guild, id: data[x].id}), {$set: {end: true}})
             data[x].save()
          }else{
             if((date - data[x].date) * 1000 > 604800) data[x].delete()

@@ -44,7 +44,7 @@ const job = new CronJob(
         coin.find({}, async (err, data) => {
             if(!data) return;
             for(let i = 0; i < data.length; i++){
-                data[i].collection.update(({guild: data[i].guild, member: data[i].member}), {$set: {today: false}})
+                data[i].collection.updateOne(({guild: data[i].guild, member: data[i].member}), {$set: {today: false}})
             }
         })
     },

@@ -5,7 +5,8 @@ module.exports = () => {
     if (!mongooseConnectionString) return;
 
     mongoose.connect(mongooseConnectionString, {
-        useFindAndModify: true,
+        useNewUrlParser: true,
         useUnifiedTopology: true,
+        autoIndex: false    
     })
 };

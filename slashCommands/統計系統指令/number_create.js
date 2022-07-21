@@ -273,8 +273,8 @@ module.exports = {
                                     }
                                 ]
                             })
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {channelnumber: `${botnumber_text.id}`}})
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {channelnumber: `${botnumber_text.id}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})
                             interaction.followUp({embeds:[embed]})
                             break;
                             //文字頻道數量 ===============================================================================================================
@@ -294,8 +294,8 @@ module.exports = {
                                     }
                                 ]
                             })
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {textnumber: `${text_channel.id}`}})
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {textnumber: `${text_channel.id}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})
                             interaction.followUp({embeds:[embed]})
                             break;
                             //文字頻道數量 ===============================================================================================================
@@ -315,8 +315,8 @@ module.exports = {
                                     }
                                 ]
                             })
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {voicenumber: `${voice_channel.id}`}})
-                            data.collection.update(({guild: interaction.guild.id,}), {$set: {voicenumber_name: `${text_channel_number}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {voicenumber: `${voice_channel.id}`}})
+                            data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {voicenumber_name: `${text_channel_number}`}})
                             interaction.followUp({embeds:[embed]})
                             break;
                         default:
@@ -342,8 +342,8 @@ module.exports = {
                                 }
                             ]
                            })
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {channelnumber: `${botnumber_text.id}`}})
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {channelnumber: `${botnumber_text.id}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {channelnumber_name: `${all_channel}`}})
                            interaction.followUp({embeds:[embed]})
                            break;
                            //文字頻道數量 ===============================================================================================================
@@ -363,8 +363,8 @@ module.exports = {
                                 }
                             ]
                            })
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {textnumber: `${text_channel.id}`}})
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {textnumber: `${text_channel.id}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {textnumber_name: `${text_channel_number}`}})
                            interaction.followUp({embeds:[embed]})
                            break;
                            //文字頻道數量 ===============================================================================================================
@@ -384,8 +384,8 @@ module.exports = {
                                 }
                             ]
                            })
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {voicenumber: `${voice_channel.id}`}})
-                           data.collection.update(({guild: interaction.guild.id,}), {$set: {voicenumber_name: `${text_channel_number}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {voicenumber: `${voice_channel.id}`}})
+                           data.collection.updateOne(({guild: interaction.guild.id,}), {$set: {voicenumber_name: `${text_channel_number}`}})
                            interaction.followUp({embeds:[embed]})
                            break;
                        default:

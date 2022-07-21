@@ -35,7 +35,7 @@ module.exports = {
         }, async (err, data) => {
             if(data){
                 // 度資料庫的內容進行更新
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {announcement_id: channel.id}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {announcement_id: channel.id}})
                 // 設定embed & send embed
                 const announcement_set_embed = new MessageEmbed()
                 .setTitle("<:megaphone:985943890148327454> 公告系統")

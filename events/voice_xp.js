@@ -20,7 +20,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                     data.save()
                 }else{
                   if(data.leavejoin === "join") return 
-                    data.collection.update(({guild: newMember.guild.id,member: newMember.id,}), {$set: {leavejoin: "join"}})
+                    data.collection.updateOne(({guild: newMember.guild.id,member: newMember.id,}), {$set: {leavejoin: "join"}})
                     data.save()
                 }
                 try {
@@ -32,8 +32,8 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                         }, async (err, data) => {
                             if(data.leavejoin !== "join"){clearInterval(stop)};
                             if(Number(5) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/2) * 100  + 100)){
-                                data.collection.update(({guild: newMember.guild.id,member: newMember.id,}), {$set: {xp: `5`}})
-                                data.collection.update(({guild: newMember.guild.id,member: newMember.id,}), {$set: {leavel: `${Number(data.leavel) + 1}`}})
+                                data.collection.updateOne(({guild: newMember.guild.id,member: newMember.id,}), {$set: {xp: `5`}})
+                                data.collection.updateOne(({guild: newMember.guild.id,member: newMember.id,}), {$set: {leavel: `${Number(data.leavel) + 1}`}})
                                 voice_xp_channel.findOne({
                                     guild: newMember.guild.id,
                                 }, async (err, data1) => {
@@ -73,14 +73,14 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                     data11111.save()
                                 }else{
                                     if((data.coin + Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0)) > 999999999) return
-                                    data11111.collection.update(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))}})
+                                    data11111.collection.updateOne(({guild: newMember.guild.id, member: newMember.id}), {$set: {coin: data11111.coin + parseInt(Number(data.leavel)*(data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))}})
                                 }
                             })
                                 })
                             }else{return}
                                 })  
                             }else{
-                                data.collection.update(({guild: newMember.guild.id,member: newMember.id,}), {$set: {xp: `${Number(5) + Number(data.xp)}`}})
+                                data.collection.updateOne(({guild: newMember.guild.id,member: newMember.id,}), {$set: {xp: `${Number(5) + Number(data.xp)}`}})
                             }
                             data.save
                         })
@@ -108,7 +108,7 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                     data.save()
                 }else{
                     if(!oldMember.member)return
-                    data.collection.update(({guild: oldMember.guild.id,member: oldMember.member.id,}), {$set: {leavejoin: "leave"}})
+                    data.collection.updateOne(({guild: oldMember.guild.id,member: oldMember.member.id,}), {$set: {leavejoin: "leave"}})
                     data.save()
                 }
             })

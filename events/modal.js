@@ -47,10 +47,9 @@ client.on('interactionCreate', async (interaction) => {
         const content = interaction.fields.getTextInputValue("cron_setcontent");
         const id = interaction.customId
         const dsadsa = require('cron-validator') ;
-        if(!dsadsa.isValidCron(corn,{allowSevenAsSunday: true,allowBlankDay: true,alias: true,seconds: true}))return errors("你輸入的不是正確的cron判別式，[點我前往查看cron教學](https://mhcat.xyz)")
+        if(!dsadsa.isValidCron(corn,{allowBlankDay: true,}))return errors("你輸入的不是正確的cron判別式，請勿使用秒，周請使用1-7")
         var parser = require('cron-parser');
         var interval = parser.parseExpression(corn);
-        //if(Math.abs((interval.next().toDate()).valueOf() - (interval.next().toDate()).valueOf()) < 900000) return errors("每次運行間隔必須大於15分鐘!")
         if (color && !validateColor(color)) return errors('你傳送的並不是顏色(色碼)')
         if(!message&&!content&&!title)return errors("你都沒輸入你要發送甚麼，我要怎麼發送啦!")
         cron_set.findOne({
@@ -66,8 +65,8 @@ client.on('interactionCreate', async (interaction) => {
                     title: title ? title : null,
                     description: content ? content : null,
                 }]} : {content: message}
-                data.collection.update(({guild: interaction.channel.guild.id,id: id}), {$set: {message: exampleEmbed}})
-                data.collection.update(({guild: interaction.channel.guild.id,id: id}), {$set: {cron: corn}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id,id: id}), {$set: {message: exampleEmbed}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id,id: id}), {$set: {cron: corn}})
                 interaction.reply({content: `:white_check_mark:**以下是該自動通知id:**\`${id}\`\n使用\`/自動通知刪除 id:${id}\`進行刪除\n~~我只是個分隔線，下面是你的訊息預覽~~`})
                 interaction.channel.send(exampleEmbed)
                     var CronJob = require('cron').CronJob;
@@ -102,8 +101,8 @@ client.on('interactionCreate', async (interaction) => {
             if(!data){
                 return errors("很抱歉，出現了未知的錯誤!")
             }else{
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {message_content: content}})
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {color: color}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {message_content: content}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {color: color}})
             }
         })
         const welcome = new MessageEmbed()
@@ -129,9 +128,9 @@ client.on('interactionCreate', async (interaction) => {
             if(!data){
                 return errors("很抱歉，出現了未知的錯誤!")
             }else{
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {message_content: content}})
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {color: color}})
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {title: title}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {message_content: content}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {color: color}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {title: title}})
             }
         })
         const welcome = new MessageEmbed()

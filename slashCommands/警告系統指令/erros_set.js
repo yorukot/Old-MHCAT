@@ -47,8 +47,8 @@ module.exports = {
             guild: interaction.guild.id,
         }, async (err, data) => {
             if(data){
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {ban_count: user}})
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {move: reason}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {ban_count: user}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {move: reason}})
                 const announcement_set_embed = new MessageEmbed()
                 .setTitle("警告系統")
                 .setDescription(`警告成功設為警告${user}次後\n執行${reason}`)

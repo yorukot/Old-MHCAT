@@ -47,10 +47,15 @@ const {
 
 const mongoose = require("mongoose");
 mongoose.connect(mongooseConnectionString, {
-    useFindAndModify: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
     autoIndex: false
-}).then(console.log('|成功連線至資料庫!|'))
+}).then(test => {
+    const chalk = require('chalk')
+    console.log(chalk.hex('#28FF28').bold('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓'))
+    console.log(chalk.hex('#28FF28').bold('┃          成功連線至資料庫            ┃'))
+    console.log(chalk.hex('#28FF28').bold('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛'))
+})
 
 client.commands = new Collection()
 client.config = require('./config.json')

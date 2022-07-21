@@ -91,9 +91,9 @@ module.exports = {
                         });
                         }
                     })
-                    data.collection.update(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {limit: limit}})
-                    data.collection.update(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {name: channel_name}})
-                    data.collection.update(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {parent: perant}})
+                    data.collection.updateOne(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {limit: limit}})
+                    data.collection.updateOne(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {name: channel_name}})
+                    data.collection.updateOne(({guild: interaction.channel.guild.id,ticket_channel: channel}), {$set: {parent: perant}})
                     data.save()
                     const embed = new MessageEmbed()
                     .setTitle("成功進行設定")

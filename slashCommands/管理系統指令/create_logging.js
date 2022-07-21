@@ -35,7 +35,7 @@ module.exports = {
         }, async (err, data) => {
             if(data){
                 // 度資料庫的內容進行更新
-                data.collection.update(({guild: interaction.channel.guild.id}), {$set: {channel_id: channel_id}})
+                data.collection.updateOne(({guild: interaction.channel.guild.id}), {$set: {channel_id: channel_id}})
                 data.save()
                 // 設定embed & send embed
                 const announcement_set_embed = new MessageEmbed()

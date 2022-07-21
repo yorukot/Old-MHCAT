@@ -48,7 +48,6 @@ readdirSync('./slashCommands').forEach(async (dir) => {
                         run: file.run,
                         video: file.video,
                     });
-                    console.log(`${option} | ${name}`)
                     await client.application.commands.create(data);
                 }, 500);
             }

@@ -16,9 +16,7 @@ client.once('ready', () => {
     let embed = new MessageEmbed()
     .setTitle(`**${client.user.username}**已就緒`)
     .setColor("GREEN")
-    readywebhook.send({
-        embeds: [embed]
-    })
+    if(client.user.id !== "984485913201635358") readywebhook.send({embeds: [embed]})
     setInterval(() => {
         const arrayOfStatus = [
             `/help`

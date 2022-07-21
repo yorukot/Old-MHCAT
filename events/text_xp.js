@@ -79,6 +79,18 @@ client.on("messageCreate", async (message) => {
                                 return message.author.send("你升級了，但是我沒有權限在" + channel111.name + "發送消息!")
                             }
                             const true_message = data1.message
+                            const chat_role = require('../models/chat_role.js');
+                            chat_role.findOne({
+                                guild: message.guild.id,
+                                leavel: Number(data.leavel) + 1
+                            }, async (err, data1111111111111) => {
+                                if(!data1111111111111) return;
+                                if(data1111111111111) {
+                                    const role = message.guild.roles.cache.get(data1111111111111.role)
+                                    if(!role) return
+                                    message.member.roles.add(role)
+                                }
+                            })
                             let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                             const aaaaa = messsage.replace("(user)", `<@${message.member.id}>`)
                             channel111.send(data1.message && (data1.message!== null) ? aaaaa : `🆙恭喜<@${message.member.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)

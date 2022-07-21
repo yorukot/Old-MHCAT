@@ -53,6 +53,18 @@ client.on("voiceStateUpdate",  async (oldMember, newMember) => {
                                 const true_message = data1.message
                                 let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                                 const aaaaa = messsage.replace("(user)", `<@${newMember.id}>`)
+                                const chat_role = require('../models/voice_role.js');
+                                chat_role.findOne({
+                                    guild: newMember.guild.id,
+                                    leavel: Number(data.leavel) + 1
+                                }, async (err, data1111111111111) => {
+                                    if(!data1111111111111) return;
+                                    if(data1111111111111) {
+                                        const role = newMember.guild.roles.cache.get(data1111111111111.role)
+                                        if(!role) return
+                                        newMember.member.roles.add(role)
+                                    }
+                                })
                                 channel111.send(data1.message && (data1.message!== null) ? aaaaa : `🆙恭喜<@${newMember.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)
                                 const coin = require('../models/coin.js')
                                 coin.findOne({

@@ -69,7 +69,7 @@ module.exports = {
                                 'weight': data11[index].gift_chence
                             })
                         }
-                        const dsadsasa = (100 - i ) < 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i) / poiuytr
+                        const dsadsasa = (100 - i ) <= 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i) / poiuytr
                         for(let i = 0; i < poiuytr; i++){
                             table.addItem({'name':'空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!' + `||${i}||`,'weight': dsadsasa});
                         }

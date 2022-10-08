@@ -11,7 +11,7 @@ setTimeout(() => {
                 data = new system({
                     a: 'dsa',
                     ram: [],
-                    cpu: []
+                    cpu: [] 
                 })
                 data.save()
             }else{

@@ -1,0 +1,68 @@
+const join_message = require("../../models/join_message.js")
+const {
+    ApplicationCommandType,
+    ButtonStyle,
+    ApplicationCommandOptionType,
+    ActionRowBuilder,
+    SelectMenuBuilder,
+    ButtonBuilder,
+    EmbedBuilder,
+    Collector,
+    Discord,
+    AttachmentBuilder,
+    ModalBuilder,
+    TextInputBuilder,
+    PermissionsBitField
+} = require('discord.js');
+ const backup = require("discord-backup");
+module.exports = {
+    name: '備份設置',
+    cooldown: 300,
+    description: '將現在的頻道備份',
+    //video: 'https://mhcat.xyz/docs/join_message',
+    UserPerms: '管理者',
+    emoji: `<:configuration:985943474786414722>`,
+    run: async (client, interaction, options, perms) => {
+        try {
+
+        await interaction.deferReply().catch(e => { });
+        const lodding = new EmbedBuilder().setTitle("<a:load:986319593444352071> | 我正在玩命幫你備份(根據伺服器大小約需要1-60秒)!").setColor("Green")
+                const lodding_msg = await interaction.followUp({
+                    embeds: [lodding]
+                })
+        function errors(content){const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");lodding_msg.edit({embeds: [embed],ephemeral: true})}
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator))return errors("你必須擁有\`管理者\`才能使用")
+        if(!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator))return errors("我沒有\`管理者\`權限，請給我`管理者`權限!!!")
+        var fs = require('fs');
+        const dir1111 = process.cwd()
+        var dir = dir1111+"/backups"+`/${interaction.guild.id}`;
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+        backup.setStorageFolder(dir);
+        backup.list().then((backups) => {
+            if(backups.length >= 2)return errors("最高只能記錄\`2\`次備份!請使用\`/備份刪除 備份id:\`")
+            backup.create(interaction.guild, {
+                maxMessagesPerChannel: 10,
+                jsonBeautify: true,
+                saveImages: "base64"
+            }).then((backupData) => {
+                lodding_msg.edit({embeds: [
+                    new EmbedBuilder()
+                    .setTitle(`<a:greentick:980496858445135893> | 成功備份，你的備份id為\`${backupData.id}\`使用\`/加載備份 id:${backupData.id}\`進行還原`)
+                    .setColor("Green")
+                ]});
+                interaction.member.send({embeds: [
+                    new EmbedBuilder()
+                    .setTitle(`<a:greentick:980496858445135893> | 成功備份，你的備份id為\`${backupData.id}\`使用\`/加載備份 id:${backupData.id}\`進行還原`)
+                    .setColor("Green")
+                ]});
+            });
+        });
+
+    } catch (error) {
+        const error_send= require('../../functions/error_send.js')
+        error_send(error, interaction)
+    }
+    }
+}

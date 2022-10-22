@@ -14,8 +14,6 @@ const {
     TextInputBuilder,
     PermissionsBitField
 } = require('discord.js');
-<<<<<<< HEAD
-=======
 const {
     ChartJSNodeCanvas,
     ChartConfiguration,
@@ -31,7 +29,6 @@ const canvas = new ChartJSNodeCanvas({
 canvas.registerFont(`./fonts/NotoSansTC-Regular.otf`, {
     family: "NotoSansTC",
 });
->>>>>>> a0da53e (🌟 | 更新各種東西)
 const lotter = require('../models/lotter.js')
 const os = require("os");
 const process = require('process');
@@ -55,10 +52,7 @@ client.on("interactionCreate", async (interaction) => {
     }
     try {
         if (interaction.isButton()) {
-<<<<<<< HEAD
-=======
 
->>>>>>> a0da53e (🌟 | 更新各種東西)
             if (interaction.customId.includes('shardinfoupdate') || interaction.customId.includes('botinfoupdate')) {
                 try {
                     if (interaction.customId === 'shardinfoupdate') {
@@ -102,32 +96,6 @@ client.on("interactionCreate", async (interaction) => {
 
                         })
                     } else {
-<<<<<<< HEAD
-                        const data = client.cluster.broadcastEval('this.receiveBotInfo()');
-                        let guildss = 0
-                        let membersss = 0
-                        data.then(function (result) {
-                            for (let i = 0; i < result.length; i++) {
-                                const {
-                                    guild,
-                                    members,
-                                } = result[i]
-                                guildss = guild + guildss
-                                membersss = members + membersss
-                            }
-                            const totalRam = Math.round(os.totalmem() / 1024 / 1024);
-                            const usedRam = Math.round((os.totalmem() - os.freemem()) / 1024 / 1024);
-                            const osaa = require("os-utils");
-                            osaa.cpuUsage((v) => {
-                                const row = new ActionRowBuilder()
-                                    .addComponents(
-                                        new ButtonBuilder()
-                                        .setEmoji("<:update:1020532095212335235>")
-                                        .setCustomId('botinfoupdate')
-                                        .setLabel('更新')
-                                        .setStyle(ButtonStyle.Success)
-                                    );
-=======
                         await interaction.deferReply({
                             ephemeral: true
                         });
@@ -205,6 +173,7 @@ client.on("interactionCreate", async (interaction) => {
                                 },
                             };
                             const image = await canvas.renderToBuffer(configuration);
+                            console.log(image)
                             const attachment = new AttachmentBuilder(image);
                             const row = new ActionRowBuilder()
                                 .addComponents(
@@ -215,7 +184,6 @@ client.on("interactionCreate", async (interaction) => {
                                     .setStyle(ButtonStyle.Success)
                                 );
                             osaa.cpuUsage(function (v) {
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                 const embed = new EmbedBuilder()
                                     .setTitle("<a:mhcat:996759164875440219> MHCAT目前系統使用量:")
                                     .addFields([{
@@ -225,38 +193,22 @@ client.on("interactionCreate", async (interaction) => {
                                         },
                                         {
                                             name: "<:cpu:987630931932229632> CPU使用量:\n",
-<<<<<<< HEAD
-                                            value: `\`${Math.round(round(v) * 100)}\`%`,
-=======
                                             value: `\`${(v * 100).toFixed(2)}\`**%**`,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                             inline: true
                                         },
                                         {
                                             name: "<:vagueness:999527612634374184> 分片數量:\n",
-<<<<<<< HEAD
-                                            value: `\`${result.length}\` 個`,
-=======
                                             value: `\`${result.length}\` **個**`,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                             inline: true
                                         },
                                         {
                                             name: "<:rammemory:986062763598155797> RAM使用量:",
-<<<<<<< HEAD
-                                            value: `\`${usedRam}\\${totalRam}\` MB`,
-=======
                                             value: `\`${usedRam}\\${totalRam}\` **MB**\`(${((usedRam / totalRam) * 100).toFixed(2)}%)\``,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                             inline: true
                                         },
                                         {
                                             name: "<:chronometer:986065703369080884> 開機時間:",
-<<<<<<< HEAD
-                                            value: `<t:${Math.round((Date.now() / 1000) - process.uptime())}:R>`,
-=======
                                             value: `**<t:${Math.round((Date.now() / 1000) - process.uptime())}:R>**`,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                             inline: true
                                         },
                                         {
@@ -266,23 +218,11 @@ client.on("interactionCreate", async (interaction) => {
                                         },
                                         {
                                             name: `<:user:986064391139115028> 總使用者:`,
-<<<<<<< HEAD
-                                            value: `\`${membersss}\` 名`,
-=======
                                             value: `\`${membersss}\``,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                                             inline: true
                                         },
                                     ])
                                     .setColor('Random')
-<<<<<<< HEAD
-                                interaction.update({
-                                    embeds: [embed],
-                                    components: [row],
-                                    files: [],
-                                })
-                            })
-=======
                                     .setImage("attachment://file.jpg");
                                 interaction.message.edit({
                                     embeds: [embed],
@@ -294,7 +234,6 @@ client.on("interactionCreate", async (interaction) => {
                                 })
                             })
 
->>>>>>> a0da53e (🌟 | 更新各種東西)
                         })
                     }
                 } catch (error) {
@@ -409,11 +348,7 @@ client.on("interactionCreate", async (interaction) => {
                                 return date.toLocaleTimeString('zh-TW', options)
                             }
                             const b = data.member.map(
-<<<<<<< HEAD
-                                (w, i) => `${interaction.guild.members.cache.get(w.id) ? interaction.guild.members.cache.get(w.id).user.username + '#' + interaction.guild.members.cache.get(w.id).user.discriminator : '使用者已消失!'}(id:${w.id})|參加時間:${!isNaN(w.time) ? timeConverter(w.time) : w.time}`
-=======
                                 (w, i) => `${interaction.guild.members.cache.get(w.id) ? interaction.guild.members.cache.get(w.id).user.username + '#' + interaction.guild.members.cache.get(w.id).user.discriminator : '使用者已退出伺服器!'}(id:${w.id})|參加時間:${!isNaN(w.time) ? timeConverter(w.time) : w.time}`
->>>>>>> a0da53e (🌟 | 更新各種東西)
                             )
                             const match = a.find(element => {
                                 if (element.includes(interaction.user.id)) {

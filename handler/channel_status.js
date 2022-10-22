@@ -41,7 +41,7 @@ setInterval(() => {
                         } else {}
                     }
 
-                    // memberNumber =================================================================================================================
+                    // memberNumber =
                     try {
 
 
@@ -53,7 +53,7 @@ setInterval(() => {
                                 memberNumber_name: guild.members.cache.size
                             }
                         })
-                        // userNumber =================================================================================================================
+                        // userNumber =
                         const get_userNumebr = guild.channels.cache.get(data[x].userNumber)
 
                         if (get_userNumebr) {
@@ -79,7 +79,7 @@ setInterval(() => {
                                 })
                             } else {}
                         }
-                        // botNumber =================================================================================================================
+                        // botNumber =
                         const get_BotNumber = guild.channels.cache.get(data[x].BotNumber)
                         if (get_BotNumber) {
                             let hasPermissionInChannel2 = get_BotNumber
@@ -105,7 +105,7 @@ setInterval(() => {
                                 })
                             } else {}
                         }
-                        // channelNumber =================================================================================================================
+                        // channelNumber =
                         const get_channelNumber = guild.channels.cache.get(data[x].channelnumber)
                         if (get_channelNumber) {
                             let hasPermissionInChannel1 = get_channelNumber
@@ -130,7 +130,7 @@ setInterval(() => {
                                 })
                             } else {}
                         }
-                        // textnumber =================================================================================================================
+                        // textnumber =
                         const get_textnumber = guild.channels.cache.get(data[x].textnumber)
                         if (get_textnumber) {
                             let hasPermissionInChannel14 = get_textnumber
@@ -156,7 +156,7 @@ setInterval(() => {
                                 })
                             } else {}
                         }
-                        // voicenumber =================================================================================================================
+                        // voicenumber =
                         const get_voicenumber = guild.channels.cache.get(data[x].voicenumber)
                         if (get_voicenumber) {
                             let hasPermissionInChannel15 = get_voicenumber

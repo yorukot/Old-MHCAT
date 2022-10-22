@@ -49,6 +49,25 @@ module.exports = {
                             today: Math.round(Date.now() / 1000)
                         })
                         data.save()
+                    } else if(data1111.time === 0){
+                        if (data.today === 1) return errors(`你今天已經簽到過了!請於隔天(0:00)後再來簽到!`)
+                        if (data.coin + Number((data1111 ? data1111.sign_coin : 25)) > 999999999) return errors("不可以加超過`999999999`!!")
+                        data.collection.updateOne(({
+                            guild: interaction.channel.guild.id,
+                            member: interaction.member.id
+                        }), {
+                            $set: {
+                                today: 1
+                            }
+                        })
+                        data.collection.updateOne(({
+                            guild: interaction.channel.guild.id,
+                            member: interaction.member.id
+                        }), {
+                            $set: {
+                                coin: data.coin + (data1111 ? data1111.sign_coin : 25)
+                            }
+                        })
                     } else {
                         if ((Math.round(Date.now() / 1000) - data.today) < (data1111 ? data1111.time ? data1111.time : 86400 : 86400)) return errors(`你今天已經簽到過了!請於<t:${data.today + (data1111 ? data1111.time ? data1111.time : 86400 : 86400)}:f>後再來簽到!`)
                         if (data.coin + Number((data1111 ? data1111.sign_coin : 25)) > 999999999) return errors("不可以加超過`999999999`!!")

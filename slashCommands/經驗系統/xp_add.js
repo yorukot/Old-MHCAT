@@ -56,13 +56,10 @@ module.exports = {
     run: async (client, interaction, options, perms) => {
         try {
             await interaction.deferReply();
-<<<<<<< HEAD
-=======
            /* for (let i = 0; i < 10; i++) {
                 console.log(`${i}: ${parseInt(Number(i) * (Number(i)/3) * 100 + 100)}`)
                 
             }*/
->>>>>>> a0da53e (🌟 | 更新各種東西)
         function errors(content){const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");interaction.editReply({embeds: [embed]})}
         if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers))return errors(`你需要有\`${perms}\`才能使用此指令`)
         let xp_count = interaction.options.getInteger("經驗值")
@@ -87,14 +84,6 @@ module.exports = {
                         guild: interaction.guild.id,
                         member: member.id,
                     }, async (err, data) => {
-<<<<<<< HEAD
-                    if (Number(xp_count) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100)) {
-                        data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${Number(data.leavel) + 1}`}})
-                        data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${xp_count - (parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100) - data.xp)}`}})
-                    }else{
-                        data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {xp: `${Number(xp_count) + Number(data.xp)}`}})
-                    }
-=======
                     
                     let less_xp = Number(xp_count)
                     let all_xp = 0
@@ -135,7 +124,6 @@ module.exports = {
                     }
                     data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${i}`}})
                     data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp}`}})
->>>>>>> a0da53e (🌟 | 更新各種東西)
                     interaction.editReply({
                         embeds: [
                             new EmbedBuilder()
@@ -145,11 +133,7 @@ module.exports = {
                         ]
                     })
                 })
-<<<<<<< HEAD
-                }, 1000);
-=======
                 }, 500);
->>>>>>> a0da53e (🌟 | 更新各種東西)
         })
         }else if(interaction.options.getSubcommand() === "語音經驗改變"){
             voice_xp.findOne({
@@ -172,14 +156,6 @@ module.exports = {
                         guild: interaction.guild.id,
                         member: member.id,
                     }, async (err, data) => {
-<<<<<<< HEAD
-                        if(Number(xp_count) + Number(data.xp) > parseInt(Number(data.leavel) * (Number(data.leavel)/2) * 100  + 100)){
-                            data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {xp: `${xp_count - (parseInt(Number(data.leavel) * (Number(data.leavel)/2) * 100  + 100) - data.xp)}`}})
-                            data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${Number(data.leavel) + 1}`}})
-                        }else{
-                            data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {xp: `${Number(xp_count) + Number(data.xp)}`}})
-                        }
-=======
                         let less_xp = Number(xp_count)
                     let all_xp = 0
                     let i = Number(data.leavel)
@@ -220,7 +196,6 @@ module.exports = {
                     }
                     data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${i}`}})
                     data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp}`}})
->>>>>>> a0da53e (🌟 | 更新各種東西)
                         interaction.editReply({
                             embeds: [
                                 new EmbedBuilder()

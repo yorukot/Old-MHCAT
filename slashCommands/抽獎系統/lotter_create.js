@@ -80,15 +80,9 @@ module.exports = {
         let h = date.indexOf("h");
         let m = date.indexOf("m");
         if(d === -1 && h === -1 && m === -1)return errors("你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))")
-<<<<<<< HEAD
-        const day = (d !== -1 ? Number(date.substring(d-2, d)) : 0)
-        const hour = (h !== -1 ? Number(date.substring(h-2, h)) : 0)
-        const min = (m !== -1 ? Number(date.substring(m-2, m)) : 0)
-=======
         const day = (d !== -1 ? (date.substring(d-2, d).includes('h') || date.substring(d-2, d).includes('m')) ? Number(date.substring(d-1, d)) : Number(date.substring(d-2, d)) : 0)
         const hour = (h !== -1 ? (date.substring(h-2, h).includes('m') || date.substring(h-2, h).includes('d')) ? Number(date.substring(h-1, h)) : Number(date.substring(h-2, h)) : 0)
         const min = (m !== -1 ? (date.substring(m-2, m).includes('h') || date.substring(m-2, m).includes('d')) ? Number(date.substring(m-1, m)) : Number(date.substring(m-2, m)) : 0)
->>>>>>> a0da53e (🌟 | 更新各種東西)
         if(day === NaN || hour === NaN || min === NaN)return errors("你輸入的時間不正確，請使用??d??h??m")
         function addHoursToDate(objDate, intHours) {
             var numberOfMlSeconds = objDate.getTime();
@@ -113,12 +107,8 @@ module.exports = {
         const role1 = interaction.options.getRole("可以抽的身分組")
         const role2 = interaction.options.getRole("不能抽的身分組")
         const id = `${Date.now()}${parseInt(getRandomArbitrary(1000, 100))}lotter`
-<<<<<<< HEAD
-        if(Math.round(sum.getTime()) === NaN) return errors("你輸入的時間不正確，請使用??d??h??m")
-=======
         let date2313214321 = `${Math.round(sum.getTime() / 1000)}`
         if(date2313214321 === 'NaN') return errors("你輸入的時間不正確，請使用??d??h??m")
->>>>>>> a0da53e (🌟 | 更新各種東西)
         if((Math.round(sum.getTime()) - testes) > 2592000000) return errors("結束請於30天內!")
         lotter.findOne({
             guild: interaction.channel.guild.id,
@@ -130,11 +120,7 @@ module.exports = {
                 // 創建一個新的data
                 data = new lotter({
                     guild: interaction.channel.guild.id,
-<<<<<<< HEAD
-                    date: Math.round(sum.getTime() / 1000),
-=======
                     date: date2313214321,
->>>>>>> a0da53e (🌟 | 更新各種東西)
                     gift: gift,
                     howmanywinner: howmanywinner,
                     id: id,
@@ -167,11 +153,7 @@ module.exports = {
                 .addFields(
                 { name: '<:gift:994585975445528576> **獎品**', value: gift, inline: true },
                 { name: '<:group:997374190132928552> **共抽出**', value: `${howmanywinner}位`, inline: true },
-<<<<<<< HEAD
-                { name: '<:chronometer:986065703369080884> **結束時間**', value: `<t:${Math.round(sum.getTime() / 1000)}>`, inline: false },
-=======
                 { name: '<:chronometer:986065703369080884> **結束時間**', value: `<t:${date2313214321}>`, inline: false },
->>>>>>> a0da53e (🌟 | 更新各種東西)
                 )
                 .setColor(interaction.guild.members.me.displayHexColor)
                 .setFooter({text: "點擊下方的按鈕即可參加抽獎"})

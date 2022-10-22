@@ -46,11 +46,7 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     function greate(content) {
-<<<<<<< HEAD
-        const embed = new EmbedBuilder().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("Green");
-=======
         const embed = new EmbedBuilder().setTitle(`${client.emoji.done} | ${content}`).setColor("Green");
->>>>>>> a0da53e (🌟 | 更新各種東西)
         interaction.editReply({
             embeds: [embed],
             ephemeral: true

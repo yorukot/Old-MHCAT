@@ -60,3 +60,38 @@ cron_set.find({}, async (err, data) => {
         if (data[i].cron === null) data[i].delete()
     }
 })
+
+const job = new CronJob(
+    ' 0 0 * * *',
+    function() {
+        const coin = require('../models/coin.js')
+        const gift_change = require("../models/gift_change.js");
+        let array = []
+        gift_change.find({
+        }, async (err, data1111) => {
+            if(!data1111) return
+            console.log(data1111)
+            for(let i = 0; i < data1111.length; i++){
+                    if(data1111[i].time === 0){
+                        console.log('nice')
+                        array.push(data1111[i].guild)
+                    }
+            }
+        })
+        console.log(array)
+        setTimeout(() => {
+            coin.find({}, async (err, data) => {
+                if(!data) return;
+                for(let i = 0; i < data.length; i++){
+                    if(array.includes(data[i].guild)){
+                        console.log(data[i])
+                        data[i].collection.updateOne(({guild: data[i].guild, member: data[i].member}), {$set: {today: 0}})
+                    }
+                }
+            })
+        }, 5000);
+    },
+    null,
+    true,
+    'Asia/Taipei'
+);

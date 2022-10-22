@@ -34,10 +34,7 @@ client.on("messageCreate", async (message) => {
                     dynamic: true
                 })
             });
-<<<<<<< HEAD
-=======
         message.delete()
->>>>>>> a0da53e (🌟 | 更新各種東西)
         message.channel.send({
             content: `${data.tag}`,
             embeds: [announcement_set_embed]

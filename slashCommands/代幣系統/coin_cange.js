@@ -29,7 +29,7 @@ module.exports = {
     }, {
         name: '簽到所需時間',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次簽到所需時間(單位為小時)',
+        description: '每次簽到所需時間(單位為小時)(如想設為0:00重製請打0)',
         required: true,
     }, {
         name: '簽到給予代幣數',
@@ -68,7 +68,7 @@ module.exports = {
             const xp_multiple = interaction.options.getNumber("等級提升倍數")
             if (number > 999999999) return errors("最高代幣設定數只能是999999999")
             if (sign_coin > 999999999) return errors("最高代幣設定數只能是999999999")
-            if (time < 0) return errors('必須大於-1')
+            if (time < 0 && time !== 0) return errors('必須大於-1(0代表0:00重製)')
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
             gift_change.findOne({
                 guild: interaction.guild.id,

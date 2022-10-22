@@ -52,14 +52,6 @@ module.exports = {
         var messageaa = aa.substring(aa.indexOf("/") + 1, aa.lastIndexOf("{"));
         var message1 = messageaa + "{"
         var message2 = message1.substring(message1.indexOf("/") + 1, message1.lastIndexOf("{"));
-<<<<<<< HEAD
-        const channel = interaction.guild.channels.cache.get(channel1)
-        if(!channel)return errors("很抱歉，找不到這個訊息")
-        const message = channel.messages.fetch({ message: message2, cache: false, force: true })
-        .then(message32 => {
-            if(!channel || !message32)return errors("很抱歉，找不到這個訊息")
-            message32.react(emoji)
-=======
         var  emoji_test = emoji.replace(':', '')
         var emoji_id = emoji_test.substring(emoji_test.indexOf(":") + 1, emoji_test.lastIndexOf(">"));
         const channel = interaction.guild.channels.cache.get(channel1)
@@ -80,7 +72,6 @@ module.exports = {
         .then(message32 => {
             if(!channel || !message32)return errors("很抱歉，找不到這個訊息")
             message32.react(reactionEmoji ? reactionEmoji : emoji)
->>>>>>> a0da53e (🌟 | 更新各種東西)
         message_reaction.findOne({
             guild: interaction.guild.id,
             message: message32.id,
@@ -96,11 +87,7 @@ module.exports = {
             })
             data.save()
             const embed = new EmbedBuilder()
-<<<<<<< HEAD
-            .setTitle("表情符號選取身分組成功設定")
-=======
             .setTitle(client.emoji.done + " | 表情符號選取身分組成功設定")
->>>>>>> a0da53e (🌟 | 更新各種東西)
             .setColor("Green")
             interaction.editReply({embeds:[embed]})
             return

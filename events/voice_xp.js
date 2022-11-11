@@ -6,6 +6,8 @@ const {
 const voice_xp = require("../models/voice_xp.js");
 const voice_xp_channel = require("../models/voice_xp_channel.js");
 client.on("voiceStateUpdate", async (oldMember, newMember) => {
+    if (oldMember.member.user.bot) return;
+    if (newMember.member.user.bot) return;
     if (newMember.channelId !== null && newMember.channelId !== undefined && newMember.channelId) {
         voice_xp.findOne({
             guild: newMember.guild.id,

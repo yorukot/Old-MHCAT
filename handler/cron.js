@@ -72,7 +72,7 @@ const job = new CronJob(
             if(!data1111) return
             console.log(data1111)
             for(let i = 0; i < data1111.length; i++){
-                    if(data1111[i].time === 0){
+                    if(data1111[i].time !== 0){
                         console.log('nice')
                         array.push(data1111[i].guild)
                     }
@@ -83,7 +83,7 @@ const job = new CronJob(
             coin.find({}, async (err, data) => {
                 if(!data) return;
                 for(let i = 0; i < data.length; i++){
-                    if(array.includes(data[i].guild)){
+                    if(!array.includes(data[i].guild)){
                         console.log(data[i])
                         data[i].collection.updateOne(({guild: data[i].guild, member: data[i].member}), {$set: {today: 0}})
                     }

@@ -81,11 +81,28 @@ client.on("guildMemberAdd", (member) => {
     }, async (err, data) => {
       if (!data) return
       for (x = data.length - 1; x > -1; x--) {
-        let role = member.guild.roles.cache.get(data[x].role)
-        if (!role) return
+        if((data[x].give_to_who === 'all_user') || (!data[x].give_to_who)){
+          let role = member.guild.roles.cache.get(data[x].role)
+          if (!role) return
         const owner = await member.guild.fetchOwner();
         if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
         member.roles.add(role)
+        }else if(data[x].give_to_who === 'all_bot'){
+          if(!member.user.bot) return
+          let role = member.guild.roles.cache.get(data[x].role)
+          if (!role) return
+        const owner = await member.guild.fetchOwner();
+        if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
+        member.roles.add(role)
+        }else if(data[x].give_to_who === 'all_member'){
+          if(!member.user.bot) return
+          let role = member.guild.roles.cache.get(data[x].role)
+          if (!role) return
+        const owner = await member.guild.fetchOwner();
+        if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
+        member.roles.add(role)
+        }
+        
       }
     })
     if (member.guild.id === "976879837471973416") {
@@ -157,11 +174,12 @@ client.on("guildMemberRemove", (member) => {
       const channel = member.guild.channels.cache.get(data.channel)
       if (!channel) return
       const MEMBER = member.user.username
+      const id1111111 = member.user.id
       const content = data.message_content
       if (!content) return
       const welcome = new EmbedBuilder()
         .setTitle(`${data.title}`)
-        .setDescription(content.replace("(MEMBERNAME)", MEMBER))
+        .setDescription(content.replace("(MEMBERNAME)", MEMBER).replace("(ID)", id1111111))
         .setThumbnail(member.displayAvatarURL({
           dynamic: true
         }))

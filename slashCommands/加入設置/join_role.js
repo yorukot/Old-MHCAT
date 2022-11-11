@@ -25,6 +25,24 @@ module.exports = {
         type: ApplicationCommandOptionType.Role,
         description: '輸入身分組!',
         required: true,
+    },{
+        name: '給人還是給機器人',
+        type: ApplicationCommandOptionType.String,
+        description: '請選擇(預設為給所有人)!',
+        required: false,
+        choices: [{
+                name: '給全部人',
+                value: 'all_user'
+            },
+            {
+                name: '機器人',
+                value: 'all_bot'
+            },
+            {
+                name: '成員',
+                value: 'all_member'
+            },
+        ],
     }],
     video: 'https://mhcat.xyz/docs/join_role',
     UserPerms: '訊息管理',
@@ -43,6 +61,7 @@ module.exports = {
             }
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
             const role1 = interaction.options.getRole("身分組")
+            const give_role_to_who = interaction.options.getString("給人還是給機器人")
             const role = role1.id
             if (Number(role1.position) >= Number(interaction.guild.members.me.roles.highest.position)) return errors("我沒有權限為大家增加這個身分組，請將我的身分組位階調高")
             join_role.findOne({
@@ -53,7 +72,8 @@ module.exports = {
                 if (!data) {
                     data = new join_role({
                         guild: interaction.guild.id,
-                        role: role
+                        role: role,
+                        give_to_who: give_role_to_who ? give_role_to_who : "all_user"
                     })
                     data.save()
                 } else {

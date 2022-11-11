@@ -106,7 +106,7 @@ module.exports = {
                                         'weight': dsadsasa
                                     });
                                 }
-                            }
+                            }   
                             const hgsdaa = []
                             const aaaa = []
                             const testsetse = []
@@ -194,10 +194,9 @@ module.exports = {
                                                         })
                                                     })
                                                 }
-                                                if (data1111111.auto_delete) {
-                                                    data1111111.delete()
+                                                if (!data1111111.auto_delete) {
+                                                    return
                                                 } else {
-                                                    if (data1111111.auto_delete) {
                                                         if (data1111111.gift_count === 1) {
                                                             data1111111.delete()
                                                         } else {
@@ -209,8 +208,7 @@ module.exports = {
                                                                     gift_count: data1111111.gift_count - 1
                                                                 }
                                                             })
-                                                        }
-                                                    }
+                                                        } 
                                                 }
 
                                             })
@@ -249,10 +247,9 @@ module.exports = {
                                                     })
                                                 })
                                             }
-                                            if (data1111111.auto_delete) {
-                                                data1111111.delete()
+                                            if (!data1111111.auto_delete) {
+                                                return
                                             } else {
-                                                if (data1111111.auto_delete) {
                                                     if (data1111111.gift_count === 1) {
                                                         data1111111.delete()
                                                     } else {
@@ -264,7 +261,6 @@ module.exports = {
                                                                 gift_count: data1111111.gift_count - 1
                                                             }
                                                         })
-                                                    }
                                                 }
                                             }
 

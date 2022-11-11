@@ -27,6 +27,14 @@ module.exports = {
         name: '語音經驗重製',
         type: ApplicationCommandOptionType.Subcommand,
         description: '重製整個伺服器的語音經驗',
+    }, {
+        name: '重製個人語音經驗',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '重製某人的語音經驗',
+    }, {
+        name: '重製個人聊天經驗',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '重製某人的聊天經驗',
     }],
     UserPerms: '服主',
     //video: 'https://mhcat.xyz/commands/statistics.html',

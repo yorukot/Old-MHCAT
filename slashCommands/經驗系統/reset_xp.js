@@ -31,10 +31,22 @@ module.exports = {
         name: '重製個人語音經驗',
         type: ApplicationCommandOptionType.Subcommand,
         description: '重製某人的語音經驗',
+        options: [{
+            name: '使用者',
+            type: ApplicationCommandOptionType.User,
+            description: '選擇你要重製經驗的使用者!',
+            required: true
+        }]
     }, {
         name: '重製個人聊天經驗',
         type: ApplicationCommandOptionType.Subcommand,
         description: '重製某人的聊天經驗',
+        options: [{
+            name: '使用者',
+            type: ApplicationCommandOptionType.User,
+            description: '選擇你要重製經驗的使用者!',
+            required: true
+        }]
     }],
     UserPerms: '服主',
     //video: 'https://mhcat.xyz/commands/statistics.html',
@@ -48,7 +60,37 @@ module.exports = {
                 })
             }
             if (interaction.member.id !== interaction.guild.ownerId) return errors("你必須擁有\`服主\`才能使用")
-            if (interaction.options.getSubcommand() === "聊天經驗重製") {
+            if (interaction.options.getSubcommand() === "重製個人聊天經驗") {
+                const get_member = interaction.options.getUser("使用者")
+                const member = get_member ? get_member : interaction.user
+                text_xp.findOne({
+                    guild: interaction.guild.id,
+                    member: member.id,
+                }, async (err, data) => {
+                    if (err) throw err;
+                    if (!data) {
+                        errors("這位使用者還沒有任何的經驗值喔!")
+                    } else {
+                        data.delete()
+                        interaction.reply(`${client.emoji.done} | 成功清除<@${member.id}>的聊天經驗`)
+                    }
+                })
+            }else if (interaction.options.getSubcommand() === "重製個人聊天經驗") {
+                const get_member = interaction.options.getUser("使用者")
+                const member = get_member ? get_member : interaction.user
+                voice_xp.findOne({
+                    guild: interaction.guild.id,
+                    member: member.id,
+                }, async (err, data) => {
+                    if (err) throw err;
+                    if (!data) {
+                        errors("這位使用者還沒有任何的經驗值喔!")
+                    } else {
+                        data.delete()
+                        interaction.reply(`${client.emoji.done} | 成功清除<@${member.id}>的語音經驗`)
+                    }
+                })
+            }else if (interaction.options.getSubcommand() === "聊天經驗重製") {
                 interaction.reply({
                     content: ":warning: | 一但刪除，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"
                 });

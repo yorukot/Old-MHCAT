@@ -90,7 +90,7 @@ client.on("messageCreate", async (message) => {
                                 if (!data1111111111111) return;
                                 if (data1111111111111) {
                                     const role = message.guild.roles.cache.get(data1111111111111.role)
-                                    if (!role) return
+                                    if (!role) return 
                                     message.member.roles.add(role)
                                 }
                             })

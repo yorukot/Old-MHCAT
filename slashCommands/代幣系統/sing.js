@@ -42,11 +42,12 @@ module.exports = {
                     guild: interaction.guild.id,
                 }, async (err, data1111) => {
                     if (!data) {
+                        console.log(!data1111 || ((data1111.time !== undefined && data1111.time === 0)))
                         data = new coin({
                             guild: interaction.guild.id,
                             member: interaction.member.id,
                             coin: data1111 ? data1111.sign_coin : 25,
-                            today: Math.round(Date.now() / 1000)
+                            today: !data1111 || ((data1111.time && data1111.time === 0))  ? 1 : Math.round(Date.now() / 1000)
                         })
                         data.save()
                     } else if(!data1111){

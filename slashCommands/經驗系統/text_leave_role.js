@@ -87,6 +87,10 @@ module.exports = {
                 chat_role.find({guild: interaction.channel.guild.id,}, async (err, data) => {
                     const testsetse = []
                     for(let i = 0; i < data.length; i++) {
+                        const role = interaction.guild.roles.cache.get(data[i].role)
+                        if(!role) {
+                            data[i].delete()
+                        }
                         let aaaaaaaaa = {name: `<:levelup:990254382845157406> **等級:**` + `\`${data[i].leavel}\``, value:`<:roleplaying:985945121264635964> **身分組:**<@&${data[i].role}>`, inline: true}
                         testsetse.push(aaaaaaaaa)
                     } 

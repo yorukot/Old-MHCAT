@@ -90,6 +90,7 @@ client.on("interactionCreate", async (interaction) => {
                                     .setColor(`Random`)
                                     .setTitle(`<:vagueness:999527612634374184> 以下是每個分片的資訊!!`)
                                     .setFields(a)
+                                    .setTimestamp()
                                 ],
                                 components: [row]
                             })
@@ -173,7 +174,6 @@ client.on("interactionCreate", async (interaction) => {
                                 },
                             };
                             const image = await canvas.renderToBuffer(configuration);
-                            console.log(image)
                             const attachment = new AttachmentBuilder(image);
                             const row = new ActionRowBuilder()
                                 .addComponents(
@@ -223,6 +223,7 @@ client.on("interactionCreate", async (interaction) => {
                                         },
                                     ])
                                     .setColor('Random')
+                                    .setTimestamp()
                                     .setImage("attachment://file.jpg");
                                 interaction.message.edit({
                                     embeds: [embed],
@@ -597,6 +598,26 @@ client.on("interactionCreate", async (interaction) => {
 9.如果其中一個玩家爆，另一個拿走2倍賭注，爆的那個拿走0倍
 10.如果兩個都爆等於平局，不加不減
 11.如果其中兩人都沒報，比大小，贏的人拿走全部賭注
+\`\`\`
+**不會的話，玩玩看就知道ㄌ**`)
+                        .setColor("Random")
+                    ],
+                    ephemeral: true
+                })
+            } else if (interaction.customId.includes("thansize")) {
+                await interaction.deferReply({
+                    ephemeral: true
+                });
+                interaction.editReply({
+                    embeds: [new EmbedBuilder()
+                        .setTitle("<:creativeteaching:986060052949524600> 以下為比大小介紹")
+                        .setDescription(`
+**這邊的倍數是一個人的賭注等於1所以兩個人就會是2**
+\`\`\`fix
+1.同意遊玩
+2.由機器人抽取兩位的數字(1-100)
+3.比大小
+4.大的拿走所有賭注
 \`\`\`
 **不會的話，玩玩看就知道ㄌ**`)
                         .setColor("Random")

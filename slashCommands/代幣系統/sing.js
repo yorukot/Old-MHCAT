@@ -42,7 +42,6 @@ module.exports = {
                     guild: interaction.guild.id,
                 }, async (err, data1111) => {
                     if (!data) {
-                        console.log(!data1111 || ((data1111.time !== undefined && data1111.time === 0)))
                         data = new coin({
                             guild: interaction.guild.id,
                             member: interaction.member.id,

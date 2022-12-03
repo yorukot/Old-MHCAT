@@ -53,6 +53,21 @@ module.exports = {
             description: '輸入你的賭注!',
             required: true,
         }]
+    }, {
+        name: '比大小',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '由電腦隨機為兩位抽取兩個數字比大小!!',
+        options: [{
+            name: '跟誰玩',
+            type: ApplicationCommandOptionType.User,
+            description: '輸入你要跟誰玩!',
+            required: true,
+        }, {
+            name: '賭注',
+            type: ApplicationCommandOptionType.Integer,
+            description: '輸入你的賭注!',
+            required: true,
+        }]
     }],
     video: 'https://mhcat.xyz/docs/coin_increase',
     emoji: `<:blackjack1:1005469910689923142>`,
@@ -764,7 +779,7 @@ ${main_number === user_number ? "" : `取得:\`${number*2}\``}`)
                                 } = require('drop-table');
                                 let table = new DropTable();
                                 for (let index = 0; index < 4; index++) {
-                                    for (let aa = 1; aa < 14; aa++) {
+                                    for (let aa = 1; aa < 11; aa++) {
                                         table.addItem({
                                             'name': `${aa}${index}`,
                                             'data': {
@@ -1065,6 +1080,184 @@ ${main_number === user_number ? "" : `取得:\`${number*2}\``}`)
                                         }
                                     }
                                 })
+                            } else if (id === "nooooo") {
+                                collector1.stop()
+                                interaction01.message.edit({
+                                    components: [agreate1]
+                                })
+                                interaction01.reply(`<a:green_tick:994529015652163614> | **<@${interaction01.member.id}>拒絕此次邀請!**`)
+                            }
+                        })
+                    })
+                })
+            } else if (interaction.options.getSubcommand() === "比大小") {
+                const user = interaction.options.getUser("跟誰玩")
+                const number = interaction.options.getInteger("賭注")
+                if (number < -1) return errors("賭注必須大於-1")
+                coin.findOne({
+                    guild: interaction.guild.id,
+                    member: user.id
+                }, async (err, usercoin) => {
+                    if (!usercoin || usercoin.coin < number) return errors("對方沒有這麼多代幣可以玩喔!!")
+                    coin.findOne({
+                        guild: interaction.guild.id,
+                        member: interaction.member.id
+                    }, async (err, mainusercoin) => {
+                        if (!mainusercoin || mainusercoin.coin < number) return errors("你沒有這麼多代幣可以玩喔!!")
+                        const agreate = new ActionRowBuilder()
+                            .addComponents(
+                                new ButtonBuilder()
+                                .setCustomId("yesssss")
+                                .setLabel('點我接受遊玩')
+                                .setEmoji("<:halloween_yes:1005480105642041354>")
+                                .setStyle(ButtonStyle.Success),
+                                new ButtonBuilder()
+                                .setCustomId("nooooo")
+                                .setLabel('點我拒絕遊玩')
+                                .setEmoji("<a:YuiHeadShake:1005480366167040021>")
+                                .setStyle(ButtonStyle.Danger),
+                                new ButtonBuilder()
+                                .setCustomId("thansize")
+                                .setLabel('甚麼是比大小')
+                                .setEmoji("<:question:997374195229003776>")
+                                .setStyle(ButtonStyle.Secondary),
+                            );
+                        const agreate1 = new ActionRowBuilder()
+                            .addComponents(
+                                new ButtonBuilder()
+                                .setCustomId("yesssss")
+                                .setLabel('點我接受遊玩')
+                                .setEmoji("<:halloween_yes:1005480105642041354>")
+                                .setStyle(ButtonStyle.Success)
+                                .setDisabled(true),
+                                new ButtonBuilder()
+                                .setCustomId("nooooo")
+                                .setLabel('點我拒絕遊玩')
+                                .setEmoji("<a:YuiHeadShake:1005480366167040021>")
+                                .setStyle(ButtonStyle.Danger)
+                                .setDisabled(true),
+                                new ButtonBuilder()
+                                .setCustomId("thansize")
+                                .setLabel('甚麼是比大小')
+                                .setEmoji("<:question:997374195229003776>")
+                                .setStyle(ButtonStyle.Secondary)
+                            );
+                        const message = await interaction.followUp({
+                            content: `<@${user.id}>`,
+                            embeds: [
+                                new EmbedBuilder()
+                                .setTitle("<:numberblocks:1044894385340416031> 比大小")
+                                .setDescription(`<@${interaction.member.id}>**邀請<@${user.id}>玩比大小\n將會消耗你**\`${number}\`**進行賭注\n是否願意?\n<a:warn:1000814885506129990> 一但同意如中途放棄則視為敗北**`)
+                                .setFooter({
+                                    text: "請於30秒內回覆，如無回復則視為拒絕"
+                                })
+                                .setColor("Random")
+                            ],
+                            components: [agreate]
+                        })
+                        const filter = i => ((i.member.id === user.id || i.member.id === interaction.member.id) && message.id === i.message.id);
+                        const collector1 = interaction.channel.createMessageComponentCollector({
+                            componentType: 2,
+                            filter,
+                            time: 30 * 1000,
+                        })
+                        collector1.on('collect', async (interaction01) => {
+                            const id = interaction01.customId;
+                            if (id === `yesssss`) {
+                                usercoin.collection.updateOne(({
+                                    guild: interaction.channel.guild.id,
+                                    member: user.id
+                                }), {
+                                    $set: {
+                                        coin: usercoin.coin - Number(number)
+                                    }
+                                })
+                                mainusercoin.collection.updateOne(({
+                                    guild: interaction.channel.guild.id,
+                                    member: interaction.member.id
+                                }), {
+                                    $set: {
+                                        coin: mainusercoin.coin - Number(number)
+                                    }
+                                })
+                                if (interaction01.member.id === interaction.member.id) {
+                                    return interaction01.reply({
+                                        embeds: [
+                                            new EmbedBuilder()
+                                            .setTitle("<a:Discord_AnimatedNo:1015989839809757295> | 你不是被邀請者，無法選擇接受!")
+                                            .setColor(client.color.error)
+                                        ],
+                                        ephemeral: true
+                                    })
+                                }
+                                function getRandomIntInclusive(min, max) {
+                                    min = Math.ceil(min);
+                                    max = Math.floor(max);
+                                    return Math.floor(Math.random() * (max - min + 1) + min);
+                                  }
+                                let member = getRandomIntInclusive(0, 100)
+                                let user11111 = getRandomIntInclusive(0, 100)
+                                interaction01.message.edit({
+                                    content: "<:gashapon:997374176526610472> | **正在為您隨機抽取數字...**\nhttps://cdn.discordapp.com/attachments/991337796960784424/1044634932116463616/1_5qKsAmlzBKZFGBvyivhBog.gif",
+                                    embeds: [],
+                                    components: []
+                                })
+                                setTimeout(() => {
+                                                    let user_return = 0
+                                                    let main_return = 0
+                                                    let contentt = ""
+                                                   if (member < user11111) {
+                                                        user_return = Math.floor(number * 2)
+                                                        contentt = `**裁判結果為:\n<@${interaction.member.id}>輸了\n<@${user.id}>取得賭注的**\`2\`**倍(共**\`${user_return}\`**)**`
+                                                    } else if (member === user11111) {
+                                                        user_return = number
+                                                        main_return = number
+                                                        contentt = "**裁判結果為:\n平手，不加不減**"
+                                                    } else if(member > user11111) {
+                                                        main_return = Math.floor(number * 2)
+                                                        contentt = `**裁判結果為:\n<@${user.id}>輸了\n<@${interaction.member.id}>取得賭注的**\`2\`**倍(共**\`${main_return}\`**)**`
+                                                    }
+                                                    coin.findOne({
+                                                        guild: interaction.guild.id,
+                                                        member: user.id
+                                                    }, async (err, usercoin) => {
+                                                        coin.findOne({
+                                                            guild: interaction.guild.id,
+                                                            member: interaction.member.id
+                                                        }, async (err, mainusercoin) => {
+                                                            usercoin.collection.updateOne(({
+                                                                guild: interaction.channel.guild.id,
+                                                                member: user.id
+                                                            }), {
+                                                                $set: {
+                                                                    coin: usercoin.coin + Number(user_return)
+                                                                }
+                                                            })
+                                                            mainusercoin.collection.updateOne(({
+                                                                guild: interaction.channel.guild.id,
+                                                                member: interaction.member.id
+                                                            }), {
+                                                                $set: {
+                                                                    coin: mainusercoin.coin + Number(main_return)
+                                                                }
+                                                            })
+                                                        })
+                                                    })
+                                    interaction01.message.edit({
+                                        content: null,
+                                        embeds: [
+                                            new EmbedBuilder()
+                                            .setTitle('<:numberblocks:1044894385340416031> 比大小結果')
+                                            .setColor('Random')
+                                            .setDescription(`<@${interaction.member.id}>的數字: ${member}
+<@${user.id}>的數字: ${user11111}
+<:referee:1007236839524024340> ${contentt}
+`
+                                            )
+                                        ]
+                                    })
+                                }, 5000);
+
                             } else if (id === "nooooo") {
                                 collector1.stop()
                                 interaction01.message.edit({

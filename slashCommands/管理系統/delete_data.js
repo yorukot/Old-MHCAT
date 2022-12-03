@@ -103,7 +103,6 @@ module.exports = {
 
                         await interaction011.deferReply().catch(e => {});
                         const id = interaction011.values[0]
-                        console.log(id)
                         switch (id) {
                             case "加入訊息":
                                 const join_data = require('../../models/join_message.js')

@@ -24,7 +24,7 @@ const {
 } = require("../../index.js");
 module.exports = {
     name: '扭蛋',
-    cooldown: 10,
+    cooldown: 1,
     description: '進行扭蛋，有機會抽中各種大獎喔!!!!',
     options: [{
         name: '連抽',
@@ -73,21 +73,45 @@ module.exports = {
                     errors("你還沒有任何代幣欸使用`/簽到`或是多講話，都可以獲得代幣喔!")
                     return
                 } else {
+
                     gift_change.findOne({
                         guild: interaction.guild.id,
                     }, async (err, data11111) => {
-                        if (data.coin < (!data11111 ? 500 * draw : data11111.coin_number * draw)) return errors(`必須要有\`${!data11111 ? 500*draw : data11111.coin_number*draw}\`個代幣才能進行扭蛋`)
-                        const {
-                            DropTable
-                        } = require('drop-table');
-                        let table = new DropTable();
                         gift.find({
                             guild: interaction.guild.id,
                         }, async (err, data11) => {
                             if (data11.length === 0) {
                                 errors("獎池裡沒有獎品，只會抽到空氣喔;w;")
                                 return
-                            } else {
+                            }
+                        
+                        if (data.coin < (!data11111 ? 500 * draw : data11111.coin_number * draw)) return errors(`必須要有\`${!data11111 ? 500*draw : data11111.coin_number*draw}\`個代幣才能進行扭蛋`)
+                        data.collection.updateOne(({
+                            guild: interaction.channel.guild.id,
+                            member: interaction.member.id
+                        }), {
+                            $set: {
+                                coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw)
+                            }
+                        })
+                        const msgg = await interaction.followUp({
+                            content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"
+                        })
+                        const {
+                            DropTable
+                        } = require('drop-table');
+                        
+                        const aaaa1 = []
+                        const testsetse1 = []
+                        for (let i = 0; i < poiuytr; i++) {
+                            const hgsdaa = []
+                            const aaaa = []
+                            const testsetse = []
+                        setTimeout(() => {
+                        gift.find({
+                            guild: interaction.guild.id,
+                        }, async (err, data11) => {
+                            let table = new DropTable();
                                 let i = 0
                                 for (let index = 0; index < data11.length; index++) {
                                     i = i + data11[index].gift_chence
@@ -99,18 +123,12 @@ module.exports = {
                                         'weight': data11[index].gift_chence
                                     })
                                 }
-                                const dsadsasa = (100 - i) <= 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i) / poiuytr
-                                for (let i = 0; i < poiuytr; i++) {
+                                const dsadsasa = (100 - i) <= 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i)
                                     table.addItem({
-                                        'name': '空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!' + `||${i}||`,
+                                        'name': '空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!',
                                         'weight': dsadsasa
                                     });
-                                }
-                            }   
-                            const hgsdaa = []
-                            const aaaa = []
-                            const testsetse = []
-                            for (let i = 0; i < poiuytr; i++) {
+
                                 const result = table.drop();
                                 table.removeItem(result.name);
                                 if (result.data && result.data.token !== null) {
@@ -120,24 +138,14 @@ module.exports = {
                                         inline: true
                                     }
                                     testsetse.push(aaaaaaaaa)
+                                    testsetse1.push(aaaaaaaaa)
                                 }
                                 const name = result.name
                                 if (!name.includes('空氣QQ') && !name.includes('別氣餒，下一次定是你')) {
                                     hgsdaa.push(name)
                                 }
                                 aaaa.push(result.name)
-                            }
-                            const msgg = await interaction.followUp({
-                                content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"
-                            })
-                            data.collection.updateOne(({
-                                guild: interaction.channel.guild.id,
-                                member: interaction.member.id
-                            }), {
-                                $set: {
-                                    coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw)
-                                }
-                            })
+                                aaaa1.push(result.name)
                             gift_change.findOne({
                                 guild: interaction.guild.id,
                             }, async (err, data11111) => {
@@ -154,78 +162,8 @@ module.exports = {
                                     ]
                                 })
                             })
-                            setTimeout(() => {
-                                msgg.edit({
-                                    content: null,
-                                    embeds: [new EmbedBuilder()
-                                        .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
-                                        .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${aaaa.join('\n')}`)
-                                        .setColor("Random")
-                                        .setFooter({
-                                            text: "如扭中的獎品有獎品代碼，將會私訊給您!",
-                                            iconURL: interaction.member.displayAvatarURL({
-                                                dynamic: true
-                                            })
-                                        })
-                                    ]
-                                })
-                                if (testsetse.length === 0) {
-                                    for (let i = 0; i < aaaa.length; i++) {
-                                        setTimeout(() => {
-
-                                            gift.findOne({
-                                                guild: interaction.guild.id,
-                                                gift_name: aaaa[i]
-                                            }, async (err, data1111111) => {
-                                                if (!data1111111) return
-                                                if (data1111111.give_coin) {
-                                                    coin.findOne({
-                                                        guild: interaction.guild.id,
-                                                        member: interaction.member.id
-                                                    }, async (err, data) => {
-                                                        if (!data) return 
-                                                        data.collection.updateOne(({
-                                                            guild: interaction.channel.guild.id,
-                                                            member: interaction.member.id
-                                                        }), {
-                                                            $set: {
-                                                                coin: data.coin + data1111111.give_coin
-                                                            }
-                                                        })
-                                                    })
-                                                }
-                                                if (!data1111111.auto_delete) {
-                                                    return
-                                                } else {
-                                                        if (data1111111.gift_count === 1) {
-                                                            data1111111.delete()
-                                                        } else {
-                                                            data1111111.collection.updateOne(({
-                                                                guild: interaction.guild.id,
-                                                                gift_name: aaaa[i]
-                                                            }), {
-                                                                $set: {
-                                                                    gift_count: data1111111.gift_count - 1
-                                                                }
-                                                            })
-                                                        } 
-                                                }
-
-                                            })
-                                        }, 500 * i);
-                                    }
-                                    return
-                                }
-                                interaction.member.send({
-                                    embeds: [
-                                        new EmbedBuilder()
-                                        .setTitle('<:fireworks:997374182016958494> 恭喜你中獎!!')
-                                        .setColor('Random')
-                                        .setFields(testsetse)
-                                    ]
-                                })
+                            if (hgsdaa.length !== 0) {
                                 for (let i = 0; i < aaaa.length; i++) {
-                                    setTimeout(() => {
                                         gift.findOne({
                                             guild: interaction.guild.id,
                                             gift_name: aaaa[i]
@@ -236,7 +174,7 @@ module.exports = {
                                                     guild: interaction.guild.id,
                                                     member: interaction.member.id
                                                 }, async (err, data) => {
-                                                    if (!data) return
+                                                    if (!data) return 
                                                     data.collection.updateOne(({
                                                         guild: interaction.channel.guild.id,
                                                         member: interaction.member.id
@@ -261,15 +199,84 @@ module.exports = {
                                                                 gift_count: data1111111.gift_count - 1
                                                             }
                                                         })
-                                                }
+                                                    } 
                                             }
-
                                         })
-                                    }, 500 * i);
                                 }
-                            }, 8000);
+                                return
+                            }
+                            for (let i = 0; i < aaaa.length; i++) {
+                                    gift.findOne({
+                                        guild: interaction.guild.id,
+                                        gift_name: aaaa[i]
+                                    }, async (err, data1111111) => {
+                                        if (!data1111111) return
+                                        if (data1111111.give_coin) {
+                                            coin.findOne({
+                                                guild: interaction.guild.id,
+                                                member: interaction.member.id
+                                            }, async (err, data) => {
+                                                if (!data) return
+                                                data.collection.updateOne(({
+                                                    guild: interaction.channel.guild.id,
+                                                    member: interaction.member.id
+                                                }), {
+                                                    $set: {
+                                                        coin: data.coin + data1111111.give_coin
+                                                    }
+                                                })
+                                            })
+                                        }
+                                        if (!data1111111.auto_delete) {
+                                            return
+                                        } else {
+                                                if (data1111111.gift_count === 1) {
+                                                    data1111111.delete()
+                                                } else {
+                                                    data1111111.collection.updateOne(({
+                                                        guild: interaction.guild.id,
+                                                        gift_name: aaaa[i]
+                                                    }), {
+                                                        $set: {
+                                                            gift_count: data1111111.gift_count - 1
+                                                        }
+                                                    })
+                                            }
+                                        }
+
+                                    })
+                            }
+                        });
+                        }, i * 285)
+                    }
+                    setTimeout(() => {
+                        msgg.edit({
+                            content: null,
+                            embeds: [new EmbedBuilder()
+                                .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
+                                .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${aaaa1.join('\n')}`)
+                                .setColor("Random")
+                                .setFooter({
+                                    text: "如扭中的獎品有獎品代碼，將會私訊給您!",
+                                    iconURL: interaction.member.displayAvatarURL({
+                                        dynamic: true
+                                    })
+                                })
+                            ]
                         })
+                        if(testsetse1.length !== 0){
+                            interaction.member.send({
+                                embeds: [
+                                    new EmbedBuilder()
+                                    .setTitle('<:fireworks:997374182016958494> 恭喜你中獎!!')
+                                    .setColor('Random')
+                                    .setFields(testsetse1)
+                                ]
+                            })
+                        }
+                    }, 8500);
                     })
+                })
                 }
             })
         } catch (error) {

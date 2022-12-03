@@ -80,7 +80,7 @@ module.exports = {
                 .setAuthor({name: `MHCAT`, iconURL:`https://media.discordapp.net/attachments/991337796960784424/993437253311410208/My_project_9.png`, URL:`https://discord.com/api/oauth2/authorize?client_id=964185876559196181&permissions=8&scope=bot%20applications.commands`})
                 .setDescription(`**<a:cool:984263702897360897> 嗨嗨，你發現了酷東西\n使用我來讓你的discord更棒!!\n想要了解某個類別請使用下方的選單\n如要查看特定的指令請使用\`/help 指令名稱\`
 \n<:9605discordslashcommand:982559784429563925> 指令一律使用斜線命令，只需打\`/指令名稱\`即可使用**
-\n<a:buycoffeeforme:986560638304256051> [幫我買杯咖啡!](> https://www.buymeacoffee.com/mhcat)
+\n<a:buycoffeeforme:986560638304256051> [幫我買杯咖啡!](https://www.buymeacoffee.com/mhcat)
 
 [隱私權聲明](https://mhcat.xyz/docs/privacy) [服務條款](https://mhcat.xyz/docs/Terms_of_Service)`)
                 .setFooter({

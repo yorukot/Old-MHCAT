@@ -29,11 +29,13 @@ client.on("messageCreate", async (message) => {
     }
     if (message.author.bot === true) return;
     const long = message.content
-
+    function getRandom() {
+        return (Math.random() * (0.8 - 0.1) + 0.1).toFixed(3);
+      }
     function len(str) {
         return str.replace(/[^\x00-\xff]/g, "xx").length;
     }
-    const messagexp = len(long) < 50 ? len(long) : 50;
+    const messagexp = Math.round((len(long) < 50 ? len(long) : 50) * 2 * getRandom())
     try {
         text_xp.findOne({
             guild: message.guild.id,
@@ -83,15 +85,22 @@ client.on("messageCreate", async (message) => {
                             }
                             const true_message = data1.message
                             const chat_role = require('../models/chat_role.js');
-                            chat_role.findOne({
+                            chat_role.find({
                                 guild: message.guild.id,
-                                leavel: Number(data.leavel) + 1
                             }, async (err, data1111111111111) => {
-                                if (!data1111111111111) return;
-                                if (data1111111111111) {
-                                    const role = message.guild.roles.cache.get(data1111111111111.role)
-                                    if (!role) return 
-                                    message.member.roles.add(role)
+                                if (data1111111111111.length === 0) return;
+                                for (let i = 0; i < data1111111111111.length; i++) {
+                                    if(Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)){
+                                        const role = message.guild.roles.cache.get(data1111111111111[i].role)
+                                        if (!role) return 
+                                        message.member.roles.add(role)
+                                    }else if (message.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
+                                        if(data1111111111111[i].delete_when_not){
+                                            const role = message.guild.roles.cache.get(data1111111111111[i].role)
+                                            if (!role) return 
+                                            message.member.roles.remove(role)
+                                        }
+                                    }
                                 }
                             })
                             let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""

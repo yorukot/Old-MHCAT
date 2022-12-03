@@ -18,7 +18,6 @@ const client = require('../index');
 
 client.on("messageReactionAdd", async (reaction, user) => {
     if (user.bot) return
-
     function errors(content) {
         const embed = new EmbedBuilder().setTitle(`<a:error:980086028113182730> | ${content}`).setColor("Red");
         user.send({
@@ -29,7 +28,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     message_reaction.findOne({
         guild: reaction.message.guild.id,
         message: reaction.message.id,
-        react: reaction.emoji.id === null ? reaction.emoji.name : `<:${reaction.emoji.name}:${reaction.emoji.id}>`,
+        react: (reaction.emoji.id === null || reaction.emoji.id === undefined) ? reaction.emoji.name : `<:${reaction.emoji.name}:${reaction.emoji.id}>`,
     }, async (err, data) => {
         if (err) throw err;
         if (!data) {
@@ -61,7 +60,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     message_reaction.findOne({
         guild: reaction.message.guild.id,
         message: reaction.message.id,
-        react: reaction.emoji.id === null ? reaction.emoji.name : `<:${reaction.emoji.name}:${reaction.emoji.id}>`,
+        react: (reaction.emoji.id === null || reaction.emoji.id === undefined) ? reaction.emoji.name : `<:${reaction.emoji.name}:${reaction.emoji.id}>`,
     }, async (err, data) => {
         if (err) throw err;
         if (!data) {

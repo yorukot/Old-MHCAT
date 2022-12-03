@@ -128,7 +128,7 @@ module.exports = {
                         }
                 })
                 });
-            } else if (interaction.options.getSubcommand() === "語音經驗改變") {
+            } else if (interaction.options.getSubcommand() === "語音經驗重製") {
                 interaction.reply({
                     content: ":warning: | 一但刪除，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"
                 });

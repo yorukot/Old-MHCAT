@@ -90,7 +90,6 @@ module.exports = {
                     let i = Number(data.leavel)
                     if(xp_count > 0){
                         while (less_xp > 0) {
-                            console.log(i)
                             if(i === Number(data.leavel)){
                                 less_xp  = less_xp - (parseInt(Number(data.leavel) * (Number(data.leavel)/3) * 100 + 100) - Number(data.xp))
                                 if(less_xp <= 0){
@@ -161,7 +160,6 @@ module.exports = {
                     let i = Number(data.leavel)
                     if(xp_count > 0){
                         while (less_xp > 0) {
-                            console.log(i)
                             if(i === Number(data.leavel)){
                                 
                                 less_xp  = less_xp - ((parseInt(Number(data.leavel) * (Number(data.leavel)/2) * 100  + 100)) - Number(data.xp))

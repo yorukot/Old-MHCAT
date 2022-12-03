@@ -177,6 +177,7 @@ module.exports = {
                                 inline: true
                             },
                         ])
+                        .setTimestamp()
                         .setColor('Random')
                         .setImage("attachment://file.jpg");
                     interaction.followUp({
@@ -200,6 +201,7 @@ module.exports = {
                         .setColor(`Random`)
                         .setTitle(`<:vagueness:999527612634374184> 以下是每個分片的資訊!!`)
                         .setFields(a)
+                        .setTimestamp()
                     ],
                     components: [row]
                 })

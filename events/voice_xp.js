@@ -82,15 +82,22 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                                     let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                                     const aaaaa = messsage.replace("(user)", `<@${newMember.id}>`)
                                     const chat_role = require('../models/voice_role.js');
-                                    chat_role.findOne({
+                                    chat_role.find({
                                         guild: newMember.guild.id,
-                                        leavel: Number(data.leavel) + 1
                                     }, async (err, data1111111111111) => {
-                                        if (!data1111111111111) return;
-                                        if (data1111111111111) {
-                                            const role = newMember.guild.roles.cache.get(data1111111111111.role)
-                                            if (!role) return
-                                            newMember.member.roles.add(role)
+                                        if (data1111111111111.length === 0) return;
+                                        for (let i = 0; i < data1111111111111.length; i++) {
+                                            if(Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)){
+                                                const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
+                                                if (!role) return 
+                                                newMember.member.roles.add(role)
+                                            }else if (newMember.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
+                                                if(data1111111111111[i].delete_when_not){
+                                                    const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
+                                                    if (!role) return 
+                                                    newMember.member.roles.remove(role)
+                                                }
+                                            }
                                         }
                                     })
                                     channel111.send(data1.message && (data1.message !== null) ? aaaaa : `🆙恭喜<@${newMember.id}> 的語音等級成功升級到 ${Number(data.leavel) + 1}`)

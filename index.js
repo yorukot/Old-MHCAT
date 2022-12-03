@@ -10,6 +10,7 @@ const {
 } = require('discord.js');
 const Cluster = require('discord-hybrid-sharding');
 const { Player } = require("discord-music-player");
+const moment = require("moment")
 const client = new Client({
     partials: [
         Partials.Channel,
@@ -90,28 +91,33 @@ const end_start = chalk.hex('#4DFFFF');
 const errorwebhook = new WebhookClient({ url: errorWebhook })
 
 process.on("unhandledRejection", (reason, p) => {
+console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
 console.log(end_start("\n[🚩 崩潰通知] 未處理的拒絕:"));
 console.log((reason.stack? reason.stack : reason))
 console.log(end_start("=== 未處理的拒絕 ==="));
 });
 process.on("uncaughtException", (err, origin) => {
+console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
 console.log(end_start("\n[🚩 崩潰通知] 未捕獲的異常"));
 console.log(err)
 console.log(origin)
 console.log(end_start("=== 未捕獲的異常 ===\n"));
 });
 process.on("uncaughtExceptionMonitor", (err, origin) => {
+console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
 console.log(end_start("\n[🚩 崩潰通知] 未捕獲的異常監視器"));
 console.log(err)
 console.log(origin)
 console.log(end_start("=== 未捕獲的異常監視器 ===\n"));
 });
 process.on("beforeExit", (code) => {
+console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
 console.log(end_start("\n[🚩 崩潰通知] 退出前"));
 console.log(code)
 console.log(end_start("=== 退出前 ===\n"));
 });
 process.on("exit", (code) => {
+console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
 console.log(end_start("\n[🚩 崩潰通知] 退出"));
 console.log(code)
 console.log(end_start("=== 褪出 ===\n"));

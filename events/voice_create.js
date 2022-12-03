@@ -26,6 +26,7 @@ const {
     EqualsOperation
 } = require('sift');
 client.on("voiceStateUpdate", async (oldMember, newMember) => {
+    if ((oldMember.channel ? oldMember.channel.id : oldMember.channel) === (newMember.channel ? newMember.channel.id : newMember.channel)) return;
     lock_channel.findOne({
         guild: newMember.guild.id,
         channel_id: newMember.channelId
@@ -33,7 +34,7 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
         if (!data) {
             return
         } else {
-            if(newMember.member.user.bot) return
+            if (newMember.member.user.bot) return
             if (data.lock_anser === null) return
             let textchannel = newMember.guild.channels.cache.get(data.text_channel)
             if (!textchannel) return
@@ -46,15 +47,15 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
             });
             if (match) return
             let aaaaaaaaaaa = new ActionRowBuilder()
-                        .addComponents(
-                            new ButtonBuilder()
-                            .setCustomId(`lock_start`)
-                            .setLabel("點我輸入密碼!")
-                            .setEmoji("<a:arrow_pink:996242460294512690>")
-                            .setStyle(ButtonStyle.Success),
-                        );
+                .addComponents(
+                    new ButtonBuilder()
+                    .setCustomId(`lock_start`)
+                    .setLabel("點我輸入密碼!")
+                    .setEmoji("<a:arrow_pink:996242460294512690>")
+                    .setStyle(ButtonStyle.Success),
+                );
             let msgg = await textchannel.send({
-                embeds:[
+                embeds: [
                     new EmbedBuilder()
                     .setTitle('<:unlock:1017087850556174367> | 該包廂已被上鎖，請輸入密碼')
                     .setDescription(`請於60秒內點選下面的按鈕\n輸入密碼來加入${newMember.channel}(請找房主拿密碼)`)
@@ -75,7 +76,7 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
             })
             collector111.on('collect', async (interaction01) => {
                 const id = interaction01.customId;
-                if(id === 'lock_start'){
+                if (id === 'lock_start') {
                     const {
                         ActionRowBuilder,
                         ModalBuilder,

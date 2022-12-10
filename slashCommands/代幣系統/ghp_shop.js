@@ -155,7 +155,7 @@ module.exports = {
                 })
             }
             if (interaction.options.getSubcommand() === "商品增加") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
                 let name = interaction.options.getString("商品名")
                 if (name.length > 15) return errors('商品名請少於15字!')
                 let need_coin = interaction.options.getInteger("商品所需代幣")
@@ -218,7 +218,7 @@ module.exports = {
 
             } else if (interaction.options.getSubcommand() === "商品刪除") {
 
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
 
                 let id = interaction.options.getInteger("商品id")
 

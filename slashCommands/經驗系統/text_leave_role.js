@@ -111,7 +111,7 @@ module.exports = {
                             }
                             let aaaaaaaaa = {
                                 name: `<:levelup:990254382845157406> **等級:**` + `\`${data[i].leavel}\``,
-                                value: `<:roleplaying:985945121264635964> **身分組:**<@&${data[i].role}>`,
+                                value: `<:roleplaying:985945121264635964> **身分組:**<@&${data[i].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data[i].delete_when_not}`,
                                 inline: true
                             }
                             testsetse.push(aaaaaaaaa)

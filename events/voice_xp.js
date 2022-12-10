@@ -86,19 +86,34 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                                         guild: newMember.guild.id,
                                     }, async (err, data1111111111111) => {
                                         if (data1111111111111.length === 0) return;
+                                        let array_delete = []
+                                        let array_add = []
                                         for (let i = 0; i < data1111111111111.length; i++) {
-                                            if(Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)){
-                                                const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
-                                                if (!role) return 
-                                                newMember.member.roles.add(role)
-                                            }else if (newMember.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
-                                                if(data1111111111111[i].delete_when_not){
+                                            if (newMember.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
+                                                if (data1111111111111[i].delete_when_not) {
                                                     const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
-                                                    if (!role) return 
-                                                    newMember.member.roles.remove(role)
+                                                    if (role) {
+                                                        array_delete.push(role)
+                                                    }
                                                 }
                                             }
                                         }
+                                        for (let i = 0; i < data1111111111111.length; i++) {
+                                            if (Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)) {
+                                                const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
+                                                if (role) {
+                                                    array_add.push(role)
+                                                }
+                                            }
+                                        }
+                                        if (array_delete !== 0) {
+                                            newMember.member.roles.remove(array_delete)
+                                        }
+                                        setTimeout(() => {
+                                            if (array_add !== 0) {
+                                                newMember.member.roles.add(array_add)
+                                            }
+                                        }, 3000);
                                     })
                                     channel111.send(data1.message && (data1.message !== null) ? aaaaa : `🆙恭喜<@${newMember.id}> 的語音等級成功升級到 ${Number(data.leavel) + 1}`)
                                     const coin = require('../models/coin.js')
@@ -114,18 +129,18 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                                                 data11111 = new coin({
                                                     guild: newMember.guild.id,
                                                     member: newMember.id,
-                                                    coin: Number(data.leavel) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0),
+                                                    coin: (Number(data.leavel) +1) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0),
                                                     today: false
                                                 })
                                                 data11111.save()
                                             } else {
-                                                if ((data.coin + Number(data.leavel) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0)) > 999999999) return
+                                                if ((data.coin + (Number(data.leavel) +1) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0)) > 999999999) return
                                                 data11111.collection.updateOne(({
                                                     guild: newMember.guild.id,
                                                     member: newMember.id
                                                 }), {
                                                     $set: {
-                                                        coin: data11111.coin + parseInt(Number(data.leavel) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))
+                                                        coin: data11111.coin + parseInt((Number(data.leavel) +1) * (data111111111 ? data111111111.xp_multiple ? data111111111.xp_multiple : 0 : 0))
                                                     }
                                                 })
                                             }

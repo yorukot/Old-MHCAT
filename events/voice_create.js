@@ -18,6 +18,7 @@ const moment = require('moment')
 const client = require('../index')
 const config = require("../config.json");
 const lock_channel = require("../models/lock_channel.js")
+const voice_channel_id = require("../models/voice_channel_id.js")
 const {
     intersection
 } = require('lodash');
@@ -119,11 +120,26 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                     name: data.name,
                     type: ChannelType.GuildVoice,
                     userLimit: data.limit,
-                    permissionOverwrites: [{
-                        id: newMember.id,
-                        allow: [PermissionsBitField.Flags.ManageMessages, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ReadMessageHistory], //Allow permissions
-                    }]
+                    permissionOverwrites: newMember.channel.parent.permissionOverwrites.cache,
                 }).then(channel => {
+                    channel.permissionOverwrites.edit(newMember.id, {
+                        ManageChannels: true,
+                        ManageRoles: true
+                    })
+                    voice_channel_id.findOne({
+                        guild: channel.guild.id,
+                        channel_id: channel.id
+                    }, async (err, data) => {
+                        if (!data) {
+                            data = new voice_channel_id({
+                                guild: channel.guild.id,
+                                channel_id: channel.id,
+                            })
+                            data.save()
+                        } else {
+                            return
+                        }
+                    })
                     newMember.member.voice.setChannel(channel)
                 })
             } else {
@@ -132,15 +148,16 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                     type: ChannelType.GuildVoice,
                     parent: newMember.channel.parent.id,
                     userLimit: data.limit,
-                    permissionOverwrites: [{
-                        id: newMember.id,
-                        allow: [PermissionsBitField.Flags.ManageMessages, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ReadMessageHistory], //Allow permissions
-                    }]
+                    permissionOverwrites: newMember.channel.parent.permissionOverwrites.cache,
                 }).then(channel => {
+                    channel.permissionOverwrites.edit(newMember.id, {
+                        ManageChannels: true,
+                        ManageRoles: true
+                    })
                     if (data.lock) {
                         lock_channel.findOne({
                             guild: newMember.guild.id,
-                            channel_id: newMember.channelId
+                            channel_id: newMember.id
                         }, async (err, data) => {
                             if (!data) {
                                 data = new lock_channel({
@@ -163,6 +180,20 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                             }
                         })
                     }
+                    voice_channel_id.findOne({
+                        guild: channel.guild.id,
+                        channel_id: channel.id
+                    }, async (err, data) => {
+                        if (!data) {
+                            data = new voice_channel_id({
+                                guild: channel.guild.id,
+                                channel_id: channel.id,
+                            })
+                            data.save()
+                        } else {
+                            return
+                        }
+                    })
                     newMember.member.voice.setChannel(channel)
                 })
             }
@@ -173,16 +204,15 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
         }
     })
     if (oldMember.channelId === null) return;
+
     try {
-        voice_channel.findOne({
-            guild: newMember.guild.id,
-            parent: oldMember.channel.parentId,
-            name: oldMember.channel.name
+        voice_channel_id.findOne({
+            guild: oldMember.guild.id,
+            channel_id: oldMember.channelId
         }, async (err, data) => {
             if (!data) {
                 return
             }
-            if (data.ticket_channel === oldMember.channelId) return
             const test = oldMember.channel.members.size
             if (test === 0) {
                 lock_channel.findOne({
@@ -196,11 +226,13 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                     }
                 })
                 oldMember.channel.delete()
+                data.delete()
             }
             return
         })
     } catch (error) {
         console.error(error)
     }
+
 
 })

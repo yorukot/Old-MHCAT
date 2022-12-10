@@ -69,7 +69,7 @@ mongoose.connect(mongooseConnectionString, {
     console.log(chalk.hex('#28FF28').bold('┃          成功連線至資料庫            ┃'))
     console.log(chalk.hex('#28FF28').bold('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛'))
 }).catch(err => console.error(err))
-
+client.cluster = new Cluster.Client(client);
 client.commands = new Collection()
 client.config = require('./config.json')
 client.prefix = client.config.prefix
@@ -151,6 +151,5 @@ client.receiveBotInfo = async() => {
     return { cluster, shards, guild, members, ram, rssRam, ping, uptime}
 
 }
-client.cluster = new Cluster.Client(client);
 
 client.login(client.config.token)

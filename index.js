@@ -77,18 +77,35 @@ client.aliases = new Collection()
 client.slash_commands = new Collection();
 client.color = color
 client.emoji = emoji
+
 require('./handler/slash_commands');
 require('./handler')(client);
 require('./handler/channel_status');
 require('./handler/gift');
 require('./handler/cron');
-require('./handler/system');
 
 const chalk = require('chalk');
 const { all } = require('bluebird');
 const warning = chalk.hex('#CE0000');
 const end_start = chalk.hex('#4DFFFF');
 const errorwebhook = new WebhookClient({ url: errorWebhook })
+/*setTimeout(() => {
+    client.guilds.cache.forEach(guild => {
+        guild.invites.fetch()
+        .then(i => {
+            let test = 0
+            i.forEach(i => {
+                if(test > 0) return
+                if(i.maxAge === 0){
+                    test = test + 1
+                    console.log(guild.name + " | " + 'https://discord.gg/' + i.code)
+                }else{
+                    return
+                }
+            })
+        })
+      })
+}, 10000);*/
 
 process.on("unhandledRejection", (reason, p) => {
 console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))

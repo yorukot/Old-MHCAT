@@ -73,49 +73,52 @@ setInterval(() => {
     })
     if (client.cluster.id === 0) {
 
-    work_user.find({}, async (err, data) => {
-        let Date_now = Math.round(Date.now() / 1000)
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].end_time < Date_now) {
-                coin.findOne({
-                    guild: data[i].guild,
-                    member: data[i].user
-                }, async (err, data_coin) => {
-                    if (!data_coin) {
-                        gift_change.findOne({
-                            guild: interaction.guild.id,
-                        }, async (err, data1111) => {
-                            data_coin = new coin({
-                                guild: data[i].guild,
-                                member: data[i].user,
-                                coin: data[i].get_coin,
-                                today: !data1111 || ((data1111.time && data1111.time === 0)) ? 1 : Math.round(Date.now() / 1000)
-                            })
-                            data_coin.save()
-                        })
-                    } else {
-                        data_coin.collection.updateOne(({
+        work_user.find({}, async (err, data) => {
+            let Date_now = Math.round(Date.now() / 1000)
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].state !== "待業中"){
+                    if (data[i].end_time < Date_now) {
+                        coin.findOne({
                             guild: data[i].guild,
                             member: data[i].user
+                        }, async (err, data_coin) => {
+                            if (!data_coin) {
+                                gift_change.findOne({
+                                    guild: data[i].guild,
+                                }, async (err, data1111) => {
+                                    data_coin = new coin({
+                                        guild: data[i].guild,
+                                        member: data[i].user,
+                                        coin: data[i].get_coin,
+                                        today: !data1111 || ((data1111.time && data1111.time === 0)) ? 1 : Math.round(Date.now() / 1000)
+                                    })
+                                    data_coin.save()
+                                })
+                            } else {
+                                data_coin.collection.updateOne(({
+                                    guild: data[i].guild,
+                                    member: data[i].user
+                                }), {
+                                    $set: {
+                                        coin: data_coin.coin + data[i].get_coin
+                                    }
+                                })
+                            }
+                        })
+                        data[i].collection.updateOne(({
+                            guild: data[i].guild,
+                            user: data[i].user,
                         }), {
                             $set: {
-                                coin: data_coin.coin + data[i].get_coin
+                                state: "待業中"
                             }
                         })
                     }
-                })
-                data[i].collection.updateOne(({
-                    guild: data[i].guild,
-                    user: data[i].user,
-                }), {
-                    $set: {
-                        state: "待業中"
-                    }
-                })
+                }
+
             }
-        }
-    })
-}
+        })
+    }
 
 
 }, 29000);

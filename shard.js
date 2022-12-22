@@ -12,8 +12,8 @@ const manager = new Cluster.Manager(`${__dirname}/index.js`, {
 
 manager.extend(
     new Cluster.HeartbeatManager({
-        interval: 1000,
-        maxMissedHeartbeats: 5,
+        interval: 300,
+        maxMissedHeartbeats: 2,
     })
 )
 

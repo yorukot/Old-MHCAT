@@ -79,56 +79,7 @@ module.exports = {
         const totalRam = Math.round(os.totalmem() / 1024 / 1024);
         const usedRam = Math.round((os.totalmem() - os.freemem()) / 1024 / 1024);
         const osaa = require("os-utils");
-        system.findOne({
-            a: 'dsa'
-        }, async (err, data111) => {
-            const datapoints = data111.ram;
-            const datapoints1 = data111.cpu;
-            const data = {
-                labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ],
-                datasets: [{
-                        label: 'RAM',
-                        data: datapoints,
-                        pointHoverBorderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: '#28FF28',
-                    },
-                    {
-                        label: 'CPU',
-                        data: datapoints1,
-                        pointHoverBorderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: '#FFA042',
-                    }
-                ]
-            };
-            const configuration = {
-                type: 'line',
-                data: data,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            labels: {
-                                font: {
-                                    size: 52,
-                                },
-                            },
-                            position: 'top',
-                        },
-                        title: {
-                            font: {
-                                size: 52
-                            },
-                            display: true,
-                            text: '系統使用量(最近24小時)'
-                        },
 
-                    }
-                },
-            };
-            const image = await canvas.renderToBuffer(configuration);
-            const attachment = new AttachmentBuilder(image);
             if (interaction.options.getSubcommand() === "bot") {
                 const row = new ActionRowBuilder()
                     .addComponents(
@@ -179,10 +130,8 @@ module.exports = {
                         ])
                         .setTimestamp()
                         .setColor('Random')
-                        .setImage("attachment://file.jpg");
                     interaction.followUp({
                         embeds: [embed],
-                        files: [attachment],
                         components: [row]
                     })
                 })
@@ -207,6 +156,5 @@ module.exports = {
                 })
             }
             return
-        })
     }
 }

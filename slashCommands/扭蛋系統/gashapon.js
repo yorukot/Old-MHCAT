@@ -84,110 +84,144 @@ module.exports = {
                                 errors("獎池裡沒有獎品，只會抽到空氣喔;w;")
                                 return
                             }
-                        
-                        if (data.coin < (!data11111 ? 500 * draw : data11111.coin_number * draw)) return errors(`必須要有\`${!data11111 ? 500*draw : data11111.coin_number*draw}\`個代幣才能進行扭蛋`)
-                        data.collection.updateOne(({
-                            guild: interaction.channel.guild.id,
-                            member: interaction.member.id
-                        }), {
-                            $set: {
-                                coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw)
-                            }
-                        })
-                        const msgg = await interaction.followUp({
-                            content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"
-                        })
-                        const {
-                            DropTable
-                        } = require('drop-table');
-                        
-                        const aaaa1 = []
-                        const testsetse1 = []
-                        for (let i = 0; i < poiuytr; i++) {
-                            const hgsdaa = []
-                            const aaaa = []
-                            const testsetse = []
-                        setTimeout(() => {
-                        gift.find({
-                            guild: interaction.guild.id,
-                        }, async (err, data11) => {
-                            let table = new DropTable();
-                                let i = 0
-                                for (let index = 0; index < data11.length; index++) {
-                                    i = i + data11[index].gift_chence
-                                    table.addItem({
-                                        'name': data11[index].gift_name,
-                                        'data': {
-                                            'token': data11[index].gift_code
-                                        },
-                                        'weight': data11[index].gift_chence
-                                    })
-                                }
-                                const dsadsasa = (100 - i) <= 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i)
-                                    table.addItem({
-                                        'name': '空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!',
-                                        'weight': dsadsasa
-                                    });
 
-                                const result = table.drop();
-                                table.removeItem(result.name);
-                                if (result.data && result.data.token !== null) {
-                                    let aaaaaaaaa = {
-                                        name: '<:id:985950321975128094> **獎品名:**' + `${result.name}`,
-                                        value: `<:security:997374179257102396> **獎品代碼:**${result.data.token}`,
-                                        inline: true
-                                    }
-                                    testsetse.push(aaaaaaaaa)
-                                    testsetse1.push(aaaaaaaaa)
-                                }
-                                const name = result.name
-                                if (!name.includes('空氣QQ') && !name.includes('別氣餒，下一次定是你')) {
-                                    hgsdaa.push(name)
-                                }
-                                aaaa.push(result.name)
-                                aaaa1.push(result.name)
-                            gift_change.findOne({
-                                guild: interaction.guild.id,
-                            }, async (err, data11111) => {
-                                if (!data11111) return
-                                const channel = interaction.guild.channels.cache.get(data11111.channel)
-                                if (!channel) return
-                                if (hgsdaa.length === 0) return
-                                channel.send({
-                                    embeds: [
-                                        new EmbedBuilder()
-                                        .setTitle("<:celebration:997374188060946495> **有人中獎了!**")
-                                        .setDescription(`<:id:985950321975128094> **中獎人:** <@${interaction.user.id}>\n` + "<a:gift:954018543211532289> **中獎禮物:**" + `\`\`\`${hgsdaa.join('\n')}\`\`\``)
-                                        .setColor("Random")
-                                    ]
-                                })
+                            if (data.coin < (!data11111 ? 500 * draw : data11111.coin_number * draw)) return errors(`必須要有\`${!data11111 ? 500*draw : data11111.coin_number*draw}\`個代幣才能進行扭蛋`)
+                            const msgg = await interaction.followUp({
+                                content: "https://cdn.discordapp.com/attachments/991337796960784424/997105505640136794/giphy.gif"
                             })
-                            if (hgsdaa.length !== 0) {
-                                for (let i = 0; i < aaaa.length; i++) {
-                                        gift.findOne({
+                            const {
+                                DropTable
+                            } = require('drop-table');
+
+                            const aaaa1 = []
+                            const testsetse1 = []
+                            for (let i = 0; i < poiuytr; i++) {
+                                const hgsdaa = []
+                                const aaaa = []
+                                const testsetse = []
+                                setTimeout(() => {
+                                    gift.find({
+                                        guild: interaction.guild.id,
+                                    }, async (err, data11) => {
+                                        let table = new DropTable();
+                                        let i = 0
+                                        for (let index = 0; index < data11.length; index++) {
+                                            i = i + data11[index].gift_chence
+                                            table.addItem({
+                                                'name': data11[index].gift_name,
+                                                'data': {
+                                                    'token': data11[index].gift_code
+                                                },
+                                                'weight': data11[index].gift_chence
+                                            })
+                                        }
+                                        const dsadsasa = (100 - i) <= 0 ? 0.000000000000000000000000000000000000000000000000000000000000001 : (100 - i)
+                                        table.addItem({
+                                            'name': '空氣QQ<:peepoHugMilk:994650902050906234>別氣餒，下一次定是你!!',
+                                            'weight': dsadsasa
+                                        });
+
+                                        const result = table.drop();
+                                        table.removeItem(result.name);
+                                        if (result.data && result.data.token !== null) {
+                                            let aaaaaaaaa = {
+                                                name: '<:id:985950321975128094> **獎品名:**' + `${result.name}`,
+                                                value: `<:security:997374179257102396> **獎品代碼:**${result.data.token}`,
+                                                inline: true
+                                            }
+                                            testsetse.push(aaaaaaaaa)
+                                            testsetse1.push(aaaaaaaaa)
+                                        }
+                                        const name = result.name
+                                        if (!name.includes('空氣QQ') && !name.includes('別氣餒，下一次定是你')) {
+                                            hgsdaa.push(name)
+                                        }
+                                        aaaa.push(result.name)
+                                        aaaa1.push(result.name)
+                                        gift_change.findOne({
                                             guild: interaction.guild.id,
-                                            gift_name: aaaa[i]
-                                        }, async (err, data1111111) => {
-                                            if (!data1111111) return
-                                            if (data1111111.give_coin) {
-                                                coin.findOne({
+                                        }, async (err, data11111) => {
+                                            if (!data11111) return
+                                            const channel = interaction.guild.channels.cache.get(data11111.channel)
+                                            if (!channel) return
+                                            if (hgsdaa.length === 0) return
+                                            channel.send({
+                                                embeds: [
+                                                    new EmbedBuilder()
+                                                    .setTitle("<:celebration:997374188060946495> **有人中獎了!**")
+                                                    .setDescription(`<:id:985950321975128094> **中獎人:** <@${interaction.user.id}>\n` + "<a:gift:954018543211532289> **中獎禮物:**" + `\`\`\`${hgsdaa.join('\n')}\`\`\``)
+                                                    .setColor("Random")
+                                                ]
+                                            })
+                                        })
+                                        if (hgsdaa.length !== 0) {
+                                            for (let i = 0; i < aaaa.length; i++) {
+                                                gift.findOne({
                                                     guild: interaction.guild.id,
-                                                    member: interaction.member.id
-                                                }, async (err, data) => {
-                                                    if (!data) return 
-                                                    data.collection.updateOne(({
-                                                        guild: interaction.channel.guild.id,
-                                                        member: interaction.member.id
-                                                    }), {
-                                                        $set: {
-                                                            coin: data.coin + data1111111.give_coin
+                                                    gift_name: aaaa[i]
+                                                }, async (err, data1111111) => {
+                                                    if (!data1111111) return
+                                                    if (data1111111.give_coin) {
+                                                        coin.findOne({
+                                                            guild: interaction.guild.id,
+                                                            member: interaction.member.id
+                                                        }, async (err, data) => {
+                                                            if (!data) return
+                                                            data.collection.updateOne(({
+                                                                guild: interaction.channel.guild.id,
+                                                                member: interaction.member.id
+                                                            }), {
+                                                                $set: {
+                                                                    coin: data.coin + data1111111.give_coin
+                                                                }
+                                                            })
+                                                        })
+                                                    }
+                                                    if (!data1111111.auto_delete) {
+                                                        return
+                                                    } else {
+                                                        if (data1111111.gift_count === 1) {
+                                                            data1111111.delete()
+                                                        } else {
+                                                            data1111111.collection.updateOne(({
+                                                                guild: interaction.guild.id,
+                                                                gift_name: aaaa[i]
+                                                            }), {
+                                                                $set: {
+                                                                    gift_count: data1111111.gift_count - 1
+                                                                }
+                                                            })
                                                         }
-                                                    })
+                                                    }
                                                 })
                                             }
-                                            if (!data1111111.auto_delete) {
-                                                return
-                                            } else {
+                                            return
+                                        }
+                                        for (let i = 0; i < aaaa.length; i++) {
+                                            gift.findOne({
+                                                guild: interaction.guild.id,
+                                                gift_name: aaaa[i]
+                                            }, async (err, data1111111) => {
+                                                if (!data1111111) return
+                                                if (data1111111.give_coin) {
+                                                    coin.findOne({
+                                                        guild: interaction.guild.id,
+                                                        member: interaction.member.id
+                                                    }, async (err, data) => {
+                                                        if (!data) return
+                                                        data.collection.updateOne(({
+                                                            guild: interaction.channel.guild.id,
+                                                            member: interaction.member.id
+                                                        }), {
+                                                            $set: {
+                                                                coin: data.coin + data1111111.give_coin
+                                                            }
+                                                        })
+                                                    })
+                                                }
+                                                if (!data1111111.auto_delete) {
+                                                    return
+                                                } else {
                                                     if (data1111111.gift_count === 1) {
                                                         data1111111.delete()
                                                     } else {
@@ -199,84 +233,51 @@ module.exports = {
                                                                 gift_count: data1111111.gift_count - 1
                                                             }
                                                         })
-                                                    } 
-                                            }
-                                        })
-                                }
-                                return
-                            }
-                            for (let i = 0; i < aaaa.length; i++) {
-                                    gift.findOne({
-                                        guild: interaction.guild.id,
-                                        gift_name: aaaa[i]
-                                    }, async (err, data1111111) => {
-                                        if (!data1111111) return
-                                        if (data1111111.give_coin) {
-                                            coin.findOne({
-                                                guild: interaction.guild.id,
-                                                member: interaction.member.id
-                                            }, async (err, data) => {
-                                                if (!data) return
-                                                data.collection.updateOne(({
-                                                    guild: interaction.channel.guild.id,
-                                                    member: interaction.member.id
-                                                }), {
-                                                    $set: {
-                                                        coin: data.coin + data1111111.give_coin
                                                     }
-                                                })
+                                                }
+
                                             })
                                         }
-                                        if (!data1111111.auto_delete) {
-                                            return
-                                        } else {
-                                                if (data1111111.gift_count === 1) {
-                                                    data1111111.delete()
-                                                } else {
-                                                    data1111111.collection.updateOne(({
-                                                        guild: interaction.guild.id,
-                                                        gift_name: aaaa[i]
-                                                    }), {
-                                                        $set: {
-                                                            gift_count: data1111111.gift_count - 1
-                                                        }
-                                                    })
-                                            }
-                                        }
-
-                                    })
+                                    });
+                                }, i * 285)
                             }
-                        });
-                        }, i * 285)
-                    }
-                    setTimeout(() => {
-                        msgg.edit({
-                            content: null,
-                            embeds: [new EmbedBuilder()
-                                .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
-                                .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${aaaa1.join('\n')}`)
-                                .setColor("Random")
-                                .setFooter({
-                                    text: "如扭中的獎品有獎品代碼，將會私訊給您!",
-                                    iconURL: interaction.member.displayAvatarURL({
-                                        dynamic: true
-                                    })
+                            setTimeout(() => {
+
+                                msgg.edit({
+                                    content: null,
+                                    embeds: [new EmbedBuilder()
+                                        .setTitle("<:gashapon:997374176526610472> 扭蛋系統")
+                                        .setDescription(`<:fireworks:997374182016958494><:fireworks:997374182016958494>你扭中了:\n${aaaa1.join('\n')}`)
+                                        .setColor("Random")
+                                        .setFooter({
+                                            text: "如扭中的獎品有獎品代碼，將會私訊給您!",
+                                            iconURL: interaction.member.displayAvatarURL({
+                                                dynamic: true
+                                            })
+                                        })
+                                    ]
                                 })
-                            ]
+                                if (testsetse1.length !== 0) {
+                                    interaction.member.send({
+                                        embeds: [
+                                            new EmbedBuilder()
+                                            .setTitle('<:fireworks:997374182016958494> 恭喜你中獎!!')
+                                            .setColor('Random')
+                                            .setFields(testsetse1)
+                                        ]
+                                    })
+                                }
+                                data.collection.updateOne(({
+                                    guild: interaction.channel.guild.id,
+                                    member: interaction.member.id
+                                }), {
+                                    $set: {
+                                        coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw)
+                                    }
+                                })
+                            }, 8500);
                         })
-                        if(testsetse1.length !== 0){
-                            interaction.member.send({
-                                embeds: [
-                                    new EmbedBuilder()
-                                    .setTitle('<:fireworks:997374182016958494> 恭喜你中獎!!')
-                                    .setColor('Random')
-                                    .setFields(testsetse1)
-                                ]
-                            })
-                        }
-                    }, 8500);
                     })
-                })
                 }
             })
         } catch (error) {

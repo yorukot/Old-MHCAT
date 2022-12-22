@@ -89,7 +89,7 @@ module.exports = {
                         guild: interaction.guild.id,
                         coin_number: number,
                         sign_coin: sign_coin,
-                        channel: channel.idk,
+                        channel: channel.id,
                         xp_multiple: xp_multiple,
                         time: time * 60 * 60
                     })

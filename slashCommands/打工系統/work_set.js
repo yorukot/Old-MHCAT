@@ -216,7 +216,7 @@ module.exports = {
                         for (let i = 0; i < data.length; i++) {
                             let arrary111 = {
                                 name: `<:id:985950321975128094> **打工地點名稱 :** \`${data[i].name}\``,
-                                value: `<:lighting:1048626093994803200> **打工所需精力 : **\`${data[i].energy}\` \n<:ontime:981966857718353950> **耗費時間 : **\`${data[i].time}\` \n<:id:985950321975128094> **打工報酬 : **\`${data[i].coin}\`(代幣)`,
+                                value: `<:lighting:1048626093994803200> **打工所需精力 : **\`${data[i].energy}\` \n<:ontime:981966857718353950> **耗費時間 : **\`${Number(data[i].time) / 60}分(${Number(data[i].time) / 60/60}小時)\` \n<:id:985950321975128094> **打工報酬 : **\`${data[i].coin}\`(代幣)`,
                                 inline: true
                             }
                             array.push(arrary111)

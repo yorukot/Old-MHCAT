@@ -307,5 +307,216 @@ client.on("interactionCreate", async (interaction) => {
 
             })
         }
+        if (interaction.customId.includes('text_leave_role')) {
+            let chat_role = require('../models/chat_role.js');
+            const number = Number(interaction.customId.replace('text_leave_role', ''))
+                    chat_role.find({
+                        guild: interaction.channel.guild.id,
+                    }, async (err, data) => {
+                        const data1 = []
+                        for (let i = 0; i < data.length; i++) {
+                            const role = interaction.guild.roles.cache.get(data[i].role)
+                            if (!role) {
+                                data[i].delete()
+                            }
+                            data1.push(data[i])
+                        }
+                        setTimeout(() => {
+                        let testtestestesteteste = []
+                        let a1 = data1[number * 12 + 0] ? testtestestesteteste.push({
+                            name: `第${number*12 + 1}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 0].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 0].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 0].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a2 = data1[number * 12 + 1] ? testtestestesteteste.push({
+                            name: `第${number*12 + 2}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 1].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 1].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 1].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a3 = data1[number * 12 + 2] ? testtestestesteteste.push({
+                            name: `第${number*12 + 3}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 2].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 2].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 2].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a4 = data1[number * 12 + 3] ? testtestestesteteste.push({
+                            name: `第${number*12 + 4}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 3].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 3].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 3].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a5 = data1[number * 12 + 4] ? testtestestesteteste.push({
+                            name: `第${number*12 + 5}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 4].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 4].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 4].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a6 = data1[number * 12 + 12] ? testtestestesteteste.push({
+                            name: `第${number*12 + 6}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 5 + 12].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 5].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 5].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a7 = data1[number * 12 + 6] ? testtestestesteteste.push({
+                            name: `第${number*12 + 7}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 6].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 6].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 6].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a8 = data1[number * 12 + 7] ? testtestestesteteste.push({
+                            name: `第${number*12 + 8}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 7].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 7].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 7].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a9 = data1[number * 12 + 8] ? testtestestesteteste.push({
+                            name: `第${number*12 + 9}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 8].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 8].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 8].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a10 = data1[number * 12 + 9] ? testtestestesteteste.push({
+                            name: `第${number*12 + 10}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 9].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 9].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 9].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a11 = data1[number * 12 + 10] ? testtestestesteteste.push({
+                            name: `第${number*12 + 11}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 10].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 10].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 10].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a12 = data1[number * 12 + 11] ? testtestestesteteste.push({
+                            name: `第${number*12 + 12}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 11].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 11].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 11].delete_when_not}`,
+                            inline: true
+                        }) : null
+
+                        const bt100 = new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                        .setCustomId(`${number - 1}text_leave_role`)
+                        .setEmoji("<:previous:986067803910066256>")
+                        .setLabel('上一頁')
+                        .setStyle(ButtonStyle.Success)
+                        .setDisabled(number - 1 === -1 ? true : false),
+                        new ButtonBuilder()
+                        .setCustomId(`${number + 1}text_leave_role`)
+                        .setEmoji("<:next:986067802056167495>")
+                        .setLabel('下一頁')
+                        .setStyle(ButtonStyle.Success)
+                        .setDisabled(number + 1 >= Math.ceil(data1.length / 12) ? true : false),
+                    );
+                        interaction.update({
+                            embeds: [
+                                new EmbedBuilder()
+                                .setTitle(`${client.emoji.channel} 以下是聊天經驗身分組的所有設定!!`)
+                                .setFields(testtestestesteteste)
+                                .setColor(`Random`)
+                                .setFooter({text: `總共: ${data1.length} 筆資料\n第 ${number + 1} / ${Math.ceil(data1.length / 12)} 頁(按按鈕會自動更新喔!`})
+                            ],
+                            components: [bt100]
+                        })
+                    }, 1000);
+                    })
+                }
+        if (interaction.customId.includes('voice_leave_role')) {
+            let chat_role = require('../models/voice_role.js');
+            const number = Number(interaction.customId.replace('voice_leave_role', ''))
+                    chat_role.find({
+                        guild: interaction.channel.guild.id,
+                    }, async (err, data) => {
+                        const data1 = []
+                        for (let i = 0; i < data.length; i++) {
+                            const role = interaction.guild.roles.cache.get(data[i].role)
+                            if (!role) {
+                                data[i].delete()
+                            }
+                            data1.push(data[i])
+                        }
+                        setTimeout(() => {
+                        let testtestestesteteste = []
+                        let a1 = data1[number * 12 + 0] ? testtestestesteteste.push({
+                            name: `第${number*12 + 1}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 0].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 0].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 0].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a2 = data1[number * 12 + 1] ? testtestestesteteste.push({
+                            name: `第${number*12 + 2}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 1].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 1].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 1].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a3 = data1[number * 12 + 2] ? testtestestesteteste.push({
+                            name: `第${number*12 + 3}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 2].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 2].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 2].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a4 = data1[number * 12 + 3] ? testtestestesteteste.push({
+                            name: `第${number*12 + 4}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 3].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 3].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 3].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a5 = data1[number * 12 + 4] ? testtestestesteteste.push({
+                            name: `第${number*12 + 5}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 4].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 4].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 4].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a6 = data1[number * 12 + 12] ? testtestestesteteste.push({
+                            name: `第${number*12 + 6}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 5 + 12].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 5].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 5].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a7 = data1[number * 12 + 6] ? testtestestesteteste.push({
+                            name: `第${number*12 + 7}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 6].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 6].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 6].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a8 = data1[number * 12 + 7] ? testtestestesteteste.push({
+                            name: `第${number*12 + 8}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 7].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 7].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 7].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a9 = data1[number * 12 + 8] ? testtestestesteteste.push({
+                            name: `第${number*12 + 9}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 8].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 8].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 8].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a10 = data1[number * 12 + 9] ? testtestestesteteste.push({
+                            name: `第${number*12 + 10}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 9].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 9].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 9].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a11 = data1[number * 12 + 10] ? testtestestesteteste.push({
+                            name: `第${number*12 + 11}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 10].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 10].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 10].delete_when_not}`,
+                            inline: true
+                        }) : null
+                        let a12 = data1[number * 12 + 11] ? testtestestesteteste.push({
+                            name: `第${number*12 + 12}個:`,
+                            value: `<:levelup:990254382845157406> **等級:**` + `\`${data1[number * 12 + 11].leavel}\`\n<:roleplaying:985945121264635964> **身分組:**<@&${data1[number * 12 + 11].role}>` + `\n${client.emoji.delete} **是否自動刪除身分組:**${data1[number * 12 + 11].delete_when_not}`,
+                            inline: true
+                        }) : null
+
+                        const bt100 = new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                        .setCustomId(`${number - 1}voice_leave_role`)
+                        .setEmoji("<:previous:986067803910066256>")
+                        .setLabel('上一頁')
+                        .setStyle(ButtonStyle.Success)
+                        .setDisabled(number - 1 === -1 ? true : false),
+                        new ButtonBuilder()
+                        .setCustomId(`${number + 1}voice_leave_role`)
+                        .setEmoji("<:next:986067802056167495>")
+                        .setLabel('下一頁')
+                        .setStyle(ButtonStyle.Success)
+                        .setDisabled(number + 1 >= Math.ceil(data1.length / 12) ? true : false),
+                    );
+                        interaction.update({
+                            embeds: [
+                                new EmbedBuilder()
+                                .setTitle(`${client.emoji.channel} 以下是語音經驗身分組的所有設定!!`)
+                                .setFields(testtestestesteteste)
+                                .setColor(`Random`)
+                                .setFooter({text: `總共: ${data1.length} 筆資料\n第 ${number + 1} / ${Math.ceil(data1.length / 12)} 頁(按按鈕會自動更新喔!`})
+                            ],
+                            components: [bt100]
+                        })
+                    }, 1000);
+
+                    })
+                }
     }
 })

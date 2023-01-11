@@ -117,7 +117,7 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
             }
             if (newMember.channel.parentId === null) {
                 newMember.guild.channels.create({
-                    name: data.name,
+                    name: data.name.replace("{name}", newMember.member.user.username),
                     type: ChannelType.GuildVoice,
                     userLimit: data.limit,
                     permissionOverwrites: newMember.channel.parent.permissionOverwrites.cache,
@@ -144,7 +144,7 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                 })
             } else {
                 newMember.guild.channels.create({
-                    name: data.name,
+                    name: data.name.replace("{name}", newMember.member.user.username),
                     type: ChannelType.GuildVoice,
                     parent: newMember.channel.parent.id,
                     userLimit: data.limit,

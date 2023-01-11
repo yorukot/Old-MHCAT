@@ -92,7 +92,7 @@ module.exports = {
                             const {
                                 DropTable
                             } = require('drop-table');
-
+                            let testtttt = 0
                             const aaaa1 = []
                             const testsetse1 = []
                             for (let i = 0; i < poiuytr; i++) {
@@ -162,20 +162,7 @@ module.exports = {
                                                 }, async (err, data1111111) => {
                                                     if (!data1111111) return
                                                     if (data1111111.give_coin) {
-                                                        coin.findOne({
-                                                            guild: interaction.guild.id,
-                                                            member: interaction.member.id
-                                                        }, async (err, data) => {
-                                                            if (!data) return
-                                                            data.collection.updateOne(({
-                                                                guild: interaction.channel.guild.id,
-                                                                member: interaction.member.id
-                                                            }), {
-                                                                $set: {
-                                                                    coin: data.coin + data1111111.give_coin
-                                                                }
-                                                            })
-                                                        })
+                                                        testtttt = testtttt + data1111111.give_coin
                                                     }
                                                     if (!data1111111.auto_delete) {
                                                         return
@@ -195,7 +182,6 @@ module.exports = {
                                                     }
                                                 })
                                             }
-                                            return
                                         }
                                         for (let i = 0; i < aaaa.length; i++) {
                                             gift.findOne({
@@ -272,7 +258,7 @@ module.exports = {
                                     member: interaction.member.id
                                 }), {
                                     $set: {
-                                        coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw)
+                                        coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw) + testtttt
                                     }
                                 })
                             }, 8500);

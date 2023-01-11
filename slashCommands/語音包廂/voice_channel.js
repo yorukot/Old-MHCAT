@@ -41,7 +41,7 @@ module.exports = {
     }, {
         name: '設定頻道名稱',
         type: ApplicationCommandOptionType.String,
-        description: '設定開啟的語音包廂要叫做甚麼',
+        description: '設定開啟的語音包廂要叫做甚麼 輸入{name}及代表使用者名稱',
         required: true,
     }, {
         name: '是否予許房主上鎖',

@@ -81,40 +81,6 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                                     const true_message = data1.message
                                     let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                                     const aaaaa = messsage.replace("(user)", `<@${newMember.id}>`)
-                                    const chat_role = require('../models/voice_role.js');
-                                    chat_role.find({
-                                        guild: newMember.guild.id,
-                                    }, async (err, data1111111111111) => {
-                                        if (data1111111111111.length === 0) return;
-                                        let array_delete = []
-                                        let array_add = []
-                                        for (let i = 0; i < data1111111111111.length; i++) {
-                                            if (newMember.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
-                                                if (data1111111111111[i].delete_when_not) {
-                                                    const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
-                                                    if (role) {
-                                                        array_delete.push(role)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        for (let i = 0; i < data1111111111111.length; i++) {
-                                            if (Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)) {
-                                                const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
-                                                if (role) {
-                                                    array_add.push(role)
-                                                }
-                                            }
-                                        }
-                                        if (array_delete !== 0) {
-                                            newMember.member.roles.remove(array_delete)
-                                        }
-                                        setTimeout(() => {
-                                            if (array_add !== 0) {
-                                                newMember.member.roles.add(array_add)
-                                            }
-                                        }, 3000);
-                                    })
                                     channel111.send(data1.message && (data1.message !== null) ? aaaaa : `🆙恭喜<@${newMember.id}> 的語音等級成功升級到 ${Number(data.leavel) + 1}`)
                                     const coin = require('../models/coin.js')
                                     coin.findOne({
@@ -150,6 +116,40 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                                     return
                                 }
                             })
+                            const chat_role = require('../models/voice_role.js');
+                                    chat_role.find({
+                                        guild: newMember.guild.id,
+                                    }, async (err, data1111111111111) => {
+                                        if (data1111111111111.length === 0) return;
+                                        let array_delete = []
+                                        let array_add = []
+                                        for (let i = 0; i < data1111111111111.length; i++) {
+                                            if (newMember.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
+                                                if (data1111111111111[i].delete_when_not) {
+                                                    const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
+                                                    if (role) {
+                                                        array_delete.push(role)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        for (let i = 0; i < data1111111111111.length; i++) {
+                                            if (Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)) {
+                                                const role = newMember.guild.roles.cache.get(data1111111111111[i].role)
+                                                if (role) {
+                                                    array_add.push(role)
+                                                }
+                                            }
+                                        }
+                                        if (array_delete !== 0) {
+                                            newMember.member.roles.remove(array_delete)
+                                        }
+                                        setTimeout(() => {
+                                            if (array_add !== 0) {
+                                                newMember.member.roles.add(array_add)
+                                            }
+                                        }, 3000);
+                                    })
                         } else {
                             data.collection.updateOne(({
                                 guild: newMember.guild.id,

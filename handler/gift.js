@@ -13,7 +13,9 @@ function getRandomArbitrary(min, max) {
 const work_user = require('../models/work_user.js')
 const coin = require('../models/coin.js');
 const gift_change = require("../models/gift_change.js");
-
+const birthday_set = require('../models/birthday_set.js')
+const birthday = require('../models/birthday.js')
+const moment = require('moment')
 setInterval(() => {
 
 
@@ -76,7 +78,7 @@ setInterval(() => {
         work_user.find({}, async (err, data) => {
             let Date_now = Math.round(Date.now() / 1000)
             for (let i = 0; i < data.length; i++) {
-                if (data[i].state !== "待業中"){
+                if (data[i].state !== "待業中") {
                     if (data[i].end_time < Date_now) {
                         coin.findOne({
                             guild: data[i].guild,
@@ -120,5 +122,40 @@ setInterval(() => {
         })
     }
 
+    birthday_set.find({}, async (err, data1) => {
+        if (!data1) return;
+        const date = Math.floor(Date.now() / 1000)
+        for (let x = 0; x < data1.length; x++) {
+            birthday.find({
+                guild: data1[x].guild
+            }, async (err, data) => {
+                if (data.length === 0) return
+                let guild = client.guilds.cache.get(data1[x].guild)
+                let channel = guild.channels.cache.get(data1[x].channel)
+                if (!channel) return
+                for (let y = 0; y < data.length; y++) {
+                    if (data[y].birthday_year !== null) {
+                        let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
+                        if (data[y].birthday_month !== month) return
+                        let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
+                        if (data[y].birthday_day !== day) return
+                        let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
+                        if (data[y].send_msg_hour !== hour) return
+                        let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
+                        if (data[y].send_msg_min !== min) return
+                        let userrrrrr = guild.members.cache.get(data[y].user)
+                        if (!userrrrrr) return
+                        let msgggggg = data1[x].msg
+                        msgggggg = msgggggg.replace('{user}', `<@${data[y].user}>`)
+                        msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)
+                        msgggggg = msgggggg.replace('{age}', `${new Date().getFullYear() - data[y].birthday_year}`)
+                        channel.send(msgggggg)
+                    }
+                }
+            })
 
-}, 29000);
+        }
+    })
+
+
+}, 30001);

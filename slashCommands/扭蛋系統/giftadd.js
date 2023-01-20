@@ -69,6 +69,7 @@ module.exports = {
             }
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors("你沒有權限使用這個指令")
             const gift_name = interaction.options.getString("獎品名稱")
+            if(gift_name > 200) return errors('獎品名稱不能這麼長!(需小於200)')
             const gift_code = interaction.options.getString("獎品代碼")
             const gift_chence = interaction.options.getNumber("機率")
             const auto_delete1 = interaction.options.getBoolean("自動刪除")

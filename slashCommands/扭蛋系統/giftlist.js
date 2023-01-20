@@ -46,7 +46,7 @@ module.exports = {
                     )
                     for (let i = 0; i < data.length; i++) {
                         let arrary111 = {
-                            name: `<:id:985950321975128094> 獎品名: \`${data[i].gift_name}\``,
+                            name: `<:id:985950321975128094> 獎品名: ${data[i].gift_name}`,
                             value: `**<:dice:997374185322057799> 獎品抽中概率:** : \`${data[i].gift_chence}\`%\n'<:counter:994585977207140423> **獎品數量:** \`${data[i].gift_count}個\``,
                             inline: true
                         }

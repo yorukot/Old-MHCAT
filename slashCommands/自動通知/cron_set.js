@@ -89,7 +89,7 @@ module.exports = {
             .setStyle(TextInputStyle.Short);
         const title = new TextInputBuilder()
             .setCustomId('cron_settitle')
-            .setLabel("請輸入你的嵌入標題(如不輸入嵌入訊息相關，請務必輸入文字)")
+            .setLabel("請輸入你的嵌入標題(如不輸入嵌入訊息相關，請 務必輸入文字)")
             .setRequired(false)
             .setStyle(TextInputStyle.Short);
         const content = new TextInputBuilder()

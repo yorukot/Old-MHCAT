@@ -172,7 +172,7 @@ client.on("interactionCreate", async (interaction) => {
                                     embeds: [embed],
                                 })
                             })
-                        }, 1000);
+                        }, 400);
                     } else {
                         return
                     }

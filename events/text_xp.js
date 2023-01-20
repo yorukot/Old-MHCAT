@@ -86,40 +86,6 @@ client.on("messageCreate", async (message) => {
                                 return message.author.send("你升級了，但是我沒有權限在" + channel111.name + "發送消息!")
                             }
                             const true_message = data1.message
-                            const chat_role = require('../models/chat_role.js');
-                            chat_role.find({
-                                guild: message.guild.id,
-                            }, async (err, data1111111111111) => {
-                                if (data1111111111111.length === 0) return;
-                                let array_delete = []
-                                let array_add = []
-                                for (let i = 0; i < data1111111111111.length; i++) {
-                                    if (message.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
-                                        if (data1111111111111[i].delete_when_not) {
-                                            const role = message.guild.roles.cache.get(data1111111111111[i].role)
-                                            if (role) {
-                                                array_delete.push(role)
-                                            }
-                                        }
-                                    }
-                                }
-                                for (let i = 0; i < data1111111111111.length; i++) {
-                                    if (Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)) {
-                                        const role = message.guild.roles.cache.get(data1111111111111[i].role)
-                                        if (role) {
-                                            array_add.push(role)
-                                        }
-                                    }
-                                }
-                                if (array_delete !== 0) {
-                                    message.member.roles.remove(array_delete)
-                                }
-                                setTimeout(() => {
-                                    if (array_add !== 0) {
-                                        message.member.roles.add(array_add)
-                                    }
-                                }, 3000);
-                            })
                             let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
                             const aaaaa = messsage.replace("(user)", `<@${message.member.id}>`)
                             channel111.send(data1.message && (data1.message !== null) ? aaaaa : `🆙恭喜<@${message.member.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)
@@ -136,26 +102,61 @@ client.on("messageCreate", async (message) => {
                                         data11111 = new coin({
                                             guild: message.guild.id,
                                             member: message.member.id,
-                                            coin: (Number(data.leavel) +1)* (data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0),
+                                            coin: (Number(data.leavel) + 1) * (data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0),
                                             today: false
                                         })
                                         data11111.save()
                                     } else {
-                                        if ((data.coin +(Number(data.leavel) +1) * (data ? data.xp_multiple ? data.xp_multiple : 0 : 0)) > 999999999) return
+                                        if ((data.coin + (Number(data.leavel) + 1) * (data ? data.xp_multiple ? data.xp_multiple : 0 : 0)) > 999999999) return
                                         data11111.collection.updateOne(({
                                             guild: message.channel.guild.id,
                                             member: message.member.id
                                         }), {
                                             $set: {
-                                                coin: data11111.coin + parseInt((Number(data.leavel) +1) * (data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0))
+                                                coin: data11111.coin + parseInt((Number(data.leavel) + 1) * (data11111111 ? data11111111.xp_multiple ? data11111111.xp_multiple : 0 : 0))
                                             }
                                         })
                                     }
                                 })
                             })
+
                         } else {
                             return
                         }
+                    })
+                    const chat_role = require('../models/chat_role.js');
+                    chat_role.find({
+                        guild: message.guild.id,
+                    }, async (err, data1111111111111) => {
+                        if (data1111111111111.length === 0) return;
+                        let array_delete = []
+                        let array_add = []
+                        for (let i = 0; i < data1111111111111.length; i++) {
+                            if (message.member.roles.cache.some(role => role.id === data1111111111111[i].role)) {
+                                if (data1111111111111[i].delete_when_not) {
+                                    const role = message.guild.roles.cache.get(data1111111111111[i].role)
+                                    if (role) {
+                                        array_delete.push(role)
+                                    }
+                                }
+                            }
+                        }
+                        for (let i = 0; i < data1111111111111.length; i++) {
+                            if (Number(data1111111111111[i].leavel) === (Number(data.leavel) + 1)) {
+                                const role = message.guild.roles.cache.get(data1111111111111[i].role)
+                                if (role) {
+                                    array_add.push(role)
+                                }
+                            }
+                        }
+                        if (array_delete !== 0) {
+                            message.member.roles.remove(array_delete)
+                        }
+                        setTimeout(() => {
+                            if (array_add !== 0) {
+                                message.member.roles.add(array_add)
+                            }
+                        }, 3000);
                     })
                 } else {
                     data.collection.updateOne(({

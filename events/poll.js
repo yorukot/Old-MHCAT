@@ -172,7 +172,7 @@ client.on("interactionCreate", async (interaction) => {
                                     embeds: [embed],
                                 })
                             })
-                        }, 400);
+                        }, 200);
                     } else {
                         return
                     }
@@ -331,7 +331,7 @@ client.on("interactionCreate", async (interaction) => {
                                 embeds: [embed],
                             })
                         })
-                    }, 1000);
+                    }, 200);
                 })
             } else {
                 return
@@ -691,7 +691,7 @@ client.on("interactionCreate", async (interaction) => {
                                 components: all_button
                             })
                         })
-                    }, 1000);
+                    }, 200);
                 })
             }
         }

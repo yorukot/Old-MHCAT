@@ -82,7 +82,7 @@ module.exports = {
 \n<:9605discordslashcommand:982559784429563925> 指令一律使用斜線命令，只需打\`/指令名稱\`即可使用**
 \n<a:buycoffeeforme:986560638304256051> [幫我買杯咖啡!](https://www.buymeacoffee.com/mhcat)
 
-[隱私權聲明](https://mhcat.xyz/docs/privacy) [服務條款](https://mhcat.xyz/docs/Terms_of_Service)`)
+[隱私權聲明](https://mhcat.xyz/terms/privacy_policy) [服務條款](https://mhcat.xyz/terms/Terms_of_Service)`)
                 .setFooter({
                     text: `${interaction.user.tag}的查詢`,
                     iconURL:interaction.user.displayAvatarURL({

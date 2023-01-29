@@ -74,6 +74,31 @@ module.exports = {
         name: '打工介面',
         type: ApplicationCommandOptionType.Subcommand,
         description: '在這裡一般使用者可以使用所有的東西!!',
+    }, {
+        name: '增加個人精力',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '增加個人的精力!!',
+        options: [{
+            name: '使用者',
+            type: ApplicationCommandOptionType.User,
+            description: '輸入要給精力的使用者!',
+            required: true,
+        }, {
+            name: '要給多少精力',
+            type: ApplicationCommandOptionType.Integer,
+            description: '輸入要給多少精力!',
+            required: true,
+        }]
+    }, {
+        name: '增加全體精力',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '增加全伺服器的精力!!',
+        options: [{
+            name: '要給多少精力',
+            type: ApplicationCommandOptionType.Integer,
+            description: '輸入要給多少精力!',
+            required: true,
+        }]
     }],
     UserPerms: '除了打工介面其他都是需要訊息管理喔!',
     //video: 'https://mhcat.xyz/commands/statistics.html',
@@ -482,8 +507,81 @@ module.exports = {
                                     })
                                 })
                             })
-                        }, 2000)
+                        }, 500)
                     });
+                })
+            } else if (interaction.options.getSubcommand() === "增加全體精力") {
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                let get_energy = interaction.options.getInteger("要給多少精力")
+                work_set.findOne({
+                    guild: interaction.channel.guild.id,
+                }, async (err, data1111) => {
+                    work_user.find({
+                        guild: interaction.channel.guild.id,
+                    }, async (err, user_data) => {
+                        for (let x = 0; x < user_data.length; x++) {
+                        
+                            work_user.collection.updateOne(({
+                                guild: interaction.channel.guild.id,
+                                user: user_data[x].user
+                            }), {
+                                $set: {
+                                    energi: (user_data[x].energi + get_energy) > data1111.max_energy ? data1111.max_energy : (user_data[x].energi + get_energy),
+                                }
+                            })
+                            }
+                    })
+                    const embed = new EmbedBuilder()
+                        .setTitle(`<:working:1048617967799242772> 打工系統`)
+                        .setDescription(`${client.emoji.done}**成功增加精力!!**
+**成功為所有已建檔的使用者增加**\`${get_energy}\`**精力**`)
+                        .setColor(client.color.greate)
+
+                    interaction.editReply({
+                        embeds: [embed]
+                    })
+                })
+            } else if (interaction.options.getSubcommand() === "增加個人精力") {
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                let get_energy = interaction.options.getInteger("要給多少精力")
+                let user = interaction.options.getUser("使用者")
+                work_set.findOne({
+                    guild: interaction.channel.guild.id,
+                }, async (err, data1111) => {
+                    work_user.findOne({
+                        guild: interaction.channel.guild.id,
+                        user: user.id
+                    }, async (err, user_data) => {
+                        if (!user_data) {
+                            const user_data = new work_user({ 
+                                guild: interaction.guild.id,
+                                user: interaction.user.id,
+                                state: "待業中",
+                                end_time: 0,
+                                energi: data1111.max_energy,
+                                get_coin: 0
+                            })
+                            user_data.save()
+                        } else {
+                            work_user.collection.updateOne(({
+                                guild: interaction.channel.guild.id,
+                                user: user.id
+                            }), {
+                                $set: {
+                                    energi: (user_data.energi + get_energy) > data1111.max_energy ? data1111.max_energy : (user_data.energi + get_energy),
+                                }
+                            })
+                        }
+                    })
+                    const embed = new EmbedBuilder()
+                        .setTitle(`<:working:1048617967799242772> 打工系統`)
+                        .setDescription(`${client.emoji.done}**成功增加精力!!**
+**成功為**<@${user.id}>**增加**\`${get_energy}\`**精力**`)
+                        .setColor(client.color.greate)
+
+                    interaction.editReply({
+                        embeds: [embed]
+                    })
                 })
             }
         } catch (error) {

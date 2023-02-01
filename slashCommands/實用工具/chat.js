@@ -20,13 +20,21 @@ const {
     return(image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '自動聊天頻道',
+    name: 'Chat-bot-channel',
     cooldown: 10,
-    description: '設定自動聊天頻道要在哪裡發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set the channel you want to use chat bot!",
+		"zh-TW": "設定自動聊天頻道要在哪裡發送!",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
-        description: '輸入頻道!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter channel!",
+		    "zh-TW": "輸入頻道!",
+	    },
         channel_types: [0,5],
         required: true
     }],

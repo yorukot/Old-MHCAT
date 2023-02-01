@@ -15,29 +15,41 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '剪刀石頭布',
+    name: 'Rock-paper-scissors',
     cooldown: 10,
-    description: '跟電腦剪刀時候布來獲得代幣(有賺有賠)',
+	description: '',
+	description_localizations: {
+		"en-US": "Play rps with robot to win coins!",
+		"zh-TW": "跟電腦剪刀時候布來獲得代幣(有賺有賠)",
+	},
     options: [{
-        name: '使用多少代幣來進行',
+        name: 'Bet',
         type: ApplicationCommandOptionType.Integer,
-        description: '要用多少代幣進行賭注(贏的話會多這些，輸的話這些代幣會全被拿走，平手會被扣這些的一半)',
+		description: '',
+		description_localizations: {
+			"en-US": "How many coins you want to bet(If you win, you get coins you enter, if lose, decrease enteramount/2)",
+			"zh-TW": "要用多少代幣進行賭注(贏的話會多這些，輸的話這些代幣會全被拿走，平手會被扣這些的一半)",
+		},
         required: true,
     }, {
-        name: '剪刀石頭或布',
+        name: 'Rock-paper-or-scissors',
         type: ApplicationCommandOptionType.String,
-        description: '選擇要剪刀石頭還是布',
+		description: '',
+		description_localizations: {
+			"en-US": "Select rock, paper, or scissors",
+			"zh-TW": "選擇要剪刀石頭還是布",
+		},
         required: true,
         choices: [{
-                name: '剪刀',
+                name: 'Scissors',
                 value: '剪刀'
             },
             {
-                name: '石頭',
+                name: 'Rock',
                 value: '石頭'
             },
             {
-                name: '布',
+                name: 'Paper',
                 value: '布'
             },
         ],

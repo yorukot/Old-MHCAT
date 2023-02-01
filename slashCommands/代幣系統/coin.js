@@ -19,7 +19,7 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: 'Check coins',
+    name: 'Check-coins',
     cooldown: 10,
 	description: '',
 	description_localizations: {

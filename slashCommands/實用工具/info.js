@@ -17,11 +17,19 @@ const {
 module.exports = {
     name: 'user-info',
     cooldown: 10,
-    description: '查看使用者的資料',
+	description: '',
+	description_localizations: {
+		"en-US": "Check users information",
+		"zh-TW": "查看使用者的資料",
+	},
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要查詢的使用者',
+		description: '',
+		description_localizations: {
+			"en-US": "User to check",
+			"zh-TW": "要查詢的使用者",
+		},
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

@@ -27,10 +27,18 @@ const create_mh = require(`../../functions/menu.js`); // this one gets the dropd
 module.exports = {
     name: 'help',
     cooldown: 10,
-    description: '使用我開始使用',
+    description: '',
+    description_localizations: {
+        "en-US": "Enter /help to start using this bot",
+        "zh-TW": "使用我開始使用",
+    },
     options: [{
-        name: '指令名稱',
-        description: '輸入指令名稱(可不輸入)!',
+        name: 'Command-name',
+	description: '',
+	description_localizations: {
+		"en-US": "Enter name of the command(leave blank if no)",
+		"zh-TW": "輸入指令名稱(可不輸入)!",
+	},
         required: false,
         type: ApplicationCommandOptionType.String,
     }],

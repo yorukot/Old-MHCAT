@@ -63,9 +63,13 @@ module.exports = {
 		},
         required: true,
     }, {
-        name: 'Level up double amount',
+        name: 'Level up multiply amount',
         type: ApplicationCommandOptionType.Number,
-        description: '等級提升時要給等級幾倍的代幣ex:假設你提升到9等，倍數設10就會得到 9*10=90',
+	description: '',
+	description_localizations: {
+		"en-US": "How many coins you get after you level up. e.g. If your level is 9, and the multiply amount is set as 9, 9*10=90",
+		"zh-TW": "等級提升時要給等級幾倍的代幣ex:假設你提升到9等，倍數設10就會得到 9*10=90'",
+	},
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/required_coins',

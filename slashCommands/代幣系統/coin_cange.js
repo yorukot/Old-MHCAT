@@ -20,27 +20,47 @@ const {
 module.exports = {
     name: 'Coin related settings',
     cooldown: 10,
-    description: '改變每次扭蛋所需的代幣數量',
+	description: '',
+	description_localizations: {
+		"en-US": "Change the amount of coin gashapon requires",
+		"zh-TW": "改變每次扭蛋所需的代幣數量",
+	},
     options: [{
         name: 'Coin raffle takes',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次扭蛋所需的代幣數量',
+		description: '',
+		description_localizations: {
+			"en-US": "The amount of coin raffle requires",
+			"zh-TW": "每次扭蛋所需的代幣數量,
+		},
         required: true,
     }, {
-        name: 'Time raffle takes',
+        name: 'Check-in cooldown time',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次簽到所需時間(單位為小時)(如想設為0:00重製請打0)',
+		description: '',
+		description_localizations: {
+			"en-US": "Time between check-in(Unit is hour)(If you want to set it to 0:00, type 0)",
+			"zh-TW": "每次簽到所需時間(單位為小時)(如想設為0:00重製請打0)",
+		},
         required: true,
     }, {
         name: 'Check-in give coins',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次簽到會拿到多少代幣',
+		description: '',
+		description_localizations: {
+			"en-US": "How many amount of coin check-in gives",
+			"zh-TW": "每次扭蛋所需的代幣數量",
+		},
         required: true,
     }, {
         name: 'Notification channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
-        description: '抽中後的通知頻道',
+		description: '',
+		description_localizations: {
+			"en-US": "Channel to announcement raffle winner",
+			"zh-TW": "抽中後的通知頻道",
+		},
         required: true,
     }, {
         name: 'Level up double amount',

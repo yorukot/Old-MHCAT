@@ -18,32 +18,32 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '代幣相關設定',
+    name: 'Coin related settings',
     cooldown: 10,
     description: '改變每次扭蛋所需的代幣數量',
     options: [{
-        name: '抽獎所需代幣',
+        name: 'Coin raffle takes',
         type: ApplicationCommandOptionType.Integer,
         description: '每次扭蛋所需的代幣數量',
         required: true,
     }, {
-        name: '簽到所需時間',
+        name: 'Time raffle takes',
         type: ApplicationCommandOptionType.Integer,
         description: '每次簽到所需時間(單位為小時)(如想設為0:00重製請打0)',
         required: true,
     }, {
-        name: '簽到給予代幣數',
+        name: 'Check-in give coins',
         type: ApplicationCommandOptionType.Integer,
         description: '每次簽到會拿到多少代幣',
         required: true,
     }, {
-        name: '通知頻道',
+        name: 'Notification channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
         description: '抽中後的通知頻道',
         required: true,
     }, {
-        name: '等級提升倍數',
+        name: 'Level up double amount',
         type: ApplicationCommandOptionType.Number,
         description: '等級提升時要給等級幾倍的代幣ex:假設你提升到9等，倍數設10就會得到 9*10=90',
         required: true,

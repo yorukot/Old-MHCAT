@@ -75,6 +75,15 @@ module.exports = {
                 categories.push(cats);
                 ccate.push(nome);
             }); 
+            const {WebhookClient} = require('discord.js'); // this is where the fun begins
+
+            const webhookClient = new WebhookClient({https://discord.com/api/webhooks/1070320041779798066/cVPLTw3aCQC7xtsXpJwO3lPxVJ-uLLzMIeKfUN5tZl25a3RC95rUFmFdIVTK0kvB6q7X})
+
+            webhookClient.send({
+	            content: 'Hedz is a handsome devil. *shy*',
+	            username: ${name},
+	            avatarURL: 'https://imgur.com/gQjpOXB',
+            }); // this is where the fun ends
             //embed
             const embed = new EmbedBuilder()
                 .setAuthor({name: `MHCAT`, iconURL:`https://media.discordapp.net/attachments/991337796960784424/993437253311410208/My_project_9.png`, URL:`https://discord.com/api/oauth2/authorize?client_id=964185876559196181&permissions=8&scope=bot%20applications.commands`})

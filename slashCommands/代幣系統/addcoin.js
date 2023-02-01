@@ -20,16 +20,28 @@ const {
 module.exports = {
     name: 'Coin increase',
     cooldown: 10,
-    description: '改變扭蛋數量',
+	description: '',
+    description_localizations: {
+        "en-US": "Change the amount of gashapon",
+        "zh-TW": "改變扭蛋數量",
+    },
     options: [{
         name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要改變的人',
+        description: '',
+        description_localizations: {
+            "en-US": "User to change",
+            "zh-TW": "要改變的人",
+        },
         required: true,
     }, {
         name: 'Increase or decrease',
         type: ApplicationCommandOptionType.String,
-        description: '輸入這個獎品叫甚麼，以及簡單概述',
+		description: '',
+		description_localizations: {
+			"en-US": "Insert name and description of this prize",
+			"zh-TW": "輸入這個獎品叫甚麼，以及簡單概述",
+		},
         required: true,
         choices: [{
                 name: 'Increase',
@@ -43,7 +55,11 @@ module.exports = {
     }, {
         name: 'Amount',
         type: ApplicationCommandOptionType.Integer,
-        description: '增加或減少的數量',
+		description: '',
+		description_localizations: {
+			"en-US": "Amount that increased or decreased",
+			"zh-TW": "增加或減少的數量",
+		},
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/coin_increase',

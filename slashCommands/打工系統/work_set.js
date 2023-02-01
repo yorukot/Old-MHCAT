@@ -59,6 +59,11 @@ module.exports = {
             type: ApplicationCommandOptionType.Integer,
             description: '打工一次可取得多少代幣!',
             required: true,
+        }, {
+            name: '身分組',
+            type: ApplicationCommandOptionType.Role,
+            description: '允許的身分組(除了這個身分組其他所有人都不能用這個打工)!',
+            required: false,
         }]
     }, {
         name: '打工事項刪除',
@@ -148,6 +153,7 @@ module.exports = {
                     let time_1111 = interaction.options.getNumber("耗費時間")
                     let energy = interaction.options.getInteger("耗費精力")
                     let coin = interaction.options.getInteger("取得代幣")
+                    let role = interaction.options.getRole("身分組")
                     let time = Math.round(time_1111 * 60 * 60)
                     work_something.find({
                         guild: interaction.channel.guild.id,
@@ -164,6 +170,7 @@ module.exports = {
                                 time: time,
                                 energy: energy,
                                 coin: coin,
+                                role: role ? role.id : undefined
                             })
                             data.save()
                             const embed = new EmbedBuilder()
@@ -241,10 +248,13 @@ module.exports = {
                         for (let i = 0; i < data.length; i++) {
                             let arrary111 = {
                                 name: `<:id:985950321975128094> **打工地點名稱 :** \`${data[i].name}\``,
-                                value: `<:lighting:1048626093994803200> **打工所需精力 : **\`${data[i].energy}\` \n<:ontime:981966857718353950> **耗費時間 : **\`${Number(data[i].time) / 60}分(${Number(data[i].time) / 60/60}小時)\` \n<:id:985950321975128094> **打工報酬 : **\`${data[i].coin}\`(代幣)`,
+                                value: `<:lighting:1048626093994803200> **打工所需精力 : **\`${data[i].energy}\` \n<:ontime:981966857718353950> **耗費時間 : **\`${Number(data[i].time) / 60}分(${Number(data[i].time) / 60/60}小時)\` \n<:id:985950321975128094> **打工報酬 : **\`${data[i].coin}\`(代幣)\n<:roleplaying:985945121264635964> **所需身分組 : ** ${data[i].role ? `<@&${data[i].role}>` : "無"}`,
                                 inline: true
                             }
-                            array.push(arrary111)
+                            if(interaction.member.roles.cache.has(data[i].role) || !data[i].role){
+                                array.push(arrary111)
+
+                            
                             if ((buttons.length > 4) && !(buttons1.length > 4)) {
                                 buttons1.push(
                                     new ButtonBuilder()
@@ -281,6 +291,7 @@ module.exports = {
                                     .setStyle(ButtonStyle.Primary)
                                 )
                             }
+                        }
                         }
                         all_shop = new ActionRowBuilder()
                             .addComponents(
@@ -373,7 +384,8 @@ module.exports = {
                                             function errorss(content) {
                                                 const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
                                                 interaction01.update({
-                                                    embeds: [embed]
+                                                    embeds: [embed],
+                                                    components: []
                                                 })
                                             }
                                             if (!data) return errorss("很抱歉，找不到這個打工地點，請於幾秒鐘後重試!")

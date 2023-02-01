@@ -62,82 +62,146 @@ let row3 = new ActionRowBuilder()
         .setStyle(ButtonStyle.Secondary),
     );
 module.exports = {
-    name: '代幣商店',
-    description: '使用你所賺到的代幣買一些特別的東西吧!',
+    name: 'Coin-shop',
+	description: '',
+	description_localizations: {
+		"en-US": "Use coin to buy some cool kid stuff!",
+		"zh-TW": "使用你所賺到的代幣買一些特別的東西吧!",
+	},
     cooldown: 5,
     options: [{
-        name: '商品增加',
+        name: 'Item-increase',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '增加代幣商店裡的商品!',
+		description: '',
+		description_localizations: {
+			"en-US": "Increase items in shop!",
+			"zh-TW": "增加代幣商店裡的商品!",
+		},
         options: [{
-            name: '商品名',
+            name: 'Item-name',
             type: ApplicationCommandOptionType.String,
-            description: '輸入這個商品的名稱!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter the name of this item!",
+			    "zh-TW": "輸入這個商品的名稱!",
+		    },
             required: true,
         }, {
-            name: '商品所需代幣',
+            name: 'Coins-item-need',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入這個商品需要多少代幣才能購買!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter how many coins does this item need!!",
+			    "zh-TW": "輸入這個商品需要多少代幣才能購買!!",
+		    },
             required: true,
         }, {
-            name: '商品描述',
+            name: 'Item-description',
             type: ApplicationCommandOptionType.String,
-            description: '輸入這個商品的描述!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter the description of this item!",
+			    "zh-TW": "輸入這個商品的描述!",
+		    },
             required: true,
         }, {
-            name: '是否要在購買後自動刪除',
+            name: 'Delete-after-purchase',
             type: ApplicationCommandOptionType.Boolean,
-            description: '這個商品是否要在當玩家購買後自動刪除!(如填寫false連商品數量都不會減少)',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Should this item automatically delete after purchase!(If condition is false the amount of item won't decrease)",
+			    "zh-TW": "這個商品是否要在當玩家購買後自動刪除!(如填寫false連商品數量都不會減少)",
+		    },
             required: true,
         }, {
-            name: '序號',
+            name: 'Serial-number',
             type: ApplicationCommandOptionType.String,
-            description: '這個商品的序號:ex:steam序號',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "The serial number of this item. e.g. steam serial number",
+			    "zh-TW": "這個商品的序號:ex:steam序號",
+		    },
             required: false,
         }, {
-            name: '商品是否為身分組',
+            name: 'Is-this-item-a-role',
             type: ApplicationCommandOptionType.Role,
-            description: '輸入這個商品是不是身分組!(如果是請填寫你要的身分組，不是請忽略)',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter is this item a role or not!(If yes, enter the role you want, if else just ignore)",
+			    "zh-TW": "輸入這個商品是不是身分組!(如果是請填寫你要的身分組，不是請忽略)",
+		    },
             required: false,
         }, {
-            name: '商品數量',
+            name: 'Item-amount',
             type: ApplicationCommandOptionType.Integer,
-            description: '這個商品有幾個!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "The amount of this item!",
+			    "zh-TW": "這個商品有幾個!",
+		    },
             required: false,
         }]
     }, {
-        name: '商品刪除',
+        name: 'Item-delete',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除某個商品(使用商品id)',
+		description: '',
+		description_localizations: {
+			"en-US": "Delete a item(using item id)",
+			"zh-TW": "刪除某個商品(使用商品id)",
+		},
         options: [{
-            name: '商品id',
+            name: 'Item-id',
             type: ApplicationCommandOptionType.Integer,
-            description: '要刪除的商品的id!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "The id of the item you want to delete!",
+			"   zh-TW": "要刪除的商品的id!",
+		    },
             required: true,
         }]
     }, {
-        name: '購買商品',
+        name: 'Buy-items',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '購買扭蛋商店裡的商品',
+		description: '',
+		description_localizations: {
+			"en-US": "Buy items in the gashapon shop",
+			"zh-TW": "購買扭蛋商店裡的商品",
+		},
         options: [{
-            name: '商品id',
+            name: 'Item-id',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入要購買商品的id!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter the id of the item you want to buy",
+			    "zh-TW": "輸入要購買商品的id!",
+		    },
             required: true,
         }, {
-            name: '購買數量',
+            name: 'Purchase-quantity',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入購買數量!(不填的話預設為1)',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter how many quantity you want to purchase!(Default is set as 1)",
+			    "zh-TW": "輸入購買數量!(不填的話預設為1)",
+		    },
             required: false,
         }]
     }, {
-        name: '商品查詢',
+        name: 'Items-check',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '查詢所有商品id及商品資訊',
+		description: '',
+		description_localizations: {
+			"en-US": "Check all items id and description",
+			"zh-TW": "查詢所有商品id及商品資訊",
+		},
         options: [{
-            name: '商品id',
+            name: 'Item-id',
             type: ApplicationCommandOptionType.Integer,
-            description: '如需查看該商品的詳細資料，請填此項!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "If you want to check the description of this item, enter this area",
+			    "zh-TW": "如需查看該商品的詳細資料，請填此項!",
+		    },
             required: false,
         }]
     }],

@@ -18,7 +18,7 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: 'Coin increase',
+    name: 'Coin-increase',
     cooldown: 10,
 	description: '',
     description_localizations: {
@@ -35,7 +35,7 @@ module.exports = {
         },
         required: true,
     }, {
-        name: 'Increase or decrease',
+        name: 'Increase-or-decrease',
         type: ApplicationCommandOptionType.String,
 		description: '',
 		description_localizations: {

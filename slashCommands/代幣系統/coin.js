@@ -19,11 +19,11 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '代幣查詢',
+    name: 'Coin inquiry',
     cooldown: 10,
     description: '查詢你有多少代幣',
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
         description: '要改變的人',
         required: false,

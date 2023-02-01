@@ -19,9 +19,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '代幣排行榜',
+    name: 'Coin-rank-list',
     cooldown: 10,
-    description: '查詢代幣的排行榜',
+	description: '',
+	description_localizations: {
+		"en-US": "Check coin rank list",
+		"zh-TW": "查詢代幣的排行榜",
+	},
     //video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:levelup:990254382845157406>`,
     run: async (client, interaction, options, perms) => {

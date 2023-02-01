@@ -20,52 +20,81 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '代幣遊戲',
+    name: 'Coin-games',
     cooldown: 10,
-    description: '遊玩有關代幣的小遊戲',
+	description: '',
+	description_localizations: {
+		"en-US": "Play minigames that can get coins",
+		"zh-TW": "遊玩有關代幣的小遊戲",
+	},
     options: [{
-        name: '21點',
+        name: 'Blackjack',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '跟真人遊玩21點!!',
+		description: '',
+		description_localizations: {
+			"en-US": "Play blackjack with real people!",
+			"zh-TW": "跟真人遊玩21點!!",
+		},
         options: [{
-            name: '跟誰玩',
+            name: 'Choose-player',
             type: ApplicationCommandOptionType.User,
-            description: '輸入你要跟誰玩!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Type the user you want to play with",
+			    "zh-TW": "輸入你要跟誰玩!",
+		    },
             required: true,
         }, {
-            name: '賭注',
+            name: 'Bet',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入你的賭注!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter how much you want to bet",
+			    "zh-TW": "輸入你的賭注!",
+		    },
             required: true,
         }]
     }, {
-        name: '知識王',
+        name: 'Quiz-ranger',
         type: ApplicationCommandOptionType.Subcommand,
         description: '跟真人對比誰的知識性高!!',
         options: [{
-            name: '跟誰玩',
+            name: 'Choose-player',
             type: ApplicationCommandOptionType.User,
-            description: '輸入你要跟誰玩!',
+ 		    description: '',
+		    description_localizations: {
+			    "en-US": "Type the user you want to play with",
+			    "zh-TW": "輸入你要跟誰玩!",
+		    },
             required: true,
         }, {
-            name: '賭注',
+            name: 'Bet',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入你的賭注!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter how much you want to bet",
+			    "zh-TW": "輸入你的賭注!",
             required: true,
         }]
     }, {
-        name: '比大小',
+        name: 'Comparing-number',
         type: ApplicationCommandOptionType.Subcommand,
         description: '由電腦隨機為兩位抽取兩個數字比大小!!',
         options: [{
-            name: '跟誰玩',
+            name: 'Choose-player',
             type: ApplicationCommandOptionType.User,
-            description: '輸入你要跟誰玩!',
+ 		    description: '',
+		    description_localizations: {
+			    "en-US": "Type the user you want to play with",
+			    "zh-TW": "輸入你要跟誰玩!",
             required: true,
         }, {
-            name: '賭注',
+            name: 'Bet',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入你的賭注!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter how much you want to bet",
+			    "zh-TW": "輸入你的賭注!",
             required: true,
         }]
     }],

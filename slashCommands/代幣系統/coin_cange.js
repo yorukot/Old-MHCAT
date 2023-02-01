@@ -18,7 +18,7 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: 'Coin related settings',
+    name: 'Coin-related-settings',
     cooldown: 10,
 	description: '',
 	description_localizations: {
@@ -26,7 +26,7 @@ module.exports = {
 		"zh-TW": "改變每次扭蛋所需的代幣數量",
 	},
     options: [{
-        name: 'Coin raffle takes',
+        name: 'Coin-raffle-takes',
         type: ApplicationCommandOptionType.Integer,
 		description: '',
 		description_localizations: {
@@ -35,7 +35,7 @@ module.exports = {
 		},
         required: true,
     }, {
-        name: 'Check-in cooldown time',
+        name: 'Check-in-cooldown-time',
         type: ApplicationCommandOptionType.Integer,
 		description: '',
 		description_localizations: {
@@ -44,7 +44,7 @@ module.exports = {
 		},
         required: true,
     }, {
-        name: 'Check-in give coins',
+        name: 'Check-in-give-coins',
         type: ApplicationCommandOptionType.Integer,
 		description: '',
 		description_localizations: {
@@ -53,7 +53,7 @@ module.exports = {
 		},
         required: true,
     }, {
-        name: 'Notification channel',
+        name: 'Notification-channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
 		description: '',
@@ -63,7 +63,7 @@ module.exports = {
 		},
         required: true,
     }, {
-        name: 'Level up multiply amount',
+        name: 'Level-up-multiply-amount',
         type: ApplicationCommandOptionType.Number,
 	description: '',
 	description_localizations: {

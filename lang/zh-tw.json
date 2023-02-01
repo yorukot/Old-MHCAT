@@ -1,5 +1,4 @@
 {
-    "WELLCOM_TEST": "測試用途",
     "NEED_PERISSIONS": "你需要有`${perms}`才能使用此指令",
     "ANN_MODEL_LABEL_01": "請輸入你要tag誰",
     "ANN_MODEL_LABEL_02": "請輸入你的公告要甚麼顏色",

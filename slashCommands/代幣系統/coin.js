@@ -19,13 +19,21 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: 'Coin inquiry',
+    name: 'Check coins',
     cooldown: 10,
-    description: '查詢你有多少代幣',
+	description: '',
+	description_localizations: {
+		"en-US": "Check how much coins you have",
+		"zh-TW": "查詢你有多少代幣",
+	},
     options: [{
         name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要改變的人',
+		description: '',
+		description_localizations: {
+			"en-US": "User to change",
+			"zh-TW": "要改變的人",
+		},
         required: false,
     }],
     video: 'https://mhcat.xyz/docs/coin',

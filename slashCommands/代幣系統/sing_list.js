@@ -19,9 +19,13 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '簽到列表',
+    name: 'Check-in-list',
     cooldown: 10,
-    description: '查看今天有誰簽到了',
+	description: '',
+	description_localizations: {
+		"en-US": "Check who check-in today",
+		"zh-TW": "查看今天有誰簽到了",
+	},
     video: 'https://mhcat.xyz/docs/snig',
     emoji: `<:sign:997374180632825896>`,
     run: async (client, interaction, options, perms) => {

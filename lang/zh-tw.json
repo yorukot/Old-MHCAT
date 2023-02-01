@@ -29,7 +29,7 @@
      "COIN_RANK_MONEY_LIST": "以下是${guild_name}的金錢排行榜",
      "COIN_RANK_TOTLE_DATA": "總共:`${e}`筆資料",
      "COIN_RANK_TOTLE_PAGE": "第 `${page} / ${totle_page}` 頁(按按鈕會自動更新喔!)",
-     "SEARCH_TITLE": "的查詢",
+     "SEARCH_TITLE": "${name}的查詢",
      "NEX_PAGE": "下一頁",
      "PREVIOUS_PAGE": "上一頁",
      "COIN_NO_COIN_ERROR": "你還沒有任何代幣欸使用`/簽到`或是多講話，都可以獲得代幣喔!",

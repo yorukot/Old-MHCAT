@@ -19,9 +19,13 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '簽到',
+    name: 'Check-in',
     cooldown: 20,
-    description: '簽到來獲得代幣',
+	description: '',
+	description_localizations: {
+		"en-US": "Check-in to get coins",
+		"zh-TW": "簽到來獲得代幣",
+	},
     video: 'https://mhcat.xyz/docs/snig',
     emoji: `<:sign:997374180632825896>`,
     run: async (client, interaction, options, perms) => {

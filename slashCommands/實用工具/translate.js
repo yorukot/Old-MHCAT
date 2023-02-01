@@ -25,17 +25,29 @@ let color = "Random"; // this is the color of the embed
 const create_mh = require(`../../functions/menu.js`); // this one gets the dropdown menu
 
 module.exports = {
-    name: '翻譯',
+    name: 'Translate',
     cooldown: 10,
-    description: '翻譯成各種語言',
+	description: '',
+	description_localizations: {
+		"en-US": "Translate to any language you want",
+		"zh-TW": "翻譯成各種語言",
+	},
     options: [{
-        name: '要的翻譯',
-        description: '你要翻譯的句子或是單詞!',
+        name: 'Sentence-or-Words',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Do you want to translate sentence or word!",
+		    "zh-TW": "你要翻譯的句子或是單詞!",
+	    },
         required: true,
         type: ApplicationCommandOptionType.String,
     },{
-        name: '目標語言',
-        description: '你要翻譯成的語言!',
+        name: 'Target-language',
+		description: '',
+		description_localizations: {
+			"en-US": "Language you want translate to",
+			"zh-TW": "你要翻譯成的語言!",
+		},
         required: true,
         type: ApplicationCommandOptionType.String,
         choices:[

@@ -18,30 +18,30 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '代幣增加',
+    name: 'Coin increase',
     cooldown: 10,
     description: '改變扭蛋數量',
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
         description: '要改變的人',
         required: true,
     }, {
-        name: '增加或減少',
+        name: 'Increase or decrease',
         type: ApplicationCommandOptionType.String,
         description: '輸入這個獎品叫甚麼，以及簡單概述',
         required: true,
         choices: [{
-                name: '增加',
+                name: 'Increase',
                 value: 'add'
             },
             {
-                name: '減少',
+                name: 'Decrease',
                 value: 'reduce'
             },
         ],
     }, {
-        name: '數量',
+        name: 'Amount',
         type: ApplicationCommandOptionType.Integer,
         description: '增加或減少的數量',
         required: true,

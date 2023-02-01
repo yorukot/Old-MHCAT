@@ -30,6 +30,10 @@ module.exports = {
         name: '增加或減少',
         type: ApplicationCommandOptionType.String,
         description: '輸入這個獎品叫甚麼，以及簡單概述',
+        description_localizations: {
+            "en-US": "test",
+            "zh-TW": "tetse",
+        },
         required: true,
         choices: [{
                 name: '增加',

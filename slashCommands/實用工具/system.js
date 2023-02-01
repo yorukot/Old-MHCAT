@@ -35,15 +35,27 @@ const Clienta = require('../../index')
 module.exports = {
     name: 'info',
     cooldown: 5,
-    description: '查詢系統使用量',
+	description: '',
+	description_localizations: {
+		"en-US": "Check user usage amount",
+		"zh-TW": "查詢系統使用量",
+	},
     options: [{
         name: 'bot',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '查看bot的資訊',
+		description: '',
+		description_localizations: {
+			"en-US": "Check bot information",
+			"zh-TW": "查看bot的資訊",
+		},
     }, {
         name: 'shard',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '查看分片的資訊',
+		description: '',
+		description_localizations: {
+			"en-US": "Check bot information",
+			"zh-TW": "查看分片的資訊",
+		},
     }],
     emoji: "<:system:1005119719294128279>",
     run: async (client, interaction, options) => {

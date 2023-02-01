@@ -40,7 +40,7 @@ module.exports = {
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
             const modal = new ModalBuilder()
                 .setCustomId("nal")
-                .setTitle('公告系統!');
+                .setTitle('公告系統');
             const tag = new TextInputBuilder()
                 .setCustomId("anntag")
                 .setLabel("請輸入你要tag誰")

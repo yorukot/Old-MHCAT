@@ -100,7 +100,7 @@ module.exports = {
                         })
                         // 設定embed & send embed
                         const announcement_set_embed = new EmbedBuilder()
-                            .setTitle("<:megaphone:985943890148327454> 公告系統")
+                            .setTitle(`<:megaphone:985943890148327454> 公告系統`)
                             .setDescription(`<:Channel:994524759289233438> **您的公告頻道成功__更新__!!**\n**您目前的公告頻道為**:${channel}`)
                             .setColor(client.color.greate)
                         interaction.editReply({

@@ -311,7 +311,7 @@ client.on("interactionCreate", async (interaction) => {
                             });
                             const embed = new EmbedBuilder()
                                 .setTitle(`抽獎人數資訊`)
-                                .setDescription(`<:list:992002476360343602>**目前共有**\`${e.length}\`**人參加抽獎**\n<:star:987020551698649138>**您是否有參加該抽獎:**${match ? '\`有\`' : '\`沒有\`'}\n\n${e.length < 100 ? '┃ ' + '' + e.join(' ┃ ') + '┃' : "**由於人數過多，無法顯示所有成員名稱!\n請使用\`.txt\`檔案觀看**"}`)
+                                .setDescription(`<:list:992002476360343602>**目前共有**\`${e.length}\`**人參加抽獎**\n<:star:987020551698649138>**您是否有參加該抽獎:**${match ? '\`有\`' : '\`沒有\`'}\n\n${e.length < 100 ? '┃ ' + '' + e.join(' ┃ ') + '┃' : "**由於人數過多，無法顯示所有成員名稱!\n請使用`.txt`檔案觀看**"}`)
                                 .setColor("Random")
                             const bt = new ActionRowBuilder()
                                 .addComponents(

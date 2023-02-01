@@ -56,7 +56,7 @@ module.exports = {
                     }, async (err, data11111) => {
                         const good = new EmbedBuilder()
                             .setTitle(`<:money:997374193026994236>${aaaaa ? aaaaa.username : "你"}目前有:\`${data.coin}\`個代幣!`)
-                            .setDescription("<:question:997374195229003776>我該如何獲取代幣?\n使用`/簽到`或是多多聊天都可以拿到代幣喔\n<a:catjump:984807173529931837>對了對了，代幣數到了" + `${!data11111 ? 500 : data11111.coin_number}` + "可以進行扭蛋喔!\n如果代幣足夠也可以到代幣商城逛逛!")
+                            .setDescription(`<:question:997374195229003776>我該如何獲取代幣?\n使用`/簽到`或是多多聊天都可以拿到代幣喔\n<a:catjump:984807173529931837>對了對了，代幣數到了${!data11111 ? 500 : data11111.coin_number}可以進行扭蛋喔!\n如果代幣足夠也可以到代幣商城逛逛!`)
                             .setFooter({
                                 text: `${aaaaa ? aaaaa.username : "你"}還差:${!data11111 ? 500 : data11111.coin_number - (data.coin) > 0 ? `你還差${!data11111 ? 500 : data11111.coin_number - (data.coin)}就可以扭蛋了，加油!!`: "你可以扭蛋了!!使用`/扭蛋`進行扭蛋"}`,
                                 iconURL: interaction.member.displayAvatarURL({

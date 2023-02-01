@@ -60,6 +60,7 @@
     "inflight": "^1.0.6",
     "inherits": "^2.0.4",
     "install": "^0.13.0",
+    "interpolate-json": "^2.2.2",
     "is-obj": "^2.0.0",
     "is-url": "^1.2.4",
     "isarray": "^1.0.0",

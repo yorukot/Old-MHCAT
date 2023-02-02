@@ -16,22 +16,30 @@ const {
 const errors_set = require('../../models/errors_set');
 const moment = require('moment')
 module.exports = {
-    name: '警告設定',
+    name: 'Warning-settings',
     cooldown: 10,
     description: '警告的各種設定',
     options: [{
         name: '執行的動作',
         type: ApplicationCommandOptionType.String,
-        description: '警告他的原因',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Warning related settings",
+		    "zh-TW": "警告的各種設定",
+	    },
         required: true,
         choices:[
             { name: '停權', value: '停權' },
             { name: '踢出', value: '踢出' },
         ]
     },{
-        name: '幾次警告後執行動作',
+        name: 'Action-after-amount-warning',
         type: ApplicationCommandOptionType.Integer,
-        description: '被警告幾次後要執行這個動作!',
+		description: '',
+		description_localizations: {
+			"en-US": "How many amount require to execute this action",
+			"zh-TW": "被警告幾次後要執行這個動作!,
+		},
         required: true
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

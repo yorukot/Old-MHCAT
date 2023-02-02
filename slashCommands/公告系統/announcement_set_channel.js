@@ -17,54 +17,93 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '公告頻道設置',
+    name: 'Set-announcement-channel',
     cooldown: 10,
-    description: '設定公告在哪發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where announcement should be send",
+		"zh-TW": "設定公告在哪發送",
+	},
     options: [{
-        name: '一次性公告頻道',
+        name: 'One-time-announcement-channel',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定一次性公告頻道要在哪發送',
+		description: '',
+		description_localizations: {
+			"en-US": "Set one-time announcement channel",
+			"zh-TW": "設定一次性公告頻道要在哪發送",
+		},
         options: [{
-            name: '頻道',
+            name: 'Channel',
             type: ApplicationCommandOptionType.Channel,
-            description: '輸入公告發送的頻道!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Set announcement channel!",
+			    "zh-TW": "輸入公告發送的頻道!",
+		    },
             required: true,
             channel_types: [0, 5],
         }]
     }, {
-        name: '綁定公告頻道',
+        name: 'Bind-announcement-channel',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定綁定型公告要在哪發送以及發送時的格式',
+		description: '',
+		description_localizations: {
+			"en-US": "Set binding-type announcement channel and format of content",
+			"zh-TW": "設定綁定型公告要在哪發送以及發送時的格式",
+		},
         options: [{
-            name: '頻道',
+            name: 'Channel',
             type: ApplicationCommandOptionType.Channel,
-            description: '輸入公告發送的頻道!',
+		    description_localizations: {
+			    "en-US": "Enter which channel should be announcement channel!",
+			    "zh-TW": "輸入公告發送的頻道!",
+		    },
             required: true,
             channel_types: [0, 5],
         }, {
-            name: '標註',
+            name: 'Label',
             type: ApplicationCommandOptionType.String,
-            description: '輸入要標註哪個身分組!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter which role should be labeled",
+			    "zh-TW": "輸入要標註哪個身分組!",
+		    },
             required: true,
         }, {
-            name: '顏色',
+            name: 'Color',
             type: ApplicationCommandOptionType.String,
-            description: '輸入這個綁定公告頻道的設定!(隨機顏色請輸入Random)',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter this binding-type announcement channels setting!(Random if you want random color)",
+			    "zh-TW": "輸入這個綁定公告頻道的設定!(隨機顏色請輸入Random)",
+		    },
             required: true,
         }, {
-            name: '標題',
+            name: 'Title',
             type: ApplicationCommandOptionType.String,
-            description: '輸入公告發送的頻道!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter which channel should be announcement channel!",
+			    "zh-TW": "輸入公告發送的頻道!",
+		    },
             required: true,
         }]
     }, {
-        name: '綁定公告頻道刪除',
+        name: 'Delete-binding-type-announcement-channel',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除之前的設定',
+		description: '',
+		description_localizations: {
+			"en-US": "Delete settings before",
+			"zh-TW": "刪除之前的設定",
+		},
         options: [{
-            name: '頻道',
+            name: 'Channel',
             type: ApplicationCommandOptionType.Channel,
-            description: '輸入公告發送的頻道!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter which channel should be announcement channel!",
+			    "zh-TW": "輸入公告發送的頻道!",
+		    },
             required: true,
             channel_types: [0, 5],
         }]

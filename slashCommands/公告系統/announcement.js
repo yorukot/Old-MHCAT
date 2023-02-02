@@ -21,8 +21,12 @@ const {
     TextInputStyle
 } = require('discord.js');
 module.exports = {
-    name: '公告發送',
-    description: '發送公告訊息',
+    name: 'Send-announcement',
+	description: '',
+	description_localizations: {
+		"en-US": "Send announcement",
+		"zh-TW": "發送公告訊息",
+	},
     video: 'https://mhcat.xyz/docs/ann',
     UserPerms: '訊息管理',
     emoji: `<:megaphone:985943890148327454>`,

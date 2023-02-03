@@ -17,13 +17,21 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '加入身份組刪除',
+    name: 'Join-role-delete',
     cooldown: 10,
-    description: '刪除之前設定的加入身份組',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete what role to give when join",
+		"zh-TW": "刪除之前設定的加入身份組",
+	},
     options: [{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入身分組!',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter role",
+			"zh-TW": "輸入身分組!",
+		},
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/join_role_delete',

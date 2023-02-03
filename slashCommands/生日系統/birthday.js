@@ -16,32 +16,56 @@ const {
 const birthday_set = require('../../models/birthday_set.js')
 const birthday = require('../../models/birthday.js')
 module.exports = {
-    name: '生日系統',
-    description: '讓你的伺服器可以為生日的人慶生!',
+    name: 'Birthday-system',
+	description: '',
+	description_localizations: {
+		"en-US": "Make the whole server celebrate for birthday",
+		"zh-TW": "讓你的伺服器可以為生日的人慶生!",
+	},
     cooldown: 5,
     options: [{
-        name: '祝福語設定',
+        name: 'Greeting-settings',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定祝福語',
+		description: '',
+		description_localizations: {
+			"en-US": "Set greetings",
+			"zh-TW": "設定祝福語"
+		},
         options: [{
-            name: '祝福語',
+            name: 'Greetings',
             type: ApplicationCommandOptionType.String,
-            description: '設定祝福語，{user}代表tag這個使用者 {name}代表這個使用者的名稱 {age}代表使用者年紀',
+			description: '',
+			description_localizations: {
+				"en-US": "Set greetings, {user} = tag this user, {name} = users name, {age} = age",
+				"zh-TW": "設定祝福語，{user}代表tag這個使用者 {name}代表這個使用者的名稱 {age}代表使用者年紀",
+			},
             required: true,
         }, {
-            name: '頻道',
+            name: 'Channel',
             type: ApplicationCommandOptionType.Channel,
-            description: '要發通知的頻道',
+			description: '',
+			description_localizations: {
+				"en-US": "Channel to announce your birthday",
+				"zh-TW": "要發通知的頻道",
+			},
             required: true,
         }, {
-            name: '是否可以自行設定生日',
+            name: 'Can-user-set-date-and-time',
             type: ApplicationCommandOptionType.Boolean,
-            description: '使用者是否可以自己設定自己的生日日期跟通知時間',
+			description: '',
+			description_localizations: {
+				"en-US": "Can user set their own birthday date and announcement time",
+				"zh-TW": "使用者是否可以自己設定自己的生日日期跟通知時間",
+			},
             required: true,
         }, {
-            name: '時區',
+            name: 'Timezone',
             type: ApplicationCommandOptionType.String,
-            description: '設定屬於你伺服器的時區(台灣、香港、新加坡、馬來西亞、中國是UTC+8，日本是UTC+9) ',
+			description: '',
+			description_localizations: {
+				"en-US": "Set servers timezone(UTC)",
+				"zh-TW": "設定屬於你伺服器的時區(台灣、香港、新加坡、馬來西亞、中國是UTC+8，日本是UTC+9) ",
+			},
             required: true,
             choices: [{
                 name: 'UTC+0',
@@ -118,48 +142,80 @@ module.exports = {
             }],
         }]
     }, {
-        name: '增加',
+        name: 'Add',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '新增使用者的生日資料',
+		description: '',
+		description_localizations: {
+			"en-US": "Add users birthday data",
+			"zh-TW": "新增使用者的生日資料",
+		},
         options: [{
-            name: '生日年份',
+            name: 'Year',
             type: ApplicationCommandOptionType.Integer,
-            description: '格式為yyyy ex: 2023(2023年出生)',
+			description: '',
+			description_localizations: {
+				"en-US": "Format is yyyy e.g. 2023",
+				"zh-TW": "格式為yyyy ex: 2023(2023年出生)",
+			},
             required: true,
         }, {
-            name: '生日月份',
+            name: 'Month',
             type: ApplicationCommandOptionType.Integer,
-            description: '格式為mm ex: 1(1月出生) ex:12(12月出生)',
+			description: '',
+			description_localizations: {
+				"en-US": "Format is mm e.g. January:1 December:12",
+				"zh-TW": "格式為mm ex: 1(1月出生) ex:12(12月出生)",
+			},
             required: true,
         }, {
-            name: '生日日期',
+            name: 'Day',
             type: ApplicationCommandOptionType.Integer,
-            description: '格式為dd ex: 1(1日出生) 31(31日出生)',
+			description: '',
+			description_localizations: {
+				"en-US": "Format is dd e.g. 1",
+				"zh-TW": "格式為dd ex: 1(1日出生) 31(31日出生)",
+			},
             required: true,
         }, {
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
             description: '打工地點名稱!(重複的話會自動刪除舊的)',
             required: false,
         }, ]
     }, {
-        name: '刪除',
+        name: 'Delete',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除某使用者的資料',
+		description: '',
+		description_localizations: {
+			"en-US": "Delete a users data",
+			"zh-TW": "刪除某使用者的資料",
+		},
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '輸入你要刪除的使用者!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "User to delete",
+			    "zh-TW": "輸入你要刪除的使用者!",
+		    },
             required: true,
         }]
     }, {
-        name: '是否允許管理員設定',
+        name: 'Can-ADMIN-set-your-birthday',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '是否允許管理員設定你的生日 防止打擾到你(預設為true)',
+		description: '',
+		description_localizations: {
+			"en-US": "Is admin allow to set your birthday (default=true, because fuck yo-)",
+			"zh-TW": "是否允許管理員設定你的生日 防止打擾到你(預設為true)",
+		},
         options: [{
-            name: '是否',
+            name: 'TrueFalse',
             type: ApplicationCommandOptionType.Boolean,
-            description: '是否允許!true為允許 false為不允許',
+			description: '',
+			description_localizations: {
+				"en-US": "True or false?",
+				"zh-TW": "是否允許!true為允許 false為不允許",
+			},
             required: true,
         }]
     }],

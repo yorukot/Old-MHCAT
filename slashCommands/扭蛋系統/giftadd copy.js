@@ -16,18 +16,30 @@ const {
 } = require('discord.js');
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '扭蛋獎品數量增加',
+    name: 'Gashapon-prize-amount-increase',
     cooldown: 10,
-    description: '增加扭蛋的獎池裡的獎品的數量',
+	description: '',
+	description_localizations: {
+		"en-US": "增加扭蛋的獎池裡的獎品的數量",
+		"zh-TW": "Increase amount of prizes of gashapon",
+	},
     options: [{
-        name: '獎品名稱',
+        name: 'Prize',
         type: ApplicationCommandOptionType.String,
-        description: '輸入這個獎品叫甚麼',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "輸入這個獎品叫甚麼",
+		    "zh-TW": "Enter prize name",
+	    },
         required: true,
     },{
-        name: '增加幾個',
+        name: 'How-many',
         type: ApplicationCommandOptionType.Number,
-        description: '輸入要增加多少個獎品',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter how many prizes to add",
+			"zh-TW": "輸入要增加多少個獎品",
+		},
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/prize_add',

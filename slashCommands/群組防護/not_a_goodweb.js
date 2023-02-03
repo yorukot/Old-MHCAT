@@ -30,9 +30,13 @@ function decimalAdjust(type, value, exp) {
   }
 const canvacord = require("canvacord");
 module.exports = {
-    name: '防詐騙網址',
+    name: 'Anti-phising-website',
     cooldown: 10,
-    description: '設定是否開啟防詐騙網址功能(輸入這個指令就會更改)',
+	description: '',
+	description_localizations: {
+		"en-US": "Set enable anti phising website(enter and itll change)",
+		"zh-TW": "設定是否開啟防詐騙網址功能(輸入這個指令就會更改)",
+	},
     UserPerms: '訊息管理',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:fraudalert:1000408260777611355>`,

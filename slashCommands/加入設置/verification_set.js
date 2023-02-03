@@ -17,18 +17,30 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '驗證設置',
+    name: 'Verify-settings',
     cooldown: 10,
-    description: '設置驗證完成後要給甚麼身份組',
+	description: '',
+	description_localizations: {
+		"en-US": "What role to give when verified",
+		"zh-TW": "設置驗證完成後要給甚麼身份組",
+	},
     options: [{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入身份組!',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter role",
+			"zh-TW": "輸入身分組!",
+		},
         required: true,
     },{
-        name: '改名',
+        name: 'Change-title',
         type: ApplicationCommandOptionType.String,
-        description: '輸入名稱，{name}代表原本的名稱ex:平名 | {name} 就會變成 平名 | 夜貓',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter title, {name} is origianl name. e.g. Maou-sama | {name} -> Maou-sama | NightCat",
+			"zh-TW": "輸入名稱，{name}代表原本的名稱ex:平名 | {name} 就會變成 平名 | 夜貓",
+		},
         required: false,
     }],
     video: 'https://mhcat.xyz/commands/announcement.html',

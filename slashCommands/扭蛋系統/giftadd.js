@@ -18,38 +18,66 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '扭蛋獎池增加',
+    name: 'Gashapon-prize-amount-increase',
     cooldown: 10,
-    description: '增加扭蛋的獎池',
+	description: '',
+	description_localizations: {
+		"en-US": "增加扭蛋的獎池裡的獎品的數量",
+		"zh-TW": "Increase amount of prizes of gashapon",
+	},
     options: [{
-        name: '獎品名稱',
+        name: 'Prize-name',
         type: ApplicationCommandOptionType.String,
-        description: '輸入這個獎品叫甚麼，以及簡單概述',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "輸入這個獎品叫甚麼，以及簡單概述",
+		    "zh-TW": "Enter prize name and description",
+	    },
         required: true,
     }, {
-        name: '機率',
+        name: 'Chance',
         type: ApplicationCommandOptionType.Number,
-        description: '輸入中獎機率(百分比)ex:10 代表10% 0.1代表0.1%',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Chance to win(percentage) e.g. 10 means 10% 0.1 means 0.1%",
+		    "zh-TW": "輸入中獎機率(百分比)ex:10 代表10% 0.1代表0.1%",
+	    },
         required: true,
     }, {
-        name: '獎品代碼',
+        name: 'Prize-serial-code',
         type: ApplicationCommandOptionType.String,
-        description: '填上獎品的代碼ex:stram序號nitro連結等',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter prizes serial code e.g. steam serial code or nitro",
+		    "zh-TW": "填上獎品的代碼ex:stram序號nitro連結等",
+	    },
         required: false,
     }, {
-        name: '自動刪除',
+        name: 'Auto-delete',
         type: ApplicationCommandOptionType.Boolean,
-        description: '抽中後是否自動刪除(預設為true，如果填否的話連獎品數量都不會變)',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Should gashapon auto delete after end(default:True, if false the amount of prize wont even change)",
+		    "zh-TW": "抽中後是否自動刪除(預設為true，如果填否的話連獎品數量都不會變)",
+	    },
         required: false,
     }, {
-        name: '獎品數量',
+        name: 'Prize-amount',
         type: ApplicationCommandOptionType.Integer,
-        description: '該獎品的數量',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "The amount of this prize",
+		    "zh-TW": "該獎品的數量",
+	    },
         required: false,
     }, {
-        name: '給予硬幣',
+        name: 'Give-coin',
         type: ApplicationCommandOptionType.Integer,
-        description: '當抽中後是否要給予代幣',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Should give be given after win",
+		    "zh-TW": "當抽中後是否要給予代幣",
+	    },
         required: false,
     }],
     video: 'https://mhcat.xyz/docs/prize_add',

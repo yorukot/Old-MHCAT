@@ -17,18 +17,30 @@ const warndb = require('../../models/warndb');
 const moment = require('moment')
 const errors_set = require('../../models/errors_set');
 module.exports = {
-    name: '警告',
+    name: 'Warn',
     cooldown: 10,
-    description: '警告一個使用者',
+	description: '',
+	description_localizations: {
+		"en-US": "Warn a user",
+		"zh-TW": "警告一個使用者",
+	},
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要警告的使用者!',
+		description: '',
+		description_localizations: {
+			"en-US": "User to warn!",
+			"zh-TW": "要警告的使用者!,
+		},
         required: true
     },{
-        name: '原因',
+        name: 'Reason',
         type: ApplicationCommandOptionType.String,
-        description: '警告他的原因',
+		description: '',
+		description_localizations: {
+			"en-US": "Reason to warn",
+			"zh-TW": "警告他的原因,
+		},
         required: true
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

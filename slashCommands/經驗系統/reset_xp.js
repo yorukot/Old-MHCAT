@@ -16,35 +16,63 @@ const {
 const voice_xp = require("../../models/voice_xp.js");
 const text_xp = require("../../models/text_xp");
 module.exports = {
-    name: '經驗值重製',
-    description: '重製整個伺服器的經驗',
+    name: 'XP-reset',
+	description: '',
+	description_localizations: {
+		"en-US": "Reset whole servers XP",
+		"zh-TW": "重製整個伺服器的經驗",
+	},
     cooldown: 10,
     options: [{
-        name: '聊天經驗重製',
+        name: 'Chat-XP-reset',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '重製整個伺服器的聊天經驗',
+	description: '',
+	description_localizations: {
+		"en-US": "Reset whole servers chat XP",
+		"zh-TW": "重製整個伺服器的聊天經驗",
+	},
     }, {
-        name: '語音經驗重製',
+        name: 'Voice-XP-reset',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '重製整個伺服器的語音經驗',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Reset whole servers voice chat xp",
+		    "zh-TW": "重製整個伺服器的語音經驗",
+	    },
     }, {
-        name: '重製個人語音經驗',
+        name: 'Reset-a-users-XP',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '重製某人的語音經驗',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Reset a users XP",
+		    "zh-TW": "重製某人的語音經驗",
+	    },
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '選擇你要重製經驗的使用者!',
+			description: '',
+			description_localizations: {
+				"en-US": "Select the user to reset!",
+				"zh-TW": "選擇你要重製經驗的使用者!",
+			},
             required: true
         }]
     }, {
-        name: '重製個人聊天經驗',
+        name: 'Reset-user-chat-XP',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '重製某人的聊天經驗',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Reset a users chat XP",
+		    "zh-TW": "重製某人的聊天經驗",
+	    },
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '選擇你要重製經驗的使用者!',
+			description: '',
+			description_localizations: {
+				"en-US": "Select the user to reset!",
+				"zh-TW": "選擇你要重製經驗的使用者!",
+			},
             required: true
         }]
     }],

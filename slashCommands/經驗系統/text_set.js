@@ -20,29 +20,49 @@ const {
     return(image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '聊天經驗設定',
+    name: 'Chat-XP-settings',
     cooldown: 10,
-    description: '設定聊天經驗通知要在哪發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where chat XP notification should be send",
+		"zh-TW": "設定聊天經驗通知要在哪發送",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
-        description: '輸入頻道!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter channel!",
+		    "zh-TW": "輸入頻道!",
+	    },
         channel_types: [0,5],
         required: true
     },{
-        name: '訊息',
+        name: 'Message',
         type: ApplicationCommandOptionType.String,
-        description: '當有人升等的訊息，輸入:(leavel)為等級，(user)為tag使用者',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "When a user level-up, enter (level)=level, (user)=tag user",
+		    "zh-TW": "當有人升等的訊息，輸入:(leavel)為等級，(user)為tag使用者",
+	    },
         required: false
     },{
-        name: '顏色',
+        name: 'Color',
         type: ApplicationCommandOptionType.String,
-        description: '輸入玩家查詢的主題要甚麼顏色(默認為白色)!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter user check color theme(default:white, yeah, i know)",
+		    "zh-TW": "輸入玩家查詢的主題要甚麼顏色(默認為白色)!",
+	    },
         required: false
     },{
-        name: '背景',
+        name: 'Background',
         type: ApplicationCommandOptionType.String,
-        description: '輸入玩家查詢的背景(默認為discord色)支援png和jpg(可使用discord的複製連結)最佳大小為931*231',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter user check background(default:discord color), support png and jpg, best size is 931*231",
+		    "zh-TW": "輸入玩家查詢的背景(默認為discord色)支援png和jpg(可使用discord的複製連結)最佳大小為931*231",
+	    },
         required: false
     }],
     video: 'https://mhcat.xyz/docs/chat_xp_set',

@@ -21,18 +21,30 @@ const {
 } = require('discord.js');
 const { forEach } = require("lodash");
 module.exports = {
-    name: '刪除訊息',
+    name: 'Delete-messages',
     cooldown: 30,
-    description: '刪除大量訊息',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete MASSIVE messages",
+		"zh-TW": "刪除大量訊息",
+	},
     options: [{
-        name: '刪除數量',
+        name: 'Delete-amount',
         type: ApplicationCommandOptionType.Integer,
-        description: '設定要刪除幾個訊息(最高1000超過200需要管理者權限)(只能刪除14天內的消息)',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Delete amount(Highest:1000, over 200 needs admin privilege)(can only delete message within 14 dats)",
+		    "zh-TW": "設定要刪除幾個訊息(最高1000超過200需要管理者權限)(只能刪除14天內的消息)",
+	    },
         required: true,
     }, {
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '選擇是否要刪除某個特定的使用者的訊息(如填選這項，第一項代表的將是檢測訊息數量)',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Delete specific users message or not(If true, first line means detect amount of message)",
+		    "zh-TW": "選擇是否要刪除某個特定的使用者的訊息(如填選這項，第一項代表的將是檢測訊息數量)",
+	    },
         required: false,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

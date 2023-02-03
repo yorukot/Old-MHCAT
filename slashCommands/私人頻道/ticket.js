@@ -20,19 +20,31 @@ const {
 } = require('discord.js');
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '私人頻道設置',
+    name: 'Set-private-channel',
     cooldown: 10,
-    description: '設置私人頻道',
+	description: '',
+	description_localizations: {
+		"en-US": "Set private channel",
+		"zh-TW": "設置私人頻道",
+	},
     options: [{
-        name: '類別',
+        name: 'Folder',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [4],
-        description: '輸入私人頻道要在哪個類別開啟!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Which folder private channel should create",
+		    "zh-TW": "輸入私人頻道要在哪個類別開啟!",
+	    },
         required: true,
     },{
-        name: '管理員身分組',
+        name: 'Admin-role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入管理員身分組(有這個身分組的能夠管理私人頻道)!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter role(user with this role are able to manage private channels)",
+		    "zh-TW": "輸入管理員身分組(有這個身分組的能夠管理私人頻道)!",
+	    },
         required: true,
     }],
    // video: 'https://mhcat.xyz/commands/announcement.html',

@@ -19,14 +19,22 @@ const {
     EqualsOperation
 } = require("sift");
 module.exports = {
-    name: '退出訊息設置',
+    name: 'Set-quit-message',
     cooldown: 10,
-    description: '設定玩家退出時發送甚麼訊息',
+	description: '',
+	description_localizations: {
+		"en-US": "What message to send when user quit",
+		"zh-TW": "設定玩家退出時發送甚麼訊息",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
-        description: '輸入加入訊息要在那發送!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter which channel quit message should send",
+		    "zh-TW": "輸入加入訊息要在那發送!",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

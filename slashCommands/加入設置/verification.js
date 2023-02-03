@@ -17,9 +17,13 @@ const {
 } = require('discord.js');
  
 module.exports = {
-    name: '驗證',
+    name: 'Verify',
     cooldown: 5,
-    description: '確保你不是機器人',
+	description: '',
+	description_localizations: {
+		"en-US": "Make sure youre not robot (So terminator wont happen)",
+		"zh-TW": "確保你不是機器人",
+	},
     video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:tickmark:985949769224556614>`,
     run: async (client, interaction, options, perms) => {

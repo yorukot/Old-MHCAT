@@ -17,91 +17,163 @@ const work_set = require('../../models/work_set.js')
 const work_something = require('../../models/work_something.js')
 const work_user = require('../../models/work_user.js')
 module.exports = {
-    name: '打工系統',
-    description: '用自己的心血來獲得一些獎勵吧!',
+    name: 'Work-system',
+	description: '',
+	description_localizations: {
+		"en-US": "I dont understand la, why you dont want 2 work in reallife but you work in game. Look at timmy, he is 9 and he is a neurosurgeon.",
+		"zh-TW": "用自己的心血來獲得一些獎勵吧!",
+	},
     cooldown: 5,
     options: [{
-        name: '打工系統設定',
+        name: 'Work-system-settings',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定打工系統的各項設定，伺服器第一次使用請使用這個指令!',
+		description: '',
+		description_localizations: {
+			"en-US": "Work system related settings, use this command first if its first time youre using this",
+			"zh-TW": "設定打工系統的各項設定，伺服器第一次使用請使用這個指令!",
+		},
         options: [{
-            name: '每天可獲得多少精力',
+            name: 'Energy-per-day',
             type: ApplicationCommandOptionType.Integer,
-            description: '每天可以獲得多少精力(每天24點發送)!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "How many energy you can get every day (Dispatch every 00:00)!",
+			    "zh-TW": "每天可以獲得多少精力(每天24點發送)!",
+		    },
             required: true,
         }, {
-            name: '精力上限為多少',
+            name: 'Energy-limit',
             type: ApplicationCommandOptionType.Integer,
-            description: '每人的精力上限最多是多少!',
+			description: '',
+			description_localizations: {
+				"en-US": "Limit of energy you can have",
+				"zh-TW": "每人的精力上限最多是多少!",
+			},
             required: true,
         }]
     }, {
-        name: '新增打工事項',
+        name: 'Add-work-item',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '新增打工的事項',
+		description: '',
+		description_localizations: {
+			"en-US": "Add what work you can do",
+			"zh-TW": "新增打工的事項",
+		},
         options: [{
-            name: '打工地點名稱',
+            name: 'Working-place-name',
             type: ApplicationCommandOptionType.String,
-            description: '打工地點名稱!(重複的話會自動刪除舊的)',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Working locations name!(If repeated, old one will automatically delete)",
+			    "zh-TW": "打工地點名稱!(重複的話會自動刪除舊的)",
+		    },
             required: true,
         }, {
-            name: '耗費時間',
+            name: 'Time-comsume',
             type: ApplicationCommandOptionType.Number,
-            description: '打工一次需要耗費多少時間(小時為單位)!',
+			description: '',
+			description_localizations: {
+				"en-US": "How many time comsumed working once(unit is hours)",
+				"zh-TW": "打工一次需要耗費多少時間(小時為單位)!",
+			},
             required: true,
         }, {
-            name: '耗費精力',
+            name: 'Energy-comsume',
             type: ApplicationCommandOptionType.Integer,
-            description: '打工一次需耗費多少的精力!',
+			description: '',
+			description_localizations: {
+				"en-US": "How many energy comsumed working once",
+				"zh-TW": "打工一次需要耗費多少能量",
+			},
             required: true,
         }, {
-            name: '取得代幣',
+            name: 'Coin-gain',
             type: ApplicationCommandOptionType.Integer,
-            description: '打工一次可取得多少代幣!',
+			description: '',
+			description_localizations: {
+				"en-US": "How many coins can you gain working once",
+				"zh-TW": "打工一次可取得多少代幣!",
+			},
             required: true,
         }, {
-            name: '身分組',
+            name: 'Role',
             type: ApplicationCommandOptionType.Role,
-            description: '允許的身分組(除了這個身分組其他所有人都不能用這個打工)!',
+			description: '',
+			description_localizations: {
+				"en-US": "Role allowed to work(No work for you other than this role)",
+				"zh-TW": "允許的身分組(除了這個身分組其他所有人都不能用這個打工)!",
+			},
             required: false,
         }]
     }, {
-        name: '打工事項刪除',
+        name: 'Delete-work-item',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除打工事項',
+		description: '',
+		description_localizations: {
+			"en-US": "Delete work item",
+			"zh-TW": "刪除打工事項",
+		},
         options: [{
-            name: '打工地點名稱',
+            name: 'Delete-working-location',
             type: ApplicationCommandOptionType.String,
-            description: '輸入打工地點名稱!',
+			description: '',
+			description_localizations: {
+				"en-US": "Enter what work location to delete",
+				"zh-TW": "輸入要刪除的打工地點!",
+			},
             required: true,
         }]
     }, {
-        name: '打工介面',
+        name: 'Working-interface',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '在這裡一般使用者可以使用所有的東西!!',
+		description: '',
+		description_localizations: {
+			"en-US": "Just working interface",
+			"zh-TW": "在這裡一般使用者可以使用所有的東西!!",
+		},
     }, {
-        name: '增加個人精力',
+        name: 'Add-own-energy',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '增加個人的精力!!',
+		description: '',
+		description_localizations: {
+			"en-US": "Add energy to yourself",
+			"zh-TW": "增加個人的精力!!",
+		},
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '輸入要給精力的使用者!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "Enter user to give energy to",
+			    "zh-TW": "輸入要給精力的使用者!",
+		    },
             required: true,
         }, {
-            name: '要給多少精力',
+            name: 'How-many-enegry',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入要給多少精力!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "How many energy to give?",
+			    "zh-TW": "輸入要給多少精力!",
+		    },
             required: true,
         }]
     }, {
-        name: '增加全體精力',
+        name: 'Give-energy-all',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '增加全伺服器的精力!!',
+		description: '',
+		description_localizations: {
+			"en-US": "Give energy to everyone",
+			"zh-TW": "增加全伺服器的精力!!",
+		},
         options: [{
-            name: '要給多少精力',
+            name: 'How-many-energy',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入要給多少精力!',
+		    description: '',
+		    description_localizations: {
+			    "en-US": "How many energy to give?",
+			    "zh-TW": "輸入要給多少精力!",
+		    },
             required: true,
         }]
     }],

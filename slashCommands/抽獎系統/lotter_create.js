@@ -28,43 +28,75 @@ const {
   }
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '抽獎設置',
+    name: 'Lottery-settings',
     cooldown: 10,
-    description: '設置抽獎訊息',
+	description: '',
+	description_localizations: {
+		"en-US": "Set lottery message",
+		"zh-TW": "設置抽獎訊息",
+	},
     options: [{
-        name: '截止日期',
+        name: 'End-date',
         type: ApplicationCommandOptionType.String,
-        description: '輸入多久後截止ex:01d02h10m(1天2小時10分鐘後截止)也可以輸入單一ex:01d or 03h10m',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter when the lottery ends. e.g. 01d02h10m (End after 1 day 2 hours and 10 minutes), you can enter only one of them as well",
+			"zh-TW": "輸入多久後截止ex:01d02h10m(1天2小時10分鐘後截止)也可以輸入單一ex:01d or 03h10m",
+		},
         required: true,
     },{
-        name: '抽出幾位中獎者',
+        name: 'How-many-winners',
         type: ApplicationCommandOptionType.Integer,
-        description: '請輸入要抽出幾位中獎者',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter how many users can win",
+			"zh-TW": "請輸入要抽出幾位中獎者",
+		},
         required: true,
     },{
-        name: '獎品',
+        name: 'Prize',
         type: ApplicationCommandOptionType.String,
-        description: '輸入獎品要甚麼',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter what is the prize",
+			"zh-TW": "輸入獎品要甚麼",
+		},
         required: true,
     },{
-        name: '內文',
+        name: 'Description',
         type: ApplicationCommandOptionType.String,
-        description: '輸入抽獎訊息內文',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter lottery description",
+			"zh-TW": "輸入抽獎訊息內文",
+		},
         required: true,
     },{
-        name: '可以抽的身分組',
+        name: 'Which-role-can-play',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入哪個身分組可以抽(要有這個身分組才能抽)(選填)',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter which role can play lottery(Only users with this role are able to play)(optional)",
+			"zh-TW": "輸入哪個身分組可以抽(要有這個身分組才能抽)(選填)",
+		},
         required: false,
     },{
-        name: '不能抽的身分組',
+        name: 'Which-role-cant-play',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入哪個身分組不能抽(有這個身分組就不能抽)(選填)',
+		description: '',
+		description_localizations: {
+			"en-US": "Enter which role can play lottery(Users with this role are unable to play)(optional)",
+			"zh-TW": "輸入哪個身分組不能抽(要有這個身分組才能抽)(選填)",
+		},
         required: false,
     },{
-        name: '最高抽獎人數',
+        name: 'Join-user-limit',
         type: ApplicationCommandOptionType.Integer,
-        description: '設定最多只能有幾位參加',
+		description: '',
+		description_localizations: {
+			"en-US": "Set how many users can join this lottery",
+			"zh-TW": "設定最多只能有幾位參加",
+		},
         required: false,
     }],
     video: 'https://mhcat.xyz/docs/lotter',

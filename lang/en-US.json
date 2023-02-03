@@ -47,7 +47,7 @@
     "GAME_NAME_01": "King of the Knowledge",
     "GAME_INVIT_TEXT_01": "${member_01} **invites ${member_02} play \"King of the Knowledge\"\nWill consume your **`${coin}`** to bet\nDo you want to?\n<a:warn:1000814885506129990> Once agreed, if you give up halfway, it will be considered a failure**",
     "GAME_INVIT_FOOTER": "Please reply within 30 seconds, if there is no reply, it will be deemed rejected",
-    "GAME_ERROR_04": "You are not being invited, can't choose to accept",
+    "GAME_ERROR_04": "You are not invited, can't choose to accept",
     "GAME_INVIT_SUCCESS": "You successfully accepted the invitation!",
     "GAME_START": "The game has been started",
     "GAME_Q": "Topic:",

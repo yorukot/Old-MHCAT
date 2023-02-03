@@ -19,13 +19,21 @@ function checkURL(image) {
     return (image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '自動通知刪除',
+    name: 'Automatic-notification-delete',
     cooldown: 10,
-    description: '刪除之前設定的自動通知',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete automatic notification settings",
+		"zh-TW": "刪除之前設定的自動通知",
+	},
     options: [{
         name: 'id',
         type: ApplicationCommandOptionType.String,
-        description: '輸入要刪除的自動通知id!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter the id of automatic notification that you want to delete!",
+		    "zh-TW": "輸入要刪除的自動通知id!",
+	    },
         required: true
     }],
     //video: 'https://mhcat.xyz/docs/chat_xp_set',

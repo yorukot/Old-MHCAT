@@ -19,13 +19,21 @@ const {
     EqualsOperation
 } = require("sift");
 module.exports = {
-    name: '加入訊息設置',
+    name: 'Set-join-message',
     cooldown: 10,
-    description: '設定玩家加入時發送甚麼訊息',
+	description: '',
+	description_localizations: {
+		"en-US": "Set what message to send when user join",
+		"zh-TW": "設定玩家加入時發送甚麼訊息",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
-        description: '輸入加入訊息要在那發送!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Set where welcome channel should be send",
+		    "zh-TW": "輸入加入訊息要在那發送!",
+	    },
         channel_types: [0, 5],
         required: true,
     }],

@@ -15,48 +15,84 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '語音經驗身分組設定',
+    name: 'Voice-chat-XP-role-settings',
     cooldown: 10,
-    description: '設定語音經驗通知要在哪發送(兼增加、刪除、設定查詢)',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where voice chat XP notification should send(increase, delete ,settings)",
+		"zh-TW": "設定語音經驗通知要在哪發送(兼增加、刪除、設定查詢)",
+	},
     options: [{
-        name: '增加',
+        name: 'Add',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '當有人的等級達到後要給予身分組',
+		description: '',
+		description_localizations: {
+			"en-US": "When specific level achieved, give role",
+			"zh-TW": "當有人的等級達到後要給予身分組",
+		},
         options: [{
-            name: '等級',
+            name: 'Level',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入要在幾等時給予身分組!',
+			description: '',
+			description_localizations: {
+				"en-US": "Enter what level to give role",
+				"zh-TW": "輸入要在幾等時給予身分組!",
+			},
             required: true
         }, {
-            name: '身分組',
+            name: 'Role',
             type: ApplicationCommandOptionType.Role,
-            description: '當到達設定的等級時時，要給甚麼身份組',
+			description: '',
+			description_localizations: {
+				"en-US": "What role to give when achieve specific level",
+				"zh-TW": "當到達設定的等級時時，要給甚麼身份組",
+			},
             required: true
         }, {
-            name: '是否自動刪除',
+            name: 'Automatic-delete',
             type: ApplicationCommandOptionType.Boolean,
-            description: '當使用者等級不再是所設定的等級時自動將此身分組刪除(默認為否)',
+			description: '',
+			description_localizations: {
+				"en-US": "When user level does not reach set level, automatically delete role(default:false)",
+				"zh-TW": "當使用者等級不再是所設定的等級時自動將此身分組刪除(默認為否)",
+			},
             required: false
         }]
     }, {
-        name: '刪除',
+        name: 'Delete',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除之前的設定',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Delete settings before",
+		    "zh-TW": "刪除之前的設定",
+	    },
         options: [{
-            name: '等級',
+            name: 'Level',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入之前設定的身分組!',
+	        description: '',
+	        description_localizations: {
+		        "en-US": "Enter role set before",
+		        "zh-TW": "輸入之前設定的身分組!",
+	        },
             required: true
         }, {
-            name: '身分組',
+            name: 'Role',
             type: ApplicationCommandOptionType.Role,
-            description: '當到達設定的等級時時，要給甚麼身份組',
+            description: '',
+			description_localizations: {
+				"en-US": "What role to give when achieve specific level",
+				"zh-TW": "當到達設定的等級時時，要給甚麼身份組",
+			},
             required: true
         }]
     }, {
-        name: '設定查詢',
+        name: 'Settings-check',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '查看之前的設定',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Check settings before",
+		    "zh-TW": "查看之前的設定",
+	    },
     }],
     video: 'https://mhcat.xyz/docs/chat_xp_set',
     UserPerms: '訊息管理',

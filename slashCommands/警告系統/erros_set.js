@@ -18,14 +18,18 @@ const moment = require('moment')
 module.exports = {
     name: 'Warning-settings',
     cooldown: 10,
-    description: '警告的各種設定',
+    description: '',
+    description_localizations: {
+        "en-US": "Warning related settings",
+        "zh-TW": "警告的各種設定",
+    },
     options: [{
-        name: '執行的動作',
+        name: 'Action'
         type: ApplicationCommandOptionType.String,
 	    description: '',
 	    description_localizations: {
-		    "en-US": "Warning related settings",
-		    "zh-TW": "警告的各種設定",
+		    "en-US": "What to do after specific amount of warning",
+		    "zh-TW": "警告達到一定數量後要執行什麼動作",
 	    },
         required: true,
         choices:[

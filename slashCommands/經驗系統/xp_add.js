@@ -16,37 +16,65 @@ const {
 const voice_xp = require("../../models/voice_xp.js");
 const text_xp = require("../../models/text_xp");
 module.exports = {
-    name: '經驗值改變',
-    description: '增加某人的經驗值',
+    name: 'XP-change',
+	description: '',
+	description_localizations: {
+		"en-US": "Increase a users XP",
+		"zh-TW": "增加某人的經驗值",
+	},
     cooldown: 10,
     options: [{
-        name: '聊天經驗改變',
+        name: 'Chat-XP-change',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '增加聊天經驗',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Increase a users chat XP",
+		    "zh-TW": "增加聊天經驗",
+	    },
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '要增加的對象!',
+	        description: '',
+	        description_localizations: {
+		        "en-US": "Select user to change!",
+		        "zh-TW": "要增加的對象!",
+	        },
             required: true,
         },{
-            name: '經驗值',
+            name: 'XP',
             type: ApplicationCommandOptionType.Integer,
-            description: '要增加多少經驗值!',
+			description: '',
+			description_localizations: {
+				"en-US": "Increase amount!",
+				"zh-TW": "要增加多少經驗值!",
+			},
             required: true,
         }]
     },{
-        name: '語音經驗改變',
+        name: 'Voice-XP-change',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '增加語音經驗',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Increase a users voice chat XP",
+		    "zh-TW": "增加語音經驗",
+	    },
         options: [{
-            name: '使用者',
+            name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '要增加的對象!',
+	        description: '',
+	        description_localizations: {
+		        "en-US": "Select user to change!",
+		        "zh-TW": "要增加的對象!",
+	        },
             required: true,
         },{
-            name: '經驗值',
+            name: 'XP',
             type: ApplicationCommandOptionType.Integer,
-            description: '要增加多少經驗值!',
+			description: '',
+			description_localizations: {
+				"en-US": "Increase amount!",
+				"zh-TW": "要增加多少經驗值!",
+			},
             required: true,
         }]
     }],

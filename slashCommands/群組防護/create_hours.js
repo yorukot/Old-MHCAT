@@ -56,24 +56,40 @@ module.exports = {
             required: true,
         }]
     },{
-        name: '被踢出資訊頻道',
+        name: 'Set-kicked-channel',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '當有人因為未滿創建時數被踢出時要在哪裡發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set what channel to send kicked user",
+		"zh-TW": "當有人因為未滿創建時數被踢出時要在哪裡發送",
+	},
         options: [{
-            name: '頻道',
+            name: 'Channel',
             type: ApplicationCommandOptionType.Channel,
-            description: '設定因未達創建時數而被踢出的使用者資訊!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "(NightCat-sama~ w-what are you typing?)",
+		    "zh-TW": "設定因未達創建時數而被踢出的使用者資訊!",
+	    },
             required: true,
             channel_types: [0,5],
         }]
     },{
-        name: '創建時數刪除',
+        name: 'Account-age-delete',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除之前設定的小時數以及被踢出後再發的頻道',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete account age limit and channel",
+		"zh-TW": "刪除之前設定的小時數以及被踢出後再發的頻道",
+	},
     },{
-        name: '被踢出資訊頻道刪除',
+        name: 'Kicked-channel-delete',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '刪除之前的設定發送頻道',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete kicked user channel",
+		"zh-TW": "刪除之前的設定發送頻道",
+	},
     }],
     UserPerms: '踢出用戶',
     //video: 'https://mhcat.xyz/commands/statistics.html',

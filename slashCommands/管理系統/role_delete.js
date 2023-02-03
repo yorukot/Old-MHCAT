@@ -15,18 +15,30 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組刪除-表情符號版',
+    name: 'Choose-role-to-delete-emoji-version',
     cooldown: 10,
-    description: '選取身分組刪除-表情符號版(進行刪除)',
+	description: '',
+	description_localizations: {
+		"en-US": "Choose role to delete",
+		"zh-TW": "選取身分組刪除-表情符號版(進行刪除)",
+	},
     options: [{
-        name: '訊息url',
+        name: 'Message-url',
         type: ApplicationCommandOptionType.String,
-        description: '輸入訊息的url(對訊息點右鍵按複製訊息連結)!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter url of the message(Right click to copy message url)",
+		    "zh-TW": "輸入訊息的url(對訊息點右鍵按複製訊息連結)!",
+	    },
         required: true,
     },{
-        name: '表情符號',
+        name: 'Emoji',
         type: ApplicationCommandOptionType.String,
-        description: '請輸入要放在訊息下面的表情符號',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter emoji to put below",
+		    "zh-TW": "請輸入要放在訊息下面的表情符號",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

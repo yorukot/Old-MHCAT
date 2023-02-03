@@ -23,13 +23,21 @@ const {
     channels
 } = require("../../index.js");
 module.exports = {
-    name: '扭蛋',
+    name: 'Gashapon',
     cooldown: 1,
-    description: '進行扭蛋，有機會抽中各種大獎喔!!!!',
+	description: '',
+	description_localizations: {
+		"en-US": "Gashapon with many prizes!!!",
+		"zh-TW": "進行扭蛋，有機會抽中各種大獎喔!!!!",
+	},
     options: [{
-        name: '連抽',
+        name: 'Continuous-play',
         type: ApplicationCommandOptionType.String,
-        description: '如果需要連抽的話可以使用這個指令',
+		description: '',
+		description_localizations: {
+			"en-US": "Use this command if needed",
+			"zh-TW": "如果需要連抽的話可以使用這個指令",
+		},
         required: false,
         choices: [{
                 name: '5連抽(無buff)',

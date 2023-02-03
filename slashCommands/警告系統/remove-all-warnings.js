@@ -27,13 +27,21 @@ const {
   }
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '警告全部清除',
+    name: 'Clean-all-warning',
     cooldown: 10,
-    description: '清除一個使用者的全部警告',
+	description: '',
+	description_localizations: {
+		"en-US": "Clean all warning of a user",
+		"zh-TW": "清除一個使用者的全部警告",
+	},
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要清除資料的使用者!',
+		description: '',
+		description_localizations: {
+			"en-US": "User to clean!",
+			"zh-TW": "要清除資料的使用者!,
+		},
         required: true
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

@@ -22,18 +22,30 @@ function containsDuplicates(array) {
     return false;
 }
 module.exports = {
-    name: '投票創建',
+    name: 'Create-poll',
     cooldown: 0,
-    description: '設置日誌訊息要在哪發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where poll message should be send",
+		"zh-TW": "設置日誌訊息要在哪發送",
+	},
     options: [{
-        name: '問題',
+        name: 'Question',
         type: ApplicationCommandOptionType.String,
-        description: '輸入你要問的問題!ex:我要買甚麼?',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter the question to ask! e.g. is NightCat sexy?",
+		    "zh-TW": "輸入你要問的問題!ex:我要買甚麼?",
+	    },
         required: true,
     }, {
-        name: '選項',
+        name: 'Options',
         type: ApplicationCommandOptionType.String,
-        description: '輸入回答的選項，請用^將各個選項分開 ex:電腦^手機^兩個都要^!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter options, use ^ to split each options. e.g. no^nah^absolute NO",
+		    "zh-TW": "輸入回答的選項，請用^將各個選項分開 ex:電腦^手機^兩個都要^!",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

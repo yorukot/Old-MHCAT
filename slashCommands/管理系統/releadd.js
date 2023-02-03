@@ -22,13 +22,21 @@ function getRandomArbitrary(min, max) {
     TextInputStyle
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組設定',
+    name: 'Receive-role-settings',
     cooldown: 10,
-    description: '設定領取身分組的消息(點按鈕自動增加身分組)',
+	description: '',
+	description_localizations: {
+		"en-US": "Set message that give roles(Press button receive role)",
+		"zh-TW": "設定領取身分組的消息(點按鈕自動增加身分組)",
+	},
     options: [{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入身分組!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter role",
+		    "zh-TW": "輸入身分組!",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

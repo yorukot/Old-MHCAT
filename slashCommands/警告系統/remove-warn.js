@@ -27,19 +27,31 @@ const {
   }
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '警告清除',
+    name: 'Remove-warning',
     cooldown: 10,
-    description: '清除一個使用者的某個警告',
+	description: '',
+	description_localizations: {
+		"en-US": "Remove specific warning of a user",
+		"zh-TW": "清除一個使用者的某個警告",
+	},
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要清除資料的使用者!',
+		description: '',
+		description_localizations: {
+			"en-US": "User to remove warnings!",
+			"zh-TW": "要清除資料的使用者!,
+		},
         required: true
     },
     {
-        name: '第幾項',
+        name: 'Which-warning',
         type: ApplicationCommandOptionType.Integer,
-        description: '要清除第幾個警告!',
+		description: '',
+		description_localizations: {
+			"en-US": "Which warning to remove!",
+			"zh-TW": "要清除第幾個警告!,
+		},
         required: true
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

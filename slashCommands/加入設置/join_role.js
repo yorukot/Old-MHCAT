@@ -17,29 +17,41 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '加入身份組設置',
+    name: 'Join-role',
     cooldown: 10,
-    description: '設定玩家加入時要給甚麼身份組',
+	description: '',
+	description_localizations: {
+		"en-US": "Set what role should user have when joined",
+		"zh-TW": "設定玩家加入時要給甚麼身份組",
+	},
     options: [{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入身分組!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Role to set",
+		    "zh-TW": "輸入身分組!",
+	    },
         required: true,
     },{
-        name: '給人還是給機器人',
+        name: 'User-or-Robot',
         type: ApplicationCommandOptionType.String,
-        description: '請選擇(預設為給所有人)!',
+		description: '',
+		description_localizations: {
+			"en-US": "Select (default is all_member)",
+			"zh-TW": "請選擇(預設為給所有人)!",
+		},
         required: false,
         choices: [{
-                name: '給全部人',
+                name: 'All user only',
                 value: 'all_user'
             },
             {
-                name: '機器人',
+                name: 'All bot only',
                 value: 'all_bot'
             },
             {
-                name: '成員',
+                name: 'All of em',
                 value: 'all_member'
             },
         ],

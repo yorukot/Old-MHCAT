@@ -29,13 +29,21 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '上鎖頻道',
+    name: 'Lock-channel',
     cooldown: 10,
-    description: '設定語音包廂密碼',
+	description: '',
+	description_localizations: {
+		"en-US": "Set voice channels password",
+		"zh-TW": "設定語音包廂密碼",
+	},
     options: [{
-        name: '密碼',
+        name: 'Password',
         type: ApplicationCommandOptionType.String,
-        description: '設定該包廂密碼，如想不設定密碼，可直接忽略此選項',
+		description: '',
+		description_localizations: {
+			"en-US": "Set voice channels password. If no needed, ignore.",
+			"zh-TW": "設定該包廂密碼，如想不設定密碼，可直接忽略此選項,
+		},
         required: false,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

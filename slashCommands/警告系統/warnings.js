@@ -16,13 +16,21 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '警告紀錄',
+    name: 'Warning-record',
     cooldown: 10,
-    description: '收尋一位使用者的警告',
+	description: '',
+	description_localizations: {
+		"en-US": "Check a users warning record",
+		"zh-TW": "搜尋一位使用者的警告",
+	},
     options: [{
-        name: '使用者',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '要收尋的使用者!',
+		description: '',
+		description_localizations: {
+			"en-US": "User to check!",
+			"zh-TW": "要收尋的使用者!,
+		},
         required: false,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

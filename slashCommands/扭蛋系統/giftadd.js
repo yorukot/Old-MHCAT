@@ -30,8 +30,8 @@ module.exports = {
         type: ApplicationCommandOptionType.String,
 	    description: '',
 	    description_localizations: {
-		    "en-US": "輸入這個獎品叫甚麼，以及簡單概述",
-		    "zh-TW": "Enter prize name and description",
+		    "en-US": "Enter prize name and description",
+		    "zh-TW": "輸入這個獎品叫甚麼，以及簡單概述",
 	    },
         required: true,
     }, {

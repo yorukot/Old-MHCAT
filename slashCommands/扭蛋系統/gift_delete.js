@@ -16,13 +16,21 @@ const {
 } = require('discord.js');
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: '扭蛋獎池刪除',
+    name: 'Gashapon-prize-delete',
     cooldown: 10,
-    description: '刪除扭蛋的獎池',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete gashapon prizes",
+		"zh-TW": "刪除扭蛋的獎池",
+	},
     options: [{
-        name: '獎品名稱',
+        name: 'Prize-name',
         type: ApplicationCommandOptionType.String,
-        description: '輸入這個獎品叫甚麼，以及簡單概述',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "輸入這個獎品叫甚麼，以及簡單概述",
+		    "zh-TW": "Enter prize name and description",
+	    },
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/prize_removal',

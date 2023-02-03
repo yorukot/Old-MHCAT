@@ -17,15 +17,23 @@ const {
 const { reportwebhook } = require('../../config.json')
 const isurl = require('is-url')
 module.exports = {
-    name: '詐騙網址回報',
+    name: 'Phising-website-report',
     cooldown: 10,
-    description: '回報詐騙網站',
+	description: '',
+	description_localizations: {
+		"en-US": "Report phising website",
+		"zh-TW": "回報詐騙網站",
+	},
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:fraudalert:1000408260777611355>`,
     options: [{
-        name: '網址',
+        name: 'Website',
         type: ApplicationCommandOptionType.String,
-        description: '回報網址',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Report website",
+		    "zh-TW": "回報網址",
+	    },
         required: true,
     }],
     run: async (client, interaction, options, perms) => {

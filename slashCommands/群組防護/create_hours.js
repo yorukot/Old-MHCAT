@@ -30,17 +30,29 @@ function decimalAdjust(type, value, exp) {
   }
 const canvacord = require("canvacord");
 module.exports = {
-    name: '帳號需創建時數',
-    description: '設定用戶要創建多久才能加入這個伺服器',
+    name: 'Account-age',
+	description: '',
+	description_localizations: {
+		"en-US": "Set how old the account should be to join this server",
+		"zh-TW": "設定用戶要創建多久才能加入這個伺服器",
+	},
     cooldown: 10,
     options: [{
-        name: '小時數',
+        name: 'Hours',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定一次性公告頻道要在哪發送',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "(NightCat-sama~ w-what are you typing?)",
+		    "zh-TW": "設定一次性公告頻道要在哪發送",
+	    },
         options: [{
-            name: '小時數',
+            name: 'Hours',
             type: ApplicationCommandOptionType.Integer,
-            description: '輸入當未滿幾個小時時要自動踢出!',
+			description: '',
+			description_localizations: {
+				"en-US": "Enter less than how many to automatically kick",
+				"zh-TW": "輸入當未滿幾個小時時要自動踢出!",
+			},
             required: true,
         }]
     },{

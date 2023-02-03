@@ -17,27 +17,39 @@ const {
 } = require('discord.js');
 const canvacord = require("canvacord");
 module.exports = {
-    name: '統計系統創建',
+    name: 'Statistics-system-create',
     cooldown: 30,
-    description: '創建統計消息',
+	description: '',
+	description_localizations: {
+		"en-US": "Create-statistics-message",
+		"zh-TW": "創建統計消息",
+	},
     options: [{
-        name: '統計頻道類型',
+        name: 'Statistics-channel-types',
         type: ApplicationCommandOptionType.String,
-        description: '輸入統計頻道要是文字頻道還是語音頻道',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter should statistics use text channel or voice channel",
+		    "zh-TW": "輸入統計頻道要是文字頻道還是語音頻道",
+	    },
         required: true,
         choices:[
-            { name: '文字頻道', value: '文字頻道' },
-            { name: '語音頻道', value: '語音頻道' },
+            { name: 'Text-channel', value: '文字頻道' },
+            { name: 'Voice-channel', value: '語音頻道' },
         ],
     },{
-        name: '統計選項',
+        name: 'Statistics-settings',
         type: ApplicationCommandOptionType.String,
-        description: '輸入統計要統計甚麼',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter what to statistics",
+		    "zh-TW": "輸入統計要統計甚麼",
+	    },
         required: false,
         choices:[
-            { name: '頻道數量', value: '頻道數量' },
-            { name: '文字頻道數量', value: '文字頻道數量' },
-            { name: '語音頻道數量', value: '語音頻道數量' },
+            { name: 'Channel-amount', value: '頻道數量' },
+            { name: 'Text-channel-amount', value: '文字頻道數量' },
+            { name: 'Voice-channel-amount', value: '語音頻道數量' },
         ],
     }],
     UserPerms: '訊息管理',

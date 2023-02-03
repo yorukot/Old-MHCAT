@@ -18,22 +18,34 @@ const {
 const canvacord = require("canvacord");
 const role_number = require("../../models/role.js");
 module.exports = {
-    name: '統計身分組人數',
+    name: 'Statistics-role-users',
     cooldown: 10,
-    description: '統計某個特定的身分組的人數',
+	description: '',
+	description_localizations: {
+		"en-US": "Statistics how many user have this role",
+		"zh-TW": "統計某個特定的身分組的人數",
+	},
     options: [{
-        name: '統計頻道類型',
+        name: 'Statistics-channel-type',
         type: ApplicationCommandOptionType.String,
-        description: '輸入統計頻道要是文字頻道還是語音頻道',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter what type of channel should statistics use",
+		    "zh-TW": "輸入統計頻道要是文字頻道還是語音頻道",
+	    },
         required: true,
         choices:[
-            { name: '文字頻道', value: '文字頻道' },
-            { name: '語音頻道', value: '語音頻道' },
+            { name: 'Text-channel', value: '文字頻道' },
+            { name: 'Voice-channel', value: '語音頻道' },
         ], 
     },{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入要統計哪個身分組',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "What role to statistics",
+		    "zh-TW": "輸入要統計哪個身分組",
+	    },
         required: true,
     }],
     UserPerms: '管理訊息',

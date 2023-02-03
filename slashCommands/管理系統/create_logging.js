@@ -17,14 +17,22 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '設置日誌頻道',
+    name: 'Set-log-channel',
     cooldown: 10,
-    description: '設置日誌訊息要在哪發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where log messages should send(I love this feature)",
+		"zh-TW": "設置日誌訊息要在哪發送",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0,5],
-        description: '輸入日誌頻道!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter log channel!",
+		    "zh-TW": "輸入日誌頻道!",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

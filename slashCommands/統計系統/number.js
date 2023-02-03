@@ -16,9 +16,13 @@ const {
 } = require('discord.js');
 const canvacord = require("canvacord");
 module.exports = {
-    name: '統計系統查詢',
+    name: 'Statistics-check',
     cooldown: 10,
-    description: '查詢統計消息',
+	description: '',
+	description_localizations: {
+		"en-US": "Check statistics",
+		"zh-TW": "查詢統計消息",
+	},
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:searching:986107902777491497>`,
      run: async (client, interaction, options, perms) => {

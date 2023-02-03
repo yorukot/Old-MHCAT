@@ -42,7 +42,7 @@ module.exports = {
 		description: '',
 		description_localizations: {
 			"en-US": "Set voice channels password. If no needed, ignore.",
-			"zh-TW": "設定該包廂密碼，如想不設定密碼，可直接忽略此選項,
+			"zh-TW": "設定該包廂密碼，如想不設定密碼，可直接忽略此選項",
 		},
         required: false,
     }],

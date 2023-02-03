@@ -18,9 +18,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '私人頻道刪除',
+    name: 'Private-channel-delete',
     cooldown: 10,
-    description: '刪除之前設置的私人頻道',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete private channel set before",
+		"zh-TW": "刪除之前設置的私人頻道",
+	},
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:delete:985944877663678505>`,

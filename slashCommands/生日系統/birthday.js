@@ -179,7 +179,11 @@ module.exports = {
         }, {
             name: 'User',
             type: ApplicationCommandOptionType.User,
-            description: '打工地點名稱!(重複的話會自動刪除舊的)',
+            description: '',
+            description_localizations: {
+		    "en-US": "I-it's not like I care about you celebrating or anything, b-but I guess you should celebrate or something... (Nightcat-sama told me to feel what he typed)",
+                    "zh-TW": "要慶生的使用者",
+            },
             required: false,
         }, ]
     }, {

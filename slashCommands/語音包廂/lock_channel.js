@@ -33,7 +33,7 @@ module.exports = {
     cooldown: 10,
 	description: '',
 	description_localizations: {
-		"en-US": "Set voice channels password",
+		"en-US": "Set voice chanbnels password",
 		"zh-TW": "設定語音包廂密碼",
 	},
     options: [{

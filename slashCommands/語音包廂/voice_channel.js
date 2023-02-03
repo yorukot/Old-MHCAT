@@ -29,29 +29,49 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '語音包廂設置',
+    name: 'Voice-channel-settings',
     cooldown: 10,
-    description: '設定語音包廂',
+	description: '',
+	description_localizations: {
+		"en-US": "Voice channel settings",
+		"zh-TW": "設定語音包廂",
+	},
     options: [{
-        name: '語音頻道',
+        name: 'Voice-channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [2, 13],
-        description: '設定哪個頻道加入後會開啟語音包廂',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Set which channel can create voice channel after join",
+		    "zh-TW": "設定哪個頻道加入後會開啟語音包廂",
+	    },
         required: true,
     }, {
-        name: '設定頻道名稱',
+        name: 'Set-channel-name',
         type: ApplicationCommandOptionType.String,
-        description: '設定開啟的語音包廂要叫做甚麼 輸入{name}及代表使用者名稱',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Set created voice channel name. {name} means username",
+		    "zh-TW": "設定開啟的語音包廂要叫做甚麼 輸入{name}及代表使用者名稱",
+	    },
         required: true,
     }, {
-        name: '是否予許房主上鎖',
+        name: 'Voice-channel-owner-lock',
         type: ApplicationCommandOptionType.Boolean,
-        description: '設定是否予許房主將活動語音頻道上鎖(房主打指令即可上鎖)',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Set is voice channel owner able to lock channel(command)",
+		    "zh-TW": "設定是否予許房主將活動語音頻道上鎖(房主打指令即可上鎖)",
+	    },
         required: true,
     }, {
-        name: '設定人數上限',
+        name: 'Set-user-limit',
         type: ApplicationCommandOptionType.Integer,
-        description: '設定頻道人數上限(如果不填，即為無上限)',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Set user limit(If left empty, no limit)",
+		    "zh-TW": "設定頻道人數上限(如果不填，即為無上限)",
+	    },
         required: false,
     }, ],
     //video: 'https://mhcat.xyz/commands/announcement.html',

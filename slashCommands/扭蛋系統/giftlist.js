@@ -19,9 +19,13 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '扭蛋獎池查詢',
+    name: 'Gashapon-prize-check',
     cooldown: 10,
-    description: '增加扭蛋的獎池',
+	description: '',
+	description_localizations: {
+		"en-US": "Check gashapon prizes",
+		"zh-TW": "查看扭蛋的獎池",
+	},
     video: 'https://mhcat.xyz/docs/prize_search',
     emoji: `<:list:992002476360343602>`,
     run: async (client, interaction, options, perms) => {

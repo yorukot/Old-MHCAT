@@ -17,9 +17,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '刪除資料',
+    name: 'Delete-data',
     cooldown: 10,
-    description: '刪除之前設置過的資料',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete data that set before",
+		"zh-TW": "刪除之前設置過的資料",
+	},
     //video: 'https://mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:logfile:985948561625710663>`,

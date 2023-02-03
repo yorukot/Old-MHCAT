@@ -42,7 +42,7 @@ module.exports = {
         type: ApplicationCommandOptionType.String,
 	    description: '',
 	    description_localizations: {
-		    "en-US": "When a user level-up, enter (level)=level, (user)=tag user"
+		    "en-US": "When a user level-up, enter (level)=level, (user)=tag user",
 		    "zh-TW": "當有人升等的訊息，輸入:(leavel)為等級，(user)為tag使用者",
 	    },
         required: false
@@ -51,7 +51,7 @@ module.exports = {
         type: ApplicationCommandOptionType.String,
 	    description: '',
 	    description_localizations: {
-		    "en-US": "Enter user check color theme(default:white, yeah, i know)"
+		    "en-US": "Enter user check color theme(default:white, yeah, i know)",
 		    "zh-TW": "輸入玩家查詢的主題要甚麼顏色(默認為白色)!",
 	    },
         required: false
@@ -60,7 +60,7 @@ module.exports = {
         type: ApplicationCommandOptionType.String,
 	    description: '',
 	    description_localizations: {
-		    "en-US": "Enter user check background(default:discord color), support png and jpg, best size is 931*231"
+		    "en-US": "Enter user check background(default:discord color), support png and jpg, best size is 931*231",
 		    "zh-TW": "輸入玩家查詢的背景(默認為discord色)支援png和jpg(可使用discord的複製連結)最佳大小為931*231",
 	    },
         required: false

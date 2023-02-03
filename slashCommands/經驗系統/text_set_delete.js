@@ -16,9 +16,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '聊天經驗刪除',
+    name: 'Chat-XP-automatic-delete',
     cooldown: 10,
-    description: '刪除聊天經驗發送訊息設置',
+	description: '',
+	description_localizations: {
+		"en-US": "Automatically delete chat XP message",
+		"zh-TW": "刪除聊天經驗發送訊息設置",
+	},
     video: 'https://mhcat.xyz/docs/chat_xp_delete',
     UserPerms: '訊息管理',
     emoji: `<:delete:985944877663678505>`,

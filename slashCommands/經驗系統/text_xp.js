@@ -23,13 +23,21 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '聊天經驗',
+    name: 'Chat-XP',
     cooldown: 10,
-    description: '查詢聊天經驗',
+	description: '',
+	description_localizations: {
+		"en-US": "Check chat XP",
+		"zh-TW": "查詢聊天經驗",
+	},
     options: [{
-        name: '玩家',
+        name: 'User',
         type: ApplicationCommandOptionType.User,
-        description: '輸入玩家!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter user!",
+		    "zh-TW": "輸入玩家!",
+	    },
         required: false
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

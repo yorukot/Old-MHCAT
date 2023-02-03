@@ -15,23 +15,39 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組-表情符號版',
+    name: 'Receive-role-Emoji-version',
     cooldown: 10,
-    description: '設定領取身分組的消息-點按鈕自動增加身分組(如要更改某個表情符號所給予的身分組，請一樣打這個指令)',
+	description: '',
+	description_localizations: {
+		"en-US": "Set message that give roles(Press button receive role)(If you want to change what emoji gives what role, type this command as well)",
+		"zh-TW": "設定領取身分組的消息-點按鈕自動增加身分組(如要更改某個表情符號所給予的身分組，請一樣打這個指令)",
+	},
     options: [{
-        name: '訊息url',
+        name: 'Message-url',
         type: ApplicationCommandOptionType.String,
-        description: '輸入訊息的url(對訊息點右鍵按複製訊息連結)!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter url of the message(Right click to copy message url)",
+		    "zh-TW": "輸入訊息的url(對訊息點右鍵按複製訊息連結)!",
+	    },
         required: true,
     },{
-        name: '身分組',
+        name: 'Role',
         type: ApplicationCommandOptionType.Role,
-        description: '輸入要給的身分組!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter role to give",
+		    "zh-TW": "輸入要給的身分組!",
+	    },
         required: true,
     },{
-        name: '表情符號',
+        name: 'Emoji',
         type: ApplicationCommandOptionType.String,
-        description: '請輸入要放在訊息下面的表情符號',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter emoji to put below",
+		    "zh-TW": "請輸入要放在訊息下面的表情符號",
+	    },
         required: true,
     }],
     //video: 'https://mhcat.xyz/commands/announcement.html',

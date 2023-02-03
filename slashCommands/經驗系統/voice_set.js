@@ -24,7 +24,7 @@ module.exports = {
     cooldown: 10,
 	description: '',
 	description_localizations: {
-		"en-US": "Set where voice chat XP announcement should be send",
+		"en-US": "Set where voice chat XP notification should be send",
 		"zh-TW": "設定語音經驗通知要在哪發送",
 	},
     options: [{

@@ -22,9 +22,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '語音排行榜',
+    name: 'Voice-chat-XP-rank',
     cooldown: 10,
-    description: '查詢語音經驗的排行榜',
+	description: '',
+	description_localizations: {
+		"en-US": "Check voice chat XP rank list",
+		"zh-TW": "查詢語音經驗的排行榜",
+	},
     //video: 'https://mhcat.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
     run: async (client, interaction, options, perms) => {

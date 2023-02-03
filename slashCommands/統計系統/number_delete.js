@@ -16,9 +16,13 @@ const {
 } = require('discord.js');
 const canvacord = require("canvacord");
 module.exports = {
-    name: '統計系統刪除',
+    name: 'Statistics-system-delete',
     cooldown: 10,
-    description: '刪除統計消息',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete statistics message",
+		"zh-TW": "刪除統計消息",
+	},
     UserPerms: '管理訊息',
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:delete1:986068526387314690>`,

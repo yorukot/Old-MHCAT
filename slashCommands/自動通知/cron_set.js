@@ -20,13 +20,21 @@ function checkURL(image) {
     return (image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '自動通知',
+    name: 'Automatic-notification',
     cooldown: 10,
-    description: '設定自動聊天頻道要在哪裡發送',
+	description: '',
+	description_localizations: {
+		"en-US": "Set where automatic notification should be send",
+		"zh-TW": "設定自動聊天頻道要在哪裡發送",
+	},
     options: [{
-        name: '頻道',
+        name: 'Channel',
         type: ApplicationCommandOptionType.Channel,
-        description: '輸入要發送的頻道!',
+	    description: '',
+	    description_localizations: {
+		    "en-US": "Enter channel to send!",
+		    "zh-TW": "輸入要發送的頻道!",
+	    },
         channel_types: [0, 5],
         required: true
     }],

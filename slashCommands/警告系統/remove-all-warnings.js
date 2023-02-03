@@ -27,11 +27,11 @@ const {
   }
 const { errorMonitor } = require("ws");
 module.exports = {
-    name: 'Clean-all-warning',
+    name: 'Remove-all-warning',
     cooldown: 10,
 	description: '',
 	description_localizations: {
-		"en-US": "Clean all warning of a user",
+		"en-US": "Remove all warning of a user",
 		"zh-TW": "清除一個使用者的全部警告",
 	},
     options: [{
@@ -39,7 +39,7 @@ module.exports = {
         type: ApplicationCommandOptionType.User,
 		description: '',
 		description_localizations: {
-			"en-US": "User to clean!",
+			"en-US": "User to remove warnings!",
 			"zh-TW": "要清除資料的使用者!,
 		},
         required: true

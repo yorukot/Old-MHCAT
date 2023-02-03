@@ -19,9 +19,13 @@ function checkURL(image) {
     return (image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '自動通知列表',
+    name: 'Automatic-notification-list',
     cooldown: 10,
-    description: '查看所有的自動通知列表',
+	description: '',
+	description_localizations: {
+		"en-US": "Check all automatica notification list",
+		"zh-TW": "查看所有的自動通知列表",
+	},
     //video: 'https://mhcat.xyz/docs/chat_xp_set',
     UserPerms: '訊息管理',
     emoji: `<:list:992002476360343602>`,

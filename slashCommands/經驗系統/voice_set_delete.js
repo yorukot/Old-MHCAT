@@ -16,9 +16,13 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '語音經驗刪除',
+    name: 'Voice-chat-XP-settings-delete',
     cooldown: 10,
-    description: '刪除語音發送訊息設置',
+	description: '',
+	description_localizations: {
+		"en-US": "Delete voice chat XP settings",
+		"zh-TW": "刪除語音發送訊息設置",
+	},
     video: 'https://mhcat.xyz/docs/voice_xp_delete',
     UserPerms: '訊息管理',
     emoji: `<:delete:985944877663678505>`,

@@ -157,6 +157,7 @@ client.on("guildMemberAdd", (member) => {
               dynamic: true
             }))
             .setColor(data.color === 'RANDOM' ? 'Random' : data.color)
+            .setImage(data.img ? data.img : null)
             .setTimestamp()
           channel.send({
             embeds: [welcome],

@@ -589,7 +589,12 @@ client.on('interactionCreate', async (interaction) => {
     } else if (text.includes("join_msg")) {
         const content = interaction.fields.getTextInputValue("join_msgcontent");
         const color = interaction.fields.getTextInputValue("join_msgcolor");
-        if (!validateColor(color) && color !== "Random") return errors('你傳送的並不是顏色(色碼)')
+        const img = interaction.fields.getTextInputValue("join_img");
+        function isImgUrl(url) {
+            return /\.(jpg|jpeg|png|webp|avif|gif)$/.test(url)
+          }
+        if(img && !isImgUrl(img)) return errors('你傳送的並不是圖片!可至https://imgur.com/上傳圖片後複製網址!') 
+    if (!validateColor(color) && (color !== "Random" && color !== "RANDOM")) return errors('你傳送的並不是顏色(色碼)')
         join_message.findOne({
             guild: interaction.guild.id,
         }, async (err, data) => {
@@ -600,14 +605,9 @@ client.on('interactionCreate', async (interaction) => {
                     guild: interaction.channel.guild.id
                 }), {
                     $set: {
-                        message_content: content
-                    }
-                })
-                data.collection.updateOne(({
-                    guild: interaction.channel.guild.id
-                }), {
-                    $set: {
-                        color: color
+                        message_content: content,
+                        color: color,
+                        img: img ? img : null
                     }
                 })
             }
@@ -621,7 +621,8 @@ client.on('interactionCreate', async (interaction) => {
             .setThumbnail(interaction.user.displayAvatarURL({
                 dynamic: true
             }))
-            .setColor(color)
+            .setColor(color === 'RANDOM' ? 'Random' : color )
+            .setImage(img ? img : null)
             .setTimestamp()
         interaction.editReply({
             content: "下面為預覽，想修改嗎?再次輸入指令即可修改((membername)在到時候會變正常喔)",

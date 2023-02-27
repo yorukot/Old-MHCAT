@@ -58,6 +58,7 @@ module.exports = {
                         message_content: null,
                         color: null,
                         channel: channel_id,
+                        img: null
                     })
                     data.save()
                 } else {
@@ -84,9 +85,16 @@ module.exports = {
                     .setStyle(TextInputStyle.Paragraph)
                     .setRequired(true)
                     .setValue(data ? data.message_content !== null ? data.message_content : '(MEMBERNAME)' : '(MEMBERNAME)')
+                const img = new TextInputBuilder()
+                    .setCustomId('join_img')
+                    .setLabel("圖片URL")
+                    .setStyle(TextInputStyle.Paragraph)
+                    .setRequired(false)
+                    .setValue(data ? data.img !== null ? data.img : '' : '')
                 const color1 = new ActionRowBuilder().addComponents(color);
                 const content1 = new ActionRowBuilder().addComponents(content);
-                modal.addComponents(color1, content1);
+                const img1 = new ActionRowBuilder().addComponents(img);
+                modal.addComponents(color1, content1, img1);
                 await interaction.showModal(modal);
             })
 

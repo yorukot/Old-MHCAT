@@ -102,7 +102,7 @@ client.on("interactionCreate", async (interaction) => {
             ephemeral: true
         })
     }
-    try {
+    //try {
         if (interaction.isButton()) {
             //機器人狀態
             const button_id = interaction.customId
@@ -1131,26 +1131,29 @@ client.on("interactionCreate", async (interaction) => {
                     let des = client.slash_commands.get(name).description;
                     let emo = client.slash_commands.get(name).emoji;
                     let optionsa = client.slash_commands.get(name).options;
+                    let docs = client.slash_commands.get(name).docs;
                     let emoe = emo ? `${emo}` : ``;
+                    let id = client.application.commands.cache.find(u => u.name === name).id
 
                     let obj = {
                         cname: `${emoe} </${name}`,
                         des,
-                        optionsa
+                        optionsa,
+                        docs,
+                        id
                     }
-
                     return obj;
                 });
 
                 let dota = new Object();
-
+                
                 cmds.map(co => {
                     if (co == undefined) return;
                     if (co.optionsa && co.optionsa[0] && co.optionsa[0].type === 1) {
                         for (let x = 0; x < co.optionsa.length; x++) {
                             dota = {
-                                name: `${cmds.length === 0 ? "進行中" : "" + co.cname + " " + co.optionsa[x].name + ":964185876559196181>"}`,
-                                value: `\`\`\`fix\n${co.optionsa[x].description ? `${co.optionsa[x].description}` : `沒有說明`}\`\`\``,
+                                name: `${cmds.length === 0 ? "進行中" : "" + co.cname + " " + co.optionsa[x].name + `:${co.id ? co.id : '964185876559196181'}>`} `,
+                                value: `${co.docs && co.docs[x] ? `[前往文檔](${co.docs[x]})` : ''}\`\`\`fix\n${co.optionsa[x].description ? `${co.optionsa[x].description}\`\`\`` : `沒有說明`}`,
                                 inline: true,
                             }
                             catts.push(dota)
@@ -1187,7 +1190,7 @@ client.on("interactionCreate", async (interaction) => {
                 })
             };
         }
-    } catch (error) {
+    /*} catch (error) {
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
@@ -1209,7 +1212,7 @@ client.on("interactionCreate", async (interaction) => {
             ],
             components: [row]
         })
-    }
+    }*/
 })
 
 

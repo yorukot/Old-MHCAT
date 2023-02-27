@@ -70,7 +70,6 @@ module.exports = {
         }]
     }],
     video: 'https://mhcat.xyz/docs/ann_set',
-    UserPerms: '訊息管理',
     emoji: `<:configuration:984010500608249886>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();

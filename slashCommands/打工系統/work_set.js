@@ -106,7 +106,15 @@ module.exports = {
         }]
     }],
     UserPerms: '除了打工介面其他都是需要訊息管理喔!',
-    //video: 'https://mhcat.xyz/commands/statistics.html',
+    docs: [
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/work_set',
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work',
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work',
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
+        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
+    ],
+    video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:working:1048617967799242772>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();
@@ -155,7 +163,7 @@ module.exports = {
                     let coin = interaction.options.getInteger("取得代幣")
                     let role = interaction.options.getRole("身分組")
                     let time = Math.round(time_1111 * 60 * 60)
-                    if (name.length > 100) return errors('名字輸入的太長了!')
+                    if (name.length > 50) return errors('名字輸入的太長了!')
                         work_something.find({
                             guild: interaction.guild.id,
                         }, async (err, data) => {
@@ -465,10 +473,10 @@ module.exports = {
                                                         name: id
                                                     }, async (err, data) => {
                                                         if (!data) return interaction01.reply({
-                                                            content: ':x: | 很抱歉，找不到這個商品，請重試!',
+                                                            content: ':x: | `很抱歉，找不到這個打工地點，請於幾秒鐘後重試!',
                                                             ephemeral: true
                                                         })
-                                                        if (user_data.energi < (Number(data.energy))) return errors11111("你的體力不夠!")
+                                                        if (user_data.energi < (Number(data.energy))) return errors11111("你的精力不夠!")
                                                         if (user_data.state !== '待業中') {
                                                             const yes = new ActionRowBuilder()
                                                                 .addComponents(

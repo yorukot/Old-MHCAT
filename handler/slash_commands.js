@@ -18,17 +18,6 @@ const rest = new REST({
 client.once('ready', () => {
     setTimeout(() => {
 
-        /*rest.get(Routes.applicationCommands("964185876559196181"))
-            .then(data => {
-                for (const command of data) {
-                    client.application.commands.fetch(`${command.id}`)
-                    .then( (command) => {
-                    command.delete()
-                    .then(command => {console.log(command.name)})
-                    }).catch(console.error);
-            }
-        });*/
-
         readdirSync('./slashCommands').forEach(async (dir) => {
             const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) =>
                 file.endsWith(".js")
@@ -58,10 +47,23 @@ client.once('ready', () => {
                             UserPerms: file.UserPerms,
                             run: file.run,
                             video: file.video,
+                            docs: file.docs
                         });
                         await client.application.commands.create(data);
+                        setTimeout(() => {
+                            rest.get(Routes.applicationCommands(client.user.id))
+                            .then(data => {
+                                for (const command of data) {
+                                    client.application.commands.fetch(`${command.id}`)
+                                    .then( (command) => {
+                                    if(!client.slash_commands.get(command.name)) command.delete().then(command => {console.log('delete' + command.name)})
+                                    }).catch(console.error);
+                            }
+                        });
+                        }, 60 * 5 * 1000);
                     }, 500);
                 }
+                
             })
         })
     }, 500);

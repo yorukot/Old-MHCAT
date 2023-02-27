@@ -90,7 +90,7 @@ module.exports = {
                     .setLabel("圖片URL")
                     .setStyle(TextInputStyle.Paragraph)
                     .setRequired(false)
-                    .setValue(data ? data.img !== null ? data.img : '' : '')
+                    .setValue(data ? data.img ? data.img !== null ? data.img : '' : '' : '')
                 const color1 = new ActionRowBuilder().addComponents(color);
                 const content1 = new ActionRowBuilder().addComponents(content);
                 const img1 = new ActionRowBuilder().addComponents(img);

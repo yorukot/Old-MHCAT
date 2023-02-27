@@ -42,7 +42,6 @@ module.exports = {
                     ephemeral: true
                 })
             }
-            return errors('該指令即將被移除，請使用`/我的檔案`進行替代')
             const aaaaa = interaction.options.getUser("使用者")
             const user = aaaaa ? aaaaa.id : interaction.member.id
             coin.findOne({

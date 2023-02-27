@@ -50,7 +50,7 @@ client.once('ready', () => {
                             docs: file.docs
                         });
                         await client.application.commands.create(data);
-                        setTimeout(() => {
+                        /*setTimeout(() => {
                             rest.get(Routes.applicationCommands(client.user.id))
                             .then(data => {
                                 for (const command of data) {
@@ -60,7 +60,7 @@ client.once('ready', () => {
                                     }).catch(console.error);
                             }
                         });
-                        }, 60 * 5 * 1000);
+                        }, 60 * 5 * 1000);*/
                     }, 500);
                 }
                 

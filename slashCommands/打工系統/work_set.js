@@ -107,14 +107,13 @@ module.exports = {
     }],
     UserPerms: '除了打工介面其他都是需要訊息管理喔!',
     docs: [
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/work_set',
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work',
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work',
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
-        'https://mhcat.xyz/allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/work_set',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/delete_work',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
+        'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy',
     ],
-    video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:working:1048617967799242772>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();

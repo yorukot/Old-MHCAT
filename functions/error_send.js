@@ -30,4 +30,21 @@ const error_send = (error, interaction) => {
     })
 }
 
+const errors_edit = (interaction, content, url) => {
+    const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red").setDescription(url ? `<:MHCATdarkdsadsadsadsadsadas1:1079853990541529208> [立即前往官方文檔查看問題](https://mhcat.xyz/${url})`: '')
+    interaction.editReply({
+        embeds: [embed]
+    })
+}
+
+ const errors_update = (interaction, content, url) => {
+    const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red").setDescription(url ? `<:MHCATdarkdsadsadsadsadsadas1:1079853990541529208> [立即前往官方文檔查看問題](https://mhcat.xyz/${url})`: '')
+    interaction.update({
+        embeds: [embed],
+        components: []
+    })
+}
+
 module.exports = error_send;
+module.exports = errors_edit;
+module.exports = errors_update;

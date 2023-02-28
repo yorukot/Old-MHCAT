@@ -70,6 +70,9 @@ module.exports = {
     video: 'https://mhcat.xyz/docs/lotter',
     UserPerms: '訊息管理',
     emoji: `<:lottery:985946439253381200>`,
+    docs: [
+        'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter',
+    ],
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply({ephemeral: true});
         try {

@@ -16,6 +16,8 @@ const {
 const work_set = require('../../models/work_set.js')
 const work_something = require('../../models/work_something.js')
 const work_user = require('../../models/work_user.js')
+const errors_update = require('../../functions/error_send')
+const errors_edit = require('../../functions/error_send')
 module.exports = {
     name: '打工系統',
     description: '用自己的心血來獲得一些獎勵吧!',
@@ -118,14 +120,8 @@ module.exports = {
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();
         try {
-            function errors(content) {
-                const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
-                interaction.editReply({
-                    embeds: [embed]
-                })
-            }
             if (interaction.options.getSubcommand() === "打工系統設定") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/work_set')
                 let get_energy = interaction.options.getInteger("每天可獲得多少精力")
                 let max_energy = interaction.options.getInteger("精力上限為多少")
                 work_set.findOne({
@@ -150,11 +146,11 @@ module.exports = {
                     })
                 })
             } else if (interaction.options.getSubcommand() === "新增打工事項") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
                 work_set.findOne({
                     guild: interaction.guild.id,
                 }, async (err, data1111) => {
-                    if (!data1111) return errors('請先使用`/打工系統 打工系統設定`進行初始設定!')
+                    if (!data1111) return errors_edit(interaction, '請先使用`/打工系統 打工系統設定`進行初始設定!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
 
                     let name = interaction.options.getString("打工地點名稱")
                     let time_1111 = interaction.options.getNumber("耗費時間")
@@ -162,11 +158,11 @@ module.exports = {
                     let coin = interaction.options.getInteger("取得代幣")
                     let role = interaction.options.getRole("身分組")
                     let time = Math.round(time_1111 * 60 * 60)
-                    if (name.length > 50) return errors('名字輸入的太長了!')
+                    if (name.length > 50) return errors_edit(interaction, `名字輸入的太長了!`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
                         work_something.find({
                             guild: interaction.guild.id,
                         }, async (err, data) => {
-                            if (data.length > 19) return errors("你的打工事項已經滿了，請先刪除一些!")
+                            if (data.length > 19) return errors_edit(interaction, `你的打工事項已經滿了，請先刪除一些!`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
                             work_something.findOne({
                                 guild: interaction.guild.id,
                                 name: name
@@ -200,14 +196,14 @@ module.exports = {
                 work_set.findOne({
                     guild: interaction.channel.guild.id,
                 }, async (err, data1111) => {
-                    if (!data1111) return errors('請先使用`/打工系統 打工系統設定`進行初始設定!')
+                    if (!data1111) return errors_edit(interaction, '請先使用`/打工系統 打工系統設定`進行初始設定!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/delete_work')
                 })
                 let name = interaction.options.getString("打工地點名稱")
                 work_something.findOne({
                     guild: interaction.channel.guild.id,
                     name: name
                 }, async (err, data) => {
-                    if (!data) return errors('很抱歉，找不到這個名字的資料!')
+                    if (!data) return errors_edit(interaction, '很抱歉，找不到這個名字的資料!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/delete_work')
                     data.delete()
                     const embed = new EmbedBuilder()
                         .setTitle(`<:working:1048617967799242772> 打工事項`)
@@ -221,11 +217,11 @@ module.exports = {
                 work_set.findOne({
                     guild: interaction.channel.guild.id,
                 }, async (err, data1111) => {
-                    if (!data1111) return errors('請先請管理員使用`/打工系統 打工系統設定`進行初始設定!')
+                    if (!data1111) return errors_edit(interaction, '請先請管理員使用`/打工系統 打工系統設定`進行初始設定!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                     work_something.find({
                         guild: interaction.guild.id,
                     }, async (err, data) => {
-                        if (data.length === 0) return errors("目前沒有任何打工給你做喔!")
+                        if (data.length === 0) return errors_edit(interaction, '目前沒有任何打工給你做喔!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                         work_user.findOne({
                             guild: interaction.guild.id,
                             user: interaction.user.id
@@ -342,7 +338,7 @@ module.exports = {
                                 work_set.findOne({
                                     guild: interaction.channel.guild.id,
                                 }, async (err, data1111) => {
-                                    if(test[0].components.length < 1) return errors('還沒有適合你身分組的打工喔!可以請管理員增加打工!')
+                                    if(test[0].components.length < 1) return errors_edit(interaction, '還沒有適合你身分組的打工喔!可以請管理員增加打工!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                                     let msgg = await interaction.editReply({
                                         embeds: [
                                             new EmbedBuilder()
@@ -390,14 +386,7 @@ module.exports = {
                                             guild: interaction.guild.id,
                                             name: id
                                         }, async (err, data) => {
-                                            function errorss(content) {
-                                                const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
-                                                interaction01.update({
-                                                    embeds: [embed],
-                                                    components: []
-                                                })
-                                            }
-                                            if (!data) return errorss("很抱歉，找不到這個打工地點，請於幾秒鐘後重試!")
+                                            if (!data) return errors_update(interaction01, '很抱歉，找不到這個打工地點，請於幾秒鐘後重試!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                                             let aaaaaaa = new ActionRowBuilder()
                                                 .addComponents(
                                                     new ButtonBuilder()
@@ -428,13 +417,6 @@ module.exports = {
 
                                                 const id = interaction01.customId;
 
-                                                function errors11111(content) {
-                                                    const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
-                                                    interaction01.update({
-                                                        embeds: [embed],
-                                                        components: []
-                                                    })
-                                                }
                                                 if (id === `announcement_yes`) {
                                                     work_user.collection.updateOne(({
                                                         guild: interaction.channel.guild.id,
@@ -475,7 +457,7 @@ module.exports = {
                                                             content: ':x: | `很抱歉，找不到這個打工地點，請於幾秒鐘後重試!',
                                                             ephemeral: true
                                                         })
-                                                        if (user_data.energi < (Number(data.energy))) return errors11111("你的精力不夠!")
+                                                        if (user_data.energi < (Number(data.energy))) return errors_update(interaction01, '你的精力不夠!','allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                                                         if (user_data.state !== '待業中') {
                                                             const yes = new ActionRowBuilder()
                                                                 .addComponents(
@@ -532,7 +514,7 @@ module.exports = {
                     });
                 })
             } else if (interaction.options.getSubcommand() === "增加全體精力") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy')
                 let get_energy = interaction.options.getInteger("要給多少精力")
                 work_set.findOne({
                     guild: interaction.channel.guild.id,
@@ -563,7 +545,7 @@ module.exports = {
                     })
                 })
             } else if (interaction.options.getSubcommand() === "增加個人精力") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`,'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy')
                 let get_energy = interaction.options.getInteger("要給多少精力")
                 let user = interaction.options.getUser("使用者")
                 work_set.findOne({

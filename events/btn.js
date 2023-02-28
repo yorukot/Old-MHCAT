@@ -1133,7 +1133,7 @@ client.on("interactionCreate", async (interaction) => {
                 let optionsa = client.slash_commands.get(name).options;
                 let docs = client.slash_commands.get(name).docs;
                 let emoe = emo ? `${emo}` : ``;
-                let id = client.application.commands.cache.find(u => u.name === name).id
+                let id = client.application.commands.cache.find(u => u.name === name) ? client.application.commands.cache.find(u => u.name === name).id : undefined 
 
                 let obj = {
                     cname: `${emoe} </${name}`,

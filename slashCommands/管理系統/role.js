@@ -68,6 +68,7 @@ module.exports = {
             }
         }
         if(!reactionEmoji && !isEmoji(emoji)) return errors('你必須輸入正確的表情符號!(表情符號所在伺服器我必須在裡面!)')
+        console.log(isEmoji(emoji) ? emoji : emoji_id)
         const message = channel.messages.fetch({ message: message2, cache: false, force: true })
         .then(message32 => {
             if(!channel || !message32)return errors("很抱歉，找不到這個訊息")
@@ -75,7 +76,7 @@ module.exports = {
         message_reaction.findOne({
             guild: interaction.guild.id,
             message: message32.id,
-            react: !isEmoji(emoji) ? emoji_id : emoji,
+            react: isEmoji(emoji) ? emoji : emoji_id,
         }, async (err, data) => {
             if (err) throw err; 
             if(data) data.delete();

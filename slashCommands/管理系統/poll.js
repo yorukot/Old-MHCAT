@@ -24,7 +24,7 @@ function containsDuplicates(array) {
 module.exports = {
     name: '投票創建',
     cooldown: 0,
-    description: '設置日誌訊息要在哪發送',
+    description: '創建一個萬能的投票',
     options: [{
         name: '問題',
         type: ApplicationCommandOptionType.String,
@@ -60,14 +60,14 @@ module.exports = {
         let buttons1 = []
         let buttons2 = []
         let buttons3 = []
-        if(question.length > 2500) return errors('問題字數不可超過2500')
+        if (question.length > 2500) return errors('問題字數不可超過2500')
         if (choose_string_array.length < 2) return errors('最少需要2個選項!')
         if (choose_string_array.length > 19) return errors('最多只能有19個選項!')
         if (containsDuplicates(choose_string_array)) return errors('選項名稱不可以重複!')
-        choose_string_array.forEach(function(val){
-            if(val.length > 80) return errors('你輸入的選項字數不能超過80')
-            if(val.length < 1) return errors('^跟^中間請填入選項，不可為空')
-          });
+        choose_string_array.forEach(function (val) {
+            if (val.length > 80) return errors('你輸入的選項字數不能超過80')
+            if (val.length < 1) return errors('^跟^中間請填入選項，不可為空')
+        });
 
         const see_result = new ButtonBuilder()
             .setCustomId(`see_result`)
@@ -195,7 +195,7 @@ module.exports = {
 <:YellowSmallDot:1023970607429328946> \`無法\`看到投票結果
 <:YellowSmallDot:1023970607429328946> \`實名\`投票**
 `)
-.setColor('Random')
+            .setColor('Random')
         const msg = await interaction.channel.send({
             embeds: [embed],
             components: all_button

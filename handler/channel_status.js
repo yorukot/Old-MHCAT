@@ -31,7 +31,7 @@ setInterval(() => {
                         const hasPermissionInChannel1 = get_memberNumber
                             .permissionsFor(guild.members.me, [PermissionsBitField.Flags.ViewChannel])
                         if (hasPermissionInChannel && hasPermissionInChannel1) {
-                            if (channel_name.search(`${oldNumber}`) === -1) {
+                            if (!channel_name.includes(`${oldNumber}`)) {
                                 get_memberNumber.setName(`${newNumber}`)
                                     .catch(console.error);
                             } else {
@@ -63,7 +63,7 @@ setInterval(() => {
                                 .permissionsFor(guild.members.me, [PermissionsBitField.Flags.ViewChannel])
                             if (hasPermissionInChannel3 && hasPermissionInChannel13) {
                                 const userNumber_channel = get_userNumebr.name
-                                if (userNumber_channel.search(`${data[x].userNumber_name}`) === -1) {
+                                if (!userNumber_channel.includes(`${data[x].userNumber_name}`)) {
                                     get_userNumebr.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
@@ -90,7 +90,7 @@ setInterval(() => {
                             if (hasPermissionInChannel2 && hasPermissionInChannel12) {
 
                                 const BotNumber_channel = get_BotNumber.name
-                                if (BotNumber_channel.search(`${data[x].BotNumber_name}`) === -1) {
+                                if (!BotNumber_channel.includes(`${data[x].BotNumber_name}`)) {
                                     get_BotNumber.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
@@ -116,7 +116,7 @@ setInterval(() => {
                                 .permissionsFor(guild.members.me, [PermissionsBitField.Flags.ViewChannel])
                             if (hasPermissionInChannel1 && hasPermissionInChannel11) {
                                 const channelnumber_channel = get_channelNumber.name
-                                if (channelnumber_channel.search(`${data[x].channelnumber_name}`) === -1) {
+                                if (!channelnumber_channel.includes(`${data[x].channelnumber_name}`)) {
                                     get_channelNumber.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
@@ -142,7 +142,7 @@ setInterval(() => {
                             if (hasPermissionInChannel14 && hasPermissionInChannel114) {
 
                                 const textnumber_channel = get_textnumber.name
-                                if (textnumber_channel.search(`${data[x].textnumber_name}`) === -1) {
+                                if (!textnumber_channel.includes(`${data[x].textnumber_name}`)) {
                                     get_textnumber.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
@@ -210,7 +210,7 @@ setInterval(() => {
                         if (hasPermissionInChannel15 && hasPermissionInChannel115) {
 
                             const channel_name = role_channel_name.name
-                            if (channel_name.search(`${data[x].channel_name}`) === -1) {
+                            if (!channel_name.includes(`${data[x].channel_name}`) ){
                                 role_channel_name.setName(`${members.size}`)
                                     .catch(console.error);
                             } else {

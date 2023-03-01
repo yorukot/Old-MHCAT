@@ -15,6 +15,8 @@ const {
 } = require('discord.js');
 const birthday_set = require('../../models/birthday_set.js')
 const birthday = require('../../models/birthday.js')
+const errors_update = require('../../functions/error_send')
+const errors_edit = require('../../functions/error_send')
 module.exports = {
     name: '生日系統',
     description: '讓你的伺服器可以為生日的人慶生!',
@@ -169,19 +171,19 @@ module.exports = {
         }]
     }],
     UserPerms: '訊息管理',
+    docs: [
+        "allcommands/生日系統/birthday_message_set",
+        "allcommands/%E7%94%9F%E6%97%A5%E7%B3%BB%E7%B5%B1/birthday_date_add",
+        "allcommands/%E7%94%9F%E6%97%A5%E7%B3%BB%E7%B5%B1/birthday_date_add",
+        "allcommands/%E7%94%9F%E6%97%A5%E7%B3%BB%E7%B5%B1/allow_admin_set_birthday"
+    ],
     //video: 'https://mhcat.xyz/commands/statistics.html',
     emoji: `<:working:1048617967799242772>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();
         try {
-            function errors(content) {
-                const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
-                interaction.editReply({
-                    embeds: [embed]
-                })
-            }
             if (interaction.options.getSubcommand() === "祝福語設定") {
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/生日系統/birthday_message_set')
                 let msgg = interaction.options.getString("祝福語")
                 let UTC = interaction.options.getString("時區")
                 let channel = interaction.options.getChannel("頻道")
@@ -213,7 +215,7 @@ module.exports = {
                 birthday_set.findOne({
                     guild: interaction.channel.guild.id,
                 }, async (err, data) => {
-                    if (!data) return errors('請先請管理員進行祝福語設定')
+                    if (!data) return errors_edit(interaction, '請先請管理員進行祝福語設定', 'allcommands/生日系統/birthday_date_add')
                     if (data) {
                         if (data.everyone_can_set_birthday_date || interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
                             let user = interaction.options.getUser('使用者')
@@ -222,20 +224,20 @@ module.exports = {
                                     guild: interaction.channel.guild.id,
                                     user: interaction.user.id
                                 }, async (err, data) => {
-                                    if (data ? !data.allow : false) return errors('該名使用者不允許管理員設定他的生日日期!')
+                                    if (data ? !data.allow : false) return errors_edit(interaction, '該名使用者不允許管理員設定他的生日日期!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_year = interaction.options.getInteger("生日年份")
-                                    if (birthday_year ? (Number(birthday_year) < 1900 || Number(birthday_year) > new Date().getFullYear()) : false) return errors('請輸入有效的年份')
+                                    if (birthday_year ? (Number(birthday_year) < 1900 || Number(birthday_year) > new Date().getFullYear()) : false) return errors_edit(interaction, '請輸入有效的年份!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_month = interaction.options.getInteger("生日月份")
                                     if (String(birthday_month).slice(0, 1) === "0") birthday_month = Number(String(birthday_month).slice(1, 2))
-                                    if (Number(birthday_month) < 1 || Number(birthday_month) > 12) return errors('請輸入有效的月份')
+                                    if (Number(birthday_month) < 1 || Number(birthday_month) > 12) return errors_edit(interaction, '請輸入有效的月份!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_day = interaction.options.getInteger("生日日期")
                                     if (String(birthday_day).slice(0, 1) === "0") birthday_day = Number(String(birthday_day).slice(1, 2))
                                     if ([1, 3, 5, 7, 8, 10, 12].includes(birthday_month)) {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 31) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 31) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     } else if ([4, 6, 9, 11].includes(birthday_month)) {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 30) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 30) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     } else {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 29) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 29) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     }
                                     if (data) data.delete()
                                     let time = `${Math.round((Date.now() / 1000) + 300)}`;
@@ -506,19 +508,19 @@ module.exports = {
                                 }, async (err, data) => {
                                     let birthday_year = interaction.options.getInteger("生日年份")
                                     let user = interaction.options.getUser('使用者') ? interaction.options.getUser('使用者') : interaction.user
-                                    if (user.id !== interaction.user.id) return errors('你只擁有設定自己生日日期的權限!')
-                                    if (birthday_year ? (Number(birthday_year) < 1900 || Number(birthday_year) > new Date().getFullYear()) : false) return errors('請輸入有效的年份')
+                                    if (user.id !== interaction.user.id) return errors_edit(interaction, '你只擁有設定自己生日日期的權限!', 'allcommands/生日系統/birthday_date_add')
+                                    if (birthday_year ? (Number(birthday_year) < 1900 || Number(birthday_year) > new Date().getFullYear()) : false) return errors_edit(interaction, '請輸入有效的年份!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_month = interaction.options.getInteger("生日月份")
                                     if (String(birthday_month).slice(0, 1) === "0") birthday_month = Number(String(birthday_month).slice(1, 2))
-                                    if (Number(birthday_month) < 1 || Number(birthday_month) > 12) return errors('請輸入有效的月份')
+                                    if (Number(birthday_month) < 1 || Number(birthday_month) > 12) return errors_edit(interaction, '請輸入有效的月份!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_day = interaction.options.getInteger("生日日期")
                                     if (String(birthday_day).slice(0, 1) === "0") birthday_day = Number(String(birthday_day).slice(1, 2))
                                     if ([1, 3, 5, 7, 8, 10, 12].includes(birthday_month)) {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 31) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 31) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     } else if ([4, 6, 9, 11].includes(birthday_month)) {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 30) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 30) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     } else {
-                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 29) return errors('請輸入有效的日期')
+                                        if (Number(birthday_day) < 1 || Number(birthday_day) > 29) return errors_edit(interaction, '請輸入有效的日期!', 'allcommands/生日系統/birthday_date_add')
                                     }
                                     if (data) data.delete()
                                     let time = `${Math.round((Date.now() / 1000) + 300)}`;
@@ -784,18 +786,18 @@ module.exports = {
                                 })
                             }
                         } else if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
-                            return errors(`你需要有\`${perms}\`才能使用此指令`)
+                            return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/生日系統/birthday_date_add')
                         }
                     }
                 })
             } else if (interaction.options.getSubcommand() === "刪除") {
                 let user = interaction.options.getUser('使用者')
-                if (user !== interaction.id && !interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
+                if (user !== interaction.id && !interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/生日系統/birthday_date_add')
                 birthday.findOne({
                     guild: interaction.channel.guild.id,
                     user: user.id
                 }, async (err, data) => {
-                    if (!data) return errors('沒有這位使用者的資料!')
+                    if (!data) return errors_edit(interaction, '沒有這位使用者的資料!', 'allcommands/生日系統/birthday_date_add')
                     data.delete()
                     interaction.editReply({
                         embeds: [

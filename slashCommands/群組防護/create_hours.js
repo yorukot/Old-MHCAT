@@ -36,7 +36,7 @@ module.exports = {
     options: [{
         name: '小時數',
         type: ApplicationCommandOptionType.Subcommand,
-        description: '設定一次性公告頻道要在哪發送',
+        description: '設定用戶需要滿幾小時才能夠進入伺服器',
         options: [{
             name: '小時數',
             type: ApplicationCommandOptionType.Integer,

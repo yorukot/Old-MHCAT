@@ -21,6 +21,8 @@ const {
     PermissionsBitField,
 } = require('discord.js');
  const addSubtractDate = require("add-subtract-date");
+ const errors_update = require('../../functions/errors_update')
+const errors_edit = require('../../functions/errors_edit')
  function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -77,16 +79,16 @@ module.exports = {
         await interaction.deferReply({ephemeral: true});
         try {
         function errors(content){const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");interaction.editReply({embeds: [embed],ephemeral: true})}
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages))return errors(`你需要有\`${perms}\`才能使用此指令`)
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages))return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
         const date = `${interaction.options.getString("截止日期")}`
         let d = date.indexOf("d");
         let h = date.indexOf("h");
         let m = date.indexOf("m");
-        if(d === -1 && h === -1 && m === -1)return errors("你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))")
+        if(d === -1 && h === -1 && m === -1)return errors_edit(interaction, "你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))", 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
         const day = (d !== -1 ? (date.substring(d-2, d).includes('h') || date.substring(d-2, d).includes('m')) ? Number(date.substring(d-1, d)) : Number(date.substring(d-2, d)) : 0)
         const hour = (h !== -1 ? (date.substring(h-2, h).includes('m') || date.substring(h-2, h).includes('d')) ? Number(date.substring(h-1, h)) : Number(date.substring(h-2, h)) : 0)
         const min = (m !== -1 ? (date.substring(m-2, m).includes('h') || date.substring(m-2, m).includes('d')) ? Number(date.substring(m-1, m)) : Number(date.substring(m-2, m)) : 0)
-        if(day === NaN || hour === NaN || min === NaN)return errors("你輸入的時間不正確，請使用??d??h??m")
+        if(day === NaN || hour === NaN || min === NaN)return errors_edit(interaction, "你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))", 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
         function addHoursToDate(objDate, intHours) {
             var numberOfMlSeconds = objDate.getTime();
             var addMlSeconds = (intHours * 60) * 60 * 1000;
@@ -111,14 +113,14 @@ module.exports = {
         const role2 = interaction.options.getRole("不能抽的身分組")
         const id = `${Date.now()}${parseInt(getRandomArbitrary(1000, 100))}lotter`
         let date2313214321 = `${Math.round(sum.getTime() / 1000)}`
-        if(date2313214321 === 'NaN') return errors("你輸入的時間不正確，請使用??d??h??m")
-        if((Math.round(sum.getTime()) - testes) > 2592000000) return errors("結束請於30天內!")
+        if(date2313214321 === 'NaN') return errors_edit(interaction, "你輸入的日期不符合規範!請輸入??d ??h ??m(如為個位數，十位數請加0 ex:01(1))", 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
+        if((Math.round(sum.getTime()) - testes) > 2592000000) return errors_edit(interaction, "結束請於30天內", 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
         lotter.findOne({
             guild: interaction.channel.guild.id,
             id: id
         }, async (err, data) => {
             if(data){
-                return errors("目前使用人數有點多，請重試!")
+                return errors_edit(interaction, "目前使用人數有點多，請重試!", 'allcommands/%E6%8A%BD%E7%8D%8E%E7%B3%BB%E7%B5%B1/lotter')
             }else{
                 // 創建一個新的data
                 data = new lotter({

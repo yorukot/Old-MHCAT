@@ -15,8 +15,8 @@ const {
 } = require('discord.js');
 const birthday_set = require('../../models/birthday_set.js')
 const birthday = require('../../models/birthday.js')
-const errors_update = require('../../functions/error_send')
-const errors_edit = require('../../functions/error_send')
+const errors_update = require('../../functions/errors_update')
+const errors_edit = require('../../functions/errors_edit')
 module.exports = {
     name: '生日系統',
     description: '讓你的伺服器可以為生日的人慶生!',
@@ -173,7 +173,7 @@ module.exports = {
         name: '生日列表',
         type: ApplicationCommandOptionType.Subcommand,
         description: '這個伺服器內的使用者生日列表',
-    },],
+    }, ],
     UserPerms: '訊息管理',
     docs: [
         "allcommands/生日系統/birthday_message_set",
@@ -858,7 +858,7 @@ module.exports = {
                 birthday.find({
                     guild: interaction.guild.id,
                 }, async (err, data) => {
-                    if(data.length === 0) return errors_edit(interaction, '還沒有任何人有進行生日設置喔!')
+                    if (data.length === 0) return errors_edit(interaction, '還沒有任何人有進行生日設置喔!')
                     if (data) {
                         const e = data.map(
                             (w, i) => `${interaction.guild.members.cache.get(w.user) ? interaction.guild.members.cache.get(w.user).user.username + '#' + interaction.guild.members.cache.get(w.user).user.discriminator : '找不到使用者!'}(${w.user})  | 生日日期(YYYY/MM/DD):${w.birthday_year}/${w.birthday_month}/${w.birthday_day}`

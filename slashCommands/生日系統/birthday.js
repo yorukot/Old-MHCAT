@@ -169,7 +169,11 @@ module.exports = {
             description: '是否允許!true為允許 false為不允許',
             required: true,
         }]
-    }],
+    }, {
+        name: '生日列表',
+        type: ApplicationCommandOptionType.Subcommand,
+        description: '這個伺服器內的使用者生日列表',
+    },],
     UserPerms: '訊息管理',
     docs: [
         "allcommands/生日系統/birthday_message_set",
@@ -849,6 +853,32 @@ module.exports = {
                             .setColor('Green')
                         ]
                     })
+                })
+            } else if (interaction.options.getSubcommand() === "生日列表") {
+                birthday.find({
+                    guild: interaction.guild.id,
+                }, async (err, data) => {
+                    if(data.length === 0) return errors_edit(interaction, '還沒有任何人有進行生日設置喔!')
+                    if (data) {
+                        const e = data.map(
+                            (w, i) => `${interaction.guild.members.cache.get(w.user) ? interaction.guild.members.cache.get(w.user).user.username + '#' + interaction.guild.members.cache.get(w.user).user.discriminator : '找不到使用者!'}(${w.user})  | 生日日期(YYYY/MM/DD):${w.birthday_year}/${w.birthday_month}/${w.birthday_day}`
+                        )
+                        const a = data.map(
+                            (w, i) => `<@${w.user}>  | 生日日期(YYYY/MM/DD):${w.birthday_year}/${w.birthday_month}/${w.birthday_day}`
+                        )
+                        let atc = new AttachmentBuilder(Buffer.from(`${e.join(`\n`)}`), {
+                            name: 'discord.txt'
+                        });
+                        const embed = new EmbedBuilder()
+                            .setTitle(`🎂 生日列表`)
+                            .setDescription(`<:list:992002476360343602>**目前共有**\`${e.length}\`**人的生日數據**\n\n${a.length < 100 ? '┃ ' + '' + a.join('\n') + '┃' : "**由於人數過多，無法顯示所有成員名稱!\n請使用`.txt`檔案觀看**"}`)
+                            .setColor("Random")
+
+                        interaction.editReply({
+                            embeds: [embed],
+                            files: [atc]
+                        })
+                    }
                 })
             }
         } catch (error) {

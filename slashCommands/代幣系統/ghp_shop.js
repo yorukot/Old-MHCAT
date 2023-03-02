@@ -116,30 +116,9 @@ module.exports = {
             required: true,
         }]
     }, {
-        name: '購買商品',
-        type: ApplicationCommandOptionType.Subcommand,
-        description: '購買扭蛋商店裡的商品',
-        options: [{
-            name: '商品id',
-            type: ApplicationCommandOptionType.Integer,
-            description: '輸入要購買商品的id!',
-            required: true,
-        }, {
-            name: '購買數量',
-            type: ApplicationCommandOptionType.Integer,
-            description: '輸入購買數量!(不填的話預設為1)',
-            required: false,
-        }]
-    }, {
         name: '商品查詢',
         type: ApplicationCommandOptionType.Subcommand,
         description: '查詢所有商品id及商品資訊',
-        options: [{
-            name: '商品id',
-            type: ApplicationCommandOptionType.Integer,
-            description: '如需查看該商品的詳細資料，請填此項!',
-            required: false,
-        }]
     }],
     UserPerms: '查詢跟購買大家都可用，剩下皆須訊息管理',
     //video: 'https://mhcat.xyz/commands/statistics.html',
@@ -168,7 +147,7 @@ module.exports = {
                 let commodity_count = commodity_count1 ? commodity_count1 : 1
                 let role = role2 ? role2 : null
 
-                if (need_coin < 0) return errors("`商品所需代幣`不可為負數!!!")
+                if (need_coin <= 0) return errors("`商品所需代幣`不可為負數或0!!!")
                 if (commodity_count <= 0) return errors("商品數量不可小於或等於0!!")
                 if (role && (Number(role.position) >= Number(interaction.guild.members.me.roles.highest.position))) return errors("我沒有權限為大家增加這個身分組，請將我的身分組位階調高")
 
@@ -240,104 +219,8 @@ module.exports = {
                         embeds: [embed]
                     })
                 })
-            } else if (interaction.options.getSubcommand() === "購買商品") {
-
-                let id = interaction.options.getInteger("商品id")
-                let need_count111 = interaction.options.getInteger("購買數量")
-                let need_count = need_count111 ? need_count111 : 1
-
-                if (need_count <= 0) return errors("購買數量必須大於0!")
-
-                ghp.findOne({
-                    guild: interaction.channel.guild.id,
-                    commodity_id: id
-                }, async (err, data) => {
-
-                    if (!data) return errors("很抱歉，找不到這個商品，是不是打錯了?!")
-
-                    coin.findOne({
-                        guild: interaction.guild.id,
-                        member: interaction.member.id
-                    }, async (err, coin) => {
-
-                        if (!coin) return errors("你還沒有任何代幣欸使用`/簽到`或是多講話，都可以獲得代幣喔!")
-                        if (coin.coin < (Number(data.need_coin) * need_count)) return errors("你的代幣數不夠!")
-                        if (data.commodity_count < need_count) return errors(`很抱歉!該商品數量只剩下:\`${data.commodity_count}\``)
-
-                        if (data.auto_delete && data.commodity_count === 1) data.delete()
-
-                        let role = interaction.guild.roles.cache.get(data.role)
-                        if (role && need_count > 1) return errors("這項商品為身分組商品，只能購買一樣!")
-                        if (role) interaction.member.roles.add(role)
-
-                        if (data.code !== null) interaction.member.send({
-                            embeds: [
-                                new EmbedBuilder()
-                                .setTitle(`${client.emoji.done}您已成功購買\`${data.name}\``)
-                                .setDescription(`<:security:997374179257102396> 您的獎品代碼:\n\`${data.code}\``)
-                                .setColor(client.color.greate)
-                            ]
-                        })
-
-                        if (data.auto_delete) data.collection.updateOne(({
-                            guild: interaction.channel.guild.id,
-                            commodity_id: id
-                        }), {
-                            $set: {
-                                commodity_count: data.commodity_count - need_count
-                            }
-                        })
-                        coin.collection.updateOne(({
-                            guild: interaction.channel.guild.id,
-                            member: interaction.member.id
-                        }), {
-                            $set: {
-                                coin: coin.coin - (Number(data.need_coin) * need_count)
-                            }
-                        })
-
-                        const embed = new EmbedBuilder()
-                            .setTitle(`<:store:1001118704651743372> 代幣商店系統`)
-                            .setDescription(`${client.emoji.done}您已成功購買:${data.name}\n數量:${need_count}!`)
-                            .setColor(client.color.greate)
-
-                        interaction.editReply({
-                            embeds: [embed]
-                        })
-                    })
-                })
-            } else if (interaction.options.getSubcommand() === "商品查詢") {
-
-                let id = interaction.options.getInteger("商品id")
-
-                if (id) {
-                    ghp.findOne({
-                        guild: interaction.guild.id,
-                        commodity_id: id
-                    }, async (err, data) => {
-                        if (!data) return errors("找不到這個商品，是不是輸入錯誤了呢?")
-                        return interaction.editReply({
-                            embeds: [
-                                new EmbedBuilder()
-                                .setTitle(`<:creativeteaching:986060052949524600> 以下是${data.name}的詳細資料`)
-                                .setDescription(`商品id:\n\`\`\`${data.commodity_id}\`\`\`` +
-                                    `商品價格:\n\`\`\`${Number(data.need_coin)} 個代幣\`\`\`` +
-                                    `商品描述:\n\`\`\`${data.commodity_description}\`\`\`` +
-                                    `是否在買走後自動刪除:\n\`\`\`${data.auto_delete}\`\`\`` +
-                                    `商品是否會附加身分組:\n<@&${data.role}>\n ` +
-                                    `商品數量:\n\`\`\`${data.commodity_count}\`\`\``
-                                )
-                                .setColor("Random")
-                                .setFooter({
-                                    text: `${interaction.user.tag}的查詢`,
-                                    iconURL: interaction.user.displayAvatarURL({
-                                        dynamic: true
-                                    })
-                                })
-                            ]
-                        })
-                    })
-                } else {
+            }  else if (interaction.options.getSubcommand() === "商品查詢") {
+                
                     ghp.find({
                         guild: interaction.guild.id,
                     }, async (err, data) => {
@@ -676,7 +559,7 @@ module.exports = {
                             }
                         })
                     })
-                }
+                
             }
         } catch (error) {
             const error_send = require('../../functions/error_send.js')

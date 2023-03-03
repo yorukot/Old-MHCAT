@@ -15,7 +15,10 @@ const {
 } = require('discord.js');
 const birthday_set = require('../../models/birthday_set.js')
 const birthday = require('../../models/birthday.js')
-const {errors_update, errors_edit} = require('../../functions/errors_edit')
+const {
+    errors_update,
+    errors_edit
+} = require('../../functions/errors_edit')
 module.exports = {
     name: '生日系統',
     description: '讓你的伺服器可以為生日的人慶生!',
@@ -488,7 +491,7 @@ module.exports = {
                                                 birthday_month: birthday_month,
                                                 birthday_day: birthday_day,
                                                 send_msg_hour: Number(hour_time),
-                                                send_msg_min: Number(min_time),
+                                                send_msg_min: Number(hour_time === 0 && min_time === 0 ? 1 : min_time),
                                                 allow: true
                                             })
                                             data.save()

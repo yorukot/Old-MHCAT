@@ -164,9 +164,8 @@ setInterval(() => {
                     channel.send(msgggggg)
                 }
             })
-
         }
     })
 
 
-}, 31000);
+}, 40000);

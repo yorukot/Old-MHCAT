@@ -21,8 +21,7 @@ const {
     PermissionsBitField,
 } = require('discord.js');
  const addSubtractDate = require("add-subtract-date");
- const errors_update = require('../../functions/errors_update')
-const errors_edit = require('../../functions/errors_edit')
+ const {errors_update, errors_edit} = require('../../functions/errors_edit')
  function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);

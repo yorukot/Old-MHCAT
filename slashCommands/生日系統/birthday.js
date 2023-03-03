@@ -15,8 +15,7 @@ const {
 } = require('discord.js');
 const birthday_set = require('../../models/birthday_set.js')
 const birthday = require('../../models/birthday.js')
-const errors_update = require('../../functions/errors_update')
-const errors_edit = require('../../functions/errors_edit')
+const {errors_update, errors_edit} = require('../../functions/errors_edit')
 module.exports = {
     name: '生日系統',
     description: '讓你的伺服器可以為生日的人慶生!',

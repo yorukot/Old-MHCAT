@@ -16,8 +16,7 @@ const {
 const work_set = require('../../models/work_set.js')
 const work_something = require('../../models/work_something.js')
 const work_user = require('../../models/work_user.js')
-const errors_update = require('../../functions/errors_update')
-const errors_edit = require('../../functions/errors_edit')
+const {errors_update, errors_edit} = require('../../functions/errors_edit')
 module.exports = {
     name: '打工系統',
     description: '用自己的心血來獲得一些獎勵吧!',

@@ -15,8 +15,7 @@ const {
 } = require('discord.js');
 const ghp = require('../../models/ghp.js')
 const coin = require('../../models/coin.js');
-const errors_edit = require('../../functions/errors_edit')
-const errors_update = require('../../functions/errors_update')
+const {errors_update, errors_edit} = require('../../functions/errors_edit')
 const canvacord = require("canvacord");
 let row1 = new ActionRowBuilder()
     .addComponents(

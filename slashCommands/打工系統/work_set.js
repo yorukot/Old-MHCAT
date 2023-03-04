@@ -251,7 +251,7 @@ module.exports = {
                                 interaction01111.reply({content:`${client.emoji.error} | 驗證碼錯誤!`,embeds:[], components: []})
                                 return
                             }else{
-                                     interaction01111.deferReply()
+                                let msgg = interaction01111.deferReply()
                                 work_something.find({
                                     guild: interaction01111.guild.id,
                                 }, async (err, data) => {
@@ -373,7 +373,7 @@ module.exports = {
                                                 guild: interaction01111.channel.guild.id,
                                             }, async (err, data1111) => {
                                                 if (test[0].components.length < 1) return errors_edit(interaction01111, '還沒有適合你身分組的打工喔!可以請管理員增加打工!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
-                                                let msgg = await interaction01111.editReply({
+                                                interaction01111.editReply({
                                                     embeds: [
                                                         new EmbedBuilder()
                                                         .setTitle(`<:list:992002476360343602> 以下是${interaction01111.guild.name}的打工簡章`)

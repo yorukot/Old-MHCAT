@@ -23,7 +23,7 @@ module.exports = {
         name: '獎品名稱',
         type: ApplicationCommandOptionType.String,
         description: '輸入這個獎品叫甚麼，以及簡單概述',
-        required: false,
+        required: true,
     }, {
         name: '機率',
         type: ApplicationCommandOptionType.Number,

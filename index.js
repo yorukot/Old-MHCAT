@@ -112,7 +112,7 @@ client.on('messageCreate', async (message) => {
 
 })
 
-process.on("unhandledRejection", (reason, p) => {
+/*process.on("unhandledRejection", (reason, p) => {
     console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
     console.log(end_start("\n[🚩 崩潰通知] 未處理的拒絕:"));
     console.log((reason.stack ? reason.stack : reason))
@@ -151,7 +151,7 @@ process.on("exit", (code) => {
     console.log(end_start("\n[🚩 崩潰通知] 退出"));
     console.log(code)
     console.log(end_start("=== 褪出 ===\n"));
-});
+});*/
 process.on("multipleResolves", (type, promise, reason) => {
     /*console.log(end_start("\n[🚩 崩潰通知] 多個解決方案"));
     console.log(type)

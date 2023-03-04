@@ -11,22 +11,22 @@ setInterval(() => {
     Number.find({}, async (err, data) => {
         if (!data) return;
         for (let x = 0; x < data.length; x++) {
+            const guild = client.guilds.cache.get(data[x].guild);
+            let userIds = new Set();
+            for (const member of (await guild.members.fetch()).values()) {
+                const user = await client.users.fetch(member.id);
+                if (!userIds.has(user.id) && !user.bot) {
+                    userIds.add(user.id);
+                }
+            }
+            let BotIds = new Set();
+            for (const member of (await guild.members.fetch()).values()) {
+                const user = await client.users.fetch(member.id);
+                if (!BotIds.has(user.id) && user.bot) {
+                    BotIds.add(user.id);
+                }
+            }
             setTimeout(async () => {
-                const guild = client.guilds.cache.get(data[x].guild);
-                let userIds = new Set();
-                for (const member of (await guild.members.fetch()).values()) {
-                    const user = await client.users.fetch(member.id);
-                    if (!userIds.has(user.id) && !user.bot) {
-                        userIds.add(user.id);
-                    }
-                }
-                let BotIds = new Set();
-                for (const member of (await guild.members.fetch()).values()) {
-                    const user = await client.users.fetch(member.id);
-                    if (!BotIds.has(user.id) && user.bot) {
-                        BotIds.add(user.id);
-                    }
-                }
                 if (guild) {
                     const members = userIds.size
                     const bots = BotIds
@@ -59,7 +59,7 @@ setInterval(() => {
                     try {
 
 
-                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, members)
+                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, `${bots +members}`)
                         data[x].collection.updateOne(({
                             guild: guild.id,
                         }), {
@@ -224,7 +224,7 @@ setInterval(() => {
                         if (hasPermissionInChannel15 && hasPermissionInChannel115) {
 
                             const channel_name = role_channel_name.name
-                            if (!channel_name.includes(`${data[x].channel_name}`) ){
+                            if (!channel_name.includes(`${data[x].channel_name}`)) {
                                 role_channel_name.setName(`${members.size}`)
                                     .catch(console.error);
                             } else {

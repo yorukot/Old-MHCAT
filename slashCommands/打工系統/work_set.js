@@ -251,7 +251,8 @@ module.exports = {
                                 interaction01111.reply({content:`${client.emoji.error} | 驗證碼錯誤!`,embeds:[], components: []})
                                 return
                             }else{
-                                let msgg = interaction01111.deferReply()
+                                const msgg = interaction01111.deferReply()
+                                setTimeout(() => {
                                 work_something.find({
                                     guild: interaction01111.guild.id,
                                 }, async (err, data) => {
@@ -545,6 +546,7 @@ module.exports = {
                                         })
                                     }, 500)
                                 });
+                            }, 1000)
                             }
                         })
                         }else{

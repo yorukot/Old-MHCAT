@@ -114,7 +114,7 @@ module.exports = {
                 ]
             });
             const user = interaction.options.getUser('使用者') ? interaction.options.getUser('使用者') : interaction.user
-            const member = interaction.guild.members.cache.get(user.id)
+            const member = await interaction.guild.members.fetch(user.id)
             //頭貼設置
             const canvas_user = createCanvas(128, 128)
             const ctx_user = canvas_user.getContext('2d')

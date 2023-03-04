@@ -31,7 +31,6 @@ module.exports = {
     video: 'https://mhcat.xyz/docs/coin',
     emoji: `<:money:997374193026994236>`,
     run: async (client, interaction, options, perms) => {
-        console.log(interaction.guild.members.fetch())
         await interaction.deferReply({
             ephemeral: true
         });

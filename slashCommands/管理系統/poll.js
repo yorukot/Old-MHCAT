@@ -186,9 +186,16 @@ module.exports = {
                 }),
             )
         )
+        const userIds = new Set();
+            for (const member of (await interaction.guild.members.fetch()).values()) {
+                const user = await client.users.fetch(member.id);
+                if (!userIds.has(user.id) && !user.bot) {
+                    userIds.add(user.id);
+                }
+            }
         let embed = new EmbedBuilder()
             .setTitle(`<:poll:1023968837965709312> | 投票\n${question}`)
-            .setDescription(`<:vote:1023969411369025576> **總投票人數:\`0\` / \`${interaction.guild.members.cache.size}\`|參與率:\`0.00\`%**
+            .setDescription(`<:vote:1023969411369025576> **總投票人數:\`0\` / \`${userIds.size}\`|參與率:\`0.00\`%**
 
 <:YellowSmallDot:1023970607429328946> **每人可以投給\`1\`個選項
 <:YellowSmallDot:1023970607429328946> \`不能\`改投其他選項

@@ -11,11 +11,25 @@ setInterval(() => {
     Number.find({}, async (err, data) => {
         if (!data) return;
         for (let x = 0; x < data.length; x++) {
-            setTimeout(() => {
+            setTimeout(async () => {
                 const guild = client.guilds.cache.get(data[x].guild);
+                let userIds = new Set();
+                for (const member of (await guild.members.fetch()).values()) {
+                    const user = await client.users.fetch(member.id);
+                    if (!userIds.has(user.id) && !user.bot) {
+                        userIds.add(user.id);
+                    }
+                }
+                let BotIds = new Set();
+                for (const member of (await guild.members.fetch()).values()) {
+                    const user = await client.users.fetch(member.id);
+                    if (!BotIds.has(user.id) && user.bot) {
+                        BotIds.add(user.id);
+                    }
+                }
                 if (guild) {
-                    const members = guild.members.cache.filter(member => !member.user.bot);
-                    const bots = guild.members.cache.filter(member => member.user.bot);
+                    const members = userIds.size
+                    const bots = BotIds
                     const all_channel = guild.channels.cache.filter((c) => c.type !== "GUILD_CATEGORY").size;
                     const text_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
                     const voice_channel_number = guild.channels.cache.filter((c) => c.type === "voice").size;
@@ -45,12 +59,12 @@ setInterval(() => {
                     try {
 
 
-                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.members.cache.size)
+                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, members)
                         data[x].collection.updateOne(({
                             guild: guild.id,
                         }), {
                             $set: {
-                                memberNumber_name: guild.members.cache.size
+                                memberNumber_name: members
                             }
                         })
                         // userNumber =

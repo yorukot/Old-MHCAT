@@ -148,7 +148,14 @@ client.on("interactionCreate", async (interaction) => {
                                 embeds: [announcement_set_embed]
                             })
                         }
-                        setTimeout(() => {
+                        setTimeout(async () => {
+                            const userIds = new Set();
+                            for (const member of (await interaction.guild.members.fetch()).values()) {
+                                const user = await client.users.fetch(member.id);
+                                if (!userIds.has(user.id) && !user.bot) {
+                                    userIds.add(user.id);
+                                }
+                            }
                             poll.findOne({
                                 guild: interaction.channel.guild.id,
                                 messageid: interaction.message.id,
@@ -160,7 +167,7 @@ client.on("interactionCreate", async (interaction) => {
                                 let member_count = getUnique(member_count111111)
                                 let embed = new EmbedBuilder()
                                     .setTitle(`<:poll:1023968837965709312> | 投票\n${data11111.question}`)
-                                    .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${interaction.guild.members.cache.size}\`|參與率:\`${(member_count.length / interaction.guild.members.cache.size* 100).toFixed(2)}\`%**
+                                    .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${userIds.size}\`|參與率:\`${(member_count.length / userIds.size * 100).toFixed(2)}\`%**
                     
     <:YellowSmallDot:1023970607429328946> **每人可以投給\`${data11111.many_choose}\`個選項
     <:YellowSmallDot:1023970607429328946> \`${data11111.can_change_choose ? '可以' : '無法'}\`改投其他選項
@@ -172,7 +179,7 @@ client.on("interactionCreate", async (interaction) => {
                                     embeds: [embed],
                                 })
                             })
-                        }, 200);
+                        }, 50);
                     } else {
                         return
                     }
@@ -185,7 +192,7 @@ client.on("interactionCreate", async (interaction) => {
                     guild: interaction.channel.guild.id,
                     messageid: interaction.message.id,
                 }, async (err, data) => {
-                    if(!data) return errors('該投票已經過期(超過30天會自動刪除)')
+                    if (!data) return errors('該投票已經過期(超過30天會自動刪除)')
                     if (!data.can_see_result && data.create_member_id !== interaction.user.id) return errors('這個投票不是公開的!', '如需公開該投票，請使用下方選擇器!')
                     if (data.join_member.length === 0) return errors('還沒有人參與投票!')
 
@@ -299,7 +306,7 @@ client.on("interactionCreate", async (interaction) => {
                         .setImage("attachment://file.jpg");
                     let string_data = []
                     for (let i = 0; i < data.join_member.length; i++) {
-                        string_data.push(`使用者id:${data.anonymous ? '該投票為匿名' : data.join_member[i].id}|使用者名稱:${data.anonymous ? '該投票為匿名' : interaction.guild.members.cache.get(data.join_member[i].id) ? interaction.guild.members.cache.get(data.join_member[i].id).user.username + '#' + interaction.guild.members.cache.get(data.join_member[i].id).user.discriminator : '使用者已退出伺服器!'}|使用者投給的選項:${data.join_member[i].choise}|投票時間:${!isNaN(data.join_member[i].time) ? timeConverter(Number(data.join_member[i].time)) : data.join_member[i].time}`)
+                        string_data.push(`使用者id:${data.anonymous ? '該投票為匿名' : data.join_member[i].id}|使用者名稱:${data.anonymous ? '該投票為匿名' : await interaction.guild.members.fetch(data.join_member[i].id) ? await interaction.guild.members.fetch(data.join_member[i].id).user.username + '#' + await interaction.guild.members.fetch(data.join_member[i].id).user.discriminator : '使用者已退出伺服器!'}|使用者投給的選項:${data.join_member[i].choise}|投票時間:${!isNaN(data.join_member[i].time) ? timeConverter(Number(data.join_member[i].time)) : data.join_member[i].time}`)
                     }
                     let atc = new AttachmentBuilder(Buffer.from(`${string_data.join(`\n`)}`), {
                         name: 'discord.txt'
@@ -308,7 +315,14 @@ client.on("interactionCreate", async (interaction) => {
                         embeds: [embed],
                         files: [attachment, atc],
                     })
-                    setTimeout(() => {
+                    setTimeout(async () => {
+                        const userIds = new Set();
+                        for (const member of (await interaction.guild.members.fetch()).values()) {
+                            const user = await client.users.fetch(member.id);
+                            if (!userIds.has(user.id) && !user.bot) {
+                                userIds.add(user.id);
+                            }
+                        }
                         poll.findOne({
                             guild: interaction.channel.guild.id,
                             messageid: interaction.message.id,
@@ -320,7 +334,7 @@ client.on("interactionCreate", async (interaction) => {
                             let member_count = getUnique(member_count111111)
                             let embed = new EmbedBuilder()
                                 .setTitle(`<:poll:1023968837965709312> | 投票\n${data11111.question}`)
-                                .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${interaction.guild.members.cache.size}\`|參與率:\`${(member_count.length / interaction.guild.members.cache.size* 100).toFixed(2)}\`%**
+                                .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${userIds.size}\`|參與率:\`${(member_count.length / userIds.size * 100).toFixed(2)}\`%**
                 
 <:YellowSmallDot:1023970607429328946> **每人可以投給\`${data11111.many_choose}\`個選項
 <:YellowSmallDot:1023970607429328946> \`${data11111.can_change_choose ? '可以' : '無法'}\`改投其他選項
@@ -332,7 +346,7 @@ client.on("interactionCreate", async (interaction) => {
                                 embeds: [embed],
                             })
                         })
-                    }, 200);
+                    }, 50);
                 })
             } else {
                 return
@@ -518,7 +532,7 @@ client.on("interactionCreate", async (interaction) => {
                             })
                             data_array.push({
                                 type: String,
-                                value: `${interaction.guild.members.cache.get(data.join_member[i].id) ? interaction.guild.members.cache.get(data.join_member[i].id).user.username + '#' + interaction.guild.members.cache.get(data.join_member[i].id).user.discriminator : '使用者已退出伺服器!'}`
+                                value: `${await interaction.guild.members.fetch(data.join_member[i].id) ? await interaction.guild.members.fetch(data.join_member[i].id).user.username + '#' + await interaction.guild.members.fetch(data.join_member[i].id).user.discriminator : '使用者已退出伺服器!'}`
                             })
                             data_array.push({
                                 type: String,
@@ -672,6 +686,13 @@ client.on("interactionCreate", async (interaction) => {
                                     }),
                                 )
                             )
+                            const userIds = new Set();
+                            for (const member of (await interaction.guild.members.fetch()).values()) {
+                                const user = await client.users.fetch(member.id);
+                                if (!userIds.has(user.id) && !user.bot) {
+                                    userIds.add(user.id);
+                                }
+                            }
                             let member_count111111 = []
                             data11111.join_member.forEach(element => {
                                 member_count111111.push(element.id)
@@ -679,7 +700,7 @@ client.on("interactionCreate", async (interaction) => {
                             let member_count = getUnique(member_count111111)
                             let embed = new EmbedBuilder()
                                 .setTitle(`<:poll:1023968837965709312> | 投票\n${data11111.question}`)
-                                .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${interaction.guild.members.cache.size}\`|參與率:\`${(member_count.length / interaction.guild.members.cache.size* 100).toFixed(2)}\`%**
+                                .setDescription(`<:vote:1023969411369025576> **總投票人數:\`${member_count.length}\` / \`${userIds.size}\`|參與率:\`${(member_count.length / userIds.size * 100).toFixed(2)}\`%**
                 
 <:YellowSmallDot:1023970607429328946> **每人可以投給\`${data11111.many_choose}\`個選項
 <:YellowSmallDot:1023970607429328946> \`${data11111.can_change_choose ? '可以' : '無法'}\`改投其他選項
@@ -692,7 +713,7 @@ client.on("interactionCreate", async (interaction) => {
                                 components: all_button
                             })
                         })
-                    }, 200);
+                    }, 50);
                 })
             }
         }

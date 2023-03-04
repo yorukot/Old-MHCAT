@@ -135,11 +135,11 @@ setInterval(() => {
                 if (!channel) return
                 let role = guild.roles.cache.find(role => role.id === data1[x].role);
                 for (let y = 0; y < data.length; y++) {
-                    let userrrrrr = guild.members.cache.get(data[y].user)
+                    let userrrrrr = await guild.members.fetch(data[y].user)
                     if (!userrrrrr) return console.log(data[y].user)
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {
-                        if (data[y].birthday_day !== day){
+                        if (data[y].birthday_day !== day) {
                             if (userrrrrr.roles.cache.find(r => r.id === data1[x].role)) {
                                 userrrrrr.roles.remove(role)
                             }

@@ -11,25 +11,11 @@ setInterval(() => {
     Number.find({}, async (err, data) => {
         if (!data) return;
         for (let x = 0; x < data.length; x++) {
-            const guild = client.guilds.cache.get(data[x].guild);
-            let userIds = new Set();
-            for (const member of (await guild.members.fetch()).values()) {
-                const user = await client.users.fetch(member.id);
-                if (!userIds.has(user.id) && !user.bot) {
-                    userIds.add(user.id);
-                }
-            }
-            let BotIds = new Set();
-            for (const member of (await guild.members.fetch()).values()) {
-                const user = await client.users.fetch(member.id);
-                if (!BotIds.has(user.id) && user.bot) {
-                    BotIds.add(user.id);
-                }
-            }
-            setTimeout(async () => {
+            setTimeout(() => {
+                const guild = client.guilds.cache.get(data[x].guild);
                 if (guild) {
-                    const members = userIds.size
-                    const bots = BotIds.size
+                    const members = guild.members.cache.filter(member => !member.user.bot);
+                    const bots = guild.members.cache.filter(member => member.user.bot);
                     const all_channel = guild.channels.cache.filter((c) => c.type !== "GUILD_CATEGORY").size;
                     const text_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
                     const voice_channel_number = guild.channels.cache.filter((c) => c.type === "voice").size;
@@ -59,12 +45,12 @@ setInterval(() => {
                     try {
 
 
-                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, `${members + bots}`)
+                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.members.cache.size)
                         data[x].collection.updateOne(({
                             guild: guild.id,
                         }), {
                             $set: {
-                                memberNumber_name: members
+                                memberNumber_name: guild.members.cache.size
                             }
                         })
                         // userNumber =
@@ -78,16 +64,16 @@ setInterval(() => {
                             if (hasPermissionInChannel3 && hasPermissionInChannel13) {
                                 const userNumber_channel = get_userNumebr.name
                                 if (!userNumber_channel.includes(`${data[x].userNumber_name}`)) {
-                                    get_userNumebr.setName(`${members}`)
+                                    get_userNumebr.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
-                                    get_userNumebr.setName(userNumber_channel.replace(`${data[x].userNumber_name}`, `${members}`))
+                                    get_userNumebr.setName(userNumber_channel.replace(`${data[x].userNumber_name}`, `${members.size}`))
                                         .catch(console.error);
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
                                         $set: {
-                                            userNumber_name: `${members}`
+                                            userNumber_name: `${members.size}`
                                         }
                                     })
                                 }
@@ -108,13 +94,13 @@ setInterval(() => {
                                     get_BotNumber.setName(`${members.size}`)
                                         .catch(console.error);
                                 } else {
-                                    get_BotNumber.setName(BotNumber_channel.replace(`${data[x].BotNumber_name}`, `${bots}`))
+                                    get_BotNumber.setName(BotNumber_channel.replace(`${data[x].BotNumber_name}`, `${bots.size}`))
                                         .catch(console.error);
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
                                         $set: {
-                                            BotNumber_name: `${bots}`
+                                            BotNumber_name: `${bots.size}`
                                         }
                                     })
                                 }
@@ -224,7 +210,7 @@ setInterval(() => {
                         if (hasPermissionInChannel15 && hasPermissionInChannel115) {
 
                             const channel_name = role_channel_name.name
-                            if (!channel_name.includes(`${data[x].channel_name}`)) {
+                            if (!channel_name.includes(`${data[x].channel_name}`) ){
                                 role_channel_name.setName(`${members.size}`)
                                     .catch(console.error);
                             } else {

@@ -22,7 +22,7 @@ function getRandomArbitrary(min, max) {
     TextInputStyle
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組設定',
+    name: '選取身分組-按鈕',
     cooldown: 10,
     description: '設定領取身分組的消息(點按鈕自動增加身分組)',
     options: [{

@@ -15,7 +15,7 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組刪除-表情符號版',
+    name: '選取身分組刪除-表情符號',
     cooldown: 10,
     description: '選取身分組刪除-表情符號版(進行刪除)',
     options: [{

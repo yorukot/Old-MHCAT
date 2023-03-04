@@ -15,7 +15,7 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: '選取身分組-表情符號版',
+    name: '選取身分組-表情符號',
     cooldown: 10,
     description: '設定領取身分組的消息-點按鈕自動增加身分組(如要更改某個表情符號所給予的身分組，請一樣打這個指令)',
     options: [{

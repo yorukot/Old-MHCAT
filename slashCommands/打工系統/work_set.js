@@ -845,6 +845,7 @@ module.exports = {
                         }
                 })
             } else if (interaction.options.getSubcommand() === "增加全體精力") {
+                await interaction.deferReply();
                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy')
                 let get_energy = interaction.options.getInteger("要給多少精力")
                 work_set.findOne({
@@ -876,6 +877,7 @@ module.exports = {
                     })
                 })
             } else if (interaction.options.getSubcommand() === "增加個人精力") {
+                await interaction.deferReply();
                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/add_energy')
                 let get_energy = interaction.options.getInteger("要給多少精力")
                 let user = interaction.options.getUser("使用者")

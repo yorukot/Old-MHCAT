@@ -105,7 +105,7 @@ module.exports = {
                     switch (vt) {
                         case "語音頻道":
                             const membernumber = await interaction.guild.channels.create({
-                                name: `總人數:${userIds.size}`,
+                                name: `總人數:${userIds.size + bots.size}`,
                                 type: ChannelType.GuildVoice,
                                 parent: parent.id,
                                 permissionOverwrites: [{
@@ -118,7 +118,7 @@ module.exports = {
                                 }]
                             })
                             const usernumber = await interaction.guild.channels.create({
-                                name: `總成員:${members.size}`,
+                                name: `總成員:${userIds.size}`,
                                 type: ChannelType.GuildVoice,
                                 parent: parent.id,
                                 permissionOverwrites: [{
@@ -147,9 +147,9 @@ module.exports = {
                                 guild: interaction.guild.id,
                                 parent: parent.id,
                                 memberNumber: membernumber.id,
-                                memberNumber_name: userIds.size,
+                                memberNumber_name: userIds.size + bots.size,
                                 userNumber: usernumber.id,
-                                userNumber_name: members.size,
+                                userNumber_name: userIds.size,
                                 BotNumber: botnumber.id,
                                 BotNumber_name: bots.size,
                                 channelnumber: null,
@@ -195,7 +195,7 @@ module.exports = {
                             break;
                         case "文字頻道":
                             const membernumber_text = await interaction.guild.channels.create({
-                                name: `總人數: ${userIds.size}`,
+                                name: `總人數: ${userIds.size + bots.size}`,
                                 type: ChannelType.GuildText,
                                 parent: parent.id,
                                 permissionOverwrites: [{
@@ -208,7 +208,7 @@ module.exports = {
                                 }]
                             })
                             const usernumber_text = await interaction.guild.channels.create({
-                                name: `總成員: ${members.size}`,
+                                name: `總成員: ${userIds.size}`,
                                 type: ChannelType.GuildText,
                                 parent: parent.id,
                                 permissionOverwrites: [{
@@ -236,11 +236,11 @@ module.exports = {
                             data = new Number({
                                 guild: interaction.guild.id,
                                 parent: parent.id,
-                                memberNumber: membernumber_text.id,
-                                memberNumber_name: userIds.size,
-                                userNumber: usernumber_text.id,
-                                userNumber_name: members.size,
-                                BotNumber: botnumber_text.id,
+                                memberNumber: membernumber.id,
+                                memberNumber_name: userIds.size + bots.size,
+                                userNumber: usernumber.id,
+                                userNumber_name: userIds.size,
+                                BotNumber: botnumber.id,
                                 BotNumber_name: bots.size,
                                 channelnumber: null,
                                 channelnumber_name: null,

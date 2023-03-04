@@ -306,7 +306,7 @@ client.on("interactionCreate", async (interaction) => {
                         .setImage("attachment://file.jpg");
                     let string_data = []
                     for (let i = 0; i < data.join_member.length; i++) {
-                        string_data.push(`使用者id:${data.anonymous ? '該投票為匿名' : data.join_member[i].id}|使用者名稱:${data.anonymous ? '該投票為匿名' : await interaction.guild.members.fetch(data.join_member[i].id) ? await interaction.guild.members.fetch(data.join_member[i].id).user.username + '#' + await interaction.guild.members.fetch(data.join_member[i].id).user.discriminator : '使用者已退出伺服器!'}|使用者投給的選項:${data.join_member[i].choise}|投票時間:${!isNaN(data.join_member[i].time) ? timeConverter(Number(data.join_member[i].time)) : data.join_member[i].time}`)
+                        string_data.push(`使用者id:${data.anonymous ? '該投票為匿名' : data.join_member[i].id}|使用者名稱:${data.anonymous ? '該投票為匿名' : await interaction.guild.members.fetch(data.join_member[i].id) ? (await interaction.guild.members.fetch(data.join_member[i].id)).user.username + '#' + (await interaction.guild.members.fetch(data.join_member[i].id)).user.discriminator : '使用者已退出伺服器!'}|使用者投給的選項:${data.join_member[i].choise}|投票時間:${!isNaN(data.join_member[i].time) ? timeConverter(Number(data.join_member[i].time)) : data.join_member[i].time}`)
                     }
                     let atc = new AttachmentBuilder(Buffer.from(`${string_data.join(`\n`)}`), {
                         name: 'discord.txt'

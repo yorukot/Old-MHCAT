@@ -53,10 +53,10 @@ client.on('interactionCreate', async (interaction) => {
         })
     }
     if (!(interaction.type === InteractionType.ModalSubmit)) return;
-    await interaction.deferReply();
     const text = interaction.fields.components[0].components[0].customId
     const all = interaction.fields.components[0].components[0].value
     if (text.includes('anser')) {
+        await interaction.deferReply();
         lock_channel.findOne({
             guild: interaction.guild.id,
             channel_id: interaction.customId.replace('anser', '')
@@ -110,6 +110,7 @@ client.on('interactionCreate', async (interaction) => {
             }
         })
     } else if (text.includes("cron_set")) {
+        await interaction.deferReply();
                 function cron_set_error(content) {
             const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red").setDescription(`<a:arrow_pink:996242460294512690> [點我前往教學網址](https://youtu.be/D43zPrZU5Fw)`);
             interaction.editReply({
@@ -587,6 +588,7 @@ client.on('interactionCreate', async (interaction) => {
         }
 
     } else if (text.includes("join_msg")) {
+        await interaction.deferReply();
         const content = interaction.fields.getTextInputValue("join_msgcontent");
         const color = interaction.fields.getTextInputValue("join_msgcolor");
         const img = interaction.fields.getTextInputValue("join_img");
@@ -629,6 +631,7 @@ client.on('interactionCreate', async (interaction) => {
             embeds: [welcome],
         });
     } else if (text.includes("leave_msg")) {
+        await interaction.deferReply();
         const content = interaction.fields.getTextInputValue("leave_msgcontent");
         const color = interaction.fields.getTextInputValue("leave_msgcolor");
         const title = interaction.fields.getTextInputValue("leave_msgtitle");
@@ -675,6 +678,7 @@ client.on('interactionCreate', async (interaction) => {
             embeds: [welcome],
         });
     } else if (text.includes("roleadd")) {
+        await interaction.deferReply();
         const role = interaction.fields.getTextInputValue(text);
         const add = text.replace("roleaddcontent", '') + `add`
         const delete1 = text.replace("roleaddcontent", '') + `delete`
@@ -699,6 +703,7 @@ client.on('interactionCreate', async (interaction) => {
         });
         greate("成功創建領取身分組")
     } else if (text.includes("ticket")) {
+        await interaction.deferReply();
         const color = interaction.fields.getTextInputValue('ticketcolor');
         const title = interaction.fields.getTextInputValue('tickettitle');
         const content = interaction.fields.getTextInputValue('ticketcontent');
@@ -720,6 +725,7 @@ client.on('interactionCreate', async (interaction) => {
         })
         greate("成功創建私人頻道")
     } else if (text.includes("ver")) {
+        await interaction.deferReply();
         let v = text.replace("ver", "");
         if (v === all) {
             verification.findOne({
@@ -741,6 +747,7 @@ client.on('interactionCreate', async (interaction) => {
             return errors("你的驗證碼輸入錯誤，請重試(如果看不清楚的話可以重打指令)")
         }
     } else if (text.includes("ann")) {
+        await interaction.deferReply();
         const tag = interaction.fields.getTextInputValue('anntag');
         const color = interaction.fields.getTextInputValue('anncolor');
         const title = interaction.fields.getTextInputValue('anntitle');

@@ -23,17 +23,18 @@ setInterval(() => {
             birthday.find({
                 guild: data1[x].guild
             }, async (err, data) => {
-                if(data1[x].guild === '976879837471973416') console.log(data)
                 if (data.length === 0) return
                 let guild = client.guilds.cache.get(data1[x].guild)
                 if (!guild) return 
-                console.log(guild.id)
                 let channel = guild.channels.cache.get(data1[x].channel)
                 if (!channel) return 
+                if(data1[x].guild === '976879837471973416') console.log(channel)
                 const role = guild.roles.cache.get(data1[x].role);
+                if(data1[x].guild === '976879837471973416') console.log(role)
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
                     if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
+                    if(data1[x].guild === '976879837471973416') console.log('go to start')
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {
                         if (data[y].birthday_day !== day) {
@@ -42,6 +43,7 @@ setInterval(() => {
                             }
                         }
                     }
+                    if(data1[x].guild === '976879837471973416') console.log('go to DD')
                     let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
                     if (data[y].birthday_month !== month) return 
                     if (data[y].birthday_day !== day) return 
@@ -52,6 +54,7 @@ setInterval(() => {
                     }
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                     if (data[y].send_msg_hour !== hour) return console.log('not hour')
+                    if(data1[x].guild === '976879837471973416') console.log('go to HH')
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
                     if (data[y].send_msg_min !== min) return  console.log('not min')
                     let msgggggg = data1[x].msg

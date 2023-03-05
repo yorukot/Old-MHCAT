@@ -129,9 +129,9 @@ setInterval(() => {
                 guild: data1[x].guild
             }, async (err, data) => {
                 if (data.length === 0) return
-                let guild = await client.guilds.fetch(data1[x].guild)
+                let guild = await client.guilds.cache.get(data1[x].guild)
                 if (!guild) return console.log("生日系統回報1" + data1[x])
-                let channel = await guild.channels.fetch(data1[x].channel)
+                let channel = await guild.channels.cache.get(data1[x].channel)
                 if (!channel) return console.log("生日系統回報2" + data1[x])
                 const role = await guild.roles.cache.get(`1024625455652950026`);
                 for (let y = 0; y < data.length; y++) {

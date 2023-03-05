@@ -31,7 +31,6 @@ setInterval(() => {
                 const role = guild.roles.cache.get(data1[x].role);
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
-                    console.log(userrrrrr.id)
                     if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {
@@ -49,10 +48,11 @@ setInterval(() => {
                         userrrrrr.roles.add(role)
                         } 
                     }
+                    console.log(userrrrrr.id)
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
-                    if (data[y].send_msg_hour !== hour) return 
+                    if (data[y].send_msg_hour !== hour) return console.log('not hour')
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
-                    if (data[y].send_msg_min !== min) return 
+                    if (data[y].send_msg_min !== min) return  console.log('not min')
                     let msgggggg = data1[x].msg
                     msgggggg = msgggggg.replace('{user}', `<@${data[y].user}>`)
                     msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)

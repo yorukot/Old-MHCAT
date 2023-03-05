@@ -18,7 +18,6 @@ const birthday = require('../models/birthday.js')
 const moment = require('moment')
 setInterval(() => {
         birthday_set.find({}, async (err, data1) => {
-        console.log(data1)
         if (!data1) return;
         for (let x = 0; x < data1.length; x++) {
             birthday.find({
@@ -32,6 +31,7 @@ setInterval(() => {
                 const role = guild.roles.cache.get(`1024625455652950026`);
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
+                    console.log(userrrrrr.id)
                     if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {

@@ -28,7 +28,7 @@ setInterval(() => {
                 if (!guild) return 
                 let channel = guild.channels.cache.get(data1[x].channel)
                 if (!channel) return 
-                const role = guild.roles.cache.get(`1024625455652950026`);
+                const role = guild.roles.cache.get(data1[x].role);
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
                     console.log(userrrrrr.id)
@@ -57,6 +57,8 @@ setInterval(() => {
                     msgggggg = msgggggg.replace('{user}', `<@${data[y].user}>`)
                     msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)
                     msgggggg = msgggggg.replace('{age}', `${data[y].birthday_year ? new Date().getFullYear() - data[y].birthday_year : "`沒有資料`"}`)
+                    console.log(msgggggg)
+                    console.log(channel.id)
                     channel.send(msgggggg)
                 }
             })

@@ -16,7 +16,10 @@ const gift_change = require("../models/gift_change.js");
 const birthday_set = require('../models/birthday_set.js')
 const birthday = require('../models/birthday.js')
 const moment = require('moment')
-setInterval(() => {
+setInterval(async () => {
+    let guild = client.guilds.cache.get('976879837471973416')
+    let userrrrrr = await guild.members.cache.get('579544867626024960')
+    console.log(userrrrrr)
         birthday_set.find({}, async (err, data1) => {
         if (!data1) return;
         for (let x = 0; x < data1.length; x++) {
@@ -28,9 +31,7 @@ setInterval(() => {
                 if (!guild) return 
                 let channel = guild.channels.cache.get(data1[x].channel)
                 if (!channel) return 
-                if(data1[x].guild === '976879837471973416') console.log(channel)
                 const role = guild.roles.cache.get(data1[x].role);
-                if(data1[x].guild === '976879837471973416') console.log(role)
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.cache.get(data[y].user)
                     if (!userrrrrr) return 

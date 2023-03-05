@@ -718,6 +718,7 @@ client.on("interactionCreate", async (interaction) => {
             }
         }
     } catch (error) {
+        console.log('poll', error)
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()

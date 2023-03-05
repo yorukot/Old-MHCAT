@@ -112,7 +112,7 @@ module.exports = {
             name: '要給多少精力',
             type: ApplicationCommandOptionType.Integer,
             description: '輸入要給多少精力!',
-            required: true,
+            required: true, 
         }]
     }],
     UserPerms: '除了打工介面其他都是需要訊息管理喔!',
@@ -246,12 +246,12 @@ module.exports = {
                         modal.addComponents(img1);
                         interaction.showModal(modal);
                         interaction.awaitModalSubmit({time: 60000})
-                        .then(interaction01111 => {
+                        .then(async interaction01111 => {
                             if(Number(interaction01111.customId) !== Number(interaction01111.fields.getTextInputValue("captcha"))){
                                 interaction01111.reply({content:`${client.emoji.error} | 驗證碼錯誤!`,embeds:[], components: []})
                                 return
                             }else{
-                                const msgg = interaction01111.deferReply()
+                                interaction01111.deferReply()
                                 setTimeout(() => {
                                 work_something.find({
                                     guild: interaction01111.guild.id,
@@ -374,7 +374,7 @@ module.exports = {
                                                 guild: interaction01111.channel.guild.id,
                                             }, async (err, data1111) => {
                                                 if (test[0].components.length < 1) return errors_edit(interaction01111, '還沒有適合你身分組的打工喔!可以請管理員增加打工!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
-                                                interaction01111.editReply({
+                                                let msgg = await interaction01111.editReply({
                                                     embeds: [
                                                         new EmbedBuilder()
                                                         .setTitle(`<:list:992002476360343602> 以下是${interaction01111.guild.name}的打工簡章`)

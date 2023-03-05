@@ -5,6 +5,4 @@ const coin = new mongoose.Schema({
     member: String,
     coin: Number,
     today: Number,
-});
-
-module.exports = new mongoose.model('coin', coin)
+});module.exports = new mongoose.model('coin', coin)

@@ -4,7 +4,6 @@ const {
 const CronJob = require('cron').CronJob;
 const client = require('../index');
 const lotter = require('../models/lotter.js')
-var CronJob = require('cron').CronJob;
 
 function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
@@ -134,14 +133,14 @@ setInterval(() => {
                 if (!guild) return console.log("生日系統回報1" + data1[x])
                 let channel = await guild.channels.fetch(data1[x].channel)
                 if (!channel) return console.log("生日系統回報2" + data1[x])
-                let role = guild.roles.cache.find(role => role.id === data1[x].role);
+                const role = await guild.roles.cache.get(`1024625455652950026`);
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
                     if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {
                         if (data[y].birthday_day !== day) {
-                            if (userrrrrr.roles.cache.find(r => r.id === data1[x].role)) {
+                            if ((await userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
                                 userrrrrr.roles.remove(role)
                             }
                         }
@@ -150,9 +149,9 @@ setInterval(() => {
                     if (data[y].birthday_month !== month) return
                     if (data[y].birthday_day !== day) return
                     if (data1[x].role) {
-                        if (!userrrrrr.roles.cache.find(r => r.id === data1[x].role)) {
-                            userrrrrr.roles.add(role)
-                        }
+                        if (!await userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
+                        userrrrrr.roles.add(role)
+                        } 
                     }
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                     if (data[y].send_msg_hour !== hour) return

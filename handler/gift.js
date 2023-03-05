@@ -4,6 +4,7 @@ const {
 const CronJob = require('cron').CronJob;
 const client = require('../index');
 const lotter = require('../models/lotter.js')
+var CronJob = require('cron').CronJob;
 
 function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
@@ -129,14 +130,14 @@ setInterval(() => {
                 guild: data1[x].guild
             }, async (err, data) => {
                 if (data.length === 0) return
-                let guild = client.guilds.cache.get(data1[x].guild)
-                if (!guild) return
-                let channel = guild.channels.cache.get(data1[x].channel)
-                if (!channel) return
+                let guild = await client.guilds.fetch(data1[x].guild)
+                if (!guild) return console.log("生日系統回報1" + data1[x])
+                let channel = await guild.channels.fetch(data1[x].channel)
+                if (!channel) return console.log("生日系統回報2" + data1[x])
                 let role = guild.roles.cache.find(role => role.id === data1[x].role);
                 for (let y = 0; y < data.length; y++) {
                     let userrrrrr = await guild.members.fetch(data[y].user)
-                    if (!userrrrrr) return console.log(data[y].user)
+                    if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                     if (data1[x].role) {
                         if (data[y].birthday_day !== day) {

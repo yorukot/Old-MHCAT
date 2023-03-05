@@ -16,11 +16,11 @@ const gift_change = require("../models/gift_change.js");
 const birthday_set = require('../models/birthday_set.js')
 const birthday = require('../models/birthday.js')
 const moment = require('moment')
-
 const job = new CronJob(
     '* * * * *',
     async function () {
             birthday_set.find({}, async (err, data1) => {
+                console.log(client.cluster.id)
                 if (!data1) return;
                 for (let x = 0; x < data1.length; x++) {
                     birthday.find({
@@ -34,6 +34,7 @@ const job = new CronJob(
                         const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             let userrrrrr = await guild.members.fetch(data[y].user)
+                            console.log(userrrrrr, data[y].user)
                             if (!userrrrrr) return console.log('使用者', data[y].user)
                             let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                             if (role) {
@@ -119,6 +120,7 @@ const job = new CronJob(
                     }
                 }
             })
+
             if (client.cluster.id === 0) {
                 work_user.find({}, async (err, data) => {
                     let Date_now = Math.round(Date.now() / 1000)

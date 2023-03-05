@@ -17,6 +17,25 @@ const {
     getInfo
 } = require('discord-hybrid-sharding');
 const moment = require("moment")
+
+
+const handleClick = () => {
+    fetch(
+      'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-C379C8EC-995B-43E1-B2F4-7A840FF6FAB8&locationName=臺北'
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const weatherElement = data.records.location[0].weatherElement;
+        const observationTime = data.records.location[0].time.obsTime;
+        const temperature = weatherElement.find((e) => e.elementName === 'TEMP').elementValue;
+        const humidity = weatherElement.find((e) => e.elementName === 'HUMD').elementValue;
+        const weatherReport = `天氣早報：${observationTime}，台北 的氣溫為 ${temperature}℃，相對濕度為 ${humidity}%。`;
+
+        console.log(weatherReport + weatherPrediction);
+        console.log(weatherReport);
+      });
+  };
+  handleClick()
 const client = new Client({
     makeCache: Options.cacheWithLimits({
         ReactionManager: 10,

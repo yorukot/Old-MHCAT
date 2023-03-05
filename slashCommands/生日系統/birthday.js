@@ -857,7 +857,7 @@ module.exports = {
                 birthday.find({
                     guild: interaction.guild.id,
                 }, async (err, data) => {
-                    if (data.length === 0) return errors_edit(interaction, '還沒有任何人有進行生日設置喔!')
+                    if (data.length === 0) return errors_edit(interaction, '還沒有任何人有進行生日設置喔!', 'allcommands/生日系統/birthday_date_add')
                     if (data) {
                         const e = data.map(
                             (w, i) => `${interaction.guild.members.cache.get(w.user) ? interaction.guild.members.cache.get(w.user).user.username + '#' + interaction.guild.members.cache.get(w.user).user.discriminator : '找不到使用者!'}(${w.user})  | 生日日期(YYYY/MM/DD):${w.birthday_year}/${w.birthday_month}/${w.birthday_day}`

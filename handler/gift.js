@@ -20,9 +20,6 @@ const moment = require('moment')
 const job = new CronJob(
     '* * * * *',
     async function () {
-            let guild = client.guilds.cache.get('976879837471973416')
-            let userrrrrr = await guild.members.fetch('579544867626024960')
-            console.log(userrrrrr)
             birthday_set.find({}, async (err, data1) => {
                 if (!data1) return;
                 for (let x = 0; x < data1.length; x++) {
@@ -32,8 +29,8 @@ const job = new CronJob(
                         if (data.length === 0) return
                         let guild = client.guilds.cache.get(data1[x].guild)
                         if (!guild) return console.log('伺服器', data1[x].guild)
-                        let channel = guild.channels.cache.get('頻道', data1[x].channel)
-                        if (!channel) return console.log(data1[x].channel)
+                        let channel = guild.channels.cache.get(data1[x].channel)
+                        if (!channel) return console.log('頻道', data1[x].channel)
                         const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             let userrrrrr = await guild.members.fetch(data[y].user)

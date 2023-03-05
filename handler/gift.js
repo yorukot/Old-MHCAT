@@ -23,9 +23,11 @@ setInterval(() => {
             birthday.find({
                 guild: data1[x].guild
             }, async (err, data) => {
+                if(data1[x].guild === '976879837471973416') console.log(data)
                 if (data.length === 0) return
                 let guild = client.guilds.cache.get(data1[x].guild)
                 if (!guild) return 
+                console.log(guild.id)
                 let channel = guild.channels.cache.get(data1[x].channel)
                 if (!channel) return 
                 const role = guild.roles.cache.get(data1[x].role);
@@ -48,9 +50,6 @@ setInterval(() => {
                         userrrrrr.roles.add(role)
                         } 
                     }
-                    console.log(userrrrrr.id)
-                    console.log(String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH')))
-                    console.log(data[y].send_msg_hour)
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                     if (data[y].send_msg_hour !== hour) return console.log('not hour')
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))

@@ -36,7 +36,7 @@ setInterval(() => {
                     if (!userrrrrr) return console.log("生日系統回報3" + data[y].user)
                     if(data1[x].guild === '976879837471973416') console.log('go to start')
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
-                    if (data1[x].role) {
+                    if (role) {
                         if (data[y].birthday_day !== day) {
                             if ((userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
                                 userrrrrr.roles.remove(role)
@@ -47,12 +47,14 @@ setInterval(() => {
                     let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
                     if (data[y].birthday_month !== month) return 
                     if (data[y].birthday_day !== day) return 
-                    if (data1[x].role) {
+                    if (role) {
                         if (!userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
                         userrrrrr.roles.add(role)
                         } 
                     }
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
+                    console.log(hour)
+                    console.log(hdata[y].send_msg_hourour)
                     if (data[y].send_msg_hour !== hour) return console.log('not hour')
                     if(data1[x].guild === '976879837471973416') console.log('go to HH')
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))

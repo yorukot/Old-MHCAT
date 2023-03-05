@@ -54,7 +54,7 @@ setInterval(() => {
                     }
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                     console.log(hour)
-                    console.log(hdata[y].send_msg_hourour)
+                    console.log(data[y].send_msg_hourour)
                     if (data[y].send_msg_hour !== hour) return console.log('not hour')
                     if(data1[x].guild === '976879837471973416') console.log('go to HH')
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))

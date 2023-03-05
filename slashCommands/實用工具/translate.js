@@ -64,7 +64,7 @@ module.exports = {
         })
         const translate = require('@vitalets/google-translate-api');
         const token = require('google-translate-token');
-        const a =  token.get('Hello')
+
         translate(get_member, {to: aaa}).then(res => {
             const embed = new EmbedBuilder()
             .setTitle("<:translate:986870996147507231> 翻譯系統")

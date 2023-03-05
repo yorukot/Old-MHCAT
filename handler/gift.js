@@ -123,7 +123,6 @@ setInterval(() => {
 
     birthday_set.find({}, async (err, data1) => {
         if (!data1) return;
-        const date = Math.floor(Date.now() / 1000)
         for (let x = 0; x < data1.length; x++) {
             birthday.find({
                 guild: data1[x].guild
@@ -146,17 +145,17 @@ setInterval(() => {
                         }
                     }
                     let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
-                    if (data[y].birthday_month !== month) return
-                    if (data[y].birthday_day !== day) return
+                    if (data[y].birthday_month !== month) return 
+                    if (data[y].birthday_day !== day) return 
                     if (data1[x].role) {
                         if (!await userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
                         userrrrrr.roles.add(role)
                         } 
                     }
                     let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
-                    if (data[y].send_msg_hour !== hour) return
+                    if (data[y].send_msg_hour !== hour) return 
                     let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
-                    if (data[y].send_msg_min !== min) return
+                    if (data[y].send_msg_min !== min) return 
                     let msgggggg = data1[x].msg
                     msgggggg = msgggggg.replace('{user}', `<@${data[y].user}>`)
                     msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)

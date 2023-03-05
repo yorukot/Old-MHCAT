@@ -123,6 +123,7 @@
     "vali-date": "^1.0.0",
     "validate-color": "^2.2.1",
     "weather-js": "^2.0.0",
+    "weather-taiwan": "^1.0.6",
     "wrappy": "^1.0.2",
     "write-excel-file": "^1.4.13",
     "ws": "^7.5.4",

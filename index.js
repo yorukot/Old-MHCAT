@@ -17,19 +17,6 @@ const {
     getInfo
 } = require('discord-hybrid-sharding');
 const moment = require("moment")
-
-
-const handleClick = () => {
-    fetch(
-      'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C379C8EC-995B-43E1-B2F4-7A840FF6FAB8'
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('data', data);
-      });
-  };
-handleClick()
-
 const client = new Client({
     makeCache: Options.cacheWithLimits({
         ReactionManager: 10,

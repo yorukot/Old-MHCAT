@@ -32,10 +32,7 @@ setInterval(() => {
                 const role = guild.roles.cache.get(data1[x].role);
                 if(data1[x].guild === '976879837471973416') console.log(role)
                 for (let y = 0; y < data.length; y++) {
-                    let userrrrrr = await guild.members.fetch(data[y].user)
-                    if(userrrrrr) console.log(data[y].user)
-                    if(!userrrrrr) console.log("媒人人人人人人人人人人",data[y].user)
-                    if(userrrrrr && userrrrrr.id === "579544867626024960") console.log('579544867626024960')
+                    let userrrrrr = await guild.members.cache.get(data[y].user)
                     if (!userrrrrr) return 
                     if(data1[x].guild === '976879837471973416' && userrrrrr.id === "579544867626024960") console.log('go to start')
                     let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))

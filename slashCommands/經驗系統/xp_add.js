@@ -122,12 +122,12 @@ module.exports = {
                         i = i + 1
                     }
                     data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${i}`}})
-                    data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp}`}})
+                    data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp === Number(data.xp) ? Number(data.xp) + xp_count : all_xp}`}})
                     interaction.editReply({
                         embeds: [
                             new EmbedBuilder()
                             .setTitle('<:xp:990254386792005663> 經驗系統')
-                            .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count === Number(data.xp) ? Number(data.xp) + xp_count : xp_count}\``)
+                            .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count}\``)
                             .setColor(client.color.greate)
                         ]
                     })
@@ -193,12 +193,12 @@ module.exports = {
                         i = i + 1
                     }
                     data.collection.updateOne(({guild: interaction.guild.id,member: member.id,}), {$set: {leavel: `${i}`}})
-                    data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp}`}})
+                    data.collection.updateOne(({ guild: interaction.guild.id,member: member.id, }), {$set: {xp: `${all_xp === Number(data.xp) ? Number(data.xp) + xp_count : all_xp}`}})
                         interaction.editReply({
                             embeds: [
                                 new EmbedBuilder()
                                 .setTitle('<:xp:990254386792005663> 經驗系統')
-                                .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count === Number(data.xp) ? Number(data.xp) + xp_count : xp_count}\``)
+                                .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count}\``)
                                 .setColor(client.color.greate)
                             ]
                         })

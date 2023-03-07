@@ -27,8 +27,8 @@ const job = new CronJob(
                         guild: data1[x].guild
                     }, async (err, data) => {
                         if (data.length === 0) return
-                        console.log('使用者', data[x].guild)
                         let guild = client.guilds.cache.get(data1[x].guild)
+                        console.log('使用者', data1[x].guild)
                         if (!guild) return console.log('伺服器', data1[x].guild)
                         let channel = guild.channels.cache.get(data1[x].channel)
                         if (!channel) return console.log('頻道', data1[x].channel)

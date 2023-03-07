@@ -127,7 +127,7 @@ module.exports = {
                         embeds: [
                             new EmbedBuilder()
                             .setTitle('<:xp:990254386792005663> 經驗系統')
-                            .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count}\``)
+                            .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count === Number(data.xp) ? Number(data.xp) + xp_count : xp_count}\``)
                             .setColor(client.color.greate)
                         ]
                     })
@@ -198,7 +198,7 @@ module.exports = {
                             embeds: [
                                 new EmbedBuilder()
                                 .setTitle('<:xp:990254386792005663> 經驗系統')
-                                .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count}\``)
+                                .setDescription(`${client.emoji.done}成功為:${member}\n增加:\`${xp_count === Number(data.xp) ? Number(data.xp) + xp_count : xp_count}\``)
                                 .setColor(client.color.greate)
                             ]
                         })

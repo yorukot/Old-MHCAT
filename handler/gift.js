@@ -26,6 +26,7 @@ const job = new CronJob(
                     birthday.find({
                         guild: data1[x].guild
                     }, async (err, data) => {
+                        if(!data) return
                         if (data.length === 0) return
                         let guild = client.guilds.cache.get(data1[x].guild)
                         console.log('使用者', data1[x].guild)
@@ -35,7 +36,6 @@ const job = new CronJob(
                         const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             let userrrrrr = await guild.members.fetch(data[y].user)
-                            console.log(userrrrrr, data[y].user)
                             if (!userrrrrr) return console.log('使用者', data[y].user)
                             let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                             if (role) {

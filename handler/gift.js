@@ -34,7 +34,7 @@ const job = new CronJob(
                         if (!channel) return console.log('頻道', data1[x].channel)
                         const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
-                            let userrrrrr = await guild.members.fetch(data[y].user)
+                            let userrrrrr =  guild.members.cache.get(data[y].user)
                             if (!userrrrrr) return console.log('使用者', data[y].user)
                             let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                             if (role) {

@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/home/ubuntu/MHCAT/"
+        target: "/root/MHCAT"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master

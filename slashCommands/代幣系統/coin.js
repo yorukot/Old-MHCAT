@@ -25,7 +25,7 @@ module.exports = {
     options: [{
         name: '使用者',
         type: ApplicationCommandOptionType.User,
-        description: '要改變的人',
+        description: '要查詢的使用者',
         required: false,
     }],
     video: 'https://mhcat.xyz/docs/coin',

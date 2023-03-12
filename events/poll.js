@@ -654,7 +654,7 @@ client.on("interactionCreate", async (interaction) => {
                                     .setPlaceholder('🔧投票發起人操作')
                                     .addOptions({
                                         label: `${data11111.can_see_result ? '隱藏' : '公開'}投票結果`,
-                                        description: `讓所有成員都${data11111.can_see_result ? '可以' : '無法'}查看該投票結果`,
+                                        description: `讓所有成員都${data11111.can_see_result ? '無法' : '可以'}查看該投票結果`,
                                         value: 'poll_public_result',
                                         emoji: '<:publicrelation:1023972880385585212>'
                                     }, {

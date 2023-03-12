@@ -23,7 +23,7 @@ client.once('ready', () => {
     })
     client.user.setPresence({
         activities: [{
-            name: `/help`
+            name: `/help 伺服器機房升級中!如有延遲敬請見諒`
         }],
         status: 'IDLE',
         type: "IDLE"

@@ -418,7 +418,7 @@ client.on("interactionCreate", async (interaction) => {
                             ctx.font = "20px TC, SC, JP, HK, font, Bengali, Arabic, emoji";
                             ctx.fillStyle = '#a8a8a8'
                             ctx.textAlign = 'left';
-                            ctx.fillText(`聊天經驗排行榜`, 118, 74)
+                            ctx.fillText(`語音經驗排行榜`, 118, 74)
                             //輸入排名
                             ctx.fillStyle = "#FFFF";
                             let font_size = number > 99 && number < 1000 ? 30 : number > 999 ? 25 : 40

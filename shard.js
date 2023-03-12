@@ -1,6 +1,7 @@
 const { ClusterManager, ReClusterManager,HeartbeatManager  } = require('discord-hybrid-sharding');
 const config = require('./config');
 const chalk = require("chalk");
+const moment = require('moment')
 const manager = new ClusterManager(`${__dirname}/index.js`, {
     totalShards: 'auto',
     shardsPerClusters: 8,
@@ -37,6 +38,8 @@ manager.on('clusterCreate', cluster => {
 
 manager.spawn({ timeout: -1 });
 
+const end_start = chalk.hex('#4DFFFF');
+
 process.on("unhandledRejection", (reason, p) => {
     console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
     console.log(end_start("\n[🚩 崩潰通知] 未處理的拒絕:"));
@@ -57,20 +60,7 @@ process.on("uncaughtExceptionMonitor", (err, origin) => {
     console.log(origin)
     console.log(end_start("=== 未捕獲的異常監視器 ===\n"));
 });
-process.on("beforeExit", (code) => {
-    exec('pm2 restart all', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-    });
-    console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
-    console.log(end_start("\n[🚩 崩潰通知] 退出前"));
-    console.log(code)
-    console.log(end_start("=== 退出前 ===\n"));
-});
+
 process.on("exit", (code) => {
     console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
     console.log(end_start("\n[🚩 崩潰通知] 退出"));

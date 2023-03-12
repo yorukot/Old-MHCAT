@@ -23,10 +23,10 @@ client.once('ready', () => {
     })
     client.user.setPresence({
         activities: [{
-            name: `/help 伺服器機房升級中!如有延遲敬請見諒`
+            name: `/help | mhcat.xyz`
         }],
-        status: 'IDLE',
-        type: "IDLE"
+        status: 'idle',
+        type: "idle"
     })
     
     /*let i = 0

@@ -27,6 +27,7 @@ module.exports = {
         description: '要對所有人的代幣除以多少(這個可以用來解決貨幣通彭)，不選的話就是全部清除!',
         required: false,
     }],
+    UserPerms: '服主',
     video: 'https://mhcat.xyz/docs/coin',
     emoji: `<:money:997374193026994236>`,
     run: async (client, interaction, options, perms) => {
@@ -38,6 +39,7 @@ module.exports = {
                     ephemeral: true
                 })
             }
+            if (interaction.member.id !== interaction.guild.ownerId) return errors("你必須擁有\`服主\`才能使用")
             const aaaaa = interaction.options.getInteger("除以多少")
             console.log(aaaaa)
             interaction.reply({

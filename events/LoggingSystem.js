@@ -13,26 +13,39 @@ const {
     AttachmentBuilder,
     ModalBuilder,
     TextInputBuilder,
-    PermissionsBitField
+    PermissionsBitField,
+    Events
 } = require('discord.js');
 const logging = require("../models/logging.js")
 
 
-client.on("messageContentEdited", (message, oldContent, newContent) => {
+client.on(Events.MessageUpdate, (oldContent, newContent) => {
     logging.findOne({
-        guild: message.channel.guild.id,
+        guild: oldContent.channel.guild.id,
     }, async (err, data) => {
         if (!data) return;
         const Logs = client.channels.cache.get(data.channel_id);
         if (!Logs) return;
-        if (!message.author) return;
-        if (message.author === null) return;
-        if (message.author === undefined) return;
-        user = message.author.username
+        if(oldContent.author.bot) return
+        if(!oldContent.author) return
+        if(newContent === undefined) return
         const MessageEdited = new EmbedBuilder()
-            .setColor(message.guild.members.me.displayHexColor)
-            .setTitle("訊息編輯")
-            .setDescription(`訊息編輯者:\n**${user}**\n \n舊訊息:\n${oldContent}\n \n新訊息:\n${newContent}\n \n訊息編輯位置:\n<#${message.channel.id}>`)
+        .setAuthor({
+            name: `${oldContent.author.username} | 訊息編輯`,
+            iconURL: `${oldContent.author.avatarURL({
+                extension: 'png'
+            }) ? oldContent.author.avatarURL({
+                extension: 'png'
+            }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
+    })
+            .setColor(`#46A3FF`)
+            .setDescription(`**<:edit:1084846013476511765> 訊息編輯者: <@${oldContent.author.id}> | <:Channel:994524759289233438> 訊息編輯位置: <#${oldContent.channel.id}>**
+            **<:book:1084846007545778217> 舊訊息:**
+            \`\`\`${oldContent} \`\`\`
+            **<:new:1084846011366785135> 新訊息:**
+            \`\`\`${newContent} \`\`\`
+            ${newContent.attachments.size > 0 ? `**<:attachment:1084846756799455242> 附件:** \n${newContent.attachments.map((a) => a.url)}` : ''}`)
+            .setFooter({ text: 'MHCAT帶給你最棒的Discord體驗!', iconURL: `${client.user.avatarURL()}` })
             .setTimestamp()
 
         return Logs.send({
@@ -41,7 +54,7 @@ client.on("messageContentEdited", (message, oldContent, newContent) => {
     })
 })
 
-client.on('messageDelete', async (message) => {
+client.on(Events.MessageDelete, async (message) => {
     if (message.guild === null) return;
     if (!message.guild) return;
     logging.findOne({
@@ -50,20 +63,25 @@ client.on('messageDelete', async (message) => {
         if (!data) return;
         const Logs = client.channels.cache.get(data.channel_id);
         if (!Logs) return;
-        const pic = message.attachments.size > 0 ? message.attachments.first().url : null
-        if (!Logs) return;
-        if (!message.author) return;
-        if (message.author === null) return;
-        if (message.author === undefined) return;
-        user = message.author.username
-        const deleted = new EmbedBuilder()
-            .setColor(message.guild.members.me.displayHexColor)
-            .setTitle("訊息刪除")
-            .setDescription(`訊息刪除者:\n**${user}**\n \n訊息:\n\`\`\`${message.content}\`\`\`\n \n訊息刪除位置:\n<#${message.channel.id}>`)
-            .setImage(pic)
+        if(!message.author) return
+        if(message.author.bot) return
+        const MessageEdited = new EmbedBuilder()
+            .setAuthor({
+                name: `${message.author.username} | 訊息刪除`,
+                iconURL: `${message.author.avatarURL({
+                    extension: 'png'
+                }) ? message.author.avatarURL({
+                    extension: 'png'
+                }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
+        })
+            .setColor('#84C1FF')
+            .setDescription(`**<:trash:1084846016798396526> 訊息刪除者: <@${message.author.id}> | <:Channel:994524759289233438> 訊息刪除位置: <#${message.channel.id}>**
+            **<:comments:985944111725019246> 訊息:**\n\`\`\`${message.content} \`\`\`
+            ${message.attachments.size > 0 ? `<:attachment:1084846756799455242> **附件(如果時間過長將會無法讀取):** \n${message.attachments.map((a) => a.url)}` : ''}`)
+            .setFooter({ text: 'MHCAT帶給你最棒的Discord體驗!', iconURL: `${client.user.avatarURL()}` })
             .setTimestamp()
         return Logs.send({
-            embeds: [deleted]
+            embeds: [MessageEdited],
         });
     })
 })

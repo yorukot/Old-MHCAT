@@ -26,8 +26,8 @@ client.on(Events.MessageUpdate, (oldContent, newContent) => {
         if (!data) return;
         const Logs = client.channels.cache.get(data.channel_id);
         if (!Logs) return;
-        if(oldContent.author.bot) return
         if(!oldContent.author) return
+        if(oldContent.author.bot) return
         if(newContent === undefined) return
         const MessageEdited = new EmbedBuilder()
         .setAuthor({
@@ -39,12 +39,12 @@ client.on(Events.MessageUpdate, (oldContent, newContent) => {
             }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
     })
             .setColor(`#46A3FF`)
-            .setDescription(`**<:edit:1084846013476511765> 訊息編輯者: <@${oldContent.author.id}> | <:Channel:994524759289233438> 訊息編輯位置: <#${oldContent.channel.id}>**
-            **<:book:1084846007545778217> 舊訊息:**
-            \`\`\`${oldContent} \`\`\`
-            **<:new:1084846011366785135> 新訊息:**
-            \`\`\`${newContent} \`\`\`
-            ${newContent.attachments.size > 0 ? `**<:attachment:1084846756799455242> 附件:** \n${newContent.attachments.map((a) => a.url)}` : ''}`)
+            .setDescription(`**<:edit:1084846013476511765> 訊息編輯者: <@${oldContent.author.id}> | <:Channel:994524759289233438> 訊息編輯位置: <#${oldContent.channel.id}>**`)
+            .addFields(
+                { name: `**<:book:1084846007545778217> 舊訊息:**`, value: `\`\`\`${oldContent} \`\`\``,inline: false},
+                { name: `**<:new:1084846011366785135> 新訊息:**`, value: `\`\`\`${newContent} \`\`\``,inline:false},
+                { name: `**<:attachment:1084846756799455242> 附件:**`, value: `${newContent.attachments.size > 0 ? `${newContent.attachments.map((a) => a.url)}` : '**沒有附件**'}`,inline: false},
+            )
             .setFooter({ text: 'MHCAT帶給你最棒的Discord體驗!', iconURL: `${client.user.avatarURL()}` })
             .setTimestamp()
 
@@ -75,9 +75,11 @@ client.on(Events.MessageDelete, async (message) => {
                 }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
         })
             .setColor('#84C1FF')
-            .setDescription(`**<:trash:1084846016798396526> 訊息刪除者: <@${message.author.id}> | <:Channel:994524759289233438> 訊息刪除位置: <#${message.channel.id}>**
-            **<:comments:985944111725019246> 訊息:**\n\`\`\`${message.content} \`\`\`
-            ${message.attachments.size > 0 ? `<:attachment:1084846756799455242> **附件(如果時間過長將會無法讀取):** \n${message.attachments.map((a) => a.url)}` : ''}`)
+            .setDescription(`**<:trash:1084846016798396526> 訊息刪除者: <@${message.author.id}> | <:Channel:994524759289233438> 訊息刪除位置: <#${message.channel.id}>**`)
+            .addFields(
+                { name: `**<:comments:985944111725019246> 訊息:**`, value: `\`\`\`${message.content} \`\`\``,inline: false},
+                { name: `**<:attachment:1084846756799455242> 附件:**`, value: `${message.attachments.size > 0 ? `${message.attachments.map((a) => a.url)}` : '**沒有附件**'}`,inline: false},
+            )
             .setFooter({ text: 'MHCAT帶給你最棒的Discord體驗!', iconURL: `${client.user.avatarURL()}` })
             .setTimestamp()
         return Logs.send({

@@ -61,27 +61,37 @@ registerFont(`./fonts/Comic-Sans-MS-copy-5-.ttf`, {
     family: 'Comic Sans MS'
 })
 module.exports = {
-    name: '我的檔案',
+    name: 'my-profile',
     cooldown: 10,
-    description: '查看自己在伺服器內的所有資料!',
+    description: 'Check about data in specific server!!',
     name_localizations: {
         "zh-TW": "我的檔案",
         "zh-CN": "我的档案",
         "en-US": "my-profile",
         "en-GB": "my-profile",
-        "ja": "私のプロフィール"
     },
     description_localizations: {
         "zh-TW": "查看自己在伺服器內的所有資料!",
         "zh-CN": "查看自己在伺服器内的所有资料!",
         "en-US": "Check about data in specific server!",
         "en-GB": "Check about data in specific server!",
-        "ja": "ギルド内のすべてのプロフィールをチェックしてください！"
     },
     options: [{
-        name: '使用者',
+        name: 'user',
+        name_localizations: {
+            "zh-TW": "使用者",
+            "zh-CN": "使用者",
+            "en-US": "user",
+            "en-GB": "user",
+        },
         type: ApplicationCommandOptionType.User,
         description: '查詢某位使用者的資料',
+        description_localizations: {
+            "zh-TW": "查詢某位使用者的資料!",
+            "zh-CN": "查询某位使用者的资料!",
+            "en-US": "Check a users data!",
+            "en-GB": "Check a users data!",
+        },
         required: false,
     }],
     video: 'https://mhcat.xyz/docs/snig',

@@ -19,13 +19,17 @@ client.once('ready', () => {
             commands.map(async cmd => {
                 let file = require(`../slashCommands/${dir}/${cmd}`);
 
-                let name = file.name || "No command name.";
-                let description = file.description || "No Description";
+                let name = file.name || null;
+                let name_localizations = file.name_localizations || null;
+                let description = file.description || null;
+                let description_localizations = file.description_localizations || null;
                 let options = file.options || [];
                 let DefaultMemberPermissions = file.DefaultMemberPermissions || [];
                 const data = {
                     name,
+                    name_localizations,
                     description,
+                    description_localizations,
                     options,
                     DefaultMemberPermissions,
                 }

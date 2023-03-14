@@ -75,7 +75,7 @@ module.exports = {
                         guild: interaction.guild.id,
                     }, async (err, data111) => {
                         if (!data111) return
-                        if (data.content.length + 1 >= Number(data111.ban_count)) {
+                        if (data.content.length >= Number(data111.ban_count)) {
                             if (data111.move === "停權") {
                                 if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.BanMembers)) return errors("我沒有權限ban掉他")
                                 interaction.guild.members.ban(user.id)

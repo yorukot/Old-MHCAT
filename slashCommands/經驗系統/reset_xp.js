@@ -53,9 +53,10 @@ module.exports = {
     emoji: `<:onehour:1000310711941087293>`,
     run: async (client, interaction, options, perms) => {
         try {
+            await interaction.deferReply();
             function errors(content) {
                 const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");
-                interaction.reply({
+                interaction.editReply({
                     embeds: [embed]
                 })
             }
@@ -72,7 +73,7 @@ module.exports = {
                         errors("這位使用者還沒有任何的經驗值喔!")
                     } else {
                         data.delete()
-                        interaction.reply(`${client.emoji.done} | 成功清除<@${member.id}>的聊天經驗`)
+                        interaction.editReply(`${client.emoji.done} | 成功清除<@${member.id}>的聊天經驗`)
                     }
                 })
             }else if (interaction.options.getSubcommand() === "重製個人聊天經驗") {
@@ -87,11 +88,11 @@ module.exports = {
                         errors("這位使用者還沒有任何的經驗值喔!")
                     } else {
                         data.delete()
-                        interaction.reply(`${client.emoji.done} | 成功清除<@${member.id}>的語音經驗`)
+                        interaction.editReply(`${client.emoji.done} | 成功清除<@${member.id}>的語音經驗`)
                     }
                 })
             }else if (interaction.options.getSubcommand() === "聊天經驗重製") {
-                interaction.reply({
+                interaction.editReply({
                     content: ":warning: | 一但刪除，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"
                 });
                 const filter = m => (m.member.id === interaction.member.id);
@@ -129,7 +130,7 @@ module.exports = {
                 })
                 });
             } else if (interaction.options.getSubcommand() === "語音經驗重製") {
-                interaction.reply({
+                interaction.editReply({
                     content: ":warning: | 一但刪除，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"
                 });
                 const filter = m => (m.member.id === interaction.member.id);

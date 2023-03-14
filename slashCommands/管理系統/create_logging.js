@@ -65,7 +65,7 @@ module.exports = {
                 })
             }
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
-            const channel = interaction.options.getChannel("Channel")
+            const channel = interaction.options.getChannel("channel")
             const channel_id = channel.id
             const loggin_embed = new EmbedBuilder()
                 .setTitle("<:logfile:985948561625710663> 日誌系統")

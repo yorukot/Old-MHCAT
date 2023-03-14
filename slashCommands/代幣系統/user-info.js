@@ -123,7 +123,7 @@ module.exports = {
                     .setColor('#FF5809')
                 ]
             });
-            const user = interaction.options.getUser('使用者') ? interaction.options.getUser('使用者') : interaction.user
+            const user = interaction.options.getUser('user') ? interaction.options.getUser('user') : interaction.user
             const member = await interaction.guild.members.fetch(user.id)
             //頭貼設置
             const canvas_user = createCanvas(128, 128)

@@ -19,8 +19,8 @@ const {
 module.exports = {
     name: 'Set-log-channel',
     name_localizations: {
-        "zh-TW": "设置日志频道",
-        "zh-CN": "設置日誌頻道",
+        "zh-TW": "設置日誌頻道",
+        "zh-CN": "设置日志频道",
         "en-US": "Set-log-channel",
         "en-GB": "Set-log-channel",
     },
@@ -33,12 +33,12 @@ module.exports = {
         "zh-CN": "设置日志讯息要在哪发送",
 	},
     options: [{
-        name: 'Channel',
+        name: 'channel',
         name_localizations: {
-            "zh-TW": "使用者",
-            "zh-CN": "使用者",
-            "en-US": "user",
-            "en-GB": "user",
+            "en-US": "channel",
+            "en-GB": "channel",
+            "zh-TW": "頻道",
+            "zh-CN": "頻道",
         },
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0,5],
@@ -65,7 +65,7 @@ module.exports = {
                 })
             }
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
-            const channel = interaction.options.getChannel("頻道")
+            const channel = interaction.options.getChannel("Channel")
             const channel_id = channel.id
             const loggin_embed = new EmbedBuilder()
                 .setTitle("<:logfile:985948561625710663> 日誌系統")

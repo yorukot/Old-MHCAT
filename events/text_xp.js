@@ -86,8 +86,8 @@ client.on("messageCreate", async (message) => {
                                 return message.author.send("你升級了，但是我沒有權限在" + channel111.name + "發送消息!")
                             }
                             const true_message = data1.message
-                            let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`) : ""
-                            const aaaaa = messsage.replace("(user)", `<@${message.member.id}>`)
+                            let messsage = data1.message ? true_message.replace("(leavel)", `${Number(data.leavel) + 1}`).replace("{level}", `${Number(data.leavel) + 1}`) : ""
+                            const aaaaa = messsage.replace("(user)", `<@${message.member.id}>`).replace("{user}", `<@${message.member.id}>`)
                             channel111.send(data1.message && (data1.message !== null) ? aaaaa : `🆙恭喜<@${message.member.id}> 的聊天等級成功升級到 ${Number(data.leavel) + 1}`)
                             const coin = require('../models/coin.js')
                             coin.findOne({

@@ -83,7 +83,7 @@ module.exports = {
                     .setValue(data ? data.title !== null ? data.title : '' : '')
                 const content = new TextInputBuilder()
                     .setCustomId('leave_msgcontent')
-                    .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: (membername) )")
+                    .setLabel("請輸入訊息內文(如要顯示用戶名可輸入: {MEMBERNAME} )")
                     .setStyle(TextInputStyle.Paragraph)
                     .setRequired(true)
                     .setValue(data.message_content !== null ? data.message_content : '')

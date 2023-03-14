@@ -32,7 +32,7 @@ module.exports = {
     },{
         name: '訊息',
         type: ApplicationCommandOptionType.String,
-        description: '當有人升等的訊息，輸入:(leavel)為等級，(user)為tag使用者',
+        description: '當有人升等的訊息，輸入:{level}為等級，{user}為tag使用者',
         required: false
     },{
         name: '顏色',

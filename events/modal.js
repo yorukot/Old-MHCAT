@@ -627,7 +627,7 @@ client.on('interactionCreate', async (interaction) => {
             .setImage(img ? img : null)
             .setTimestamp()
         interaction.editReply({
-            content: "下面為預覽，想修改嗎?再次輸入指令即可修改((membername)在到時候會變正常喔)",
+            content: "下面為預覽，想修改嗎?再次輸入指令即可修改({MEMBERNAME}在到時候會變正常喔)",
             embeds: [welcome],
         });
     } else if (text.includes("leave_msg")) {

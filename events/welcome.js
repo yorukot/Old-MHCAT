@@ -145,11 +145,11 @@ client.on("guildMemberAdd", (member) => {
           const MEMBER = member.user.username
           const content = data.message_content
           if (!content) return
-          const adsadsa = content.replace("(MEMBERNAME)", MEMBER)
-          const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`)
+          const adsadsa = content.replace("(MEMBERNAME)", MEMBER).replace("{MEMBERNAME}", MEMBER)
+          const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`).replace("{TAG}", `<@${member.user.id}>`)
           const welcome = new EmbedBuilder()
             .setAuthor({
-              name: `🪂 歡迎加入 ${member.guild.name}!`,
+              name: `🪂 歡迎加入 ${member.guild.name}`,
               iconURL: `${member.guild.iconURL() === null ? member.guild.members.me.displayAvatarURL({dynamic: true}) : member.guild.iconURL()}`
             })
             .setDescription(messageaaa)
@@ -183,7 +183,7 @@ client.on("guildMemberRemove", (member) => {
       if (!content) return
       const welcome = new EmbedBuilder()
         .setTitle(`${data.title}`)
-        .setDescription(content.replace("(MEMBERNAME)", MEMBER).replace("(ID)", id1111111))
+        .setDescription(content.replace("(MEMBERNAME)", MEMBER).replace("(ID)", id1111111).replace("{ID}", id1111111).replace("{MEMBERNAME}", id1111111))
         .setThumbnail(member.displayAvatarURL({
           dynamic: true
         }))

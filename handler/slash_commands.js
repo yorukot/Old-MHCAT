@@ -6,15 +6,8 @@ const {
 const {
     token
 } = require('../config.json')
-const {
-    REST
-} = require('@discordjs/rest');
-const {
-    Routes
-} = require('discord-api-types/v9');
-const rest = new REST({
-    version: '9'
-}).setToken(`${token}`);
+const { REST, Routes } = require('discord.js');
+const rest = new REST({ version: '10' }).setToken(token);
 client.once('ready', () => {
     setTimeout(() => {
 
@@ -50,17 +43,21 @@ client.once('ready', () => {
                             docs: file.docs
                         });
                         await client.application.commands.create(data);
-                        /*setTimeout(() => {
+                        setTimeout(() => {
                             rest.get(Routes.applicationCommands(client.user.id))
                             .then(data => {
                                 for (const command of data) {
                                     client.application.commands.fetch(`${command.id}`)
-                                    .then( (command) => {
-                                    if(!client.slash_commands.get(command.name)) command.delete().then(command => {console.log('delete' + command.name)})
+                                    .then( (command1) => {
+                                    if(!client.slash_commands.get(command1.name)){
+                                        console.log(command1.name)
+                                        rest.delete(Routes.applicationCommand(client.user.id, command1.id))
+                                        .catch()
+                                    }
                                     }).catch(console.error);
                             }
                         });
-                        }, 60 * 5 * 1000);*/
+                        }, 1000);
                     }, 500);
                 }
                 

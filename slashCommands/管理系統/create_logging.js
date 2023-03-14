@@ -17,12 +17,12 @@ const {
     PermissionsBitField
 } = require('discord.js');
 module.exports = {
-    name: 'Set-log-channel',
+    name: 'set-log-channel',
     name_localizations: {
         "zh-TW": "設置日誌頻道",
         "zh-CN": "设置日志频道",
-        "en-US": "Set-log-channel",
-        "en-GB": "Set-log-channel",
+        "en-US": "set-log-channel",
+        "en-GB": "set-log-channel",
     },
     cooldown: 10,
 	description: 'Set where log messages should send',

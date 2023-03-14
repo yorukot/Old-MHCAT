@@ -112,6 +112,7 @@
     "sliced": "^1.0.1",
     "sparse-bitfield": "^3.0.3",
     "string_decoder": "^1.1.1",
+    "string-similarity": "^4.0.4",
     "supports-color": "^7.2.0",
     "time-convert": "^0.0.2",
     "traditional-or-simplified": "^1.0.3",

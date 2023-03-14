@@ -76,7 +76,7 @@ module.exports = {
                         interaction.editReply(`${client.emoji.done} | 成功清除<@${member.id}>的聊天經驗`)
                     }
                 })
-            }else if (interaction.options.getSubcommand() === "重製個人聊天經驗") {
+            }else if (interaction.options.getSubcommand() === "重製個人語音經驗") {
                 const get_member = interaction.options.getUser("使用者")
                 const member = get_member ? get_member : interaction.user
                 voice_xp.findOne({

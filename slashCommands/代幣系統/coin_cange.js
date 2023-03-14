@@ -19,7 +19,7 @@ const {
 } = require("ws");
 module.exports = {
     name: '代幣相關設定',
-    cooldown: 10,
+    cooldown: 5,
     description: '改變每次扭蛋所需的代幣數量',
     options: [{
         name: '扭蛋所需代幣',

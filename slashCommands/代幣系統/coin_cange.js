@@ -18,34 +18,69 @@ const {
     errorMonitor
 } = require("ws");
 module.exports = {
-    name: '代幣相關設定',
-    cooldown: 5,
-    description: '改變每次扭蛋所需的代幣數量',
+    name: 'coin-related-settings',
+    name_localizations: {
+		"en-US": "coin-related-settings",
+		"zh-TW": "代幣相關設定",
+        "zh-CN": "代币相关设定",
+	},
+    cooldown: 10,
+	description: 'Various settings related to tokens',
+	description_localizations: {
+		"en-US": "Various settings related to tokens",
+		"zh-TW": "有關代幣的各項設定",
+        "zh-CN": "有关代币的各项设定",
+	},
     options: [{
-        name: '扭蛋所需代幣',
+        name: 'coin-raffle-takes',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次扭蛋所需的代幣數量',
+		description: 'The amount of coin raffle requires',
+		description_localizations: {
+			"en-US": "The amount of coin raffle requires",
+			"zh-TW": "每次扭蛋所需的代幣數量",
+            "zh-CN": "每次扭蛋所需的代币数量",
+		},
         required: true,
     }, {
-        name: '簽到所需時間',
+        name: 'check-in-cooldown-time',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次簽到所需時間(單位為小時)(如想設為0:00重製請打0)',
+		description: 'Time between check-in(Unit is hour)(If you want to set it to 0:00, type 0)',
+		description_localizations: {
+			"en-US": "Time between check-in(Unit is hour)(If you want to set it to 0:00, type 0)",
+			"zh-TW": "每次簽到所需時間(單位為小時)(如想設置為0:00重製請打0)",
+            "zh-CN": "每次签到所需时间(单位为小时)(如想设置为0:00重新制作请打0)",
+		},
         required: true,
     }, {
-        name: '簽到給予代幣數',
+        name: 'check-in-give-coins',
         type: ApplicationCommandOptionType.Integer,
-        description: '每次簽到會拿到多少代幣',
+		description: 'How many amount of coin check-in gives',
+		description_localizations: {
+			"en-US": "How many amount of coin check-in gives",
+			"zh-TW": "每次扭蛋所需的代幣數量",
+            "zh-CN": "每次扭蛋所需的代币数量",
+		},
         required: true,
     }, {
-        name: '通知頻道',
+        name: 'notification-channel',
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
-        description: '抽中後的通知頻道',
+		description: 'Channel to announcement raffle winner',
+		description_localizations: {
+			"en-US": "Channel to announcement raffle winner",
+			"zh-TW": "抽中後的通知頻道",
+            "zh-CN": "抽中后的通知频道",
+		},
         required: true,
     }, {
-        name: '等級提升倍數',
+        name: 'level-up-multiply-amount',
         type: ApplicationCommandOptionType.Number,
-        description: '等級提升時要給等級幾倍的代幣ex:假設你提升到9等，倍數設10就會得到 9*10=90',
+        description: 'How many coins you get when you level up.If your level is 9, and the multiply amount is 9,9*10=90',
+        description_localizations: {
+            "en-US": "How many coins you get when you level up.If your level is 9, and the multiply amount is 9,9*10=90",
+            "zh-TW": "等級提升時要給等級幾倍的代幣ex:假設你提升到9等，倍數設10就會得到 9*10=90",
+            "zh-CN": "等级提升时要给等级几倍的代币ex:假设你提升到9等，倍数设10就会得到9*10=90",
+        },
         required: true,
     }],
     video: 'https://mhcat.xyz/docs/required_coins',
@@ -61,11 +96,11 @@ module.exports = {
                     ephemeral: true
                 })
             }
-            const number = interaction.options.getInteger("扭蛋所需代幣")
-            const time = interaction.options.getInteger("簽到所需時間")
-            const channel = interaction.options.getChannel("通知頻道")
-            const sign_coin = interaction.options.getInteger("簽到給予代幣數")
-            const xp_multiple = interaction.options.getNumber("等級提升倍數")
+            const number = interaction.options.getInteger("Coin-raffle-takes")
+            const time = interaction.options.getInteger("check-in-cooldown-time")
+            const channel = interaction.options.getChannel("notification-channel")
+            const sign_coin = interaction.options.getInteger("check-in-give-coins")
+            const xp_multiple = interaction.options.getNumber("level-up-multiply-amount")
             if (number > 999999999) return errors("最高代幣設定數只能是999999999")
             if (sign_coin > 999999999) return errors("最高代幣設定數只能是999999999")
             if (time < 0 && time !== 0) return errors('必須大於-1(0代表0:00重製)')

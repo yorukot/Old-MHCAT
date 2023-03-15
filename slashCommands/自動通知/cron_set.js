@@ -20,13 +20,23 @@ function checkURL(image) {
     return (image.match(/\.(jpg|png)$/) != null);
 }
 module.exports = {
-    name: '自動通知',
+    name: 'automatic-notification',
     cooldown: 10,
-    description: '設定自動聊天頻道要在哪裡發送',
+	description: 'Set where automatic notification should be send',
+	description_localizations: {
+		"en-US": "Set where automatic notification should be send",
+		"zh-TW": "設定自動聊天頻道要在哪裡發送",
+        "zh-TW": "设置自动聊天频道要在哪发送",
+	},
     options: [{
-        name: '頻道',
+        name: 'channel',
         type: ApplicationCommandOptionType.Channel,
-        description: '輸入要發送的頻道!',
+	    description: 'Enter channel to send!',
+	    description_localizations: {
+		    "en-US": "Enter channel to send!",
+		    "zh-TW": "輸入要發送的頻道!",
+            "zh-TW": "输入要发送的频道",
+	    },
         channel_types: [0, 5],
         required: true
     }],
@@ -44,7 +54,7 @@ module.exports = {
             })
         }
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)
-        const channel1 = interaction.options.getChannel("頻道")
+        const channel1 = interaction.options.getChannel("channel")
         const channel = channel1.id
         const id = `${new Date().valueOf()}`
         cron_set.findOne({
@@ -89,7 +99,7 @@ module.exports = {
             .setStyle(TextInputStyle.Short);
         const title = new TextInputBuilder()
             .setCustomId('cron_settitle')
-            .setLabel("請輸入你的嵌入標題(如不輸入嵌入訊息相關，請 務必輸入文字)")
+            .setLabel("請輸入你的嵌入標題(如不輸入嵌入訊息相關，請務必輸入文字)")
             .setRequired(false)
             .setStyle(TextInputStyle.Short);
         const content = new TextInputBuilder()

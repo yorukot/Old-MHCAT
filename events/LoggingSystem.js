@@ -30,7 +30,7 @@ client.on(Events.MessageUpdate, (oldContent, newContent) => {
         if (!oldContent.author) return
         if (oldContent.author.bot) return
         if (newContent === undefined) return
-        if (oldContent === newContent) return
+        if (oldContent.content === newContent.content) return
         const MessageEdited = new EmbedBuilder()
             .setAuthor({
                 name: `${oldContent.author.username} | 訊息編輯`,

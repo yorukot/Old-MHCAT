@@ -17,7 +17,6 @@ const {
     Events
 } = require('discord.js');
 const logging = require("../models/logging.js")
-const stringSimilarity = require("string-similarity");
 
 client.on(Events.MessageUpdate, (oldContent, newContent) => {
     logging.findOne({
@@ -268,9 +267,9 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
                     .addFields({
                         name: `**<:roleplaying:985945121264635964> 身分組: **`,
                         value: `<:icons_text1:1000814305068986590><@&${get_per[index].id}>
-                        ${get_per[index].role_default.join('\n')}
-                        ${get_per[index].role_allow.join('\n')}
-                        ${get_per[index].role_deny.join('\n')}`,
+${get_per[index].role_default.join('\n')}
+${get_per[index].role_allow.join('\n')}
+${get_per[index].role_deny.join('\n')}`,
                         inline: false
                     })
                     .setFooter({

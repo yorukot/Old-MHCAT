@@ -381,9 +381,9 @@ module.exports = {
                                                         .setColor('Random')
                                                         .setFields(array)
                                                         .setDescription(`<:status:1048643690572283965> **你目前的打工狀態 :** \`${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `在${user_data.state}打工` : '待業中'}\`
-            <:chronometer:986065703369080884> **剩餘時間:** ${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `<t:${user_data.end_time}:R>` : '\`沒有打工再進行\`'}
-            <:lighting:1048626093994803200> **剩餘體力:** \`${user_data.energi} \\ ${data1111.max_energy}\`
-            <a:arrow_pink:996242460294512690> **點擊下方的按扭進行打工!**`)
+<:chronometer:986065703369080884> **剩餘時間:** ${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `<t:${user_data.end_time}:R>` : '\`沒有打工再進行\`'}
+<:lighting:1048626093994803200> **剩餘體力:** \`${user_data.energi} \\ ${data1111.max_energy}\`
+<a:arrow_pink:996242460294512690> **點擊下方的按扭進行打工!**`)
                                                         .setFooter({
                                                             text: `${interaction01111.user.tag}的查詢`,
                                                             iconURL: interaction01111.user.displayAvatarURL({
@@ -467,7 +467,7 @@ module.exports = {
                                                                     const embed = new EmbedBuilder()
                                                                         .setTitle(`<:working:1048617967799242772> 成功取得該工作!`)
                                                                         .setDescription(`${client.emoji.done}**你已經成功取得**\`${data.name}\`**的工作**
-                <:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
+<:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
                                                                         .setColor(client.color.greate)
                                                                     interaction01.update({
                                                                         embeds: [embed],
@@ -529,7 +529,7 @@ module.exports = {
                                                                             const embed = new EmbedBuilder()
                                                                                 .setTitle(`<:working:1048617967799242772> 成功取得該工作!`)
                                                                                 .setDescription(`${client.emoji.done}**你已經成功取得**\`${data.name}\`**的工作**
-                    <:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
+<:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
                                                                                 .setColor(client.color.greate)
                                                                             interaction01.update({
                                                                                 embeds: [embed],
@@ -679,9 +679,9 @@ module.exports = {
                                                     .setColor('Random')
                                                     .setFields(array)
                                                     .setDescription(`<:status:1048643690572283965> **你目前的打工狀態 :** \`${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `在${user_data.state}打工` : '待業中'}\`
-        <:chronometer:986065703369080884> **剩餘時間:** ${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `<t:${user_data.end_time}:R>` : '\`沒有打工再進行\`'}
-        <:lighting:1048626093994803200> **剩餘體力:** \`${user_data.energi} \\ ${data1111.max_energy}\`
-        <a:arrow_pink:996242460294512690> **點擊下方的按扭進行打工!**`)
+<:chronometer:986065703369080884> **剩餘時間:** ${(user_data.end_time - Math.round(Date.now() / 1000)) > 0 ? `<t:${user_data.end_time}:R>` : '\`沒有打工再進行\`'}
+<:lighting:1048626093994803200> **剩餘體力:** \`${user_data.energi} \\ ${data1111.max_energy}\`
+<a:arrow_pink:996242460294512690> **點擊下方的按扭進行打工!**`)
                                                     .setFooter({
                                                         text: `${interaction.user.tag}的查詢`,
                                                         iconURL: interaction.user.displayAvatarURL({
@@ -765,7 +765,7 @@ module.exports = {
                                                                 const embed = new EmbedBuilder()
                                                                     .setTitle(`<:working:1048617967799242772> 成功取得該工作!`)
                                                                     .setDescription(`${client.emoji.done}**你已經成功取得**\`${data.name}\`**的工作**
-            <:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
+<:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
                                                                     .setColor(client.color.greate)
                                                                 interaction01.update({
                                                                     embeds: [embed],
@@ -827,7 +827,7 @@ module.exports = {
                                                                         const embed = new EmbedBuilder()
                                                                             .setTitle(`<:working:1048617967799242772> 成功取得該工作!`)
                                                                             .setDescription(`${client.emoji.done}**你已經成功取得**\`${data.name}\`**的工作**
-                <:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
+<:tickmark:985949769224556614> **預計於:<t:${Math.round(Date.now() / 1000) + data.time}:R>打工完成**`)
                                                                             .setColor(client.color.greate)
                                                                         interaction01.update({
                                                                             embeds: [embed],

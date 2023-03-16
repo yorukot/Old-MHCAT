@@ -17,7 +17,7 @@ const {
     getInfo
 } = require('discord-hybrid-sharding');
 const moment = require("moment")
-
+const admin = ["1045177533320134657", "579544867626024960", "230217502385373184"]
 const client = new Client({
     makeCache: Options.cacheWithLimits({
         ReactionManager: 10,
@@ -104,7 +104,7 @@ const {
 } = require('bluebird');
 const end_start = chalk.hex('#4DFFFF');
 client.on('messageCreate', async (message) => {
-    if (message.author && message.author.id === "579544867626024960" && message.content === "MHCAT restart now") {
+    if (message.author && admin.includes(message.author.id) && message.content === "MHCAT restart now") {
         client.cluster.send({
             content: 'MHCAT restart now'
         });

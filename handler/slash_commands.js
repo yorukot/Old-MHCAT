@@ -51,7 +51,7 @@ client.once('ready', () => {
                 
             })
         })
-        setTimeout(() => {
+        setTimeout(() => { 
             rest.get(Routes.applicationCommands(client.user.id))
             .then(data => {
                 for (const command of data) {

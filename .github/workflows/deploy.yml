@@ -28,4 +28,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: url -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data '{"content": "請MHCAT開始執行重啟任務!"}' https://discord.com/api/webhooks/1085973338238754848/LKhKMjZHtI79ETab2-7yOufBEKtlOKiPyJsWFcALxgVQAyrJKyZB7qwTpLL36HLBqDRN
+        script: "url -i -H \"Accept: application/json\" -H \"Content-Type:application/json\" -X POST --data '{\"content\": \"請MHCAT開始執行重啟任務!\"}' https://discord.com/api/webhooks/1085973338238754848/LKhKMjZHtI79ETab2-7yOufBEKtlOKiPyJsWFcALxgVQAyrJKyZB7qwTpLL36HLBqDRN"

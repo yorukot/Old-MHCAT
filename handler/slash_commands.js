@@ -34,38 +34,37 @@ client.once('ready', () => {
                     DefaultMemberPermissions,
                 }
 
-                let option = name == "No command name." ? '❌斜線命令加載' : '✅ 斜線命令加載';
-                if (option == '✅ 斜線命令加載') {
+                let option = name == "No command name." ? `${name} | ❌斜線命令加載失敗` : `${name} | ✅ 斜線命令加載`;
+                if (option.includes('✅ 斜線命令加載')) {
                     setTimeout(async () => {
                         client.slash_commands.set(name, {
                             ...data,
-                            cooldown: file.cooldown,
                             emoji: file.emoji,
                             UserPerms: file.UserPerms,
                             run: file.run,
                             video: file.video,
                             docs: file.docs
                         });
-                        await client.application.commands.create(data);
-                        setTimeout(() => {
-                            rest.get(Routes.applicationCommands(client.user.id))
-                            .then(data => {
-                                for (const command of data) {
-                                    client.application.commands.fetch(`${command.id}`)
-                                    .then( (command1) => {
-                                    if(!client.slash_commands.get(command1.name)){
-                                        console.log(command1.name)
-                                        rest.delete(Routes.applicationCommand(client.user.id, command1.id))
-                                        .catch()
-                                    }
-                                    }).catch(console.error);
-                            }
-                        });
-                        }, 1000);
+                        await client.application.commands.create(data)
                     }, 500);
                 }
                 
             })
         })
+        setTimeout(() => {
+            rest.get(Routes.applicationCommands(client.user.id))
+            .then(data => {
+                for (const command of data) {
+                    client.application.commands.fetch(`${command.id}`)
+                    .then( (command1) => {
+                    if(!client.slash_commands.get(command1.name)){
+                        console.log(command1.name)
+                        rest.delete(Routes.applicationCommand(client.user.id, command1.id))
+                        .catch()
+                    }
+                    }).catch(console.error);
+            }
+        });
+        }, 1000);
     }, 500);
 })

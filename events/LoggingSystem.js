@@ -115,7 +115,6 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
         guild: oldChannel.guild.id,
     }, async (err, data) => {
         if (!data) return;
-        if(!data.channel_update) return console.log('881')
         const LogChannel = client.channels.cache.get(data.channel_id);
         if (!LogChannel) return;
 
@@ -234,7 +233,6 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
                             role_deny.push('<:prohibition:1085240255810129960> ' + test[array_count])
                         }
                     }
-                    //console.log(permission[index].deny.serialize())  
                     if (array_count === test.length - 1) {
                         if(role_allow.length !== 0 || role_deny.length !== 0 || role_default.length !== 0) get_per.push({
                             id: permission[index].id,

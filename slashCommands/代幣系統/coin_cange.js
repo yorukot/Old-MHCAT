@@ -33,6 +33,11 @@ module.exports = {
 	},
     options: [{
         name: 'coin-raffle-takes',
+        name_localizations: {
+			"en-US": "coin-raffle-takes",
+			"zh-TW": "扭蛋所需代幣",
+            "zh-CN": "扭蛋所需代幣",
+		},
         type: ApplicationCommandOptionType.Integer,
 		description: 'The amount of coin raffle requires',
 		description_localizations: {
@@ -43,6 +48,11 @@ module.exports = {
         required: true,
     }, {
         name: 'check-in-cooldown-time',
+        name_localizations: {
+			"en-US": "check-in-cooldown-time",
+			"zh-TW": "簽到所需時間",
+            "zh-CN": "簽到所需時間",
+		},
         type: ApplicationCommandOptionType.Integer,
 		description: 'Time between check-in(Unit is hour)(If you want to set it to 0:00, type 0)',
 		description_localizations: {
@@ -53,6 +63,11 @@ module.exports = {
         required: true,
     }, {
         name: 'check-in-give-coins',
+        name_localizations: {
+			"en-US": "check-in-give-coins",
+			"zh-TW": "簽到給予代幣數",
+            "zh-CN": "簽到給予代幣數",
+		},
         type: ApplicationCommandOptionType.Integer,
 		description: 'How many amount of coin check-in gives',
 		description_localizations: {
@@ -63,6 +78,11 @@ module.exports = {
         required: true,
     }, {
         name: 'notification-channel',
+        name_localizations: {
+			"en-US": "notification-channel",
+			"zh-TW": "通知頻道",
+            "zh-CN": "通知頻道",
+		},
         type: ApplicationCommandOptionType.Channel,
         channel_types: [0, 5],
 		description: 'Channel to announcement raffle winner',
@@ -74,6 +94,11 @@ module.exports = {
         required: true,
     }, {
         name: 'level-up-multiply-amount',
+        name_localizations: {
+			"en-US": "level-up-multiply-amount",
+			"zh-TW": "等級提升給予倍數",
+            "zh-CN": "等級提升給予倍數",
+		},
         type: ApplicationCommandOptionType.Number,
         description: 'How many coins you get when you level up.If your level is 9, and the multiply amount is 9,9*10=90',
         description_localizations: {
@@ -96,7 +121,7 @@ module.exports = {
                     ephemeral: true
                 })
             }
-            const number = interaction.options.getInteger("Coin-raffle-takes")
+            const number = interaction.options.getInteger("coin-raffle-takes")
             const time = interaction.options.getInteger("check-in-cooldown-time")
             const channel = interaction.options.getChannel("notification-channel")
             const sign_coin = interaction.options.getInteger("check-in-give-coins")

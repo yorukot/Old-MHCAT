@@ -43,23 +43,6 @@ client.on('interactionCreate', async (interaction) => {
                 .setColor(`#A6FFA6`)
             ]
         });
-        if (!cooldown.has(cmd.name)) {
-            cooldown.set(cmd.name, new Collection());
-        }
-        const current_time = Date.now()
-        const time_stamps = cooldown.get(cmd.name)
-        const cooldown_amount = (cmd.cooldown) * 1000
-        if (time_stamps.has(interaction.user.id)) {
-            const expiration_time = time_stamps.get(interaction.user.id) + cooldown_amount
-            if (current_time < expiration_time) {
-                const time_left = (expiration_time - current_time) / 1000
-                return interaction.reply({
-                    content: `<:stopwatch:1000703201479233546> | **你發送指令的速度太快了!請等待**\`${time_left.toFixed(1)}\`**秒後重試!!**`,
-                    ephemeral: true
-                })
-            }
-        }
-        time_stamps.set(interaction.user.id, current_time)
 
         let options = interaction.options._hoistedOptions;
         const perms = cmd.UserPerms

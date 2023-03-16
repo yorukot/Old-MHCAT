@@ -39,7 +39,6 @@ client.once('ready', () => {
                     setTimeout(async () => {
                         client.slash_commands.set(name, {
                             ...data,
-                            cooldown: file.cooldown,
                             emoji: file.emoji,
                             UserPerms: file.UserPerms,
                             run: file.run,

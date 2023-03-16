@@ -104,7 +104,8 @@ const {
 } = require('bluebird');
 const end_start = chalk.hex('#4DFFFF');
 client.on('messageCreate', async (message) => {
-    if (message.author && admin.includes(message.author.id) && message.content === "MHCAT restart now") {
+    console.log(message.author?.id)
+    if ((message.author && admin.includes(message.author.id) && message.content === "MHCAT restart now") || (message.author?.id === "1085973338238754848" && message.content === "請MHCAT開始執行重啟任務!")) {
         client.cluster.send({
             content: 'MHCAT restart now'
         });

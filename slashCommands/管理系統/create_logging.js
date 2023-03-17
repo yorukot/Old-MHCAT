@@ -80,7 +80,7 @@ module.exports = {
                     new SelectMenuBuilder()
                     .setCustomId('loggin_create')
                     .setPlaceholder('請選擇您需要的日誌')
-                    .setMaxValues(3)
+                    .setMaxValues(4)
                     .setMinValues(1)
                     .addOptions({
                         label: '訊息更新',
@@ -94,6 +94,10 @@ module.exports = {
                         label: '頻道更新',
                         description: '當頻道更新時發送日誌',
                         value: '頻道更新',
+                    }, {
+                        label: '用戶語音狀態更新',
+                        description: '當用戶離開或加入或是靜音之類的時發送這個通知',
+                        value: '用戶語音更新',
                     }),
                 );
             let msgg = await interaction.editReply({
@@ -114,26 +118,18 @@ module.exports = {
                     guild: interaction.channel.guild.id,
                 }, async (err, data) => {
                     if (data) data.delete()
-                    console.log(interaction01.values)
 
                     function get_true_or_false(permission) {
                         return interaction01.values.includes(permission) ? true : false
                     }
-                    interaction01.values
                     // 度資料庫的內容進行更新
-                    console.log({
-                        guild: interaction.guild.id,
-                        channel_id: channel_id,
-                        message_update: get_true_or_false('訊息更新'),
-                        message_delete: get_true_or_false('訊息刪除'),
-                        channel_update: get_true_or_false('頻道更新')
-                    })
                     data = new logging({
                         guild: interaction.guild.id,
                         channel_id: channel_id,
                         message_update: get_true_or_false('訊息更新'),
                         message_delete: get_true_or_false('訊息刪除'),
-                        channel_update: get_true_or_false('頻道更新')
+                        channel_update: get_true_or_false('頻道更新'),
+                        member_voice_update: get_true_or_false('用戶語音更新')
                     })
                     data.save()
                     // 設定embed & send embed

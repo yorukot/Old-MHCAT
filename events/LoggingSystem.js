@@ -115,6 +115,7 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
         guild: oldChannel.guild.id,
     }, async (err, data) => {
         if (!data) return;
+        if (!data.channel_update) return
         const LogChannel = client.channels.cache.get(data.channel_id);
         if (!LogChannel) return;
 
@@ -153,7 +154,8 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
             LogChannel.send({
                 embeds: [TopicUpdate]
             });
-        } else if (Array.from(newChannel.permissionOverwrites.cache.values()) !== Array.from(oldChannel.permissionOverwrites.cache.values())) {
+        }
+        else if (Array.from(newChannel.permissionOverwrites.cache.values()) !== Array.from(oldChannel.permissionOverwrites.cache.values())) {
             let permission = Array.from(newChannel.permissionOverwrites.cache.values())
             let old_permission = Array.from(oldChannel.permissionOverwrites.cache.values())
             let test = [
@@ -263,8 +265,8 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
                     .setColor('#FF5809')
                     .setDescription(`**<:shield:1019529265101930567> 頻道權限編輯者: <@${user.id}> | <:Channel:994524759289233438> 頻道: <#${oldChannel.id}>**`)
                     .addFields({
-                        name: `**<:roleplaying:985945121264635964> 身分組: **`,
-                        value: `<:icons_text1:1000814305068986590><@&${get_per[index].id}>
+                        name: `**<:roleplaying:985945121264635964> 身分組或使用者: **`,
+                        value: `<:icons_text1:1000814305068986590>${oldChannel.guild.roles.cache.get(get_per[index].id) ? `<@&${get_per[index].id}>` : `<@${get_per[index].id}>`}
 ${get_per[index].role_default.join('\n')}
 ${get_per[index].role_allow.join('\n')}
 ${get_per[index].role_deny.join('\n')}`,
@@ -281,10 +283,75 @@ ${get_per[index].role_deny.join('\n')}`,
             }
         }
 
-
-
     })
 });
+
+// Joined VC
+client.on(Events.VoiceStateUpdate, (oldState, newState) => {
+    logging.findOne({
+        guild: newState.guild ? newState.guild.id : oldState.guild.id,
+    }, async (err, data) => {
+        if (!data) return;
+        if (!data.member_voice_update) return
+        const LogChannel = client.channels.cache.get(data.channel_id);
+        if (!LogChannel) return;
+        if(!oldState.channel){
+            const VCJoined = new EmbedBuilder()
+                    .setAuthor({
+                        name: `${newState.member.user.username} | 使用者加入語音頻道`,
+                        iconURL: `${newState.member.user.avatarURL({
+                    extension: 'png'
+                }) ? newState.member.user.avatarURL({
+                    extension: 'png'
+                }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
+                    })
+                    .setColor('#F235FA')
+                    .setDescription(`**<:user:986064391139115028> 使用者: <@${newState.member.user.id}> | <:voice:1086216862355951636> 頻道: <#${newState.channelId}>**`)
+                    .addFields(
+                    {
+                        name: `**<:joines:1086217186256900098> 加入頻道:**`,
+                        value: `<#${newState.channelId}>(\`${newState.channel.name}\`)`,
+                        inline: false
+                    }, )
+                    .setFooter({
+                        text: 'MHCAT帶給你最棒的Discord體驗!',
+                        iconURL: `${client.user.avatarURL()}`
+                    })
+                    .setTimestamp()
+                return LogChannel.send({
+                    embeds: [VCJoined]
+                });
+        }else if(!newState.channel){
+            const VCJoined = new EmbedBuilder()
+                    .setAuthor({
+                        name: `${oldState.member.user.username} | 使用者退出語音頻道`,
+                        iconURL: `${oldState.member.user.avatarURL({
+                    extension: 'png'
+                }) ? oldState.member.user.avatarURL({
+                    extension: 'png'
+                }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
+                    })
+                    .setColor('#FA359A')
+                    .setDescription(`**<:user:986064391139115028> 使用者: <@${oldState.member.user.id}> | <:voice:1086216862355951636> 頻道: <#${oldState.channelId}>**`)
+                    .addFields(
+                    {
+                        name: `**<:leaves:1086219523264356513> 退出頻道:**`,
+                        value: `<#${oldState.channelId}>(\`${oldState.channel.name}\`)`,
+                        inline: false
+                    }, )
+                    .setFooter({
+                        text: 'MHCAT帶給你最棒的Discord體驗!',
+                        iconURL: `${client.user.avatarURL()}`
+                    })
+                    .setTimestamp()
+                return LogChannel.send({
+                    embeds: [VCJoined]
+                });
+        }
+    })
+})
+
+
 /*
 // unhandled Guild Channel Update
 client.on("unhandledGuildChannelUpdate", (oldChannel, newChannel) => {

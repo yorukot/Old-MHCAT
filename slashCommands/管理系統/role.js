@@ -47,7 +47,7 @@ module.exports = {
         const url = interaction.options.getString("訊息url") + "{"
         if(Number(role1.position) >= Number(interaction.guild.members.me.roles.highest.position)) return errors("我沒有權限給大家這個身分組(請把我的身分組調高)!")
         if(!url.includes("https://discord.com/channels/") && !url.includes("https://discordapp.com/channels/")) return errors('你輸入的不是一個訊息連結')
-        var aa = url.replace("https://discord.com/channels/", '')
+        var aa = url.replace("https://discord.com/channels/", '').replace("https://discordapp.com/channels/", '')
         var channel1 = aa.substring(aa.indexOf("/") + 1, aa.lastIndexOf("/"));
         var messageaa = aa.substring(aa.indexOf("/") + 1, aa.lastIndexOf("{"));
         var message1 = messageaa + "{"

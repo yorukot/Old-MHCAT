@@ -19,8 +19,8 @@ const {
 module.exports = {
     name: 'set-log-channel',
     name_localizations: {
-        "zh-TW": "設置日誌頻道",
-        "zh-CN": "设置日志频道",
+        "zh-TW": "設置日誌",
+        "zh-CN": "设置日志",
         "en-US": "set-log-channel",
         "en-GB": "set-log-channel",
     },

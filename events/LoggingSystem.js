@@ -14,6 +14,7 @@ const {
     ModalBuilder,
     TextInputBuilder,
     PermissionsBitField,
+    AuditLogEvent,
     Events
 } = require('discord.js');
 const logging = require("../models/logging.js")
@@ -78,6 +79,15 @@ client.on(Events.MessageDelete, async (message) => {
         if (!Logs) return;
         if (!message.author) return
         if (message.author.bot) return
+        let logs = await message.guild.fetchAuditLogs({type: 72, limit: 1});
+        let entry = logs.entries.find(a =>
+            // Small filter function to make use of the little discord provides to narrow down the correct audit entry.
+            a.target.id === message.author.id &&
+            a.extra.channel.id === message.channel.id
+            // Ignore entries that are older than 20 seconds to reduce false positives.
+          );
+        console.log(entry || null)
+          let author = entry?.executor || message.author
         const MessageEdited = new EmbedBuilder()
             .setAuthor({
                 name: `${message.author.username} | 訊息刪除`,
@@ -88,7 +98,7 @@ client.on(Events.MessageDelete, async (message) => {
                 }) : "https://media.discordapp.net/attachments/991337796960784424/1076068374284599307/yellow-discord-icon-15.jpg?width=699&height=701"}`
             })
             .setColor('#84C1FF')
-            .setDescription(`**<:trash:1084846016798396526> 訊息刪除者: <@${message.author.id}> | <:Channel:994524759289233438> 訊息刪除位置: <#${message.channel.id}>**`)
+            .setDescription(`**<:trash:1084846016798396526> 訊息刪除者: <@${author.id}> | <:user:986064391139115028> 訊息發送者:<@${message.author.id}> | <:Channel:994524759289233438> 訊息刪除位置: <#${message.channel.id}>**`)
             .addFields({
                 name: `**<:comments:985944111725019246> 訊息:**`,
                 value: `\`\`\`${message.content} \`\`\``,

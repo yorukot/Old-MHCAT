@@ -70,21 +70,21 @@ setInterval(() => {
                             if (hasPermissionInChannel3 && hasPermissionInChannel13) {
                                 const userNumber_channel = get_userNumebr.name
                                 if (!userNumber_channel.includes(`${data[x].userNumber_name}`)) {
-                                    get_userNumebr.setName(`${members.size}`)
+                                    get_userNumebr.setName(`${members}`)
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
                                         $set: {
-                                            userNumber_name: `${members.size}`
+                                            userNumber_name: `${members}`
                                         }
                                     })
                                 } else {
-                                    get_userNumebr.setName(userNumber_channel.replace(`${data[x].userNumber_name}`, `${members.size}`))
+                                    get_userNumebr.setName(userNumber_channel.replace(`${data[x].userNumber_name}`, `${members}`))
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
                                         $set: {
-                                            userNumber_name: `${members.size}`
+                                            userNumber_name: `${members}`
                                         }
                                     })
                                 }
@@ -102,7 +102,7 @@ setInterval(() => {
 
                                 const BotNumber_channel = get_BotNumber.name
                                 if (!BotNumber_channel.includes(`${data[x].BotNumber_name}`)) {
-                                    get_BotNumber.setName(`${members.size}`)
+                                    get_BotNumber.setName(`${bots.size}`)
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
@@ -134,7 +134,7 @@ setInterval(() => {
                             if (hasPermissionInChannel1 && hasPermissionInChannel11) {
                                 const channelnumber_channel = get_channelNumber.name
                                 if (!channelnumber_channel.includes(`${data[x].channelnumber_name}`)) {
-                                    get_channelNumber.setName(`${members.size}`)
+                                    get_channelNumber.setName(`${all_channel}`)
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
@@ -166,7 +166,7 @@ setInterval(() => {
 
                                 const textnumber_channel = get_textnumber.name
                                 if (!textnumber_channel.includes(`${data[x].textnumber_name}`)) {
-                                    get_textnumber.setName(`${members.size}`)
+                                    get_textnumber.setName(`${text_channel_number}`)
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {
@@ -198,7 +198,7 @@ setInterval(() => {
                             if (hasPermissionInChannel15 && hasPermissionInChannel115) {
                                 const voicenumber_channel = get_voicenumber.name
                                 if (voicenumber_channel.search(`${data[x].voicenumber_name}`) === -1) {
-                                    get_voicenumber.setName(`${members.size}`)
+                                    get_voicenumber.setName(`${voice_channel_number}`)
                                     data[x].collection.updateOne(({
                                         guild: data[x].guild,
                                     }), {

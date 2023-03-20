@@ -1128,7 +1128,6 @@ client.on("interactionCreate", async (interaction) => {
                 if (client.slash_commands.get(name1).hidden) return;
                 let slashcommand = client.slash_commands.get(name1)
                 let name = slashcommand.name_localizations ? slashcommand.name_localizations[interaction.guild.preferredLocale] : name1
-                console.log(slashcommand.description_localizations ? slashcommand.description_localizations[interaction.guild.preferredLocale] : slashcommand.description)
                 let des = slashcommand.description_localizations ? slashcommand.description_localizations[interaction.guild.preferredLocale] : slashcommand.description;
                 let emo = slashcommand.emoji;
                 let optionsa = slashcommand.options;

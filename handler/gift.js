@@ -19,8 +19,8 @@ const moment = require('moment')
 const job = new CronJob(
     '* * * * *',
     async function () {
-            /*
-            birthday_set.find({}, async (err, data1) => {
+            
+            /*birthday_set.find({}, async (err, data1) => {
                 console.log(client.cluster.id)
                 if (!data1) return;
                 for (let x = 0; x < data1.length; x++) {
@@ -64,8 +64,8 @@ const job = new CronJob(
                         }
                     })
                 }
-            })
-            */
+            })*/
+            
             lotter.find({}, async (err, data) => {
                 if (!data) return;
                 const date = Math.floor(Date.now() / 1000)

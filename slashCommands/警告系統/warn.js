@@ -111,7 +111,8 @@ module.exports = {
                 .setColor(client.color.error)
                 .setTitle("<:warning:985590881698590730> | 警告系統")
                 .setDescription(`<:KannaSip:997764767433379850> **你在${interaction.guild.name}被__警告__了!**\n` + `<:lightbulb:1002169670574546964> **原因:**${reason}` + `\n<:implementation:1002170846292488232> **執行者:**${interaction.member.user.username}(id:${interaction.user.id})`)
-            user.send({
+                if(user.name) return
+                user.send({
                 embeds: [warn]
             })
 

@@ -63,6 +63,7 @@ module.exports = {
                 .setColor("#00DB00")
                 .setTitle("<:warning:985590881698590730> | 警告系統")
                 .setDescription(`<:KannaSip:997764767433379850> **你在${interaction.guild.name}的所有__警告__被刪除了!**` + `\n<:implementation:1002170846292488232> **執行者:**${interaction.member.user.username}(id:${interaction.user.id})`)
+                if(user.name) return
                 user.send({embeds: [b] })
             } else {
                 errors("這位使用者沒有任何警告")

@@ -16,6 +16,7 @@ setInterval(() => {
                 if (guild) {
                     const bots = guild.members.cache.filter(member => member.user.bot);
                     const members = guild.memberCount - bots.size
+                    console.log(members)
                     const all_channel = guild.channels.cache.filter((c) => c.type !== "GUILD_CATEGORY").size;
                     const text_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
                     const voice_channel_number = guild.channels.cache.filter((c) => c.type === "voice").size;

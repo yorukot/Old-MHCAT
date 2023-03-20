@@ -90,7 +90,7 @@ module.exports = {
             type: ApplicationCommandOptionType.User,
             description: 'User to check',
             description_localizations: {
-                "zh-TW": "要查询的使用者",
+                "zh-TW": "要查詢的使用者",
                 "zh-CN": "要查询的使用者",
                 "en-US": "User to check",
             },
@@ -120,7 +120,7 @@ module.exports = {
         type: ApplicationCommandOptionType.Subcommand,
         description: 'MHCat shard informations',
         description_localizations: {
-            "zh-TW": "有关MHCAT分片的各种资讯",
+            "zh-TW": "有關MHCAT分片的各種資訊",
             "zh-CN": "有关MHCAT分片的各种资讯",
             "en-US": "MHCAT shard informations",
         },

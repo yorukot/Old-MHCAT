@@ -50,8 +50,8 @@ module.exports = {
         if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages))return errors(`你需要有\`${perms}\`才能使用此指令`)
         const member = interaction.options.getString("統計選項")
         const vt = interaction.options.getString("統計頻道類型")
-        const members = interaction.guild.members.cache.filter(member => !member.user.bot);
         const bots = interaction.guild.members.cache.filter(member => member.user.bot);
+        const members = interaction.guild.memberCount - bots.size
         if(vt !== "文字頻道" && vt !== "語音頻道")return errors("你沒有進行設置要文字頻道還是語音頻道!或是你打錯了!")
         const embed = new EmbedBuilder()
                 .setTitle("<a:greentick:980496858445135893> | 成功創建!頻道(不要動到數字就沒問題)跟類別的名稱都能自行更改喔!")
@@ -67,7 +67,7 @@ module.exports = {
                 switch (vt) {
                     case "語音頻道":
                         const membernumber = await interaction.guild.channels.create({
-                            name: `總人數:${interaction.guild.members.cache.size}`, 
+                            name: `總人數:${interaction.guild.memberCount}`, 
                             type:ChannelType.GuildVoice,
                             parent: parent.id,
                             permissionOverwrites: [
@@ -82,7 +82,7 @@ module.exports = {
                             ]
                         })
                             const usernumber = await interaction.guild.channels.create( {
-                            name: `總成員:${members.size}`,
+                            name: `總成員:${members}`,
                             type:ChannelType.GuildVoice,
                             parent: parent.id,
                             permissionOverwrites: [
@@ -115,9 +115,9 @@ module.exports = {
                             guild: interaction.guild.id,
                                 parent: parent.id,
                                 memberNumber: membernumber.id,
-                                memberNumber_name: interaction.guild.members.cache.size,
+                                memberNumber_name: interaction.guild.memberCount,
                                 userNumber: usernumber.id,
-                                userNumber_name: members.size,
+                                userNumber_name: members,
                                 BotNumber: botnumber.id,
                                 BotNumber_name: bots.size,
                                 channelnumber: null,
@@ -163,7 +163,7 @@ module.exports = {
                         break;
                         case "文字頻道":
                             const membernumber_text = await interaction.guild.channels.create( {
-                                name:`總人數: ${interaction.guild.members.cache.size}`,
+                                name:`總人數: ${interaction.guild.memberCount}`,
                                 type:ChannelType.GuildText,
                                 parent: parent.id,
                                 permissionOverwrites: [
@@ -178,7 +178,7 @@ module.exports = {
                                 ]
                             })
                             const usernumber_text = await interaction.guild.channels.create( {
-                                name: `總成員: ${members.size}`,
+                                name: `總成員: ${members}`,
                                 type:ChannelType.GuildText,
                                 parent: parent.id,
                                 permissionOverwrites: [
@@ -211,9 +211,9 @@ module.exports = {
                                 guild: interaction.guild.id,
                                 parent: parent.id,
                                 memberNumber: membernumber_text.id,
-                                memberNumber_name: interaction.guild.members.cache.size,
+                                memberNumber_name: interaction.guild.memberCount,
                                 userNumber: usernumber_text.id,
-                                userNumber_name: members.size,
+                                userNumber_name: members,
                                 BotNumber: botnumber_text.id,
                                 BotNumber_name: bots.size,
                                 channelnumber: null,

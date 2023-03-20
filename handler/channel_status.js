@@ -14,8 +14,8 @@ setInterval(() => {
             setTimeout(() => {
                 const guild = client.guilds.cache.get(data[x].guild);
                 if (guild) {
-                    const members = guild.members.cache.filter(member => !member.user.bot);
                     const bots = guild.members.cache.filter(member => member.user.bot);
+                    const members = guild.memberCount - bots 
                     const all_channel = guild.channels.cache.filter((c) => c.type !== "GUILD_CATEGORY").size;
                     const text_channel_number = guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size;
                     const voice_channel_number = guild.channels.cache.filter((c) => c.type === "voice").size;
@@ -37,7 +37,7 @@ setInterval(() => {
                                     guild: guild.id,
                                 }), {
                                     $set: {
-                                        memberNumber_name: guild.members.cache.size
+                                        memberNumber_name: guild.memberCount
                                     }
                                 })
                             } else {
@@ -46,7 +46,7 @@ setInterval(() => {
                                     guild: guild.id,
                                 }), {
                                     $set: {
-                                        memberNumber_name: guild.members.cache.size
+                                        memberNumber_name: guild.memberCount
                                     }
                                 })
                             }
@@ -57,7 +57,7 @@ setInterval(() => {
                     try {
 
 
-                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.members.cache.size)
+                        set_channel_name(data[x].memberNumber, data[x].memberNumber_name, guild.memberCount)
 
                         // userNumber =
                         const get_userNumebr = guild.channels.cache.get(data[x].userNumber)

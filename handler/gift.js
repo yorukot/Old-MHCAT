@@ -20,8 +20,7 @@ const job = new CronJob(
     '* * * * *',
     async function () {
             
-           /* birthday_set.find({}, async (err, data1) => {
-                console.log(client.cluster.id)
+            birthday_set.find({}, async (err, data1) => {
                 if (!data1) return;
                 for (let x = 0; x < data1.length; x++) {
                     birthday.find({
@@ -62,13 +61,12 @@ const job = new CronJob(
                             msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)
                             msgggggg = msgggggg.replace('{age}', `${data[y].birthday_year ? new Date().getFullYear() - data[y].birthday_year : "`沒有資料`"}`)
                             setTimeout(() => {
-                                console.log(userrrrrr)
                                 channel.send(msgggggg)
                             }, x * 500);
                         }
                     })
                 }
-            })*/
+            })
             
             lotter.find({}, async (err, data) => {
                 if (!data) return;

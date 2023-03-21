@@ -49,9 +49,7 @@ client.on("guildMemberAdd", (member) => {
             })
           ]
         })
-        setTimeout(() => {
-          member.kick("你的創建時數低於管理員所設定的時數 Your creation time is lower than the time set by the administrator")
-        }, 2000);
+        member.kick("你的創建時數低於管理員所設定的時數 Your creation time is lower than the time set by the administrator")
         const channel = member.guild.channels.cache.get(`${data11111.channel}`)
         if (!channel) return
         channel.send({
@@ -74,96 +72,97 @@ client.on("guildMemberAdd", (member) => {
             .setColor("Random")
           ]
         })
-      }
-    }
-    join_role.find({
-      guild: member.guild.id,
-    }, async (err, data) => {
-      if (!data) return
-      for (x = data.length - 1; x > -1; x--) {
-        if((data[x].give_to_who === 'all_user') || (!data[x].give_to_who)){
-          let role = member.guild.roles.cache.get(data[x].role)
-          if (!role) return
-        const owner = await member.guild.fetchOwner();
-        if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
-        member.roles.add(role)
-        }else if(data[x].give_to_who === 'all_bot'){
-          if(!member.user.bot) return
-          let role = member.guild.roles.cache.get(data[x].role)
-          if (!role) return
-        const owner = await member.guild.fetchOwner();
-        if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
-        member.roles.add(role)
-        }else if(data[x].give_to_who === 'all_member'){
-          if(member.user.bot) return
-          let role = member.guild.roles.cache.get(data[x].role)
-          if (!role) return
-        const owner = await member.guild.fetchOwner();
-        if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
-        member.roles.add(role)
-        }
-        
-      }
-    })
-    if (member.guild.id === "976879837471973416") {
-      if (client.user.id !== '964185876559196181') return
-      const channel = member.guild.channels.cache.get("977248106234142810")
-      const welcome = new EmbedBuilder()
-        .setAuthor({
-          name: '🪂 歡迎加入 MHCAT!',
-          iconURL: `${member.guild.members.me.displayAvatarURL({dynamic: true})}`,
-          url: 'https://dsc.gg/MHCAT'
+      } else {
+        join_role.find({
+          guild: member.guild.id,
+        }, async (err, data) => {
+          if (!data) return
+          for (x = data.length - 1; x > -1; x--) {
+            if ((data[x].give_to_who === 'all_user') || (!data[x].give_to_who)) {
+              let role = member.guild.roles.cache.get(data[x].role)
+              if (!role) return
+              const owner = await member.guild.fetchOwner();
+              if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
+              member.roles.add(role)
+            } else if (data[x].give_to_who === 'all_bot') {
+              if (!member.user.bot) return
+              let role = member.guild.roles.cache.get(data[x].role)
+              if (!role) return
+              const owner = await member.guild.fetchOwner();
+              if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
+              member.roles.add(role)
+            } else if (data[x].give_to_who === 'all_member') {
+              if (member.user.bot) return
+              let role = member.guild.roles.cache.get(data[x].role)
+              if (!role) return
+              const owner = await member.guild.fetchOwner();
+              if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
+              member.roles.add(role)
+            }
+
+          }
         })
-        .setDescription(`**<:welcome:978216428794679336> 歡迎 __${member.user.username}#${member.user.discriminator}__ 的加入!
+        if (member.guild.id === "976879837471973416") {
+          if (client.user.id !== '964185876559196181') return
+          const channel = member.guild.channels.cache.get("977248106234142810")
+          const welcome = new EmbedBuilder()
+            .setAuthor({
+              name: '🪂 歡迎加入 MHCAT!',
+              iconURL: `${member.guild.members.me.displayAvatarURL({dynamic: true})}`,
+              url: 'https://dsc.gg/MHCAT'
+            })
+            .setDescription(`**<:welcome:978216428794679336> 歡迎 __${member.user.username}#${member.user.discriminator}__ 的加入!
 :speech_balloon: <#979307778524979201>想要聊天的話歡迎到這裡!
 <:help:985948179709186058> <#1019746253652901889>對指令有問題都可以到這邊問喔!
 👾 <#1019763726213201920>有任何bug歡迎到這邊回報!
-
+    
 如果有建議或試任何的問題或想法歡迎到\n<#978218954600374272>開啟客服頻道**
-
+    
 也祝你在這個伺服器內有個美好的回憶~
-    `)
-        .setThumbnail(member.displayAvatarURL({
-          dynamic: true
-        }))
-        .setImage('https://i.imgur.com/cLCPRNq.png')
-        .setColor("Random")
-        .setTimestamp()
-      channel.send({
-        embeds: [welcome]
-      })
-    } else {
-      join_message.findOne({
-        guild: member.guild.id,
-      }, async (err, data) => {
-        if (!data) {
-          return
-
-        } else {
-          const channel = member.guild.channels.cache.get(data.channel)
-          if (!channel) return
-          const MEMBER = member.user.username
-          const content = data.message_content
-          if (!content) return
-          const adsadsa = content.replace("(MEMBERNAME)", MEMBER).replace("{MEMBERNAME}", MEMBER)
-          const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`).replace("{TAG}", `<@${member.user.id}>`)
-          const welcome = new EmbedBuilder()
-            .setAuthor({
-              name: `🪂 歡迎加入 ${member.guild.name}`,
-              iconURL: `${member.guild.iconURL() === null ? member.guild.members.me.displayAvatarURL({dynamic: true}) : member.guild.iconURL()}`
-            })
-            .setDescription(messageaaa)
+        `)
             .setThumbnail(member.displayAvatarURL({
               dynamic: true
             }))
-            .setColor(data.color === 'RANDOM' ? 'Random' : data.color)
-            .setImage(data.img ? data.img : null)
+            .setImage('https://i.imgur.com/cLCPRNq.png')
+            .setColor("Random")
             .setTimestamp()
           channel.send({
-            embeds: [welcome],
-          });
+            embeds: [welcome]
+          })
+        } else {
+          join_message.findOne({
+            guild: member.guild.id,
+          }, async (err, data) => {
+            if (!data) {
+              return
+
+            } else {
+              const channel = member.guild.channels.cache.get(data.channel)
+              if (!channel) return
+              const MEMBER = member.user.username
+              const content = data.message_content
+              if (!content) return
+              const adsadsa = content.replace("(MEMBERNAME)", MEMBER).replace("{MEMBERNAME}", MEMBER)
+              const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`).replace("{TAG}", `<@${member.user.id}>`)
+              const welcome = new EmbedBuilder()
+                .setAuthor({
+                  name: `🪂 歡迎加入 ${member.guild.name}`,
+                  iconURL: `${member.guild.iconURL() === null ? member.guild.members.me.displayAvatarURL({dynamic: true}) : member.guild.iconURL()}`
+                })
+                .setDescription(messageaaa)
+                .setThumbnail(member.displayAvatarURL({
+                  dynamic: true
+                }))
+                .setColor(data.color === 'RANDOM' ? 'Random' : data.color)
+                .setImage(data.img ? data.img : null)
+                .setTimestamp()
+              channel.send({
+                embeds: [welcome],
+              });
+            }
+          })
         }
-      })
+      }
     }
   })
 });

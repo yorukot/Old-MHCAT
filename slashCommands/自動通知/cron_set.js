@@ -21,6 +21,11 @@ function checkURL(image) {
 }
 module.exports = {
     name: 'automatic-notification',
+    name_localizations: {
+		"en-US": "automatic-notification",
+		"zh-TW": "自動通知",
+        "zh-CN": "自动通知",
+	},
     cooldown: 10,
 	description: 'Set where automatic notification should be send',
 	description_localizations: {
@@ -30,12 +35,17 @@ module.exports = {
 	},
     options: [{
         name: 'channel',
+        name_localizations: {
+            "en-US": "channel",
+            "zh-TW": "頻道",
+            "zh-CN": "頻道",
+        },
         type: ApplicationCommandOptionType.Channel,
 	    description: 'Enter channel to send!',
 	    description_localizations: {
 		    "en-US": "Enter channel to send!",
 		    "zh-TW": "輸入要發送的頻道!",
-            "zh-TW": "输入要发送的频道",
+            "zh-CN": "输入要发送的频道",
 	    },
         channel_types: [0, 5],
         required: true

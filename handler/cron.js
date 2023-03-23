@@ -65,21 +65,16 @@ setTimeout(() => {
         }
     })
 }, 60 * 1000);
-let guilds = client.guilds.cache
-let array = []
-guilds.map(x => {
-    array.push(x.id)
-})
-cron_set.find({
-    guild: { $in: array}
-}, async (err, data) => {
-    if (!data) return;
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].cron === null) data[i].delete()
-    }
-})
 
 if (client.cluster.id === 0) {
+    console.log('啟動次數')
+    cron_set.find({
+    }, async (err, data) => {
+        if (!data) return;
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].cron === null) data[i].delete()
+        }
+    })
     const job = new CronJob(
         ' 0 0 * * *',
         function () {

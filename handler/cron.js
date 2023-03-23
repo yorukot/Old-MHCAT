@@ -67,7 +67,6 @@ setTimeout(() => {
 }, 60 * 1000);
 
 if (client.cluster.id === 0) {
-    console.log('啟動次數')
     cron_set.find({
     }, async (err, data) => {
         if (!data) return;

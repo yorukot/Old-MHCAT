@@ -20,7 +20,7 @@ const job = new CronJob(
     '* * * * *',
     async function () {
 
-            /*birthday_set.find({}, async (err, data1) => {
+            birthday_set.find({}, async (err, data1) => {
                 if (!data1) return;
                 for (let x = 0; x < data1.length; x++) {
                     birthday.find({
@@ -29,33 +29,33 @@ const job = new CronJob(
                         if (!data) return
                         if (data.length === 0) return
                         let guild = client.guilds.cache.get(data1[x].guild)
-                        if (!guild) return console.log('伺服器', data1[x].guild)
+                        if (!guild) return
                         let channel = guild.channels.cache.get(data1[x].channel)
-                        if (!channel) return console.log('頻道', data1[x].channel)
-                        const role = guild.roles.cache.get(data1[x].role);
+                        if (!channel) return
+                        //const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
-                            let userrrrrr = await guild.members.fetch(data[y].user)
-                            if (!userrrrrr) return
                             let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
-                            if (role) {
+                            /*if (role) {
                                 if (data[y].birthday_day !== day) {
                                     if ((userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
                                         userrrrrr.roles.remove(role)
                                     }
                                 }
-                            }
+                            }*/
                             let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
                             if (data[y].birthday_month !== month) return
                             if (data[y].birthday_day !== day) return
-                            if (role) {
+                            /*if (role) {
                                 if (!userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
                                     userrrrrr.roles.add(role)
                                 }
-                            }
+                            }*/
                             let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                             if (data[y].send_msg_hour !== hour) return
                             let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
                             if (data[y].send_msg_min !== min) return
+                            let userrrrrr = await guild.members.fetch(data[y].user)
+                            if (!userrrrrr) return
                             let msgggggg = data1[x].msg
                             msgggggg = msgggggg.replace('{user}', `<@${data[y].user}>`)
                             msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)
@@ -66,7 +66,7 @@ const job = new CronJob(
                         }
                     })
                 }
-            })*/
+            })
 
             lotter.find({
                 end: false,

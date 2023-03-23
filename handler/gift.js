@@ -35,8 +35,7 @@ const job = new CronJob(
                         //const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             if(guild.id === "976879837471973416"){
-                                console.log(data[y])
-                                console.log(y)
+                                console.log(y + "     " + data[y].user)
                                 let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                                 /*if (role) {
                                     if (data[y].birthday_day !== day) {
@@ -54,10 +53,7 @@ const job = new CronJob(
                                 let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                                 let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
                                 if(
-                                    (data[y].birthday_month === month) &&
-                                    (data[y].birthday_day === day) &&
-                                    (data[y].send_msg_hour === hour) &&
-                                    (data[y].send_msg_min !== min)
+                                    (data[y].birthday_month === month) && (data[y].birthday_day === day) && (data[y].send_msg_hour === hour) && (data[y].send_msg_min === min)
                                 ){
                                     let userrrrrr = await guild.members.fetch(data[y].user)
                                     if (userrrrrr){

@@ -58,7 +58,6 @@ client.once('ready', () => {
                     client.application.commands.fetch(`${command.id}`)
                     .then( (command1) => {
                     if(!client.slash_commands.get(command1.name)){
-                        console.log(command1.name)
                         rest.delete(Routes.applicationCommand(client.user.id, command1.id))
                         .catch()
                     }

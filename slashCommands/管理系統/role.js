@@ -68,7 +68,6 @@ module.exports = {
             }
         }
         if(!reactionEmoji && !isEmoji(emoji)) return errors('你必須輸入正確的表情符號!(表情符號所在伺服器我必須在裡面!)')
-        console.log("emoji___" + isEmoji(emoji) ? emoji : emoji_id)
         const message = channel.messages.fetch({ message: message2, cache: false, force: true })
         .then(message32 => {
             if(!channel || !message32)return errors("很抱歉，找不到這個訊息")

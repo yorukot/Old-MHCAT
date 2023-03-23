@@ -22,8 +22,6 @@ module.exports = {
     emoji: `<:icons_goodping:1084881470075703367>`,
     run: async (client, interaction, options, perms) => {
         try {
-            console.log(interaction.createdTimestamp)
-            console.log(Date.now())
             interaction.reply(`${Date.now() - interaction.createdTimestamp > 125 ? Date.now() - interaction.createdTimestamp > 180 ? "<:icons_badping:1084881519581069482>"  : "<:icons_idelping:1084881570013388860>" : "<:icons_goodping:1084881470075703367>"} **Pong!** \`${Date.now() - interaction.createdTimestamp}\`ms`)
         } catch (error) {
             const error_send = require('../../functions/error_send.js')

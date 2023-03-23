@@ -41,7 +41,6 @@ module.exports = {
             }
             if (interaction.member.id !== interaction.guild.ownerId) return errors("你必須擁有\`服主\`才能使用")
             const aaaaa = interaction.options.getInteger("除以多少")
-            console.log(aaaaa)
             interaction.reply({
                 content: ":warning: | 一但重製，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"
             });

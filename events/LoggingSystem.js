@@ -86,7 +86,6 @@ client.on(Events.MessageDelete, async (message) => {
             a.extra.channel.id === message.channel.id
             // Ignore entries that are older than 20 seconds to reduce false positives.
           );
-        console.log(entry || null)
           let author = entry?.executor || message.author
         const MessageEdited = new EmbedBuilder()
             .setAuthor({

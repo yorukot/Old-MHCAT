@@ -32,10 +32,11 @@ const job = new CronJob(
                         if (!guild) return
                         let channel = guild.channels.cache.get(data1[x].channel)
                         if (!channel) return
-                        if(guild.id === "976879837471973416") console.log(data)
                         //const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             if(guild.id === "976879837471973416"){
+                                console.log(data[y])
+                                console.log(y)
                                 let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
                                 /*if (role) {
                                     if (data[y].birthday_day !== day) {
@@ -52,7 +53,6 @@ const job = new CronJob(
                                 }*/
                                 let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                                 let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
-                                console.log(data[y])
                                 if(
                                     (data[y].birthday_month === month) &&
                                     (data[y].birthday_day === day) &&

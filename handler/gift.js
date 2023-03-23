@@ -32,24 +32,12 @@ const job = new CronJob(
                         if (!guild) return
                         let channel = guild.channels.cache.get(data1[x].channel)
                         if (!channel) return
-                        //const role = guild.roles.cache.get(data1[x].role);
+                        const role = guild.roles.cache.get(data1[x].role);
                         for (let y = 0; y < data.length; y++) {
                             if(guild.id === "976879837471973416"){
                                 console.log(y + "     " + data[y].user)
                                 let day = String(moment().utcOffset(data1[x].utc).format('DD').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('DD').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('DD'))
-                                /*if (role) {
-                                    if (data[y].birthday_day !== day) {
-                                        if ((userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
-                                            userrrrrr.roles.remove(role)
-                                        }
-                                    }
-                                }*/
                                 let month = String(moment().utcOffset(data1[x].utc).format('MM').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('MM').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('MM'))
-                                /*if (role) {
-                                    if (!userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
-                                        userrrrrr.roles.add(role)
-                                    }
-                                }*/
                                 let hour = String(moment().utcOffset(data1[x].utc).format('HH').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('HH').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('HH'))
                                 let min = String(moment().utcOffset(data1[x].utc).format('mm').slice(0, 1)) === "0" ? Number(String(moment().utcOffset(data1[x].utc).format('mm').slice(1, 2))) : Number(moment().utcOffset(data1[x].utc).format('mm'))
                                 if(
@@ -62,6 +50,16 @@ const job = new CronJob(
                                         msgggggg = msgggggg.replace('{name}', `${userrrrrr.user.username}`)
                                         msgggggg = msgggggg.replace('{age}', `${data[y].birthday_year ? new Date().getFullYear() - data[y].birthday_year : "`沒有資料`"}`)
                                         channel.send(msgggggg)
+                                    }
+                                }else if((data[y].birthday_month === month) && (data[y].birthday_day === day) && role){
+                                    let userrrrrr = await guild.members.fetch(data[y].user)
+                                    if (!userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
+                                        userrrrrr.roles.add(role)
+                                    }
+                                }else if(role){
+                                    let userrrrrr = await guild.members.fetch(data[y].user)
+                                    if ((userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
+                                        userrrrrr.roles.remove(role)
                                     }
                                 }
                             }

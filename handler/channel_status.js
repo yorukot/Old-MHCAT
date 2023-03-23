@@ -8,7 +8,14 @@ const {
     PermissionsBitField
 } = require('discord.js')
 setInterval(() => {
-    Number.find({}, async (err, data) => {
+    let guilds = client.guilds.cache
+    let array = []
+    guilds.map(x => {
+        array.push(x.id)
+    })
+    Number.find({
+        guild: { $in: array}
+    }, async (err, data) => {
         if (!data) return;
         for (let x = 0; x < data.length; x++) {
             setTimeout(() => {

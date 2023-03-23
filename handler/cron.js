@@ -20,7 +20,14 @@ const {
     PermissionsBitField
 } = require('discord.js');
 setTimeout(() => {
-    cron_set.find({}, async (err, data) => {
+    let guilds = client.guilds.cache
+    let array = []
+    guilds.map(x => {
+        array.push(x.id)
+    })
+    cron_set.find({
+        guild: { $in: array}
+    }, async (err, data) => {
         if (data.length === 0) return;
         for (let i = 0; i < data.length; i++) {
             const guild = client.guilds.cache.get(data[i].guild)
@@ -58,13 +65,20 @@ setTimeout(() => {
         }
     })
 }, 60 * 1000);
-
-cron_set.find({}, async (err, data) => {
+let guilds = client.guilds.cache
+let array = []
+guilds.map(x => {
+    array.push(x.id)
+})
+cron_set.find({
+    guild: { $in: array}
+}, async (err, data) => {
     if (!data) return;
     for (let i = 0; i < data.length; i++) {
         if (data[i].cron === null) data[i].delete()
     }
 })
+
 if (client.cluster.id === 0) {
     const job = new CronJob(
         ' 0 0 * * *',

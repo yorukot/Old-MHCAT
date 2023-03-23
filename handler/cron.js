@@ -101,7 +101,8 @@ if (client.cluster.id === 0) {
             work_set.find({}, async (err, data) => {
                 for (let x = 0; x < data.length; x++) {
                     work_user.find({
-                        guild: data[x].guild
+                        guild: data[x].guild,
+                        energi: {$lt: data[x].max_energy}
                     }, async (err, data_1) => {
                         for (let i = 0; i < data.length; i++) {
                             data_1[i].collection.updateOne(({

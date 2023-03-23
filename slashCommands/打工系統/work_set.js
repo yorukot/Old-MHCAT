@@ -17,7 +17,7 @@ const {
 const work_set = require('../../models/work_set.js')
 const work_something = require('../../models/work_something.js')
 const work_user = require('../../models/work_user.js')
-const {errors_update, errors_edit} = require('../../functions/errors_edit')
+const {errors_update, errors_edit, errors_reply} = require('../../functions/errors_edit')
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -230,7 +230,7 @@ module.exports = {
                 work_set.findOne({
                     guild: interaction.channel.guild.id,
                 }, async (err, data1111) => {
-                    if (!data1111) return errors_edit(interaction, '請先請管理員使用`/打工系統 打工系統設定`進行初始設定!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
+                    if (!data1111) return errors_reply(interaction, '請先請管理員使用`/打工系統 打工系統設定`進行初始設定!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/user_work')
                     if(data1111.captcha){
                         let number1 = getRandomInt(10)
                         let number2 = getRandomInt(10)

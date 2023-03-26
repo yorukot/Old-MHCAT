@@ -280,7 +280,7 @@ client.on("interactionCreate", async (interaction) => {
                                 if (new_data_test.choise === data.choose_data[index]) {
                                     member_count = member_count + 1
                                 }
-                            } else if (data.join_member.length > 100) {
+                            } else if (data.join_member.length > 50) {
                                 test = '由於人數過多，無法顯示所有人'
                                 if (new_data_test.choise === data.choose_data[index]) {
                                     member_count = member_count + 1

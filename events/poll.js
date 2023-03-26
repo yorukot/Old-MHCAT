@@ -295,9 +295,9 @@ client.on("interactionCreate", async (interaction) => {
                             name: data.choose_data[index] + `(共${member_count}人 \`${(member_count /  data.join_member.length * 100).toFixed(2)}\`%)`,
                             value: test.length === 0 ? '<a:Discord_AnimatedNo:1015989839809757295> | 還沒有人投給這個選項' : test,
                             inline: false
-                        }, )
+                        },)
                     }
-
+                    console.log(data_array)
                     const embed = new EmbedBuilder()
                         .setTitle("<:poll:1023968837965709312> | " + data.question)
                         .addFields(data_array)

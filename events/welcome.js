@@ -33,8 +33,7 @@ client.on("guildMemberAdd", (member) => {
   create_hours.findOne({
     guild: member.guild.id,
   }, async (err, data11111) => {
-    if (data11111) {
-      if ((Math.round(Date.now()) - member.user.createdTimestamp) / 1000 < Number(data11111.hours)) {
+      if (data11111 && ((Math.round(Date.now()) - member.user.createdTimestamp) / 1000 < Number(data11111.hours))) {
         member.send({
           embeds: [
             new EmbedBuilder()
@@ -163,7 +162,6 @@ client.on("guildMemberAdd", (member) => {
           })
         }
       }
-    }
   })
 });
 

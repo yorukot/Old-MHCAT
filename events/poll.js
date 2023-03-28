@@ -297,7 +297,6 @@ client.on("interactionCreate", async (interaction) => {
                             inline: false
                         },)
                     }
-                    console.log(data_array)
                     const embed = new EmbedBuilder()
                         .setTitle("<:poll:1023968837965709312> | " + data.question)
                         .addFields(data_array)

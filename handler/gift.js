@@ -58,12 +58,16 @@ const job = new CronJob(
                                 }else if((data[y].birthday_month === month) && (data[y].birthday_day === day) && role){
                                     let userrrrrr = await guild.members.fetch(data[y].user)
                                     if (!userrrrrr.roles.cache.get(`${data1[x].role}`) && role) {
-                                        userrrrrr.roles.add(role)
+                                        if (!(Number(role.position) >= Number(guild.members.me.roles.highest.position))){
+                                            userrrrrr.roles.add(role)
+                                        }
                                     }
                                 }else if(role){
                                     let userrrrrr = await guild.members.fetch(data[y].user)
                                     if ((userrrrrr.roles.cache.get(`${data1[x].role}`)) && role) {
-                                        userrrrrr.roles.remove(role)
+                                        if (!(Number(role.position) >= Number(guild.members.me.roles.highest.position))){
+                                            userrrrrr.roles.remove(role)
+                                        }
                                     }
                                 }
                         }

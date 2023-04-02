@@ -70,7 +70,7 @@ module.exports = {
         try {
             await interaction.deferReply();
         function errors(content){const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");interaction.editReply({embeds: [embed]})}
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.KICK_MEMBERS))return errors(`你需要有\`${perms}\`才能使用此指令`)
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers))return errors(`你需要有\`${perms}\`才能使用此指令`)
         if(interaction.options.getSubcommand() === "小時數"){
         let number = interaction.options.getInteger("小時數")
         if(number <= 0)return errors("不可為負數或0!!!")

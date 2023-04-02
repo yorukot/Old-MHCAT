@@ -134,13 +134,9 @@ process.on("uncaughtExceptionMonitor", (err, origin) => {
     console.log(end_start("=== 未捕獲的異常監視器 ===\n"));
 });
 process.on("beforeExit", (code) => {
-    exec('pm2 restart now', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
+    const webhookClient = new WebhookClient({ url:'https://discord.com/api/webhooks/1085973338238754848/LKhKMjZHtI79ETab2-7yOufBEKtlOKiPyJsWFcALxgVQAyrJKyZB7qwTpLL36HLBqDRN' });
+    webhookClient.send({
+        content: '請MHCAT開始執行重啟任務!',
     });
     console.log(moment().utcOffset("+08:00").format('YYYYMMDDHHmm'))
     console.log(end_start("\n[🚩 崩潰通知] 退出前"));

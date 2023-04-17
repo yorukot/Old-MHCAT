@@ -132,10 +132,8 @@ client.on("guildMemberAdd", (member) => {
           join_message.findOne({
             guild: member.guild.id,
           }, async (err, data) => {
-            if (!data) {
-              return
-
-            } else {
+            if (!data) return
+              if(!data.enable) return
               const channel = member.guild.channels.cache.get(data.channel)
               if (!channel) return
               const MEMBER = member.user.username
@@ -158,7 +156,6 @@ client.on("guildMemberAdd", (member) => {
               channel.send({
                 embeds: [welcome],
               });
-            }
           })
         }
       }

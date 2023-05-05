@@ -108,7 +108,7 @@ module.exports = {
         },
         required: true,
     }],
-    video: 'https://mhcat.xyz/docs/required_coins',
+    video: 'https://docs.mhcat.xyz/docs/required_coins',
     emoji: `<:coins:997374177944281190>`,
     UserPerms: '訊息管理',
     run: async (client, interaction, options, perms) => {

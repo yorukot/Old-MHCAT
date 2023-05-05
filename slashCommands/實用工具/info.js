@@ -139,7 +139,7 @@ module.exports = {
             "en-US": "Server informations",
         },
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    //video: 'https://docs.mhcat.xyz/commands/announcement.html',
     emoji: `<:info:985946738403737620>`,
     run: async (client, interaction, options, perms) => {
             await interaction.deferReply().catch(e => {});

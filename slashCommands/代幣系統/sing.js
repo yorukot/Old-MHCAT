@@ -77,7 +77,7 @@ module.exports = {
     name: '簽到',
     cooldown: 60,
     description: '簽到來獲得代幣',
-    video: 'https://mhcat.xyz/docs/snig',
+    video: 'https://docs.mhcat.xyz/docs/snig',
     emoji: `<:sign:997374180632825896>`,
     run: async (client, interaction, options, perms) => {
 

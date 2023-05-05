@@ -51,7 +51,7 @@ module.exports = {
         ]
         
     }],
-    video: 'https://mhcat.xyz/docs/translate',
+    video: 'https://docs.mhcat.xyz/docs/translate',
     emoji: `<:help:985948179709186058>`,
     run: async (client, interaction, options, perms) => {
         try {

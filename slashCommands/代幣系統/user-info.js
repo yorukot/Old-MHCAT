@@ -94,7 +94,7 @@ module.exports = {
         },
         required: false,
     }],
-    video: 'https://mhcat.xyz/docs/snig',
+    video: 'https://docs.mhcat.xyz/docs/snig',
     emoji: `<:sign:997374180632825896>`,
     run: async (client, interaction, options, perms) => {
         try {

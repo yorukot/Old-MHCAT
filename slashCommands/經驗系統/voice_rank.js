@@ -67,7 +67,7 @@ module.exports = {
     name: '語音排行榜',
     cooldown: 10,
     description: '查詢語音經驗的排行榜',
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    //video: 'https://docs.mhcat.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
     run: async (client, interaction, options, perms) => {
         try {

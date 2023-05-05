@@ -98,7 +98,6 @@ client.on("guildMemberAdd", (member) => {
               if (Number(role.position) >= Number(member.guild.members.me.roles.highest.position)) return owner.send("很抱歉，我沒有權限給他加入的成員身分組\n麻煩請將我的身份組位階調高!\n身分組:<@" + role.id + ">")
               member.roles.add(role)
             }
-
           }
         })
         if (member.guild.id === "976879837471973416") {
@@ -133,14 +132,14 @@ client.on("guildMemberAdd", (member) => {
             guild: member.guild.id,
           }, async (err, data) => {
             if (!data) return
-              if(!data.enable) return
+              if(data.enable === false) return
               const channel = member.guild.channels.cache.get(data.channel)
               if (!channel) return
               const MEMBER = member.user.username
               const content = data.message_content
               if (!content) return
-              const adsadsa = content.replace("(MEMBERNAME)", MEMBER).replace("{MEMBERNAME}", MEMBER)
-              const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`).replace("{TAG}", `<@${member.user.id}>`)
+              const adsadsa = content.replace("(MEMBERNAME)", MEMBER).replace("{MEMBERNAME}", MEMBER).replace("{membername}", MEMBER)
+              const messageaaa = adsadsa.replace("(TAG)", `<@${member.user.id}>`).replace("{TAG}", `<@${member.user.id}>`).replace("{tag}", `<@${member.user.id}>`)
               const welcome = new EmbedBuilder()
                 .setAuthor({
                   name: `🪂 歡迎加入 ${member.guild.name}`,
@@ -177,7 +176,7 @@ client.on("guildMemberRemove", (member) => {
       if (!content) return
       const welcome = new EmbedBuilder()
         .setTitle(`${data.title}`)
-        .setDescription(content.replace("(MEMBERNAME)", MEMBER).replace("(ID)", id1111111).replace("{ID}", id1111111).replace("{MEMBERNAME}", id1111111))
+        .setDescription(content.replace("(MEMBERNAME)", MEMBER).replace("(ID)", id1111111).replace("{ID}", id1111111).replace("{MEMBERNAME}", MEMBER))
         .setThumbnail(member.displayAvatarURL({
           dynamic: true
         }))

@@ -49,7 +49,7 @@ module.exports = {
             },
         ],
     }],
-    video: 'https://mhcat.xyz/docs/gashapon',
+    video: 'https://docs.mhcat.xyz/docs/gashapon',
     emoji: `<:gashapon:997374176526610472>`,
     run: async (client, interaction, options, perms) => {
         try {

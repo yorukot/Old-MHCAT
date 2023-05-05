@@ -157,52 +157,68 @@ module.exports = {
                     })
                 })
             } else if (interaction.options.getSubcommand() === "新增打工事項") {
-                await interaction.deferReply();
-                if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
-                work_set.findOne({
-                    guild: interaction.guild.id,
-                }, async (err, data1111) => {
-                    if (!data1111) return errors_edit(interaction, '請先使用`/打工系統 打工系統設定`進行初始設定!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
 
-                    let name = interaction.options.getString("打工地點名稱")
-                    let time_1111 = interaction.options.getNumber("耗費時間")
-                    let energy = interaction.options.getInteger("耗費精力")
-                    let coin = interaction.options.getInteger("取得代幣")
-                    let role = interaction.options.getRole("身分組")
-                    let time = Math.round(time_1111 * 60 * 60)
-                    if (name.length > 50) return errors_edit(interaction, `名字輸入的太長了!`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
-                    work_something.find({
-                        guild: interaction.guild.id,
-                    }, async (err, data) => {
-                        if (data.length > 19) return errors_edit(interaction, `你的打工事項已經滿了，請先刪除一些!`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
-                        work_something.findOne({
-                            guild: interaction.guild.id,
-                            name: name
-                        }, async (err, data) => {
-                            if (data) data.delete()
-                            data = new work_something({
-                                guild: interaction.guild.id,
-                                name: name,
-                                time: time,
-                                energy: energy,
-                                coin: coin,
-                                role: role ? role.id : undefined
-                            })
-                            data.save()
-                            const embed = new EmbedBuilder()
-                                .setTitle(`<:working:1048617967799242772> 打工事項成功增加`)
-                                .setDescription(`<:id:1010884394791207003> **打工地點名稱:** \`${name}\`
-<:ontime:981966857718353950> **耗費時間:** \`${time_1111}小時\`
-<:lighting:1048626093994803200> **耗費精力:** \`${energy}\`
- <:money:997374193026994236> **取得代幣:** \`${coin}\`
-    `)
-                                .setColor(client.color.greate)
-                            interaction.editReply({
-                                embeds: [embed]
-                            })
-                        })
-                    })
-                })
+                const bt = new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
+                    .setURL(`https://mhcat.xyz//guilds/${interaction.guild.id}/work`)
+                    .setLabel('點我前往儀錶板設定!')
+                    .setEmoji("<a:arrow:986268851786375218>")
+                    .setStyle(ButtonStyle.Link),
+                );
+                return interaction.reply({
+                    embeds: [new EmbedBuilder()
+                    .setColor('#df1f2f')
+                    .setTitle('<a:announcement:1005035747197337650> | 該指令已經移往控制面板，請前往控制面板進行設定')
+                ],
+                components: [bt]
+                });
+//                 await interaction.deferReply();
+//                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors_edit(interaction, `你需要有\`${perms}\`才能使用此指令`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
+//                 work_set.findOne({
+//                     guild: interaction.guild.id,
+//                 }, async (err, data1111) => {
+//                     if (!data1111) return errors_edit(interaction, '請先使用`/打工系統 打工系統設定`進行初始設定!', 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
+
+//                     let name = interaction.options.getString("打工地點名稱")
+//                     let time_1111 = interaction.options.getNumber("耗費時間")
+//                     let energy = interaction.options.getInteger("耗費精力")
+//                     let coin = interaction.options.getInteger("取得代幣")
+//                     let role = interaction.options.getRole("身分組")
+//                     let time = Math.round(time_1111 * 60 * 60)
+//                     if (name.length > 50) return errors_edit(interaction, `名字輸入的太長了!`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
+//                     work_something.find({
+//                         guild: interaction.guild.id,
+//                     }, async (err, data) => {
+//                         if (data.length > 19) return errors_edit(interaction, `你的打工事項已經滿了，請先刪除一些!`, 'allcommands/%E6%89%93%E5%B7%A5%E7%B3%BB%E7%B5%B1/new_work')
+//                         work_something.findOne({
+//                             guild: interaction.guild.id,
+//                             name: name
+//                         }, async (err, data) => {
+//                             if (data) data.delete()
+//                             data = new work_something({
+//                                 guild: interaction.guild.id,
+//                                 name: name,
+//                                 time: time,
+//                                 energy: energy,
+//                                 coin: coin,
+//                                 role: role ? role.id : undefined
+//                             })
+//                             data.save()
+//                             const embed = new EmbedBuilder()
+//                                 .setTitle(`<:working:1048617967799242772> 打工事項成功增加`)
+//                                 .setDescription(`<:id:1010884394791207003> **打工地點名稱:** \`${name}\`
+// <:ontime:981966857718353950> **耗費時間:** \`${time_1111}小時\`
+// <:lighting:1048626093994803200> **耗費精力:** \`${energy}\`
+//  <:money:997374193026994236> **取得代幣:** \`${coin}\`
+//     `)
+//                                 .setColor(client.color.greate)
+//                             interaction.editReply({
+//                                 embeds: [embed]
+//                             })
+//                         })
+//                     })
+//                 })
             } else if (interaction.options.getSubcommand() === "打工事項刪除") {
                 await interaction.deferReply();
                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return errors(`你需要有\`${perms}\`才能使用此指令`)

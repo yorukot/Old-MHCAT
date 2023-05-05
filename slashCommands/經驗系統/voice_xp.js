@@ -30,7 +30,7 @@ module.exports = {
         description: '輸入玩家!',
         required: false
     }],
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    //video: 'https://docs.mhcat.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();

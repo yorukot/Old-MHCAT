@@ -64,7 +64,7 @@ setTimeout(() => {
             }
         }
     })
-}, 60 * 1000);
+}, 60 * 1500);
 
 if (client.cluster.id === 0) {
     cron_set.find({

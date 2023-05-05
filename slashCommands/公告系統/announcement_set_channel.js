@@ -69,7 +69,7 @@ module.exports = {
             channel_types: [0, 5],
         }]
     }],
-    video: 'https://mhcat.xyz/docs/ann_set',
+    video: 'https://docs.mhcat.xyz/docs/ann_set',
     emoji: `<:configuration:984010500608249886>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();

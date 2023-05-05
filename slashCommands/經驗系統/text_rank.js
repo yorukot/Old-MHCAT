@@ -65,7 +65,7 @@ module.exports = {
     name: '聊天排行榜',
     cooldown: 10,
     description: '查詢聊天經驗的排行榜',
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    //video: 'https://docs.mhcat.xyz.xyz.xyz/commands/announcement.html',
     emoji: `<:level1:985947371957547088>`,
     run: async (client, interaction, options, perms) => {
         try {

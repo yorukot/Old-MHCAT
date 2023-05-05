@@ -58,7 +58,7 @@ module.exports = {
         type: ApplicationCommandOptionType.Subcommand,
         description: '查看之前的設定',
     }],
-    video: 'https://mhcat.xyz/docs/chat_xp_set',
+    video: 'https://docs.mhcat.xyz/docs/chat_xp_set',
     UserPerms: '訊息管理',
     emoji: `<:configuration:984010500608249886>`,
     run: async (client, interaction, options, perms) => {

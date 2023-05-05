@@ -41,7 +41,7 @@ module.exports = {
         ],
     }],
     UserPerms: '訊息管理',
-    //video: 'https://mhcat.xyz/commands/statistics.html',
+    //video: 'https://docs.mhcat.xyzz/commands/statistics.html',
     emoji: `<:statistics:986108146747600928>`,
     run: async (client, interaction, options, perms) => {
         try {

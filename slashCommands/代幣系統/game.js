@@ -69,7 +69,7 @@ module.exports = {
             required: true,
         }]
     }],
-    video: 'https://mhcat.xyz/docs/coin_increase',
+    video: 'https://docs.mhcat.xyz/docs/coin_increase',
     emoji: `<:blackjack1:1005469910689923142>`,
     run: async (client, interaction, options, perms) => {
         await interaction.deferReply();

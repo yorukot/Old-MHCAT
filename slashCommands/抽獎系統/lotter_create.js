@@ -68,7 +68,7 @@ module.exports = {
         description: '設定最多只能有幾位參加',
         required: false,
     }],
-    video: 'https://mhcat.xyz/docs/lotter',
+    video: 'https://docs.mhcat.xyz/docs/lotter',
     UserPerms: '訊息管理',
     emoji: `<:lottery:985946439253381200>`,
     docs: [

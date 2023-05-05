@@ -93,6 +93,7 @@ client.color = color
 client.emoji = emoji
 require('./handler/slash_commands');
 require('./handler')(client);
+require('./handler/CheckBotisArr');
 require('./handler/channel_status');
 require('./handler/gift');
 require('./handler/cron');

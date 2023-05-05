@@ -1156,7 +1156,7 @@ client.on("interactionCreate", async (interaction) => {
                       let localizedDescription = description_localizations?.[interaction.guild.preferredLocale] || description;
                       let dota = {
                         name: `${cmds.length === 0 ? "進行中" : "" + co.cname + " " + localizedName + `:${co.id ? co.id : '964185876559196181'}>`}`,
-                        value: `${co.docs?.[x] ? `[前往文檔](https://mhcat.xyz/${co.docs[x]})` : ''}\`\`\`fix\n${localizedDescription}\`\`\``,
+                        value: `${co.docs?.[x] ? `[前往文檔](https://docs.mhcat.xyz/${co.docs[x]})` : ''}\`\`\`fix\n${localizedDescription}\`\`\``,
                         inline: true,
                       };
                       catts.push(dota);
@@ -1202,7 +1202,7 @@ client.on("interactionCreate", async (interaction) => {
                 .setLabel("支援伺服器")
                 .setEmoji("<:customerservice:986268421144592415>"),
                 new ButtonBuilder()
-                .setURL("https://mhcat.xyz")
+                .setURL("https://docs.mhcat.xyz")
                 .setEmoji("<:worldwideweb:986268131284627507>")
                 .setStyle(ButtonStyle.Link)
                 .setLabel("官方網站")

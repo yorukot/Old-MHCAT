@@ -20,7 +20,7 @@ module.exports = {
     name: '兌換',
     cooldown: 60,
     description: '兌換代碼',
-    //video: 'https://mhcat.xyz/commands/announcement.html',
+    //video: 'https://docs.mhcat.xyz/commands/announcement.html',
     options: [{
         name: '代碼',
         type: ApplicationCommandOptionType.String,

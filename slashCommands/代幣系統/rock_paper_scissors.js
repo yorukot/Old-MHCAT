@@ -42,7 +42,7 @@ module.exports = {
             },
         ],
     }],
-    video: 'https://mhcat.xyz/docs/required_coins',
+    video: 'https://docs.mhcat.xyz/docs/required_coins',
     emoji: `<:coins:997374177944281190>`,
     run: async (client, interaction, options, perms) => {
         try {

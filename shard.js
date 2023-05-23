@@ -6,15 +6,15 @@ const fetch = require('node-fetch');
 const chalk = require("chalk");
 const moment = require("moment");
 const manager = new ClusterManager(`${__dirname}/index.js`, {
-  totalShards: "auto",
-  shardsPerClusters: 8,
+  totalShards: 'auto',
+  shardsPerClusters: 1,
   mode: "process",
   token: config.token,
   totalClusters: "auto",
 });
 let optional = {
-  totalShards: "auto",
-  shardsPerClusters: 8,
+  totalShards: 'auto',
+  shardsPerClusters: 1,
   mode: "process",
   token: config.token,
   totalClusters: "auto",
@@ -45,6 +45,10 @@ manager.on("clusterCreate", (cluster) => {
       manager.recluster?.start({ restartMode: "rolling", optional });
     }
   });
+});
+
+manager.on('shardCreate', shard => {
+  console.log(`Shard ${shard.id} launched`);
 });
 
 manager.spawn({ timeout: -1 });
@@ -85,6 +89,9 @@ async function sendHeartbeat() {
     await fetch("https://betteruptime.com/api/v1/heartbeat/5QG72ywMUo6aqFLoiDrAYb69", {
       method: "POST",
     });
-  }
+    await fetch("https://mhcatstatus.nightcat.xyz/api/push/3hshdpmoMc?status=up&msg=OK&ping=", {
+      method: "GET",
+    });
+}
   
 setInterval(sendHeartbeat, 20000);

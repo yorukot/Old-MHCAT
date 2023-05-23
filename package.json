@@ -1,6 +1,12 @@
 {
   "name": "discordbot",
-  "version": "2.4.1",
+  "version": "2.4.5",
+  "scripts": {
+    "build": "pm2 restart mhcat",
+    "bigupdate": "npm version major --no-git-tag-version",
+    "update": "npm version patch --no-git-tag-version ",
+    "start": "node shard"
+  },
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -9,6 +15,7 @@
     "@discordjs/rest": "^0.4.1",
     "@discordjs/voice": "^0.9.0",
     "@haileybot/captcha-generator": "^1.7.0",
+    "@sentry/node": "^7.51.0",
     "@vitalets/google-translate-api": "^8.0.0",
     "add-subtract-date": "^1.0.15",
     "ansi-styles": "^4.3.0",

@@ -10,9 +10,6 @@ const {
     Options
 } = require('discord.js');
 const {
-    exec
-} = require('child_process');
-const {
     ClusterClient,
     getInfo
 } = require('discord-hybrid-sharding');
@@ -98,11 +95,7 @@ require('./handler/channel_status');
 require('./handler/gift');
 require('./handler/cron');
 if (client.cluster.maintenance) console.log(`Bot on maintenance mode with ${client.cluster.maintenance}`);
-
 const chalk = require('chalk');
-const {
-    all
-} = require('bluebird');
 const end_start = chalk.hex('#4DFFFF');
 client.on('messageCreate', async (message) => {
     if ((message.author && admin.includes(message.author.id) && message.content === "MHCAT restart now") || (message.author?.id === "1085973338238754848" && message.content === "請MHCAT開始執行重啟任務!")) {
@@ -190,3 +183,12 @@ client.receiveBotInfo = async () => {
 }
 
 client.login(client.config.token)
+var pjson = require('./package.json');
+
+const Sentry = require("@sentry/node");
+Sentry.init({
+    dsn: "https://daa01e8cf5c747a3a63cac86de8482c5@o4505024945324032.ingest.sentry.io/4505143073177600",
+    release: "MHCAT-Discord-node@" + pjson.version,
+    integrations: [new Sentry.Integrations.Http({ tracing: true })],
+    tracesSampleRate: 0.05,
+  });

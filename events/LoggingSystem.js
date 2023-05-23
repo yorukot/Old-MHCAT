@@ -21,7 +21,7 @@ const logging = require("../models/logging.js")
 
 client.on(Events.MessageUpdate, (oldContent, newContent) => {
     logging.findOne({
-        guild: oldContent.channel.guild.id,
+        guild: oldContent?.channel?.guild?.id,
     }, async (err, data) => {
         if (!data) return;
         if (!data.message_update) return

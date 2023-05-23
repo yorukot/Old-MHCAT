@@ -13,10 +13,10 @@ const readywebhook = new WebhookClient({
 client.once('ready', () => {
     const chalk = require('chalk')
     console.log(chalk.hex('#00FFFF').bold('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓'))
-    console.log(chalk.hex('#00FFFF').bold('┃           機器人成功上線             ┃'))
+    console.log(chalk.hex('#00FFFF').bold(`┃           ${client.cluster.id}機器人成功上線            ┃`))
     console.log(chalk.hex('#00FFFF').bold('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛'))
     let embed = new EmbedBuilder()
-        .setTitle(`**${client.user.username}**已就緒`)
+        .setTitle(`**${client.cluster.id} | ${client.user.username}**已就緒`)
         .setColor("Green")
     if (client.user.id !== "984485913201635358") readywebhook.send({
         embeds: [embed]

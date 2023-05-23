@@ -181,6 +181,10 @@ const job = new CronJob(
                     data[x].member[
                       getRandomArbitrary(0, data[x].member.length)
                     ];
+                    const index = data[x].member.indexOf(winner);
+                    if (index > -1) {
+                      data[x].member.splice(index, 1); // 從陣列中刪除一個元素
+                    }
                   if (winner === undefined) {
                     y--;
                   } else {

@@ -6,11 +6,11 @@
     "leaveWebhook": "",
     "readyWebhook": "",
     "reportwebhook": "",
+    "dashboardURL": "",
     "color": {
         "greate": "#53FF53",
         "error": "#EA0000"
     },
-    "dashboardURL": "",
     "emoji": {
         "error": "<a:error:980086028113182730>",
         "delete": "<:trashbin:995991389043163257>",

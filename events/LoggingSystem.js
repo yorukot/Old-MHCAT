@@ -133,7 +133,7 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
                 type: 11,
                 limit: 1
             })
-            let user = user_1.entries.first().executor
+            let user = user_1.entries.first()?.executor
             // 頻道主題更新
             const TopicUpdate = new EmbedBuilder()
                 .setAuthor({
@@ -259,7 +259,7 @@ client.on(Events.ChannelUpdate, (oldChannel, newChannel) => {
                 type: 11,
                 limit: 1
             })
-            let user = user_1.entries.first().executor
+            let user = user_1.entries.first()?.executor
             //發送消息
             for (let index = 0; index < get_per.length; index++) {
                 const channel_permission_embed = new EmbedBuilder()

@@ -334,7 +334,7 @@ module.exports = {
                     ctx.fillText("Tue.", 325, 185);
                     ctx.fillText("Wed.", 453, 185);
                     ctx.fillText("Thu.", 581, 185);
-                    ctx.fillText("Fir.", 709, 185);
+                    ctx.fillText("Fri.", 709, 185);
                     ctx.fillText("Sat.", 837, 185);
 
                     ctx.drawImage(canvas_user, 900, 35, 80, canvas_user.height * (80 / canvas_user.width))

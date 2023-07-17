@@ -150,10 +150,12 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
                     userLimit: data.limit,
                     permissionOverwrites: newMember.channel.parent.permissionOverwrites.cache,
                 }).then(channel => {
-                    channel.permissionOverwrites.edit(newMember.id, {
-                        ManageChannels: true,
-                        ManageRoles: true
-                    })
+                    setTimeout(() => {
+                        channel.permissionOverwrites.edit(newMember.id, {
+                            ManageChannels: true,
+                            ManageRoles: true
+                        })
+                    }, 1000);
                     if (data.lock) {
                         lock_channel.findOne({
                             guild: newMember.guild.id,

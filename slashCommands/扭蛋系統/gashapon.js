@@ -224,6 +224,14 @@ module.exports = {
 
                                             })
                                         }
+                                        data.collection.updateOne(({
+                                            guild: interaction.channel.guild.id,
+                                            member: interaction.member.id
+                                        }), {
+                                            $set: {
+                                                coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw) + testtttt
+                                            }
+                                        })
                                     });
                                 }, i * 285)
                             }
@@ -253,14 +261,6 @@ module.exports = {
                                         ]
                                     })
                                 }
-                                data.collection.updateOne(({
-                                    guild: interaction.channel.guild.id,
-                                    member: interaction.member.id
-                                }), {
-                                    $set: {
-                                        coin: data.coin - (!data11111 ? 500 * draw : data11111.coin_number * draw) + testtttt
-                                    }
-                                })
                             }, 8500);
                         })
                     })

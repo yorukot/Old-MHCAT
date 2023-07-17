@@ -17,7 +17,7 @@ const moment = require("moment");
 const job = new CronJob(
   "* * * * *",
   async function () {
-    /*let guilds = client.guilds.cache;
+    let guilds = client.guilds.cache;
     let array = [];
     guilds.map((x) => {
       array.push(x.id);
@@ -41,7 +41,8 @@ const job = new CronJob(
               let channel = guild.channels.cache.get(data1[x].channel);
               if (!channel) return;
               const role = guild.roles.cache.get(data1[x].role);
-              if (!role) return;
+              if (data1[x].role && !role) return;
+              console.log("AAAA")
               for (let y = 0; y < data.length; y++) {
                 let day =
                   String(
@@ -159,7 +160,7 @@ const job = new CronJob(
           );
         }
       }
-    );*/
+    );
 
     lotter.find(
       {

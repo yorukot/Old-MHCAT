@@ -174,11 +174,8 @@ client.on("messageCreate", async (message) => {
 
         const guilddata = await guild.findOne({guild: message.guild.id})
         if(!guilddata) return
-        console.log(guilddata.voice_detection, message.channel.id)
         if(guilddata.voice_detection !== message.channel.id) return
-        console.log(message.member)
         if(message.member?.voice?.channelId){
-            console.log(message.member.voice.channelId)
             message.channel.send(`<#${message.member.voice.channelId}>`)
         } 
     } catch (error) {

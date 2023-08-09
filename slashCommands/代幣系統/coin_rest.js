@@ -39,7 +39,11 @@ module.exports = {
                     ephemeral: true
                 })
             }
-            if (interaction.member.id !== interaction.guild.ownerId) return errors("你必須擁有\`服主\`才能使用")
+            const error_embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | 只有服主可以使用這個指令!`).setColor("Red");
+            if (interaction.member.id !== interaction.guild.ownerId) return interaction.reply({
+                embeds: [error_embed],
+                ephemeral: true
+            })
             const aaaaa = interaction.options.getInteger("除以多少")
             interaction.reply({
                 content: ":warning: | 一但重製，___**將無法復原**___，如確定要還原請於60秒內輸入\`^確認^\`(只有一次機會)!!!"

@@ -225,7 +225,7 @@ module.exports = {
                             if (interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages) && user && interaction.user.id !== user.id) {
                                 birthday.findOne({
                                     guild: interaction.channel.guild.id,
-                                    user: interaction.user.id
+                                    user: user.id    || interaction.user.id
                                 }, async (err, data) => {
                                     if (data ? !data.allow : false) return errors_edit(interaction, '該名使用者不允許管理員設定他的生日日期!', 'allcommands/生日系統/birthday_date_add')
                                     let birthday_year = interaction.options.getInteger("生日年份")

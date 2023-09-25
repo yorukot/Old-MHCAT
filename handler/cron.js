@@ -104,7 +104,7 @@ if (client.cluster.id === 0) {
                         }
                     }
                 })
-            }, 5000);
+            }, 10000);
 
             work_set.find({}, async (err, data) => {
                 for (let x = 0; x < data.length; x++) {

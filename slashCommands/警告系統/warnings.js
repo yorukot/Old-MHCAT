@@ -23,14 +23,13 @@ module.exports = {
         name: '使用者',
         type: ApplicationCommandOptionType.User,
         description: '要收尋的使用者!',
-        required: false,
+        required: true,
     }],
     //video: 'https://docs.mhcat.xyz/commands/announcement.html',
     UserPerms: '訊息管理',
     emoji: `<:searching:986107902777491497>`,
     run: async (client, interaction, options, perms) => {
-        try {
-            await interaction.deferReply();
+        await interaction.deferReply();
         function errors(content){const embed = new EmbedBuilder().setTitle(`<a:Discord_AnimatedNo:1015989839809757295> | ${content}`).setColor("Red");interaction.editReply({embeds: [embed],ephemeral: true})}
         const user1 = interaction.options.getUser("使用者") 
         const user = user1 ? user1 : interaction.member.user
@@ -40,6 +39,10 @@ module.exports = {
         }, async (err, data) => {
             if (err) throw err
             if (data) {
+                const array = []
+                if(data.content.length === 0){
+                    return errors("這位使用者沒有任何警告!")
+                }
                 const e = data.content.map(
                     (w, i) => `\n${i + 1} \`\`\`- 警告者: ${interaction.guild.members.cache.get(w.moderator).user.tag}\n- 原因: ${w.reason}\n- 時間: ${w.time}\`\`\``
                 )
@@ -54,11 +57,5 @@ module.exports = {
                 errors("這位使用者沒有任何警告!")
             }
         })
-
-
-    } catch (error) {
-        const error_send= require('../../functions/error_send.js')
-        error_send(error, interaction)
-    }
     }
 }

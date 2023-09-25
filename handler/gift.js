@@ -22,7 +22,7 @@ const job = new CronJob(
     guilds.map((x) => {
       array.push(x.id);
     });
-    birthday_set.find(
+   /* birthday_set.find(
       {
         guild: { $in: array },
       },
@@ -42,7 +42,6 @@ const job = new CronJob(
               if (!channel) return;
               const role = guild.roles.cache.get(data1[x].role);
               if (data1[x].role && !role) return;
-              console.log("AAAA")
               for (let y = 0; y < data.length; y++) {
                 let day =
                   String(
@@ -160,10 +159,11 @@ const job = new CronJob(
           );
         }
       }
-    );
+    );*/
 
     lotter.find(
       {
+        guild: { $in: array },
         end: false,
         date: {
           $lte: Math.floor(Date.now() / 1000),

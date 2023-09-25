@@ -53,7 +53,7 @@
     "discord-hybrid-sharding": "^2.1.0",
     "discord-logs": "^2.0.1",
     "discord-player": "^5.2.2",
-    "discord.js": "^14.9.0",
+    "discord.js": "^14.13.0",
     "dot-prop": "^6.0.1",
     "dotenv": "^16.0.3",
     "drop-table": "^1.0.14",

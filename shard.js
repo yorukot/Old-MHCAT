@@ -89,9 +89,6 @@ async function sendHeartbeat() {
     await fetch("https://betteruptime.com/api/v1/heartbeat/5QG72ywMUo6aqFLoiDrAYb69", {
       method: "POST",
     });
-    await fetch("https://mhcatstatus.nightcat.xyz/api/push/3hshdpmoMc?status=up&msg=OK&ping=", {
-      method: "GET",
-    });
 }
   
-setInterval(sendHeartbeat, 20000);
+setInterval(sendHeartbeat, 100000);

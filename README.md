@@ -3,7 +3,9 @@ MHCAT
 
 首先使用
 `npm install`
+[前往控制面板Github](https://github.com/MHNightCat/MHCAT-dashboard)
 
+[點我前往官方網站](https://mhcat.xyz)
 接著把config.json.temple改成config.json
 
 然後裡面的內容記得更改

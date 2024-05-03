@@ -1,6 +1,8 @@
 # MHCAT
 MHCAT
-
+這個repo將不再進行維護 請前往:
+This will no longer be maintained. Please go to:
+https://github.com/MHNightCat/mhcat
 [前往控制面板Github](https://github.com/MHNightCat/MHCAT-dashboard)
 
 [點我前往官方網站](https://mhcat.xyz)
